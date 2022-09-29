@@ -71,16 +71,26 @@ public class GUIController : MonoBehaviour
         UnitImage.color = Color.white;
     }
 
+
+    private void OnUnitClicked(object sender, EventArgs e)
+    {
+        //var unit = sender as Unit
+        //Lock unit prefab that was instantiated
+        
+    }
+
     private void OnUnitAdded(object sender, UnitCreatedEventArgs e)
     {
         RegisterUnit(e.unit);
     }
+
 
     private void RegisterUnit(Unit unit)
     {
         unit.UnitHighlighted += OnUnitHighlighted;
         unit.UnitDehighlighted += OnUnitDehighlighted;
         unit.UnitAttacked += OnUnitAttacked;
+        unit.UnitClicked += OnUnitClicked;
     }
 
     public void RestartLevel()

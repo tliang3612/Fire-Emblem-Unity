@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Tilemaps;
 using UnityEngine;
+
     /// <summary>
     /// CellGrid class keeps track of the game, stores cells, units and players objects. It starts the game and makes turn transitions. 
     /// It reacts to user interacting with units or cells, and raises events related to game progress. 
@@ -32,6 +33,7 @@ public class TileGrid : MonoBehaviour
     /// </summary>
     /// 
     public event EventHandler<UnitCreatedEventArgs> UnitAdded;
+
     public event EventHandler TurnEnded;
 
     private TileGridState _gridState;
@@ -197,6 +199,10 @@ public class TileGrid : MonoBehaviour
 
     private void OnUnitMoved(object sender, MovementEventArgs e)
     {
+        var unit = sender as Unit;
+        unit.Tile = e.DestinationTile;
+        e.StartingTile.IsBlocked = false;
+
         CheckGameFinished();
     }
 

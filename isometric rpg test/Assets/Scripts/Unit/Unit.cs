@@ -29,7 +29,7 @@ public class Unit : MonoBehaviour, IClickable
     // UnitDestroyed event is invoked when unit's hitpoints drop below 0.
     public event EventHandler<AttackEventArgs> UnitDestroyed;
 
-    // UnitMoved event is invoked when unit moves from one cell to another.
+    // UnitMoved event is invoked when unit moves from one tile to another.
     public event EventHandler<MovementEventArgs> UnitMoved;
 
     public bool Obstructable = true;
