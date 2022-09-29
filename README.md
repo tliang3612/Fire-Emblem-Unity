@@ -1,2 +1,2 @@
 # IsometricRPG
-A tactics RPG that
+A tactics RPG that is pret\tty cool
