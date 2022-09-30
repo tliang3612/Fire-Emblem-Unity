@@ -198,10 +198,14 @@ public class TileGrid : MonoBehaviour
     }
 
     private void OnUnitMoved(object sender, MovementEventArgs e)
-    {
-        var unit = sender as Unit;
-        unit.Tile = e.DestinationTile;
+    {       
+        e.StartingTile.CurrentUnit = null;
         e.StartingTile.IsBlocked = false;
+
+        (sender as Unit).Tile = e.DestinationTile;
+        e.DestinationTile.CurrentUnit = (sender as Unit);
+        e.DestinationTile.IsBlocked = true;
+        
 
         CheckGameFinished();
     }
