@@ -228,7 +228,7 @@ public class TileGrid : MonoBehaviour
                     var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
                                                                                                     //this prevents the overlayTile to appear inside the tilemap
                     tile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z + 1);
-                    tile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 90;
+                    tile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
 
                     tile.gridLocation = tileLocation;
                     tile.tileMap = tileMap;

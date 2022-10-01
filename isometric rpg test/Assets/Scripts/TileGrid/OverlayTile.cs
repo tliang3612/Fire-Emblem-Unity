@@ -69,7 +69,7 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public virtual void MarkAsPath()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 255, 0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.5f);
     }
     public virtual void UnMark()
     {
