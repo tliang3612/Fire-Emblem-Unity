@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
 using UnityEngine.EventSystems;
-
+using Unity.VisualScripting;
 
 public class OverlayTile : MonoBehaviour, IClickable
 {
@@ -29,6 +29,8 @@ public class OverlayTile : MonoBehaviour, IClickable
     public Tilemap tileMap;
     public List<Sprite> arrowImages;
     public GameObject CursorSprite;
+    public Sprite blueTile;
+    public Sprite redTile;
 
     public Unit CurrentUnit { get; set; }
 
@@ -64,27 +66,28 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public virtual void MarkAsReachable()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.5f);
+        gameObject.GetComponent<SpriteRenderer>().sprite = blueTile;
     }
 
     public virtual void MarkAsPath()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.5f);
+        
     }
     public virtual void UnMark()
     {
         CursorSprite.GetComponent<SpriteRenderer>().color = Color.clear;
-        gameObject.GetComponent<SpriteRenderer>().color = Color.clear;
+        gameObject.GetComponent<SpriteRenderer>().sprite = null;
     }
 
     public virtual void MarkAsHighlighted()
     {
-        CursorSprite.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.5f);
+        CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public virtual void MarkAsAttackableTile()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(255,0,0,0.5f);
+        gameObject.GetComponent<SpriteRenderer>().sprite = redTile;
+        
     }
 
 

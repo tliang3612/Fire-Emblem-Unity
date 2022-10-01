@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -170,7 +170,7 @@ TextureImporter:
         width: 57
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,6 +178,27 @@ TextureImporter:
       bones: []
       spriteID: 750917b2d9bc0a14fa70c2a8e83f00c1
       internalID: 857142803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Panel
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 378
+        width: 136
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 10, z: 11, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bbf3aed16110f14688c1a6d97f0a68c
+      internalID: 1907503789
       vertices: []
       indices: 
       edges: []
@@ -194,6 +215,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Cursor: -179838145
+      Character_Panel: 1907503789
       Cursor_1: 857142803
   spritePackingTag: 
   pSDRemoveMatte: 0

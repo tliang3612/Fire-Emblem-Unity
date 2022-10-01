@@ -12,11 +12,11 @@ public class GUIController : MonoBehaviour
     public Image UnitImage;
     public Text InfoText;
     public Text StatsText;
+    public GameObject UnitInfoPanel;
 
    private void Awake()
     {
-        UnitImage.color = Color.gray;
-
+        UnitInfoPanel.SetActive(false);
         tileGrid.GameStarted += OnGameStarted;
         tileGrid.TurnEnded += OnTurnEnded;
         tileGrid.GameEnded += OnGameEnded;
@@ -41,12 +41,11 @@ public class GUIController : MonoBehaviour
     }
     private void OnTileDehighlighted(object sender, EventArgs e)
     {
-        UnitImage.color = Color.gray;
         StatsText.text = "";
     }
     private void OnTileHighlighted(object sender, EventArgs e)
     {
-        UnitImage.color = Color.gray;
+        //UnitImage.color = Color.gray;
     }
     private void OnUnitAttacked(object sender, AttackEventArgs e)
     {
@@ -61,14 +60,15 @@ public class GUIController : MonoBehaviour
     {
         StatsText.text = "";
         UnitImage.sprite = null;
-        UnitImage.color = Color.gray;
+        UnitInfoPanel.SetActive(false);
     }
     private void OnUnitHighlighted(object sender, EventArgs e)
     {
         var unit = sender as Unit;
         StatsText.text = unit.UnitName + "\nHit Points: " + unit.HitPoints + "/" + unit.TotalHitPoints + "\nAttack: " + unit.AttackFactor + "\nDefence: " + unit.DefenceFactor + "\nRange: " + unit.AttackRange;
+        UnitInfoPanel.SetActive(true);
         UnitImage.sprite = unit.GetComponent<SpriteRenderer>().sprite;
-        UnitImage.color = Color.white;
+        
     }
 
 

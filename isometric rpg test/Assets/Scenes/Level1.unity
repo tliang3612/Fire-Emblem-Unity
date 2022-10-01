@@ -158,6 +158,7 @@ MonoBehaviour:
   UnitImage: {fileID: 1255415973}
   InfoText: {fileID: 256328560}
   StatsText: {fileID: 863217626}
+  UnitInfoPanel: {fileID: 848379858}
 --- !u!4 &28916523
 Transform:
   m_ObjectHideFlags: 0
@@ -194,7 +195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 252696446259133752, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: m_Name
-      value: Character (1)
+      value: Eliwood
       objectReference: {fileID: 0}
     - target: {fileID: 252696446259133753, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: m_Color.b
@@ -547,7 +548,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28a1b8bd55f5dd8488c154d10a4c77dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6720,8 +6721,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848379858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1255415975}
@@ -6731,8 +6732,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 381, y: 123}
-  m_SizeDelta: {x: 176.92, y: 296.54}
+  m_AnchoredPosition: {x: -363, y: 210}
+  m_SizeDelta: {x: 1218.04, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848379860
 MonoBehaviour:
@@ -6747,15 +6748,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.24705882}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 1907503789, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6803,7 +6804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6849,8 +6850,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: -45.5}
-  m_SizeDelta: {x: 175.08, y: 157.78}
+  m_AnchoredPosition: {x: 184, y: -0.00013733}
+  m_SizeDelta: {x: 448.8, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &890002321
 GameObject:
@@ -6995,7 +6996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9669811, b: 0.9669811, a: 1}
+  m_Color: {r: 1, g: 0.9669811, b: 0.9669811, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7037,8 +7038,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000020027, y: 85.36}
-  m_SizeDelta: {x: 163.94, y: 103.94}
+  m_AnchoredPosition: {x: -301, y: 0.000026703}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1265115853
 GameObject:
@@ -7164,7 +7165,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 252696446259133752, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: m_Name
-      value: Character (4)
+      value: Eliwood_2
       objectReference: {fileID: 0}
     - target: {fileID: 252696446259133753, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: m_Color.b
@@ -7440,7 +7441,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.82
+  orthographic size: 6.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7464,7 +7465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878331626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.87, y: 1.11, z: -10}
+  m_LocalPosition: {x: 3.5, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7705,5 +7706,5 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
