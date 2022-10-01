@@ -29,7 +29,7 @@ public class Unit : MonoBehaviour, IClickable
     // UnitDestroyed event is invoked when unit's hitpoints drop below 0.
     public event EventHandler<AttackEventArgs> UnitDestroyed;
 
-    // UnitMoved event is invoked when unit moves from one cell to another.
+    // UnitMoved event is invoked when unit moves from one tile to another.
     public event EventHandler<MovementEventArgs> UnitMoved;
 
     public bool Obstructable = true;
@@ -309,12 +309,6 @@ public class Unit : MonoBehaviour, IClickable
 
         MovementPoints -= path.Count();
 
-        Tile.IsBlocked = false;
-        Tile.CurrentUnit = null;
-        Tile = destinationTile;
-        destinationTile.IsBlocked = true;
-        destinationTile.CurrentUnit = this;
-
         if (MovementAnimationSpeed > 0)
         {
             StartCoroutine(MovementAnimation(path));
@@ -326,7 +320,7 @@ public class Unit : MonoBehaviour, IClickable
 
         if (UnitMoved != null)
         {
-            UnitMoved.Invoke(this, new MovementEventArgs(Tile, destinationTile, path, this));             
+            UnitMoved.Invoke(this, new MovementEventArgs(Tile, destinationTile, path));             
         }
     }
 
@@ -474,14 +468,12 @@ public class MovementEventArgs : EventArgs
     public OverlayTile StartingTile;
     public OverlayTile DestinationTile;
     public List<OverlayTile> Path;
-    public Unit Unit;
 
-    public MovementEventArgs(OverlayTile startingTile, OverlayTile destinationTile, List<OverlayTile> path, Unit unit)
+    public MovementEventArgs(OverlayTile startingTile, OverlayTile destinationTile, List<OverlayTile> path)
     {
         StartingTile = startingTile;
         DestinationTile = destinationTile;
         Path = path;
-        Unit = unit;
     }
 }
 public class AttackEventArgs : EventArgs
