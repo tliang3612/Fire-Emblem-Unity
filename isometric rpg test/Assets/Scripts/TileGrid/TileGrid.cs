@@ -126,7 +126,7 @@ public class TileGrid : MonoBehaviour
         Map = new Dictionary<Vector2Int, OverlayTile>();
 
         //Setup overlay tiles for each tilemap in the tilegrid
-        for(int i=1; i < transform.GetComponentsInChildren<Tilemap>().Count(); i++)
+        for(int i=0; i < transform.GetComponentsInChildren<Tilemap>().Count(); i++)
         {
             SetUpOverlayTiles(tilemapArr[i]);           
         }
@@ -204,32 +204,31 @@ public class TileGrid : MonoBehaviour
     {
         //limits of the current tilemap
         BoundsInt bounds = tileMap.cellBounds;
-        //loops through all the tiles of the tilemap, from top to bottom
-            
-            for (int y = bounds.min.y; y < bounds.max.y; y++)
+        
+        for (int y = bounds.min.y; y < bounds.max.y; y++)
+        {
+            for (int x = bounds.min.x; x < bounds.max.x; x++)
             {
-                for (int x = bounds.min.x; x < bounds.max.x; x++)
+                var tileLocation = new Vector3Int(x, y, bounds.z);
+                var tileKey = new Vector2Int(x, y);
+
+                if (tileMap.HasTile(tileLocation) && !Map.ContainsKey(tileKey))
                 {
-                    var tileLocation = new Vector3Int(x, y, bounds.z);
-                    var tileKey = new Vector2Int(x, y);
+                    var tile = Instantiate(overlayTilePrefab, overlayTileContainer.transform);
+                    var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
+                                                                                                    //this prevents the overlayTile to appear inside the tilemap
+                    tile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z + 1);
+                    tile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 90;
 
-                    if (tileMap.HasTile(tileLocation) && !Map.ContainsKey(tileKey))
-                    {
-                        var tile = Instantiate(overlayTilePrefab, overlayTileContainer.transform);
-                        var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
-                                                                                                        //this prevents the overlayTile to appear inside the tilemap
-                        tile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z + 1);
-                        tile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
+                    tile.gridLocation = tileLocation;
+                    tile.tileMap = tileMap;
 
-                        tile.gridLocation = tileLocation;
-                        tile.tileMap = tileMap;
-
-                        //Adds the created overlayTile to the 
-                        TileList.Add(tile);
-                        Map.Add(tileKey, tile);
-                    }
+                    //Adds the created overlayTile to the 
+                    TileList.Add(tile);
+                    Map.Add(tileKey, tile);
                 }
             }
+        }
             
     }
 

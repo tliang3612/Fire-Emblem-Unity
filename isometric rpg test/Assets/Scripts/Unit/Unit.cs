@@ -108,7 +108,7 @@ public class Unit : MonoBehaviour, IClickable
     private OverlayTile GetStartingTile()
     {
         var tileGrid = FindObjectOfType<TileGrid>();
-        var tileMap = tileGrid.tilemapArr[1];
+        var tileMap = tileGrid.tilemapArr[0];
 
         var tilePos = new Vector2Int(tileMap.WorldToCell(transform.position).x, tileMap.WorldToCell(transform.position).y);
 

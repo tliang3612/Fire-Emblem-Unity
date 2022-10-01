@@ -34,28 +34,26 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public void OnMouseEnter()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (TileHighlighted != null)
-                TileHighlighted.Invoke(this, EventArgs.Empty);
-        }
+        Debug.Log("Tile Clicked");
+        if (TileHighlighted != null)
+            TileHighlighted.Invoke(this, EventArgs.Empty);
+        
     }
 
     public void OnMouseExit()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (TileDehighlighted != null)
-                TileDehighlighted.Invoke(this, EventArgs.Empty);
-        }
+       
+        if (TileDehighlighted != null)
+            TileDehighlighted.Invoke(this, EventArgs.Empty);
+        
     }
     public void OnPointerDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (TileClicked != null)
-                TileClicked.Invoke(this, EventArgs.Empty);
-        }
+        Debug.Log("Tile Clicked");
+        
+        if (TileClicked != null)
+            TileClicked.Invoke(this, EventArgs.Empty);
+        
     }
 
     //Euclidean Distance (x,y) = sqrt((x1-x2)^2 + (y1-y2)^2)
@@ -66,12 +64,12 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public virtual void MarkAsReachable()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.5f);
     }
 
     public virtual void MarkAsPath()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 255, 0.5f);
     }
     public virtual void UnMark()
     {
@@ -81,12 +79,12 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public virtual void MarkAsHighlighted()
     {
-        CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;
+        CursorSprite.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.5f);
     }
 
     public virtual void MarkAsAttackableTile()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(255,0,0,0.5f);
     }
 
 

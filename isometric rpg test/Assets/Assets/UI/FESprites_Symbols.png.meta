@@ -1,0 +1,3261 @@
+fileFormatVersion: 2
+guid: 9fd1534d237b6a94e967d692a94e46cf
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FESprites_Symbols_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24378901834a28c4db47e5d424d8eddd
+      internalID: -110757031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a2eb07efe04e84081e3c6dfa4d99c6
+      internalID: 1736344985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a15ca865a1f2d43abc757613168d4a
+      internalID: 163736344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_3
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 583b7215015549349b17af6f8fe43eac
+      internalID: -1085510356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_4
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e5dde9d672beb449ec86431d0311f4
+      internalID: 1390646828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a46f06f237d954eb82e4d96104ff36
+      internalID: 458753189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_6
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba22070665006524b9960969b9ff4791
+      internalID: 1369854141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe7fc44428423e94bb63328f413f0682
+      internalID: -277058166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_8
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74f1314f173fab4ba666209b77ddbb4
+      internalID: 1890102772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eb61fc9d07067a46b0903e20ce8f636
+      internalID: 2012912066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_10
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 151
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c423c226440a0e42887230274db5afd
+      internalID: 400048303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_11
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 145
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99906e7aaa8111c4aa2b09606232b93d
+      internalID: -13268781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_12
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 145
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf5361cc588e03c4abd67e7667fbd3b5
+      internalID: 1561164382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_13
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 145
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19a0f8ccaaf0fd4b8187dc7a69e52c4
+      internalID: -1796919515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_14
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 145
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe777f40fa11624fb2e43e04d2e23b2
+      internalID: 470233383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_15
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 145
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa04b292a1c2da547888d9fcfac24c1e
+      internalID: -2019942020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_16
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 145
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8dc354233982c4292d24b21e8029d8
+      internalID: 1832015037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_17
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 145
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c8fd8ce450236429efdfa7a53f8185
+      internalID: 1412806537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_18
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 145
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b902cb3f2a27d594782490111d0d7856
+      internalID: -1703065449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_19
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 145
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82702c643bd157d4fb70bdbc2f40f970
+      internalID: 17074610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_20
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 145
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d8054d1b1835740b80280c831f11d2
+      internalID: -2064978486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_21
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 145
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88ba2089d7fc8a74cbe6246c76b7fa95
+      internalID: 1484347438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 135
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d20f078afbd5e4880fdb1aac51ce2f
+      internalID: 1818308062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_23
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 130
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6792417bef865e42a2dccb915df2c88
+      internalID: 914582564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_24
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 130
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d602ac27d5256a94aad49abcaae25ab9
+      internalID: -2051308612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_25
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 130
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c71eb2e0780dd49b397354fb9cc123
+      internalID: -179762230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_26
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 130
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c02bba562c0bc0428bca184188b6766
+      internalID: 855677303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_27
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 136
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e783a33bc3c499419e83ce333519442
+      internalID: -1481728107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_28
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 130
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9593bc49c50f7ed42bbc89b2c81c4753
+      internalID: 750434375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_29
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 130
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f50ee27912190458170194c8e6defd
+      internalID: -323844527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_30
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 130
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 400aecd789919b046bd275a861407aad
+      internalID: 1024875412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_31
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 130
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9432b683e990c4848b830f26b006cd21
+      internalID: -545001440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_32
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 130
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176d31d0c5c92fb418e3bfe3437d82c8
+      internalID: -1055686200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_33
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 130
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad8128517b502649a2c0332adbf4200
+      internalID: 399523825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_34
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 127
+        width: 81
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5c0d181435d644ba7dbbd0012376f1
+      internalID: -482225393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_35
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 130
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3bdb12b54d71f49af41d2c3fc0e1f0
+      internalID: -1688413633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_36
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 111
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3388c66daf5f5a04f9e0f6097762e029
+      internalID: 896473961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_37
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 115
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd1b385bf024e2a4d979665cf25f8195
+      internalID: 2007247336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_38
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 115
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d652260cb8e2e4c8eff8dcd4936602
+      internalID: -115182373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_39
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 115
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b53c2ca0dfb9684dabfd2e4321911cd
+      internalID: -1704073508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_40
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 115
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424085ded5e8aaa44958031cdf02ca2a
+      internalID: 251014160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_41
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 121
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4630b7be2393ec469aafebd43e9821f
+      internalID: -143821406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_42
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 115
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c54499ef41e47241a1150b8f3997f88
+      internalID: -1726291008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_43
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 115
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1231d44baabf6ba4d86a30f8d4eb0da7
+      internalID: 1108397459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_44
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 115
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190adc10e2c98624aaded9603b156829
+      internalID: -1717868694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_45
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 116
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501eea794589eef4f98d0c1107670eab
+      internalID: 835104070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_46
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 115
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f387720802ba7c458814e97b20acdfd
+      internalID: 1131736719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_47
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 115
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757d25cb5baafe14c9de47f9c7857d5f
+      internalID: 2069535982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_48
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 115
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97bc3589e35083d4eab6a3d8e3ba29dc
+      internalID: -315570557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_49
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 103
+        width: 81
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8c14d2fd08ae446b0d1a701ec72ee6
+      internalID: -2066418474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_50
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 100
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25bbeec146af9be44b744a048adefdf8
+      internalID: -1277970190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_51
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 100
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e23f2af1a9fa07f4b9a2391fb48d65b4
+      internalID: 996996048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_52
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 100
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d658a34107498ed4db3cafc74d0a7701
+      internalID: 443236332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_53
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 100
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20eb32a47d3353641b6305c2d57f3a3b
+      internalID: 345184805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_54
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 100
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cee3b4e494cd44c9dd1e56ae94905b
+      internalID: 668047270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_55
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 100
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939c9fc992def1c4e884ce54ccdfa757
+      internalID: -1937635866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_56
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 100
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d981942a9069f404f975ef600d98e6df
+      internalID: 1042459699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_57
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da4ae147b9af67428cb91369c402599
+      internalID: -710045229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_58
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 101
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa278da71165e404581237b2fde9eed4
+      internalID: 2047818332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_59
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 100
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7445be31f4cbf254dae15906405a24b7
+      internalID: -558632367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_60
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 100
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f6707c9d7cebf4c87c42378549d84e
+      internalID: -617155621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_61
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 95
+        width: 81
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a60912c41e44b940859f88b9d5630ff
+      internalID: 1050956818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_62
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 85
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5e9a2643537294db136531e0ea28e6
+      internalID: -2074269629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_63
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 85
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b142a3c67d24ec4189c7403d5208ee4
+      internalID: 362759969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_64
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 85
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1fd81a0b22bdb439b32d38c8589dc9
+      internalID: -1383305308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_65
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 85
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917b9759c3611524bba0e21c6ef6b920
+      internalID: -1142575136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_66
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 85
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 042556974ba6e1b49a8c90d878042b85
+      internalID: 885347950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_67
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 85
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d47a339f7229ad4aad691ee69c28d23
+      internalID: 1331645574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_68
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 85
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2abb7f831b552494a95751e32ead2caa
+      internalID: 1974106483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_69
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 85
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8012ebd9ca5ef6041bb17f6022f4c61f
+      internalID: -1870207965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_70
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 86
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2710861c341ee4e4eab7aa68bc330ede
+      internalID: 847257940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_71
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 85
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989d88d245e2f4044ae83ddbfe83db98
+      internalID: 206666906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_72
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 80
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb26255598137c0459f7d2f610686d25
+      internalID: -108353478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_73
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 79
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f75ef52fcddbf4e9ddbbcf6a89f450
+      internalID: -921496799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_74
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 85
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a336fc4f3913f45af5c8640beeeff0
+      internalID: -2102076193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_75
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 70
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c18d3a186485d648b610f44e3ef2964
+      internalID: -690159693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_76
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 70
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9802f40b09cf1bf40a6455b8b1ab86eb
+      internalID: 690309910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_77
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 70
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96fbfbeb047d6d543a331e476cfeb3cc
+      internalID: 840004044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_78
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 70
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f2123abcfea274bb305960e2c322e8
+      internalID: -637001784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_79
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 70
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c2ddb73c3062c4881e3d252a47d961
+      internalID: 893162438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_80
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 70
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70833bb52152e3e46a142e5cc3c1bae5
+      internalID: 1320224843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_81
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 70
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e968b8c6eefde64db694f80e11c8278
+      internalID: 1711852943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_82
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 70
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5899199b6382f3c4882eb202ea17ad91
+      internalID: 6497289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_83
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 70
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5efb2c5594ded1d48a745e3ac4e120eb
+      internalID: 1952434220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_84
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 70
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98bf0131dce9cc04a89e6a31d03bfaf0
+      internalID: 737581991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_85
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 70
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40687f991c7a182458b5fbb51774caff
+      internalID: 1450340245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_86
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 55
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf5a7d1d3acd5d44b97173157a570e28
+      internalID: -195958484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_87
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 55
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67158bde596882a4792920960dc58414
+      internalID: 627937992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_88
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 55
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf8b96568b216a43b1533ac54aa485b
+      internalID: -1233862936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_89
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 55
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced3400be81d33e4c8ce894eeb4e9c1e
+      internalID: 2085983024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_90
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 55
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c73c1c2125ab94cb49098ead3f0b37
+      internalID: 35232069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_91
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 55
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a36e09cbb39db046af755c5d9b98d52
+      internalID: -1189724877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_92
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 55
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1066f7dfa72051e45bf0ff04ac3f231f
+      internalID: 59880044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_93
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 55
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3f23767d0d2ff4bac93df873861384
+      internalID: 1573223222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_94
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 55
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b95bbecaebba564c904d0fc6e9053fa
+      internalID: -958745189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_95
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 55
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ca5bf38fa032541aee65f497e59f94
+      internalID: -2124498482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_96
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 55
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de02ad173e3d10e4f8a517026c7a16c9
+      internalID: -716253617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_97
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 40
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e581192b73f31b149bd26663c4dd9a1e
+      internalID: -1761177224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_98
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 40
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5f1e1e06f5f3546992b1f1487c7307
+      internalID: 1896852927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_99
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 40
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c48c34debbfaa24884e57075bf95472
+      internalID: 1655852700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_100
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 40
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c49056a18e5f2c4d9756de5bf32e50b
+      internalID: -1874522527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_101
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 40
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dffb625e67df1b4a9074d11871a660d
+      internalID: 2094572876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_102
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 40
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5c71e58d900b349b812b57070cd05d
+      internalID: -1657245177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_103
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 40
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68aa2119a63ce1f4c910929d8a2f2bc0
+      internalID: 911595904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_104
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 40
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9550aedfc5f53ae438ab181fa0798ac9
+      internalID: 621470916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_105
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 40
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5597b9df39be04d86d49dc804465bf
+      internalID: -655599687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_106
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 40
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92dde285804a7c4a8c3d7d5773a9c12
+      internalID: -1978413276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_107
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 25
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02fff488d813d6d46bb3ecfcb6628637
+      internalID: 732031896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_108
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 25
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 744cb52107a6e4d4186c8c4a24f79cb7
+      internalID: 1705772756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_109
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 25
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 208091a2af6982544be8d439e9446785
+      internalID: 1259634266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_110
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 25
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1db1c24a4bf2ca418f88de4d41707cc
+      internalID: 564377373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_111
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 25
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f403a009aed6c549aa04aca597d2699
+      internalID: 1169920136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_112
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 25
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7741c2e2d155cd644a3e6329df30852b
+      internalID: 1148689423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_113
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 25
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc548c1f70f603049ae0edb22ccb003e
+      internalID: 1470697679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_114
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 25
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dfa6b548e0ad5e40abca813cf152632
+      internalID: 560265232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_115
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 25
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a071c05f4025fe43a321b211cf793fd
+      internalID: -1758366835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_116
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 25
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2effad48679c98a4380554e624c158c1
+      internalID: 2109513297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_117
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 25
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274c5000cd7f5a64bb47d7ea6ef42b8a
+      internalID: 1430259463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_118
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 10
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd3f29d61a92a84689639dfc37be0a1
+      internalID: -789545795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_119
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 10
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440069a8da7ebb7489c879114528b0e1
+      internalID: 1848585389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_120
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 10
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6e96f9ec45795f4aa3dfc991598b479
+      internalID: 1951272792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_121
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 10
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc34e0a13a4a6b24195848be5f20dcc3
+      internalID: 1000897148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_122
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 16
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 628da247dab1cab41950f0f829bea475
+      internalID: 1204236396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_123
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 10
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfaa23f6e56b424294c6b677ccf8db4
+      internalID: -837695265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_124
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 10
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070d752f2b937bd4ebd34a1b8f21196b
+      internalID: -652045652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_125
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 10
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea087fcbc9f1cc4d95f7b86c246bfea
+      internalID: -531392131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_126
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 10
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e625315c07b4d64bb7d8febf281198b
+      internalID: 1008291976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_127
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 10
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844067f1299706b46add151038e2ead3
+      internalID: -473174329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_128
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 10
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf6620eb533f7544bc46d6259b2ee81
+      internalID: 484230684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_129
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 10
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac7ff43c29f9664f92648efe1c0e1dc
+      internalID: -1548517877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_130
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e960b9667b0fb4e9ca84d2299e1679
+      internalID: -2069598285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_131
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf0decc3f7625574a827c5e99fef2f76
+      internalID: 1192320955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_132
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673ca6a9b8597b4418bde03a5370f877
+      internalID: -1979841275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_133
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e1dafa7e90cc94a9f875bf9fa34b84
+      internalID: -63493867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_134
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735d37d6f225dca419c209720ab27a26
+      internalID: 1322331873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_135
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 0
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b224e94137dd2941b34e697d97c7110
+      internalID: -283619447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_136
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf04e84efef7b340ace23744f813667
+      internalID: 1774189000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_137
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d18550ab0a4db43844752f34ff53f6
+      internalID: -1651077814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_138
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb55749000a00124ea0f3d68d9ab335b
+      internalID: 1591031588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_139
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020f0f15639c4f04099674d4062de95c
+      internalID: -1530001194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FESprites_Symbols_140
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe4d7e6d149a1948adfd94fc3fe44a8
+      internalID: 1256401627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FESprites_Symbols_35: -1688413633
+      FESprites_Symbols_129: -1548517877
+      FESprites_Symbols_7: -277058166
+      FESprites_Symbols_26: 855677303
+      FESprites_Symbols_121: 1000897148
+      FESprites_Symbols_39: -1704073508
+      FESprites_Symbols_41: -143821406
+      FESprites_Symbols_124: -652045652
+      FESprites_Symbols_139: -1530001194
+      FESprites_Symbols_17: 1412806537
+      FESprites_Symbols_106: -1978413276
+      FESprites_Symbols_3: -1085510356
+      FESprites_Symbols_137: -1651077814
+      FESprites_Symbols_49: -2066418474
+      FESprites_Symbols_47: 2069535982
+      FESprites_Symbols_99: 1655852700
+      FESprites_Symbols_70: 847257940
+      FESprites_Symbols_89: 2085983024
+      FESprites_Symbols_24: -2051308612
+      FESprites_Symbols_30: 1024875412
+      FESprites_Symbols_34: -482225393
+      FESprites_Symbols_48: -315570557
+      FESprites_Symbols_40: 251014160
+      FESprites_Symbols_62: -2074269629
+      FESprites_Symbols_73: -921496799
+      FESprites_Symbols_63: 362759969
+      FESprites_Symbols_97: -1761177224
+      FESprites_Symbols_60: -617155621
+      FESprites_Symbols_101: 2094572876
+      FESprites_Symbols_127: -473174329
+      FESprites_Symbols_133: -63493867
+      FESprites_Symbols_83: 1952434220
+      FESprites_Symbols_2: 163736344
+      FESprites_Symbols_135: -283619447
+      FESprites_Symbols_55: -1937635866
+      FESprites_Symbols_100: -1874522527
+      FESprites_Symbols_75: -690159693
+      FESprites_Symbols_79: 893162438
+      FESprites_Symbols_113: 1470697679
+      FESprites_Symbols_140: 1256401627
+      FESprites_Symbols_31: -545001440
+      FESprites_Symbols_42: -1726291008
+      FESprites_Symbols_114: 560265232
+      FESprites_Symbols_98: 1896852927
+      FESprites_Symbols_51: 996996048
+      FESprites_Symbols_14: 470233383
+      FESprites_Symbols_110: 564377373
+      FESprites_Symbols_66: 885347950
+      FESprites_Symbols_74: -2102076193
+      FESprites_Symbols_123: -837695265
+      FESprites_Symbols_22: 1818308062
+      FESprites_Symbols_120: 1951272792
+      FESprites_Symbols_4: 1390646828
+      FESprites_Symbols_10: 400048303
+      FESprites_Symbols_36: 896473961
+      FESprites_Symbols_18: -1703065449
+      FESprites_Symbols_23: 914582564
+      FESprites_Symbols_82: 6497289
+      FESprites_Symbols_85: 1450340245
+      FESprites_Symbols_58: 2047818332
+      FESprites_Symbols_20: -2064978486
+      FESprites_Symbols_8: 1890102772
+      FESprites_Symbols_32: -1055686200
+      FESprites_Symbols_59: -558632367
+      FESprites_Symbols_52: 443236332
+      FESprites_Symbols_115: -1758366835
+      FESprites_Symbols_116: 2109513297
+      FESprites_Symbols_1: 1736344985
+      FESprites_Symbols_27: -1481728107
+      FESprites_Symbols_76: 690309910
+      FESprites_Symbols_71: 206666906
+      FESprites_Symbols_28: 750434375
+      FESprites_Symbols_13: -1796919515
+      FESprites_Symbols_136: 1774189000
+      FESprites_Symbols_86: -195958484
+      FESprites_Symbols_91: -1189724877
+      FESprites_Symbols_6: 1369854141
+      FESprites_Symbols_80: 1320224843
+      FESprites_Symbols_84: 737581991
+      FESprites_Symbols_90: 35232069
+      FESprites_Symbols_50: -1277970190
+      FESprites_Symbols_53: 345184805
+      FESprites_Symbols_112: 1148689423
+      FESprites_Symbols_29: -323844527
+      FESprites_Symbols_45: 835104070
+      FESprites_Symbols_56: 1042459699
+      FESprites_Symbols_46: 1131736719
+      FESprites_Symbols_12: 1561164382
+      FESprites_Symbols_19: 17074610
+      FESprites_Symbols_118: -789545795
+      FESprites_Symbols_61: 1050956818
+      FESprites_Symbols_125: -531392131
+      FESprites_Symbols_128: 484230684
+      FESprites_Symbols_25: -179762230
+      FESprites_Symbols_57: -710045229
+      FESprites_Symbols_93: 1573223222
+      FESprites_Symbols_103: 911595904
+      FESprites_Symbols_92: 59880044
+      FESprites_Symbols_108: 1705772756
+      FESprites_Symbols_95: -2124498482
+      FESprites_Symbols_87: 627937992
+      FESprites_Symbols_126: 1008291976
+      FESprites_Symbols_21: 1484347438
+      FESprites_Symbols_68: 1974106483
+      FESprites_Symbols_5: 458753189
+      FESprites_Symbols_9: 2012912066
+      FESprites_Symbols_69: -1870207965
+      FESprites_Symbols_105: -655599687
+      FESprites_Symbols_94: -958745189
+      FESprites_Symbols_138: 1591031588
+      FESprites_Symbols_130: -2069598285
+      FESprites_Symbols_15: -2019942020
+      FESprites_Symbols_96: -716253617
+      FESprites_Symbols_117: 1430259463
+      FESprites_Symbols_134: 1322331873
+      FESprites_Symbols_122: 1204236396
+      FESprites_Symbols_109: 1259634266
+      FESprites_Symbols_119: 1848585389
+      FESprites_Symbols_67: 1331645574
+      FESprites_Symbols_43: 1108397459
+      FESprites_Symbols_88: -1233862936
+      FESprites_Symbols_44: -1717868694
+      FESprites_Symbols_37: 2007247336
+      FESprites_Symbols_54: 668047270
+      FESprites_Symbols_65: -1142575136
+      FESprites_Symbols_16: 1832015037
+      FESprites_Symbols_64: -1383305308
+      FESprites_Symbols_132: -1979841275
+      FESprites_Symbols_111: 1169920136
+      FESprites_Symbols_38: -115182373
+      FESprites_Symbols_131: 1192320955
+      FESprites_Symbols_33: 399523825
+      FESprites_Symbols_0: -110757031
+      FESprites_Symbols_72: -108353478
+      FESprites_Symbols_78: -637001784
+      FESprites_Symbols_104: 621470916
+      FESprites_Symbols_107: 732031896
+      FESprites_Symbols_77: 840004044
+      FESprites_Symbols_81: 1711852943
+      FESprites_Symbols_102: -1657245177
+      FESprites_Symbols_11: -13268781
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
