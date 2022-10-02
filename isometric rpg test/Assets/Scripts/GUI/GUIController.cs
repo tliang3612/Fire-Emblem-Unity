@@ -59,16 +59,13 @@ public class GUIController : MonoBehaviour
     private void OnUnitDehighlighted(object sender, EventArgs e)
     {
         StatsText.text = "";
-        UnitImage.sprite = null;
-        UnitInfoPanel.SetActive(false);
+        HidePanel();
     }
     private void OnUnitHighlighted(object sender, EventArgs e)
     {
         var unit = sender as Unit;
         StatsText.text = unit.UnitName + "\nHit Points: " + unit.HitPoints + "/" + unit.TotalHitPoints + "\nAttack: " + unit.AttackFactor + "\nDefence: " + unit.DefenceFactor + "\nRange: " + unit.AttackRange;
-        UnitInfoPanel.SetActive(true);
-        UnitImage.sprite = unit.GetComponent<SpriteRenderer>().sprite;
-        
+        ShowPanel(unit);   
     }
 
 
@@ -82,6 +79,18 @@ public class GUIController : MonoBehaviour
     private void OnUnitAdded(object sender, UnitCreatedEventArgs e)
     {
         RegisterUnit(e.unit);
+    }
+
+    private void ShowPanel(Unit unit)
+    {
+        UnitInfoPanel.SetActive(true);
+        UnitImage.sprite = unit.GetComponent<SpriteRenderer>().sprite;
+    }
+
+    private void HidePanel()
+    {
+        UnitImage.sprite = null;
+        UnitInfoPanel.SetActive(false);
     }
 
 

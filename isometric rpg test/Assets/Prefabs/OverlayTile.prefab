@@ -120,8 +120,8 @@ MonoBehaviour:
   - {fileID: -1545997395, guid: 30e7095b079b9cf489e23081fc986b12, type: 3}
   - {fileID: -1465120094, guid: 30e7095b079b9cf489e23081fc986b12, type: 3}
   CursorSprite: {fileID: 9014737047535682117}
-  blueTile: {fileID: -605415420, guid: 30e7095b079b9cf489e23081fc986b12, type: 3}
-  redTile: {fileID: 1159763930, guid: 30e7095b079b9cf489e23081fc986b12, type: 3}
+  blueTile: {fileID: -1516456419, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
+  redTile: {fileID: 1456363428, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
 --- !u!61 &4399094255726469832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 9014737047535682117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 950919379641424572}

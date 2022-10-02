@@ -279,13 +279,16 @@ public class Unit : MonoBehaviour, IClickable
 
     //Called whenever the unit's health changes
     private void UpdateHpBar()
-    {           
+    {   
+        /*
+         
         if (HealthBar != null)
         {
             HealthBar.transform.localScale = new Vector3((float)(HitPoints / (float)TotalHitPoints), 1, 1);
             HealthBar.color = Color.Lerp(Color.red, Color.black,
                 (float)(HitPoints / (float)TotalHitPoints));
         }
+        */
     }
 
     /// <summary>
