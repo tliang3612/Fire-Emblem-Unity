@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: eliwood_sprites_0
+      name: eliwood_sprites_7
       rect:
         serializedVersion: 2
-        x: 5
+        x: 3
         y: 447
-        width: 23
-        height: 20
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,9 +186,9 @@ TextureImporter:
       name: eliwood_sprites_2
       rect:
         serializedVersion: 2
-        x: 7
+        x: 6
         y: 64
-        width: 17
+        width: 19
         height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -224,6 +224,237 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 416
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c3afc30da9c604ea4bd036d4da2754
+      internalID: 77772285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 383
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed7653f24f39714fa91e0abe360410c
+      internalID: 2042981732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 351
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8ba922ee6420b4697f062e48c9b857
+      internalID: -962559562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 191
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2242ff70bbbc94746b6201c594e5c617
+      internalID: -591589578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_9
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 161
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf678bb0148a5204fa55e043f6d84892
+      internalID: -907329574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_10
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 128
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08d8927101d26c4b8df380bc02a6f5b
+      internalID: -2040711098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 96
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c86b01586cb4d4289c618b6d465061
+      internalID: -1262534263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 319
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7b0628beb0673428880de07592eb28
+      internalID: 597855471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_13
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 288
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c539abe008a19448a7816c98cda8217
+      internalID: -2056279936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_14
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 255
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df78a97dd59beb46939a407864deb06
+      internalID: -704499386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_sprites_15
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 224
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18bb4d895a1a1f549b23e3764e3af985
+      internalID: 2122049561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -235,10 +466,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      eliwood_sprites_15: 2122049561
+      eliwood_sprites_10: -2040711098
+      eliwood_sprites_11: -1262534263
+      eliwood_sprites_5: 2042981732
       eliwood_sprites_3: 1391893073
+      eliwood_sprites_6: -962559562
+      eliwood_sprites_14: -704499386
+      eliwood_sprites_12: -704499386
+      eliwood_sprites_8: -591589578
       eliwood_sprites_1: -1034901625
-      eliwood_sprites_0: -874838850
+      eliwood_sprites_0: -1049112634
+      eliwood_sprites_9: -907329574
       eliwood_sprites_2: -274685472
+      eliwood_sprites_7: -874838850
+      eliwood_sprites_13: -2056279936
       eliwood_sprites_4: 77772285
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -10,6 +10,7 @@ public class GUIController : MonoBehaviour
     public Button NextTurnButton;
 
     public Image UnitImage;
+    public Image HpBar;
     public Text InfoText;
     public Text StatsText;
     public GameObject UnitInfoPanel;
@@ -54,6 +55,8 @@ public class GUIController : MonoBehaviour
 
         if ((sender as Unit).HitPoints <= 0) return;
 
+        UpdateHpBar(sender as Unit);
+
         OnUnitHighlighted(sender, e);
     }
     private void OnUnitDehighlighted(object sender, EventArgs e)
@@ -64,6 +67,7 @@ public class GUIController : MonoBehaviour
     private void OnUnitHighlighted(object sender, EventArgs e)
     {
         var unit = sender as Unit;
+        UpdateHpBar(unit);
         StatsText.text = unit.UnitName + "\nHit Points: " + unit.HitPoints + "/" + unit.TotalHitPoints + "\nAttack: " + unit.AttackFactor + "\nDefence: " + unit.DefenceFactor + "\nRange: " + unit.AttackRange;
         ShowPanel(unit);   
     }
@@ -85,6 +89,7 @@ public class GUIController : MonoBehaviour
     {
         UnitInfoPanel.SetActive(true);
         UnitImage.sprite = unit.GetComponent<SpriteRenderer>().sprite;
+
     }
 
     private void HidePanel()
@@ -100,6 +105,11 @@ public class GUIController : MonoBehaviour
         unit.UnitDehighlighted += OnUnitDehighlighted;
         unit.UnitAttacked += OnUnitAttacked;
         unit.UnitClicked += OnUnitClicked;
+    }
+
+    private void UpdateHpBar(Unit unit)
+    {
+        HpBar.transform.localScale = new Vector3((float)(unit.HitPoints / (float)unit.TotalHitPoints), 1, 1);
     }
 
     public void RestartLevel()

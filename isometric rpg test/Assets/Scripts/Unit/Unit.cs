@@ -255,17 +255,17 @@ public class Unit : MonoBehaviour, IClickable
     /// <param name="damage"> Damage given by the other unit </param>
     public void DefendHandler(Unit aggressor, int damage)
     {
-            
+
         int damageTaken = CalculateDamageTaken(aggressor, damage);
         HitPoints -= damageTaken;
-            
+
         if (UnitAttacked != null)
         {
             UnitAttacked.Invoke(this, new AttackEventArgs(aggressor, this, damage));
         }
         if (HitPoints <= 0)
         {
-            HitPoints = 0;          
+            HitPoints = 0;
             if (UnitDestroyed != null)
             {
                 UnitDestroyed.Invoke(this, new AttackEventArgs(aggressor, this, damage));
@@ -273,22 +273,6 @@ public class Unit : MonoBehaviour, IClickable
             OnDestroyed();
         }
 
-        UpdateHpBar();
-
-    }
-
-    //Called whenever the unit's health changes
-    private void UpdateHpBar()
-    {   
-        /*
-         
-        if (HealthBar != null)
-        {
-            HealthBar.transform.localScale = new Vector3((float)(HitPoints / (float)TotalHitPoints), 1, 1);
-            HealthBar.color = Color.Lerp(Color.red, Color.black,
-                (float)(HitPoints / (float)TotalHitPoints));
-        }
-        */
     }
 
     /// <summary>
