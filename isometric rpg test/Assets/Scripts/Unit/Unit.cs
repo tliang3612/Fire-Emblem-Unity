@@ -47,6 +47,8 @@ public class Unit : MonoBehaviour, IClickable
     [SerializeField]
     [HideInInspector]
     public OverlayTile Tile { get; set; }
+
+    public Animator Anim;
     public float MovementAnimationSpeed { get; private set; }
 
     public int HitPoints;
@@ -54,8 +56,6 @@ public class Unit : MonoBehaviour, IClickable
     public int AttackFactor;
     public int DefenceFactor;
     public string UnitName;
-        
-    public Image HealthBar;
 
     [SerializeField]
     private int movementPoints;
@@ -94,6 +94,8 @@ public class Unit : MonoBehaviour, IClickable
         TotalActionPoints = ActionPoints;
 
         attackAnimation = GetComponent<AttackAnimation>();
+        Anim = GetComponent<Animator>();
+
         rangeFinder = new RangeFinder();
 
         if (!Tile)
@@ -298,6 +300,7 @@ public class Unit : MonoBehaviour, IClickable
 
         if (MovementAnimationSpeed > 0)
         {
+            Anim.SetBool("IsMoving", true);
             StartCoroutine(MovementAnimation(path));
         }
         else
@@ -324,6 +327,12 @@ public class Unit : MonoBehaviour, IClickable
         {
             transform.position = Vector2.MoveTowards(transform.position, tempPath[0].transform.position, Time.deltaTime * MovementAnimationSpeed);
 
+            var heading = tempPath[0].transform.position - transform.position;
+            var distance = heading.magnitude;
+
+            Anim.SetFloat("MoveX", (heading / distance).normalized.x);
+            Anim.SetFloat("MoveY", (heading / distance).normalized.y);
+
             if (Vector2.Distance(transform.position, tempPath[0].transform.position) < 0.001f)
             {
                 PositionCharacter(tempPath[0]);
@@ -333,6 +342,7 @@ public class Unit : MonoBehaviour, IClickable
             yield return 0;
         }
         IsMoving = false;
+        Anim.SetBool("IsMoving", false);
         OnMoveFinished(Tile);
     }
 

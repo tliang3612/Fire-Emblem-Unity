@@ -153,12 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Obstructable: 1
+  Anim: {fileID: 0}
   HitPoints: 0
   AttackRange: 0
   AttackFactor: 0
   DefenceFactor: 0
   UnitName: 
-  HealthBar: {fileID: 0}
   movementPoints: 0
   actionPoints: 1
   PlayerNumber: 0
