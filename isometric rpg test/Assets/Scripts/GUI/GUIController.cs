@@ -88,7 +88,7 @@ public class GUIController : MonoBehaviour
     private void ShowPanel(Unit unit)
     {
         UnitInfoPanel.SetActive(true);
-        UnitImage.sprite = unit.GetComponent<SpriteRenderer>().sprite;
+        UnitImage.sprite = unit.UnitPortrait;
 
     }
 

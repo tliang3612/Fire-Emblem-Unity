@@ -56,6 +56,7 @@ public class Unit : MonoBehaviour, IClickable
     public int AttackFactor;
     public int DefenceFactor;
     public string UnitName;
+    public Sprite UnitPortrait;
 
     [SerializeField]
     private int movementPoints;

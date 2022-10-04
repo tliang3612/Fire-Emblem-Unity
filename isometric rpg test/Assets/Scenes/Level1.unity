@@ -215,6 +215,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 252696446259133754, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 252696446259133754, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -300,7 +304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: UnitName
-      value: Knight
+      value: Eliwood
       objectReference: {fileID: 0}
     - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: HitPoints
@@ -7347,7 +7351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: UnitName
-      value: Knight
+      value: Eliwood
       objectReference: {fileID: 0}
     - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: HitPoints

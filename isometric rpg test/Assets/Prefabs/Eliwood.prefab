@@ -159,6 +159,7 @@ MonoBehaviour:
   AttackFactor: 0
   DefenceFactor: 0
   UnitName: 
+  UnitPortrait: {fileID: -1034901625, guid: 64de7c8cb24cfec4fb5f77b2a31ea8ed, type: 3}
   movementPoints: 0
   actionPoints: 1
   PlayerNumber: 0

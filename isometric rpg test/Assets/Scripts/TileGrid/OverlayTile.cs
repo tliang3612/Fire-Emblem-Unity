@@ -36,26 +36,28 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public void OnMouseEnter()
     {
-        Debug.Log("Tile Clicked");
-        if (TileHighlighted != null)
-            TileHighlighted.Invoke(this, EventArgs.Empty);
-        
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (TileHighlighted != null)
+                TileHighlighted.Invoke(this, EventArgs.Empty);
+        }     
     }
 
     public void OnMouseExit()
     {
-       
-        if (TileDehighlighted != null)
-            TileDehighlighted.Invoke(this, EventArgs.Empty);
-        
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (TileDehighlighted != null)
+                TileDehighlighted.Invoke(this, EventArgs.Empty);
+        }       
     }
     public void OnPointerDown()
     {
-        Debug.Log("Tile Clicked");
-        
-        if (TileClicked != null)
-            TileClicked.Invoke(this, EventArgs.Empty);
-        
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (TileClicked != null)
+                TileClicked.Invoke(this, EventArgs.Empty);
+        }
     }
 
     //Euclidean Distance (x,y) = sqrt((x1-x2)^2 + (y1-y2)^2)
