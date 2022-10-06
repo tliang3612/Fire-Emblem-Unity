@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 public class AttackRangeHighlightAbility : Ability
 {
@@ -46,10 +47,11 @@ public class AttackRangeHighlightAbility : Ability
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
+        var availableDestinations = UnitReference.GetComponent<MoveAbility>().availableDestinations;
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
         enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(UnitReference.Tile, e));
 
-        tilesInAttackRange = UnitReference.GetTilesInSetRange(tileGrid, UnitReference.Tile, UnitReference.MovementPoints, UnitReference.MovementPoints + UnitReference.AttackRange);
+        tilesInAttackRange = UnitReference.GetTilesInAttackRange(tileGrid, availableDestinations, UnitReference.AttackRange).Except(availableDestinations).ToList();
     }
 
     public override void CleanUp(TileGrid tileGrid)

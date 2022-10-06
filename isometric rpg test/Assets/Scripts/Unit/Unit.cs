@@ -101,6 +101,8 @@ public class Unit : MonoBehaviour, IClickable
         {
             Tile = GetStartingTile();
             Tile.IsBlocked = true;
+            Tile.CurrentUnit = this;
+            Tile.MovementRating = MovementPoints;
         }
 
         tilesInRange = GetAvailableDestinations(FindObjectOfType<TileGrid>());
@@ -372,23 +374,26 @@ public class Unit : MonoBehaviour, IClickable
     //Get a list of tiles that the unit can move to
     public List<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
     {
-        var inRangeTiles = GetTilesInRange(tileGrid, Tile, MovementPoints);
+        List<OverlayTile> temp = new List<OverlayTile>();
+        temp.Add(Tile);
+        var inRangeTiles = GetTilesInRange(tileGrid,temp, MovementPoints);
 
         return inRangeTiles;
     }
 
     //Get a list of tiles around the given tile given the range
-    public List<OverlayTile> GetTilesInRange(TileGrid tileGrid, OverlayTile tile, int range)
+    public List<OverlayTile> GetTilesInRange(TileGrid tileGrid, List<OverlayTile> tiles, int range)
     {
-        return rangeFinder.GetTilesInRange(tileGrid, tile, range);
+        //TODO
+        return rangeFinder.GetTilesInRange(this, tiles, range);
     }
 
-    //Get a list of tiles within a set range
-    public List<OverlayTile> GetTilesInSetRange(TileGrid tileGrid, OverlayTile tile, int rangeMin, int rangeMax)
+    public List<OverlayTile> GetTilesInAttackRange(TileGrid tileGrid, List<OverlayTile> tiles, int range)
     {
-        return rangeFinder.GetTilesInSetRange(tileGrid, tile, rangeMin, rangeMax);
+        //TODO
+        return rangeFinder.GetTilesInAttackRange(this, tiles, range);
     }
-
+    
     //Find the optimal path from the tile the unit is on currently, to the destination tile
     public List<OverlayTile> FindPath(OverlayTile destination, TileGrid tileGrid)
     {

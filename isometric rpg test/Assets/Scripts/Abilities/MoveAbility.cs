@@ -30,6 +30,7 @@ public class MoveAbility : Ability
         {
             //Marks the reachable destinations
             availableDestinations.ForEach(t => t.MarkAsReachable());
+
         }
     }
 
@@ -71,8 +72,7 @@ public class MoveAbility : Ability
     {
         if (CanPerform(tileGrid) && availableDestinations.Contains(tile))
         {
-            availableDestinations?.ForEach(t => t.MarkAsReachable());
-
+            availableDestinations.ForEach(t => t.MarkAsReachable());
         }
         else
         {

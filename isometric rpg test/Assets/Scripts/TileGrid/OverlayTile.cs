@@ -13,7 +13,6 @@ public class OverlayTile : MonoBehaviour, IClickable
     public event EventHandler TileClicked;
     // TileHighlighed event is invoked when cursor enters the tile's collider. 
     public event EventHandler TileHighlighted;
-
     // TileDehighlighted event is invoked when cursor exits the tile's collider. 
     public event EventHandler TileDehighlighted;
 
@@ -37,6 +36,8 @@ public class OverlayTile : MonoBehaviour, IClickable
     public string TileName;
     public int MovementCost;
     public int DefenseBoost;
+
+    public int MovementRating;
 
     public Unit CurrentUnit { get; set; }
 
@@ -68,17 +69,6 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public void InitializeTile(Tilemap tilemap, Vector3Int tileLocation, Dictionary<TileBase, TileData> tileDataMap)
     {
-        var cellWorldPosition = tilemap.GetCellCenterWorld(tileLocation);
-        transform.position = new Vector2(cellWorldPosition.x, cellWorldPosition.y);
-
-        //If the tilemap contains a TileBase at the given tileLocation
-        if(tileDataMap.TryGetValue(tilemap.GetTile(tileLocation), out TileData val)){
-            TileName = val.name;
-            MovementCost = val.MovementCost;
-            DefenseBoost = val.DefenseBoost;
-        }
-
-
 
         //Make sure the overlay tile appears ontop of the tilemap
         GetComponent<SpriteRenderer>().sortingOrder = tilemap.GetComponent<TilemapRenderer>().sortingOrder + 1;
@@ -87,6 +77,30 @@ public class OverlayTile : MonoBehaviour, IClickable
         tileMap = tilemap;
 
 
+        var cellWorldPosition = tilemap.GetCellCenterWorld(tileLocation);
+        transform.position = new Vector2(cellWorldPosition.x, cellWorldPosition.y);
+
+        //If the tilemap contains a TileBase at the given tileLocation
+        if(tileDataMap.TryGetValue(tilemap.GetTile(tileLocation), out TileData val)){
+            TileName = val.name;
+
+            if (val.MovementCost >= 10)
+                IsBlocked = true;
+            MovementCost = val.MovementCost;
+            DefenseBoost = val.DefenseBoost;
+        }
+        else if(tilemap.GetTile(tileLocation) != null)
+        {
+            var tileData = FindObjectOfType<TileGrid>().TileDataList.Where(x => x.TileName == "Plains").First();
+
+            TileName = tileData.name;
+            MovementCost = tileData.MovementCost;
+            DefenseBoost = tileData.DefenseBoost;            
+        }
+        else
+        {
+            Debug.Log("No TileBase at postion " + tileLocation);
+        }
     }
 
     public virtual void MarkAsReachable()
