@@ -29,7 +29,7 @@ public class AStarPathfinder
             }
 
 
-            foreach (var neighbor in tileGrid.GetNeighborTiles(currentOverlayTile, searchableTiles))
+            foreach (var neighbor in currentOverlayTile.GetNeighborTiles(searchableTiles))
             {
                                           //if checked tile list contains this neighbor tile
                 if (neighbor.IsBlocked || closedList.Contains(neighbor))
@@ -38,8 +38,8 @@ public class AStarPathfinder
                 }
 
                 //calculate mahatten distance (non-diagonal distance)
-                neighbor.G = GetManhattenDistance(start, neighbor);
-                neighbor.H = GetManhattenDistance(end, neighbor);
+                neighbor.G = tileGrid.GetManhattenDistance(start, neighbor);
+                neighbor.H = tileGrid.GetManhattenDistance(end, neighbor);
 
                 neighbor.previous = currentOverlayTile;
 
@@ -72,12 +72,4 @@ public class AStarPathfinder
         finishedList.Reverse();
         return finishedList;
     }
-    
-    //Manhattan (A,B) = |x1-x2| + |y1-y2|
-    private int GetManhattenDistance(OverlayTile start, OverlayTile neighbor)
-    {
-        return Mathf.Abs(start.gridLocation.x - neighbor.gridLocation.x) + Mathf.Abs(start.gridLocation.y - neighbor.gridLocation.y);
-    }
-
-    
 }

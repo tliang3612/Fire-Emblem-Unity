@@ -152,15 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6c4f19daf8e734f8c5d16c7841b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstructable: 1
-  Anim: {fileID: 0}
-  HitPoints: 0
-  AttackRange: 0
-  AttackFactor: 0
-  DefenceFactor: 0
-  UnitName: 
+  HitPoints: 10
+  AttackRange: 1
+  AttackFactor: 5
+  DefenceFactor: 2
+  UnitName: Eliwood
   UnitPortrait: {fileID: -1034901625, guid: 64de7c8cb24cfec4fb5f77b2a31ea8ed, type: 3}
-  movementPoints: 0
+  movementPoints: 6
   actionPoints: 1
   PlayerNumber: 0
 --- !u!61 &735354085006907964

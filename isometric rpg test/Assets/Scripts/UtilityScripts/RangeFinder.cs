@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 
 public class RangeFinder
@@ -20,7 +19,7 @@ public class RangeFinder
         {
             var surroundingTiles = new List<OverlayTile>();
 
-            tilesInRange.ForEach(t => surroundingTiles.AddRange(tileGrid.GetNeighborTiles(t, new List<OverlayTile>())));
+            tilesInRange.ForEach(t => surroundingTiles.AddRange(t.GetNeighborTiles(new List<OverlayTile>())));
 
             //adds the surrounding distinct tiles to tilesInRange
             tilesInRange.AddRange(surroundingTiles.Distinct().ToList());
@@ -42,7 +41,7 @@ public class RangeFinder
         {
             var surroundingTiles = new List<OverlayTile>();
 
-            tilesInRangeToExclude.ForEach(t => surroundingTiles.AddRange(tileGrid.GetNeighborTiles(t, new List<OverlayTile>())));
+            tilesInRangeToExclude.ForEach(t => surroundingTiles.AddRange(t.GetNeighborTiles(new List<OverlayTile>())));
 
             //adds the surrounding distinct tiles to tilesInRange
             tilesInRangeToExclude.AddRange(surroundingTiles.Distinct().ToList());
@@ -54,7 +53,7 @@ public class RangeFinder
         while (count < rangeMax)
         {
             var surroundingTiles = new List<OverlayTile>();
-            tilesInRangeToInclude.ForEach(t => surroundingTiles.AddRange(tileGrid.GetNeighborTiles(t, new List<OverlayTile>())));
+            tilesInRangeToInclude.ForEach(t => surroundingTiles.AddRange(t.GetNeighborTiles(new List<OverlayTile>())));
 
             tilesInRangeToInclude.AddRange(surroundingTiles.Distinct().ToList());
             count++;

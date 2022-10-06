@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa68ac37acf0d7b49add83757c2b2b3e, type: 3}
+  m_Name: ForestTile
+  m_EditorClassIdentifier: 
+  Tiles:
+  - {fileID: 11400000, guid: 1d13aa522631c914da7c24d0d89fb1d0, type: 2}
+  - {fileID: 11400000, guid: a3eaa00b174105641a10273725d77f3f, type: 2}
+  - {fileID: 11400000, guid: 6e4b80f277c07c141a8ed35c87b2809b, type: 2}
+  - {fileID: 11400000, guid: 83070c3dea1f3804db7984f1afbc5e4f, type: 2}
+  - {fileID: 11400000, guid: a9a8769bba5446249b971d747c29e670, type: 2}
+  - {fileID: 11400000, guid: f7677d5c8a52df84f8fb76313c0d0a63, type: 2}
+  - {fileID: 11400000, guid: 6c1f4632984b37f498b4bee8afc610b9, type: 2}
+  - {fileID: 11400000, guid: 33494b508df82814cacd0711f47095ac, type: 2}
+  - {fileID: 11400000, guid: e09a61783de888241a121a2a57bb5fd5, type: 2}
+  - {fileID: 11400000, guid: ad2f4f2bee58cc7458c3792ebe0c21ad, type: 2}
+  - {fileID: 11400000, guid: d96852c6a97546947819e57667e8d856, type: 2}
+  - {fileID: 11400000, guid: 5bc957c0c02c7c1488de57a7b1aa934d, type: 2}
+  - {fileID: 11400000, guid: 7965c808fc3a229499bf475648e0a778, type: 2}
+  - {fileID: 11400000, guid: ca851968d5708b74491e59a424e8da10, type: 2}
+  - {fileID: 11400000, guid: 6977c77b5090014469e8364733e670a0, type: 2}
+  - {fileID: 11400000, guid: b3eacb941c746cc49b2d29efc390d851, type: 2}
+  - {fileID: 11400000, guid: a790b1e4ad230e34aa3890020db7dd5a, type: 2}
+  - {fileID: 11400000, guid: 752b2c40574f89c41a9c7bb907aaf3c3, type: 2}
+  - {fileID: 11400000, guid: 323396351bc03c94288be56c7e92737f, type: 2}
+  - {fileID: 11400000, guid: 21da2ec9dd90e4949bcf51f64c29f990, type: 2}
+  - {fileID: 11400000, guid: b5fd35594530fe441995965d2324ac8f, type: 2}
+  - {fileID: 11400000, guid: ec71c025414a9074bacbd21e41da2c76, type: 2}
+  - {fileID: 11400000, guid: be1958024fa2d7a4e9692e6a0ec76765, type: 2}
+  - {fileID: 11400000, guid: 0606c31255436d64eb95b4a7e0f85322, type: 2}
+  - {fileID: 11400000, guid: 118fe6c1534f37d4b80989b285a92c64, type: 2}
+  - {fileID: 11400000, guid: 9b97322716cd0514fa13746b62daafc7, type: 2}
+  - {fileID: 11400000, guid: dcea3e087702b5f41aa08088faa6ed07, type: 2}
+  - {fileID: 11400000, guid: f0279945752d1ff41849b3215fd6ec69, type: 2}
+  - {fileID: 11400000, guid: b68307b30b47b27448ca4a41776513a1, type: 2}
+  - {fileID: 11400000, guid: c6a14d123ce804741aa09b86bd3653a6, type: 2}
+  - {fileID: 11400000, guid: 3d4bfd58a253b7b40a77d75f6b68cae1, type: 2}
+  - {fileID: 11400000, guid: 2b3a9c3b8638c104083dfe300570ba74, type: 2}
+  - {fileID: 11400000, guid: ab559ac98317a0344ac052a7e85ee996, type: 2}
+  - {fileID: 11400000, guid: a664dd72a1041a44ca68629aab5401e8, type: 2}
+  - {fileID: 11400000, guid: 7b9ad0faa1092ae42aad98b7f5650c34, type: 2}
+  - {fileID: 11400000, guid: 30c2aaed5c4329e40880de566db93d22, type: 2}
+  - {fileID: 11400000, guid: d79f8f2cad899be4199334e12ba15c0d, type: 2}
+  - {fileID: 11400000, guid: a1fabea0567a9af44b2dd92f31314508, type: 2}
+  - {fileID: 11400000, guid: c78ef30953c04114a8ffe40f77695986, type: 2}
+  - {fileID: 11400000, guid: d47af631daf378e46829b9ce8a954b36, type: 2}
+  - {fileID: 11400000, guid: 1881efa460f3f4942b69eb456c9edee7, type: 2}
+  - {fileID: 11400000, guid: a2917ceafcf65c841ae01b77ba565db6, type: 2}
+  - {fileID: 11400000, guid: 1070e063f0cb21a43b70e88bc9528bea, type: 2}
+  - {fileID: 11400000, guid: 5c0af2e7a12199c44b36f7b6b21d1dda, type: 2}
+  - {fileID: 11400000, guid: dbd2b5171d4a4ce47baa0440ff56f10c, type: 2}
+  - {fileID: 11400000, guid: 9061761ae0f9d7c41b5482776db81dbb, type: 2}
+  - {fileID: 11400000, guid: 70f35ede4e9a0bf4c980ddb292f221bb, type: 2}
+  - {fileID: 11400000, guid: 092e6540f7bb5f44a86a20c1a48cb616, type: 2}
+  - {fileID: 11400000, guid: 39e1e470f3818fd438e35180282c0208, type: 2}
+  - {fileID: 11400000, guid: 59a9eaf663c12954485d6b5332da8bca, type: 2}
+  - {fileID: 11400000, guid: 071f4d3d5d456cb4f82bb63fdec620e6, type: 2}
+  - {fileID: 11400000, guid: 4e3f2b1481ee166408ec62393de4dca5, type: 2}
+  - {fileID: 11400000, guid: 81e0d2fa5d2a3704faa5b352540711ee, type: 2}
+  - {fileID: 11400000, guid: f8573353f8400444cb81c29cede7415b, type: 2}
+  - {fileID: 11400000, guid: e8aa3cf3807a8ab408784a427be65dde, type: 2}
+  - {fileID: 11400000, guid: 612b91765d7e13b42bed00b8cef091ea, type: 2}
+  - {fileID: 11400000, guid: a8ec20d973a6c4d4eb7b7c2643cc0915, type: 2}
+  - {fileID: 11400000, guid: 8f745db9224b8f749b60b2e439f57900, type: 2}
+  - {fileID: 11400000, guid: 1f6086df0376ed54083dc6fafeb43785, type: 2}
+  - {fileID: 11400000, guid: 4458437e33f8da84aa5428580fb41100, type: 2}
+  TileName: Forest
+  DefenseBoost: 1
+  MovementCost: 1

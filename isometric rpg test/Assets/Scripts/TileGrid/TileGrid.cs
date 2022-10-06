@@ -60,33 +60,32 @@ public class TileGrid : MonoBehaviour
             _gridState.OnStateEnter();
         }
     }
-
+    public List<Player> PlayersList { get; private set; }
     public int NumberOfPlayers { get { return PlayersList.Count; } }
-
     public Player CurrentPlayer
     {
         get { return PlayersList.Find(p => p.PlayerNumber.Equals(CurrentPlayerNumber)); }
     }
     public int CurrentPlayerNumber { get; private set; }
-
-    /// <summary>
-    /// GameObject that holds player objects.
-    /// </summary>
     public Transform PlayersHolder;
+
     public bool ShouldStartGameImmediately = true;
-
     public bool GameFinished { get; private set; }
-    public List<Player> PlayersList { get; private set; }
-    public List<OverlayTile> TileList { get; private set; }
+   
     public List<Unit> UnitList { get; private set; }
-    private List<Unit> PlayableUnits = new List<Unit>();
+    private List<Unit> PlayableUnits;
 
+    public Tilemap Tilemap { get; private set; }
+    public List<OverlayTile> TileList { get; private set; }
     public Dictionary<Vector2Int, OverlayTile> Map { get; private set; }
-
-    public Tilemap[] tilemapArr { get; private set; }
+   
+    //A dictionary that contains a TileBase key, and the TileData associated with that key
+    public Dictionary<TileBase, TileData> TileDataMap;
+    public List<TileData> TileDataList;
     public ArrowTranslator ArrowTranslator;
-         
-         
+
+
+
     private void Start()
     {
         if (ShouldStartGameImmediately)
@@ -108,6 +107,17 @@ public class TileGrid : MonoBehaviour
         if (LevelLoading != null)
             LevelLoading.Invoke(this, EventArgs.Empty);
 
+        TileDataMap = new Dictionary<TileBase, TileData>();
+
+        //Initialize TileDataMap
+        foreach(var tileData in TileDataList)
+        {
+            foreach(var tileBase in tileData.Tiles)
+            {
+                TileDataMap.Add(tileBase, tileData);
+            }
+        }
+
         GameFinished = false;
 
         //Adds two players to PlayersList
@@ -123,15 +133,11 @@ public class TileGrid : MonoBehaviour
 
         ArrowTranslator = new ArrowTranslator();
 
-        tilemapArr = gameObject.GetComponentsInChildren<Tilemap>();
+        Tilemap = gameObject.GetComponentInChildren<Tilemap>();
         TileList = new List<OverlayTile>();
         Map = new Dictionary<Vector2Int, OverlayTile>();
 
-        //Setup overlay tiles for each tilemap in the tilegrid
-        for(int i=0; i < transform.GetComponentsInChildren<Tilemap>().Count(); i++)
-        {
-            SetUpOverlayTiles(tilemapArr[i]);           
-        }
+        SetUpOverlayTiles(Tilemap);
             
 
         //subscribe a series of event handlers to every tile
@@ -215,31 +221,25 @@ public class TileGrid : MonoBehaviour
         //limits of the current tilemap
         BoundsInt bounds = tileMap.cellBounds;
         
-        for (int y = bounds.min.y; y < bounds.max.y; y++)
+        for (int x = bounds.min.x; x < bounds.max.x; x++)
         {
-            for (int x = bounds.min.x; x < bounds.max.x; x++)
+            for (int y = bounds.min.y; y < bounds.max.y; y++)
             {
-                var tileLocation = new Vector3Int(x, y, bounds.z);
+                var tileLocation = new Vector3Int(x, y, 0);
                 var tileKey = new Vector2Int(x, y);
 
                 if (tileMap.HasTile(tileLocation) && !Map.ContainsKey(tileKey))
                 {
                     var tile = Instantiate(overlayTilePrefab, overlayTileContainer.transform);
-                    var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
-                                                                                                    //this prevents the overlayTile to appear inside the tilemap
-                    tile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z + 1);
-                    tile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
 
-                    tile.gridLocation = tileLocation;
-                    tile.tileMap = tileMap;
+                    tile.InitializeTile(tileMap, tileLocation, TileDataMap);
 
-                    //Adds the created overlayTile to the 
+
                     TileList.Add(tile);
                     Map.Add(tileKey, tile);
                 }
             }
-        }
-            
+        }           
     }
 
     /// <summary>
@@ -389,61 +389,13 @@ public class TileGrid : MonoBehaviour
         return GameFinished;
     }
 
-    public List<OverlayTile> GetNeighborTiles(OverlayTile tile, List<OverlayTile> searchableTiles)
+    //Euclidean Distance (x,y) = sqrt((x1-x2)^2 + (y1-y2)^2)
+    public int GetManhattenDistance(OverlayTile start, OverlayTile other)
     {
-        var tempMap = Map;
-
-        Dictionary<Vector2Int, OverlayTile> tilesToSearch = new Dictionary<Vector2Int, OverlayTile>();
-        if (searchableTiles.Count > 0)
-        {
-            foreach (var item in searchableTiles)
-            {
-                if (!tilesToSearch.ContainsKey(item.gridLocation2D))
-                    tilesToSearch.Add(item.gridLocation2D, item);
-            }
-        }
-        else
-        {
-            tilesToSearch = Map;
-        }
-
-        List<OverlayTile> neighbors = new List<OverlayTile>();
-
-
-        Vector2Int locationToCheck = new Vector2Int();
-
-        //checks left and right neighbors
-        for (int i = 1; i >= -1; i -= 2)
-        {
-            locationToCheck = new Vector2Int(tile.gridLocation.x + i, tile.gridLocation.y);
-            if (tilesToSearch.ContainsKey(locationToCheck))
-            {
-                var val = tilesToSearch.FirstOrDefault(x => x.Key == locationToCheck).Value;
-                if (val.tileMap.GetCellCenterWorld(val.gridLocation).z >= 0)
-                {
-                    neighbors.Add(tilesToSearch[locationToCheck]);
-                }
-            }
-        }
-
-        //checks top and down neighbors
-        for (int i = 1; i >= -1; i -= 2)
-        {
-            locationToCheck = new Vector2Int(tile.gridLocation.x, tile.gridLocation.y + i);
-            if (tilesToSearch.ContainsKey(locationToCheck))
-            {
-                var val = tilesToSearch.FirstOrDefault(x => x.Key == locationToCheck).Value;
-                if (val.tileMap.GetCellCenterWorld(val.gridLocation).z >= 0)
-                {
-                    neighbors.Add(tilesToSearch[locationToCheck]);
-                }
-            }
-        }
-
-        return neighbors;
+        return Mathf.Abs(start.gridLocation.x - other.gridLocation.x) + Mathf.Abs(start.gridLocation.y - other.gridLocation.y);
     }
-
 }
+
 public class GameEndedArgs : EventArgs
 {
     public GameResult gameResult { get; set; }

@@ -59,8 +59,7 @@ public class MoveAbility : Ability
         if (CanPerform(tileGrid) && availableDestinations.Contains(tile) && UnitReference.IsTileMovableTo(tile))
         {
             path = UnitReference.FindPath(tile, tileGrid);
-            TranslateArrows(tileGrid);
-            path.ForEach(t => t.MarkAsPath());          
+            TranslateArrows(tileGrid);       
         }
         else
         {
@@ -101,7 +100,7 @@ public class MoveAbility : Ability
     {
         foreach (var tile in availableDestinations)
         {
-            tile.SetArrowSprite(ArrowTranslator.ArrowDirection.None);
+            tile.MarkArrowPath(ArrowTranslator.ArrowDirection.None);
         }
 
         for (int i = 0; i < path.Count; i++)
@@ -110,13 +109,13 @@ public class MoveAbility : Ability
             var futureTile = i < path.Count - 1 ? path[i + 1] : null;
 
             var arrow = tileGrid.ArrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
-            path[i].SetArrowSprite(arrow);
+            path[i].MarkArrowPath(arrow);
         }
     }
 
     private void ResetArrows()
     {
-        path?.ForEach(t => t.SetArrowSprite(ArrowTranslator.ArrowDirection.None));
+        path?.ForEach(t => t.MarkArrowPath(ArrowTranslator.ArrowDirection.None));
     }
 }
 

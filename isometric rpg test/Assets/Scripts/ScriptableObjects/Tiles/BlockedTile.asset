@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa68ac37acf0d7b49add83757c2b2b3e, type: 3}
+  m_Name: BlockedTile
+  m_EditorClassIdentifier: 
+  Tiles:
+  - {fileID: 11400000, guid: 80573d5d0f4688b4c8a04199a9be0691, type: 2}
+  - {fileID: 11400000, guid: 8b61fce1168d78044a15144aaa115434, type: 2}
+  - {fileID: 11400000, guid: 06e75e56d36941644b1a5892d0971f94, type: 2}
+  - {fileID: 11400000, guid: b797e2652dd47bc4d99efa4ecd45a610, type: 2}
+  - {fileID: 11400000, guid: 75280df9101f49743885a1fd64c75ee4, type: 2}
+  - {fileID: 11400000, guid: 016ecd0754aa9264aaae63d5d95ce2b0, type: 2}
+  - {fileID: 11400000, guid: 5d08b27520c29734aa7b951125cb242c, type: 2}
+  - {fileID: 11400000, guid: 8e7dddd882673d24c8d408076cc73d18, type: 2}
+  - {fileID: 11400000, guid: 1c7164d3716e5d34cbf1ea7c8f45d0a0, type: 2}
+  - {fileID: 11400000, guid: 9be431ec6c5a8a94ab048275437e035e, type: 2}
+  - {fileID: 11400000, guid: 7e3cefc17bceee445aa780565f9b318c, type: 2}
+  - {fileID: 11400000, guid: 9b62f0abc53043b459d2884a17f0ebcc, type: 2}
+  - {fileID: 11400000, guid: 3813b0b63f4c1d04c829928935f1144d, type: 2}
+  - {fileID: 11400000, guid: db413da1e6ea12f45915ca3fa213cfb4, type: 2}
+  - {fileID: 11400000, guid: 309d1d032dac20d41aa34997ef3fb386, type: 2}
+  - {fileID: 11400000, guid: 2e2603f803175ae4b805c8e958a3c3fe, type: 2}
+  - {fileID: 11400000, guid: 61cb83194e89e2749a25ba4a3596e4f9, type: 2}
+  - {fileID: 11400000, guid: c00306d9df2331d458d6396ed6eb8ecc, type: 2}
+  - {fileID: 11400000, guid: f0de1f254dc411a489f56e01a31da11d, type: 2}
+  - {fileID: 11400000, guid: b1bd7981d1ddddb4e9fcfb4723a635c5, type: 2}
+  - {fileID: 11400000, guid: 00a6e813c7db1944f9158f7342406b57, type: 2}
+  - {fileID: 11400000, guid: 37db4247be97ed645b986255baf502de, type: 2}
+  - {fileID: 11400000, guid: ef1fe0333067ada44abb00f3ebb876ac, type: 2}
+  - {fileID: 11400000, guid: 3436c03539ee44b4e93e9511da1e6a54, type: 2}
+  - {fileID: 11400000, guid: c8ba653f2aa8ffa4b98cbb4c3e3e8691, type: 2}
+  - {fileID: 11400000, guid: fa5a05e99067d5141acc0cdd443534a2, type: 2}
+  - {fileID: 11400000, guid: a3b1ad4b87f3a5f46b3b1d86d8c01804, type: 2}
+  - {fileID: 11400000, guid: efd76c6af46a83e429a990167f582738, type: 2}
+  - {fileID: 11400000, guid: a8a3c3426f957034ca92a37399f82d50, type: 2}
+  - {fileID: 11400000, guid: 06a015010ad7c0748bd9a4f92e3410d3, type: 2}
+  - {fileID: 11400000, guid: 047fb91a2c32d384abc550063338df7a, type: 2}
+  - {fileID: 11400000, guid: 2cba818a863c89340a38062d34f0a1d5, type: 2}
+  - {fileID: 11400000, guid: d951b091111ba6945a67f1f8cbc255c5, type: 2}
+  - {fileID: 11400000, guid: 8b6b5bbb5a16ea24aaa980401ab6e691, type: 2}
+  - {fileID: 11400000, guid: 64e4149fddac99641a0c512bf7441385, type: 2}
+  TileName: Blocked
+  DefenseBoost: 0
+  MovementCost: 100

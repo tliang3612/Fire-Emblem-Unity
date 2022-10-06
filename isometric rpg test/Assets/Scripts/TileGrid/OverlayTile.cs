@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 using System;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class OverlayTile : MonoBehaviour, IClickable
 {
@@ -16,6 +17,7 @@ public class OverlayTile : MonoBehaviour, IClickable
     // TileDehighlighted event is invoked when cursor exits the tile's collider. 
     public event EventHandler TileDehighlighted;
 
+    [HideInInspector]
     public int G;
     public int H;
     public int F { get { return G + H; } }
@@ -32,6 +34,10 @@ public class OverlayTile : MonoBehaviour, IClickable
     public Sprite blueTile;
     public Sprite redTile;
 
+    public string TileName;
+    public int MovementCost;
+    public int DefenseBoost;
+
     public Unit CurrentUnit { get; set; }
 
     public void OnMouseEnter()
@@ -40,7 +46,7 @@ public class OverlayTile : MonoBehaviour, IClickable
         {
             if (TileHighlighted != null)
                 TileHighlighted.Invoke(this, EventArgs.Empty);
-        }     
+        }
     }
 
     public void OnMouseExit()
@@ -60,10 +66,27 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
     }
 
-    //Euclidean Distance (x,y) = sqrt((x1-x2)^2 + (y1-y2)^2)
-    public int GetManhattenDistance(OverlayTile start, OverlayTile other)
+    public void InitializeTile(Tilemap tilemap, Vector3Int tileLocation, Dictionary<TileBase, TileData> tileDataMap)
     {
-        return Mathf.Abs(start.gridLocation.x - other.gridLocation.x) + Mathf.Abs(start.gridLocation.y - other.gridLocation.y);
+        var cellWorldPosition = tilemap.GetCellCenterWorld(tileLocation);
+        transform.position = new Vector2(cellWorldPosition.x, cellWorldPosition.y);
+
+        //If the tilemap contains a TileBase at the given tileLocation
+        if(tileDataMap.TryGetValue(tilemap.GetTile(tileLocation), out TileData val)){
+            TileName = val.name;
+            MovementCost = val.MovementCost;
+            DefenseBoost = val.DefenseBoost;
+        }
+
+
+
+        //Make sure the overlay tile appears ontop of the tilemap
+        GetComponent<SpriteRenderer>().sortingOrder = tilemap.GetComponent<TilemapRenderer>().sortingOrder + 1;
+
+        gridLocation = tileLocation;
+        tileMap = tilemap;
+
+
     }
 
     public virtual void MarkAsReachable()
@@ -71,14 +94,10 @@ public class OverlayTile : MonoBehaviour, IClickable
         gameObject.GetComponent<SpriteRenderer>().sprite = blueTile;
     }
 
-    public virtual void MarkAsPath()
-    {
-        
-    }
     public virtual void UnMark()
     {
-        CursorSprite.GetComponent<SpriteRenderer>().color = Color.clear;
-        gameObject.GetComponent<SpriteRenderer>().sprite = null;
+        CursorSprite.GetComponent<SpriteRenderer>().color = Color.clear; //Make cursor invisible
+        gameObject.GetComponent<SpriteRenderer>().sprite = null; 
     }
 
     public virtual void MarkAsHighlighted()
@@ -88,12 +107,10 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public virtual void MarkAsAttackableTile()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = redTile;
-        
+        gameObject.GetComponent<SpriteRenderer>().sprite = redTile;       
     }
 
-
-    public void SetArrowSprite(ArrowTranslator.ArrowDirection direction)
+    public virtual void MarkArrowPath(ArrowTranslator.ArrowDirection direction)
     {
         var arrow = GetComponentsInChildren<SpriteRenderer>()[1];
         if (direction == ArrowTranslator.ArrowDirection.None)
@@ -107,6 +124,50 @@ public class OverlayTile : MonoBehaviour, IClickable
             arrow.GetComponent<SpriteRenderer>().sortingOrder += 1;
 
         }
+    }
+
+
+    public List<OverlayTile> GetNeighborTiles(List<OverlayTile> searchableTiles)
+    {
+        Dictionary<Vector2Int, OverlayTile> tilesToSearch = new Dictionary<Vector2Int, OverlayTile>();
+
+        if (searchableTiles.Count > 0)
+        {
+            foreach (var item in searchableTiles)
+            {
+                if (!tilesToSearch.ContainsKey(item.gridLocation2D))
+                    tilesToSearch.Add(item.gridLocation2D, item);
+            }
+        }
+        else
+        {
+            tilesToSearch = FindObjectOfType<TileGrid>().Map;
+        }
+
+
+        List<OverlayTile> neighbors = new List<OverlayTile>();
+
+        //checks left and right neighbors
+        for (int i = 1; i >= -1; i -= 2)
+        {
+            var locationToCheck = new Vector2Int(gridLocation.x + i, gridLocation.y);
+            if (tilesToSearch.ContainsKey(locationToCheck))
+            {
+                neighbors.Add(tilesToSearch[locationToCheck]);
+            }
+        }
+
+        //checks top and down neighbors
+        for (int i = 1; i >= -1; i -= 2)
+        {
+            var locationToCheck = new Vector2Int(gridLocation.x, gridLocation.y + i);
+            if (tilesToSearch.ContainsKey(locationToCheck))
+            {
+                neighbors.Add(tilesToSearch[locationToCheck]);
+            }
+        }
+
+        return neighbors;
     }
 }
 

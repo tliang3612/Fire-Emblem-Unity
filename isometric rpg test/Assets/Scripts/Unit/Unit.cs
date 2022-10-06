@@ -32,8 +32,6 @@ public class Unit : MonoBehaviour, IClickable
     // UnitMoved event is invoked when unit moves from one tile to another.
     public event EventHandler<MovementEventArgs> UnitMoved;
 
-    public bool Obstructable = true;
-
     public UnitState UnitState { get; set; }
     public void SetState(UnitState state)
     {
@@ -48,7 +46,7 @@ public class Unit : MonoBehaviour, IClickable
     [HideInInspector]
     public OverlayTile Tile { get; set; }
 
-    public Animator Anim;
+    private Animator Anim;
     public float MovementAnimationSpeed { get; private set; }
 
     public int HitPoints;
@@ -111,11 +109,10 @@ public class Unit : MonoBehaviour, IClickable
     private OverlayTile GetStartingTile()
     {
         var tileGrid = FindObjectOfType<TileGrid>();
-        var tileMap = tileGrid.tilemapArr[0];
+        var tileMap = tileGrid.Tilemap;
 
         var tilePos = new Vector2Int(tileMap.WorldToCell(transform.position).x, tileMap.WorldToCell(transform.position).y);
 
-        Debug.Log(tilePos);
         if (tileGrid.Map.TryGetValue(tilePos, out OverlayTile tile))
         {
             return tile;
@@ -131,10 +128,13 @@ public class Unit : MonoBehaviour, IClickable
 
     public void OnMouseEnter()
     {
-            
-        if (UnitHighlighted != null)
-            UnitHighlighted.Invoke(this, EventArgs.Empty);
-            
+        Debug.Log("Mouse Entered");
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (UnitHighlighted != null)
+                UnitHighlighted.Invoke(this, EventArgs.Empty);
+        }
+                   
         Tile.MarkAsHighlighted();
 
     }
@@ -223,7 +223,7 @@ public class Unit : MonoBehaviour, IClickable
     /// <returns>A boolean that determines if otherUnit is attackable </returns>
     public virtual bool IsUnitAttackable(OverlayTile tile, Unit otherUnit)
     {
-        return tile.GetManhattenDistance(tile, otherUnit.Tile) <= AttackRange
+        return FindObjectOfType<TileGrid>().GetManhattenDistance(tile, otherUnit.Tile) <= AttackRange
             && otherUnit.PlayerNumber != PlayerNumber
             && ActionPoints >= 1
             && otherUnit.HitPoints > 0;

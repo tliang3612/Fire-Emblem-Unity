@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa68ac37acf0d7b49add83757c2b2b3e, type: 3}
+  m_Name: CliffTile
+  m_EditorClassIdentifier: 
+  Tiles:
+  - {fileID: 11400000, guid: 8cc0ba1ec325b924c826289813cf0a42, type: 2}
+  - {fileID: 11400000, guid: f7cfc5928bc64cd4390ada958155da75, type: 2}
+  - {fileID: 11400000, guid: 951acb0ce3b09334fa50b04bf5664274, type: 2}
+  - {fileID: 11400000, guid: 195397df3384f554089434e923ee0cbe, type: 2}
+  - {fileID: 11400000, guid: bc45cf7a8214f1244a23f46f97e7003a, type: 2}
+  - {fileID: 11400000, guid: 39c6cc2eaac4b4c47bf8e103c65e984b, type: 2}
+  - {fileID: 11400000, guid: 1a97f6aab0d86254092a1d505bb68872, type: 2}
+  - {fileID: 11400000, guid: 7fc47c93c88100c4bbcbfdeaca2f4013, type: 2}
+  - {fileID: 11400000, guid: 9d6996fe1e0eba148bfe5bd2a4bf29c9, type: 2}
+  - {fileID: 11400000, guid: aa8cdb7c9e131db47a431097fe60576e, type: 2}
+  - {fileID: 11400000, guid: 2c44f11738ec3d44e81df29fa3145140, type: 2}
+  - {fileID: 11400000, guid: 099a1a51b8a590d49be5361f0889636c, type: 2}
+  - {fileID: 11400000, guid: 21e75fcc71d79c244b9fa3051744c8aa, type: 2}
+  - {fileID: 11400000, guid: 3c9037a8412d94949930e4e9e1ce7c02, type: 2}
+  - {fileID: 11400000, guid: 4333ea3c5d92b6a4380a7b990b730fad, type: 2}
+  - {fileID: 11400000, guid: b9773e2d5e9587f43af1d5b4d9e2de14, type: 2}
+  - {fileID: 11400000, guid: 72121490667a6c048bd4d97b70d7dcf3, type: 2}
+  - {fileID: 11400000, guid: 56111403e2d79824a82c4759c4f3229a, type: 2}
+  - {fileID: 11400000, guid: 66636c2b163f58a4aa13b735137b7ea7, type: 2}
+  - {fileID: 11400000, guid: be726f0bd46523b44ab979c010722a3b, type: 2}
+  - {fileID: 11400000, guid: 4b2229a6c405e8c4aa8650542d9b96c7, type: 2}
+  - {fileID: 11400000, guid: 189de4cb74bec064dbe27ce27cdddbac, type: 2}
+  - {fileID: 11400000, guid: a2f7e5da9141c9e45a1d099812617413, type: 2}
+  TileName: Cliff
+  DefenseBoost: 3
+  MovementCost: 10
