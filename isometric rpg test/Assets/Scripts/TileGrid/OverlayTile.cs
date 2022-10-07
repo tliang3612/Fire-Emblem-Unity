@@ -140,7 +140,6 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
     }
 
-
     public List<OverlayTile> GetNeighborTiles(List<OverlayTile> searchableTiles)
     {
         Dictionary<Vector2Int, OverlayTile> tilesToSearch = new Dictionary<Vector2Int, OverlayTile>();

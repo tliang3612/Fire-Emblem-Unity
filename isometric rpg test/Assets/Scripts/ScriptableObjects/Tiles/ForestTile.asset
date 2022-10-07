@@ -75,4 +75,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4458437e33f8da84aa5428580fb41100, type: 2}
   TileName: Forest
   DefenseBoost: 1
-  MovementCost: 1
+  MovementCost: 2

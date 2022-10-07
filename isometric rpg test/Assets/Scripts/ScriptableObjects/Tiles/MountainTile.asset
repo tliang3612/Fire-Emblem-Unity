@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a2c66113503e4e54289a7a7680ba0bee, type: 2}
   TileName: Mountain
   DefenseBoost: 2
-  MovementCost: 2
+  MovementCost: 3

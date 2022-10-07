@@ -102,7 +102,6 @@ public class Unit : MonoBehaviour, IClickable
             Tile = GetStartingTile();
             Tile.IsBlocked = true;
             Tile.CurrentUnit = this;
-            Tile.MovementRating = MovementPoints;
         }
 
         tilesInRange = GetAvailableDestinations(FindObjectOfType<TileGrid>());
