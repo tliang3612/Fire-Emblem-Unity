@@ -8,63 +8,48 @@ using UnityEngine;
 
 public class RangeFinder
 {
+    List<OverlayTile> visitedTiles = new List<OverlayTile>();
 
     //FloodFill
     public List<OverlayTile> GetTilesInRange(Unit unit, List<OverlayTile> tiles, int range)
     {
-        var tilesInRange = new List<OverlayTile>();
+        visitedTiles = new List<OverlayTile>();
         unit.Tile.MovementCost = -1;
-        unit.Tile.MovementRating = unit.MovementPoints - 1;
+        unit.Tile.MovementRating = unit.MovementPoints;
 
-        tilesInRange.Add(unit.Tile);
+        visitedTiles.Add(unit.Tile);
 
+        Flood(unit.Tile);
 
-        return Flood(unit.Tile, tilesInRange);
+        return visitedTiles;
     }
 
-    public List<OverlayTile> Flood(OverlayTile tile, List<OverlayTile> visitedTiles)
+    public void Flood(OverlayTile tile)
     {
-        if (tile.MovementRating < 1)
-            return visitedTiles;
+        if (tile.MovementRating < 0)
+            return;
        
-
         foreach (var n in tile.GetNeighborTiles(new List<OverlayTile>())) 
         {
+            //if the neighbor isn't blocked
             if (!n.IsBlocked)
             {
+                //if tile has not been visited already
                 if (!visitedTiles.Contains(n))
                 {
                     visitedTiles.Add(n);
-                    
+                    n.MovementRating = tile.MovementRating - n.MovementCost;
                 }
-            }
+                else
+                {
+                    var tempRating = tile.MovementRating - n.MovementCost;
+                    n.MovementRating = Math.Max(n.MovementRating, tempRating);
+                }
 
-            if(n.MovementRating > 0)
-            {
-                var originalRating = n.MovementRating;
-                var newRating = tile.MovementCost - n.MovementCost;
-            }
-            
-
-            
+                Flood(n);
+            }         
         }
-        return null;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public List<OverlayTile> GetTilesInAttackRange(Unit unit, List<OverlayTile> tiles, int range)
     {
