@@ -140,23 +140,9 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
     }
 
-    public List<OverlayTile> GetNeighborTiles(List<OverlayTile> searchableTiles)
+    public List<OverlayTile> GetNeighborTiles(TileGrid tileGrid)
     {
-        Dictionary<Vector2Int, OverlayTile> tilesToSearch = new Dictionary<Vector2Int, OverlayTile>();
-
-        if (searchableTiles.Count > 0)
-        {
-            foreach (var item in searchableTiles)
-            {
-                if (!tilesToSearch.ContainsKey(item.gridLocation2D))
-                    tilesToSearch.Add(item.gridLocation2D, item);
-            }
-        }
-        else
-        {
-            tilesToSearch = FindObjectOfType<TileGrid>().Map;
-        }
-
+        var tilesToSearch = tileGrid.Map;
 
         List<OverlayTile> neighbors = new List<OverlayTile>();
 

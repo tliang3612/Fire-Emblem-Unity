@@ -29,7 +29,7 @@ public class AStarPathfinder
             }
 
 
-            foreach (var neighbor in currentOverlayTile.GetNeighborTiles(searchableTiles))
+            foreach (var neighbor in currentOverlayTile.GetNeighborTiles(tileGrid))
             {
                                           //if checked tile list contains this neighbor tile
                 if (neighbor.IsBlocked || closedList.Contains(neighbor))
