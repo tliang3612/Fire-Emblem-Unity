@@ -48,6 +48,7 @@ public class AttackRangeHighlightAbility : Ability
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
         var availableDestinations = UnitReference.GetComponent<MoveAbility>().availableDestinations;
+
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
         enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(UnitReference.Tile, e));
 

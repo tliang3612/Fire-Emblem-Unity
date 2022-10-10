@@ -103,8 +103,6 @@ public class Unit : MonoBehaviour, IClickable
             Tile.IsBlocked = true;
             Tile.CurrentUnit = this;
         }
-
-        tilesInRange = GetAvailableDestinations(FindObjectOfType<TileGrid>());
     }
 
     private OverlayTile GetStartingTile()
@@ -129,7 +127,6 @@ public class Unit : MonoBehaviour, IClickable
 
     public void OnMouseEnter()
     {
-        Debug.Log("Mouse Entered");
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             if (UnitHighlighted != null)
@@ -152,7 +149,6 @@ public class Unit : MonoBehaviour, IClickable
     //Called at the start of each turn
     public virtual void OnTurnStart()
     {
-        tilesInRange.Clear();
 
         var name = this.name;
         var state = UnitState;
@@ -298,7 +294,10 @@ public class Unit : MonoBehaviour, IClickable
     public virtual void Move(OverlayTile destinationTile, List<OverlayTile> path)
     {
 
-        MovementPoints -= path.Count();
+        foreach(var tile in path)
+        {
+            MovementPoints -= tile.MovementCost;
+        }
 
         if (MovementAnimationSpeed > 0)
         {
@@ -373,14 +372,14 @@ public class Unit : MonoBehaviour, IClickable
     //Get a list of tiles that the unit can move to
     public List<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
     {
-        return rangeFinder.GetTilesInMoveRange(this, tileGrid);
+        return rangeFinder.GetTilesInMoveRange(this, tileGrid, GetTilesInRange(tileGrid));
     }
 
     //Get a list of tiles around the given tile given the range
-    public List<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
+    public List<OverlayTile> GetTilesInRange(TileGrid tileGrid)
     {
         //TODO
-        return rangeFinder.GetTilesInRange(this, tileGrid, range);
+        return rangeFinder.GetTilesInRange(this, tileGrid, MovementPoints);
     }
 
     public List<OverlayTile> GetTilesInAttackRange(List<OverlayTile> availableDestinations, TileGrid tileGrid, int range)
@@ -393,7 +392,7 @@ public class Unit : MonoBehaviour, IClickable
     //Find the optimal path from the tile the unit is on currently, to the destination tile
     public List<OverlayTile> FindPath(OverlayTile destination, TileGrid tileGrid)
     {
-        return _pathfinder.FindPath(Tile, destination, tilesInRange, tileGrid);
+        return _pathfinder.FindPath(Tile, destination, GetAvailableDestinations(tileGrid), tileGrid);
     }
 
     //Visual indication that the unit is under attack

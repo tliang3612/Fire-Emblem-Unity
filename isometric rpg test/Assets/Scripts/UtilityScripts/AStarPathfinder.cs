@@ -4,72 +4,61 @@ using UnityEngine;
 
 public class AStarPathfinder
 {
-    
-    //Takes the starting node and the end node
+    //Djikstra
     public List<OverlayTile> FindPath(OverlayTile start, OverlayTile end, List<OverlayTile> searchableTiles, TileGrid tileGrid)
     {
-        //list of tiles to be checked in the next iteration
-        List<OverlayTile> openList = new List<OverlayTile>();
-        //list of tiles that are already checked
-        List<OverlayTile> closedList = new List<OverlayTile>();
+        PriorityQueue<OverlayTile> frontier = new PriorityQueue<OverlayTile>();
 
-        openList.Add(start);
+        Dictionary<OverlayTile, OverlayTile> previousTile = new Dictionary<OverlayTile, OverlayTile>();
+        Dictionary<OverlayTile, int> costSoFar = new Dictionary<OverlayTile, int>();
 
-        while(openList.Count > 0)
+        frontier.Enqueue(start, 0);
+        costSoFar.Add(start, 0);
+        previousTile.Add(start, default(OverlayTile));
+
+        while (frontier.Count != 0)
         {
-            //gets the overlayTile with the lowest F value to find optimal tile to move to next
-            OverlayTile currentOverlayTile = openList.OrderBy(x => x.F).First();
+            var currentTile = frontier.Dequeue();
+            if (currentTile.Equals(end))
+                break;
 
-            openList.Remove(currentOverlayTile);
-            closedList.Add(currentOverlayTile);
-
-            if(currentOverlayTile == end)
+            foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
             {
-                return GetFinishedList(start, end);
-            }
+                var newCost = costSoFar[currentTile] + neighbor.MovementCost;
 
-
-            foreach (var neighbor in currentOverlayTile.GetNeighborTiles(tileGrid))
-            {
-                                          //if checked tile list contains this neighbor tile
-                if (neighbor.IsBlocked || closedList.Contains(neighbor))
+                if (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])
                 {
-                    continue;
-                }
+                    if (!neighbor.IsBlocked && searchableTiles.Contains(neighbor))
+                    {
+                        costSoFar[neighbor] = newCost;
+                        int priority = newCost + tileGrid.GetManhattenDistance(start, neighbor);
+                        frontier.Enqueue(neighbor, priority);
+                        previousTile[neighbor] = currentTile;
 
-                //calculate mahatten distance (non-diagonal distance)
-                neighbor.G = tileGrid.GetManhattenDistance(start, neighbor);
-                neighbor.H = tileGrid.GetManhattenDistance(end, neighbor);
-
-                neighbor.previous = currentOverlayTile;
-
-                //adds neighbor tiles to openList to check in the next iteration
-                if (!openList.Contains(neighbor))
-                {
-                    openList.Add(neighbor);
+                    }
                 }
             }
         }
 
-        return new List<OverlayTile>();
-    }
+        //Get Finished List
+        List<OverlayTile> path = new List<OverlayTile>();
 
-    //return a list of tiles that the character will traverse in order
-    private List<OverlayTile> GetFinishedList(OverlayTile start, OverlayTile end)
-    {
-        List<OverlayTile> finishedList = new List<OverlayTile>();
+        //if end tile doesn't have a previous tile, it is unreachable
+        if (!previousTile.ContainsKey(end))
+            return path;
 
-        OverlayTile currentTile = end;
+        path.Add(end);
+        var temp = end;
 
-        int movesTaken = 0;
 
-        while(currentTile != start)
+        while (!previousTile[temp].Equals(start))
         {
-            finishedList.Add(currentTile);
-            currentTile = currentTile.previous;
-            movesTaken++;
+            path.Add(previousTile[temp]);
+            temp = previousTile[temp];
         }
-        finishedList.Reverse();
-        return finishedList;
+
+        path.Reverse();
+        return path;
+
     }
 }
