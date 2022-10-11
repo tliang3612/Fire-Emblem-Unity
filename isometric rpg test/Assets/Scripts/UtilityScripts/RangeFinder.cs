@@ -8,6 +8,57 @@ using UnityEngine;
 
 public class RangeFinder
 {
+    //Modified Djikstra
+    public List<OverlayTile> GetTilesInMoveRange(Unit unit, TileGrid tileGrid, List<OverlayTile> tilesInRange)
+    {
+
+        Dictionary<OverlayTile, int> movementRating = new Dictionary<OverlayTile, int>();
+        Queue<OverlayTile> queue = new Queue<OverlayTile>();
+
+        var start = unit.Tile;
+
+        queue.Enqueue(start);
+        movementRating.Add(start, unit.MovementPoints);
+
+
+        //if there is any tile that has been unvisited
+        while (queue.Count != 0)
+        {
+            var currentTile = queue.Dequeue();
+
+            foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
+            {
+                int newRating = movementRating[currentTile] - neighbor.MovementCost;
+
+                //if tile is able to be moved to
+                if (!neighbor.IsBlocked && tilesInRange.Contains(neighbor))
+                {
+                    //if tile has not been visited or the newRating of the tile is greater than its previous rating
+                    if (!movementRating.ContainsKey(neighbor) || newRating > movementRating[neighbor])
+                    {
+                        movementRating[neighbor] = newRating;
+                        queue.Enqueue(neighbor);
+                    }
+
+                }
+            }
+
+        }
+
+        List<OverlayTile> availableTiles = new List<OverlayTile>();
+
+        //foreach tile in movementRating that has a rating of above 0, it is movable to
+        foreach (var tile in movementRating.Keys)
+        {
+            if (movementRating[tile] > 0)
+            {
+                availableTiles.Add(tile);
+            }
+        }
+
+        return availableTiles;
+    }
+
     public List<OverlayTile> GetTilesInAttackRange(List<OverlayTile> availableDestinations, TileGrid tileGrid, int range)
     {
         //create tilesInRange, which is a list of tiles in range of the starting tile
@@ -53,55 +104,7 @@ public class RangeFinder
         return tilesInRange;
     }
 
-    public List<OverlayTile> GetTilesInMoveRange(Unit unit, TileGrid tileGrid, List<OverlayTile> tilesInRange)
-    {
-
-        Dictionary<OverlayTile, int> movementRating = new Dictionary<OverlayTile, int>();
-        Queue<OverlayTile> queue = new Queue<OverlayTile>();
-
-        var start = unit.Tile;
-
-        queue.Enqueue(start);
-        movementRating.Add(start, unit.MovementPoints);
-
-
-        //if there is any tile that has been unvisited
-        while (queue.Count != 0)
-        {
-            var currentTile = queue.Dequeue();
-
-            foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
-            {
-                int newRating = movementRating[currentTile] - neighbor.MovementCost;
-
-                //if tile is able to be moved to
-                if (!neighbor.IsBlocked && tilesInRange.Contains(neighbor))
-                {
-                    //if tile has not been visited or the newRating of the tile is greater than its previous rating
-                    if (!movementRating.ContainsKey(neighbor) || newRating > movementRating[neighbor])
-                    {
-                        movementRating[neighbor] = newRating;
-                        queue.Enqueue(neighbor);
-                    }
-                   
-                }
-            }
-
-        }
-
-        List<OverlayTile> availableTiles = new List<OverlayTile>();
-
-        //foreach tile in movementRating that has a rating of above 0, it is movable to
-        foreach (var tile in movementRating.Keys)
-        {
-            if(movementRating[tile] > 0)
-            {
-                availableTiles.Add(tile);
-            }
-        }
-
-        return availableTiles;
-    }
+    
 }
 
 

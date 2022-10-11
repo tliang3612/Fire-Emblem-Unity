@@ -6274,11 +6274,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 479313666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60ae4a3eb0d4794aa13ae4062713321, type: 3}
+  m_Script: {fileID: 11500000, guid: 12c3172d30eb5f94481f148737b2cbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 0
-  Color: {r: 1, g: 0, b: 0, a: 0}
+  Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &648872852
 GameObject:
   m_ObjectHideFlags: 0
@@ -7046,6 +7046,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
+      propertyPath: AttackRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
+      propertyPath: PlayerNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: movementPoints
       value: 5
       objectReference: {fileID: 0}
@@ -7253,7 +7261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: PlayerNumber
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4173244725878800295, guid: 0b06f54e086410741877795faed9b2fa, type: 3}
       propertyPath: movementPoints
@@ -7307,11 +7315,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1872350164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60ae4a3eb0d4794aa13ae4062713321, type: 3}
+  m_Script: {fileID: 11500000, guid: 12c3172d30eb5f94481f148737b2cbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 1
-  Color: {r: 0, g: 0.27296615, b: 1, a: 0}
+  Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1878331626
 GameObject:
   m_ObjectHideFlags: 0

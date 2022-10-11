@@ -26,6 +26,11 @@ public abstract class Ability : MonoBehaviour
             _ => tileGrid.GridState = new TileGridStateAbilitySelected(tileGrid, UnitReference, UnitReference.GetComponents<Ability>().ToList()));
     }
 
+    public IEnumerator AIExecute(TileGrid tileGrid)
+    {
+        yield return Execute(tileGrid, _ => { }, _ => OnAbilityDeselected(tileGrid));
+    }
+
     //Method used to define whether the ability can be used - for example it could check if the unit has any movement points left to move
     public virtual IEnumerator Act(TileGrid tileGrid) { yield return 0; }
 

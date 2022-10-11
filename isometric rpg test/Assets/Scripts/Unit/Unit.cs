@@ -42,8 +42,6 @@ public class Unit : MonoBehaviour, IClickable
     public int TotalMovementPoints { get; private set; }
     public int TotalActionPoints { get; private set; }
 
-    [SerializeField]
-    [HideInInspector]
     public OverlayTile Tile { get; set; }
 
     private Animator Anim;
@@ -76,7 +74,6 @@ public class Unit : MonoBehaviour, IClickable
     public bool IsMoving { get; set; }
 
     private AStarPathfinder _pathfinder = new AStarPathfinder();
-    private List<OverlayTile> tilesInRange;
     private RangeFinder rangeFinder;
     private AttackAnimation attackAnimation;
 
@@ -375,19 +372,17 @@ public class Unit : MonoBehaviour, IClickable
         return rangeFinder.GetTilesInMoveRange(this, tileGrid, GetTilesInRange(tileGrid));
     }
 
-    //Get a list of tiles around the given tile given the range
+    //Get a list of tiles within the unit's range. Doesn't take tile cost into consideration
     public List<OverlayTile> GetTilesInRange(TileGrid tileGrid)
     {
-        //TODO
         return rangeFinder.GetTilesInRange(this, tileGrid, MovementPoints);
     }
 
-    public List<OverlayTile> GetTilesInAttackRange(List<OverlayTile> availableDestinations, TileGrid tileGrid, int range)
+    //Get a list of attackable tiles that doesn't include the tiles that a unit can move to
+    public List<OverlayTile> GetTilesInAttackRange(List<OverlayTile> availableDestinations, TileGrid tileGrid)
     {
-        //TODO
-        return rangeFinder.GetTilesInAttackRange(availableDestinations, tileGrid, range);
+        return rangeFinder.GetTilesInAttackRange(availableDestinations, tileGrid, AttackRange);
     }
-
 
     //Find the optimal path from the tile the unit is on currently, to the destination tile
     public List<OverlayTile> FindPath(OverlayTile destination, TileGrid tileGrid)
@@ -401,10 +396,7 @@ public class Unit : MonoBehaviour, IClickable
         GetComponent<SpriteRenderer>().color = Color.cyan;
     }
 
-    /// <summary>
     /// Visual indication that the unit is starting an attack
-    /// </summary>
-    /// <param name="target"> Unit that is under attack </param>
     public virtual void MarkAsAttacking(Unit target)
     {
         GetComponent<SpriteRenderer>().color = Color.red;

@@ -4,16 +4,13 @@ using System   ;
 /// <summary>
 /// Class represents a game participant.
 /// </summary>
-public class Player : MonoBehaviour
+public abstract class Player : MonoBehaviour
 {
     public int PlayerNumber;
     public Color Color;
 
-    /// <summary>
-    /// Method is called every turn. Allows player to interact with his units.
-    /// </summary>         
-    public void Play(TileGrid tileGrid)
-    {
-        tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
-    }
+    public virtual void Initialize(TileGrid cellGrid) { }
+     
+    public abstract void Play(TileGrid cellGrid);
+
 }

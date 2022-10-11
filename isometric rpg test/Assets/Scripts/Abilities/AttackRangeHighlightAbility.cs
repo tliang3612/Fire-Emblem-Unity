@@ -52,7 +52,7 @@ public class AttackRangeHighlightAbility : Ability
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
         enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(UnitReference.Tile, e));
 
-        tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid, UnitReference.AttackRange);
+        tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
     }
 
     public override void CleanUp(TileGrid tileGrid)
