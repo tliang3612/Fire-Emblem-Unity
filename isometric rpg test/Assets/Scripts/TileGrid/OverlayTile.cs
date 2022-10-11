@@ -16,14 +16,10 @@ public class OverlayTile : MonoBehaviour, IClickable
     // TileDehighlighted event is invoked when cursor exits the tile's collider. 
     public event EventHandler TileDehighlighted;
 
-    [HideInInspector]
-    public int G;
-    public int H;
-    public int F { get { return G + H; } }
+
 
     public bool IsBlocked { get; set; }
 
-    public OverlayTile previous;
     public Vector3Int gridLocation;
     public Vector2Int gridLocation2D { get { return new Vector2Int(gridLocation.x, gridLocation.y); } }
 
@@ -110,13 +106,13 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public virtual void UnMark()
     {
-        CursorSprite.GetComponent<SpriteRenderer>().color = Color.clear; //Make cursor invisible
+        HideCursor();
         gameObject.GetComponent<SpriteRenderer>().sprite = null; 
     }
 
     public virtual void MarkAsHighlighted()
     {
-        CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;
+        ShowCursor();
     }
 
     public virtual void MarkAsAttackableTile()
@@ -139,6 +135,25 @@ public class OverlayTile : MonoBehaviour, IClickable
 
         }
     }
+
+    public void HighlightedOnUnit()
+    {
+        CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;
+        CursorSprite.GetComponent<Animator>().SetBool("IsActive", false);
+    }
+
+    public void ShowCursor()
+    {
+        CursorSprite.GetComponent<Animator>().SetBool("IsActive", true);
+        CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;      
+    }
+
+    public void HideCursor()
+    {
+        CursorSprite.GetComponent<Animator>().SetBool("IsActive", false);
+        CursorSprite.GetComponent<SpriteRenderer>().color = Color.clear; //Make cursor invisible
+    }
+
 
     public List<OverlayTile> GetNeighborTiles(TileGrid tileGrid)
     {

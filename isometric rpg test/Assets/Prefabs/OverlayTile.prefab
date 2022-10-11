@@ -122,6 +122,10 @@ MonoBehaviour:
   CursorSprite: {fileID: 9014737047535682117}
   blueTile: {fileID: -1516456419, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
   redTile: {fileID: 1456363428, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
+  TileName: 
+  MovementCost: 0
+  DefenseBoost: 0
+  MovementRating: 0
 --- !u!61 &4399094255726469832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -242,6 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8481301761330326501}
   - component: {fileID: 3204549545068418159}
+  - component: {fileID: 7159651307739259214}
   m_Layer: 0
   m_Name: CursorTile
   m_TagString: Untagged
@@ -258,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 9014737047535682117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 1.22, y: 1.22, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 950919379641424572}
@@ -305,7 +310,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 857142803, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
+  m_Sprite: {fileID: 1023691855, guid: b90592baeccc7c24b94509e3b4f31fa0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -316,3 +321,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7159651307739259214
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014737047535682117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d8aec75faa78514586f579324a310fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

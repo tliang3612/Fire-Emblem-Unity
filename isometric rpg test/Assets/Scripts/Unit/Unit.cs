@@ -129,8 +129,8 @@ public class Unit : MonoBehaviour, IClickable
             if (UnitHighlighted != null)
                 UnitHighlighted.Invoke(this, EventArgs.Empty);
         }
-                   
-        Tile.MarkAsHighlighted();
+
+        Tile.HighlightedOnUnit();
 
     }
     public void OnMouseExit()
