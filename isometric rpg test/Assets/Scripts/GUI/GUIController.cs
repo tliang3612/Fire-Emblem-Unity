@@ -32,6 +32,11 @@ public class GUIController : MonoBehaviour
 
     private void OnGameStarted(object sender, EventArgs e)
     {
+        foreach (OverlayTile tile in tileGrid.TileList)
+        {
+            tile.TileHighlighted += OnTileHighlighted;
+            tile.TileDehighlighted += OnTileDehighlighted;
+        }
         OnTurnEnded(sender, e);
     }
     private void OnGameEnded(object sender, EventArgs e)

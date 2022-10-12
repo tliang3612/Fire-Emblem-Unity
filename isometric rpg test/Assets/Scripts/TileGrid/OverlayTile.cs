@@ -78,7 +78,7 @@ public class OverlayTile : MonoBehaviour, IClickable
 
         //If the tilemap contains a TileBase at the given tileLocation
         if(tileDataMap.TryGetValue(tilemap.GetTile(tileLocation), out TileData val)){
-            TileName = val.name;
+            TileName = val.TileName;
 
             if (val.MovementCost >= 10)
                 IsBlocked = true;
@@ -89,7 +89,7 @@ public class OverlayTile : MonoBehaviour, IClickable
         {
             var tileData = FindObjectOfType<TileGrid>().TileDataList.Where(x => x.TileName == "Plains").First();
 
-            TileName = tileData.name;
+            TileName = tileData.TileName;
             MovementCost = tileData.MovementCost;
             DefenseBoost = tileData.DefenseBoost;            
         }
