@@ -15,20 +15,25 @@ public class GUIController : MonoBehaviour
     public Text StatsText;
     public GameObject UnitInfoPanel;
 
+    public GameObject TerrainInfoPanel;
+    public Text TerrainName;
+
    private void Awake()
     {
+        TerrainInfoPanel.SetActive(false);
         UnitInfoPanel.SetActive(false);
+
         tileGrid.GameStarted += OnGameStarted;
         tileGrid.TurnEnded += OnTurnEnded;
         tileGrid.GameEnded += OnGameEnded;
         tileGrid.UnitAdded += OnUnitAdded;
+       
     }
 
     private void OnGameStarted(object sender, EventArgs e)
     {
         OnTurnEnded(sender, e);
     }
-
     private void OnGameEnded(object sender, EventArgs e)
     {
         InfoText.text = "Player " + ((sender as TileGrid).CurrentPlayerNumber + 1) + " wins!";
@@ -40,14 +45,17 @@ public class GUIController : MonoBehaviour
 
         InfoText.text = "Player " + ((sender as TileGrid).CurrentPlayerNumber + 1);
     }
+
+
     private void OnTileDehighlighted(object sender, EventArgs e)
     {
-        StatsText.text = "";
+        HideTerrainPanel();
     }
     private void OnTileHighlighted(object sender, EventArgs e)
     {
-        //UnitImage.color = Color.gray;
+        ShowTerrainPanel(sender as OverlayTile);
     }
+
     private void OnUnitAttacked(object sender, AttackEventArgs e)
     {
         if (!(tileGrid.CurrentPlayer is Player)) return;
@@ -61,22 +69,19 @@ public class GUIController : MonoBehaviour
     }
     private void OnUnitDehighlighted(object sender, EventArgs e)
     {
-        StatsText.text = "";
-        HidePanel();
+        HideUnitPanel();
     }
     private void OnUnitHighlighted(object sender, EventArgs e)
     {
         var unit = sender as Unit;
         UpdateHpBar(unit);
-        StatsText.text = unit.UnitName + "\nHit Points: " + unit.HitPoints + "/" + unit.TotalHitPoints + "\nAttack: " + unit.AttackFactor + "\nDefence: " + unit.DefenceFactor + "\nRange: " + unit.AttackRange;
-        ShowPanel(unit);   
+        StatsText.text = unit.UnitName + "\nHP: " + unit.HitPoints + "/" + unit.TotalHitPoints;
+        ShowUnitPanel(unit);   
     }
 
 
     private void OnUnitClicked(object sender, EventArgs e)
     {
-        //var unit = sender as Unit
-        //Lock unit prefab that was instantiated
         
     }
 
@@ -85,17 +90,26 @@ public class GUIController : MonoBehaviour
         RegisterUnit(e.unit);
     }
 
-    private void ShowPanel(Unit unit)
+    private void ShowUnitPanel(Unit unit)
     {
         UnitInfoPanel.SetActive(true);
         UnitImage.sprite = unit.UnitPortrait;
-
     }
 
-    private void HidePanel()
+    private void ShowTerrainPanel(OverlayTile tile)
+    {
+        TerrainName.text = tile.TileName;
+        TerrainInfoPanel.SetActive(true);
+    }
+    private void HideUnitPanel()
     {
         UnitImage.sprite = null;
         UnitInfoPanel.SetActive(false);
+    }
+
+    private void HideTerrainPanel()
+    {
+        TerrainInfoPanel.SetActive(false);
     }
 
 
