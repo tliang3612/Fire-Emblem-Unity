@@ -14,7 +14,7 @@ public class AttackRangeHighlightAbility : Ability
             return;
         }
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(tile, e));
+        enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(e));
 
         enemiesInRange.ForEach(u => u.MarkAsReachableEnemy());
 
@@ -34,7 +34,7 @@ public class AttackRangeHighlightAbility : Ability
 
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
         //searches for all enemy units that are attackable
-        var inRange = enemyUnits.FindAll(u => UnitReference.IsUnitAttackable(UnitReference.Tile, u));
+        var inRange = enemyUnits.FindAll(u => UnitReference.IsUnitAttackable(u));
 
         inRange?.ForEach(u => u.MarkAsReachableEnemy());
 
@@ -50,7 +50,7 @@ public class AttackRangeHighlightAbility : Ability
         var availableDestinations = UnitReference.GetComponent<MoveAbility>().availableDestinations;
 
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(UnitReference.Tile, e));
+        enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(e));
 
         tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
     }

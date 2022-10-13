@@ -6,12 +6,12 @@ using System.Linq;
 public class AttackAbility : Ability
 {
     public Unit UnitToAttack { get; set; }
-    List<Unit> enemiesInAttackRange;
+    public List<Unit> enemiesInAttackRange;
         
 
     public override IEnumerator Act(TileGrid tileGrid)
     {
-        if (CanPerform(tileGrid) && UnitReference.IsUnitAttackable(UnitReference.Tile, UnitToAttack))
+        if (CanPerform(tileGrid) && UnitReference.IsUnitAttackable(UnitToAttack))
         {
             UnitReference.AttackHandler(UnitToAttack);
             yield return new WaitForSeconds(0.5f);
@@ -21,13 +21,13 @@ public class AttackAbility : Ability
     public override void Display(TileGrid tileGrid)
     { 
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        enemiesInAttackRange = enemyUnits.Where(e => UnitReference.IsUnitAttackable(UnitReference.Tile, e)).ToList();
+        enemiesInAttackRange = enemyUnits.Where(e => UnitReference.IsUnitAttackable(e)).ToList();
         enemiesInAttackRange.ForEach(e => e.MarkAsReachableEnemy());
     }
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
     {
-        if (UnitReference.IsUnitAttackable(UnitReference.Tile, unit))
+        if (UnitReference.IsUnitAttackable(unit))
         {
             UnitToAttack = unit;
             StartCoroutine(HumanExecute(tileGrid));
@@ -62,10 +62,12 @@ public class AttackAbility : Ability
         }
 
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        enemiesInAttackRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(UnitReference.Tile, u)).ToList();
+        enemiesInAttackRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u)).ToList();
 
         return enemiesInAttackRange.Count > 0;
     }
+
+    
 }
 
 

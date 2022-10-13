@@ -1,5 +1,4 @@
 using UnityEngine;
-using System   ;
 
 /// <summary>
 /// Class represents a game participant.

@@ -215,9 +215,9 @@ public class Unit : MonoBehaviour, IClickable
     /// <param name="otherUnit">Unit to attack</param>
     /// <param name="tile">Tile to perform an attack from</param>
     /// <returns>A boolean that determines if otherUnit is attackable </returns>
-    public virtual bool IsUnitAttackable(OverlayTile tile, Unit otherUnit)
+    public virtual bool IsUnitAttackable(Unit otherUnit)
     {
-        return FindObjectOfType<TileGrid>().GetManhattenDistance(tile, otherUnit.Tile) <= AttackRange
+        return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= AttackRange
             && otherUnit.PlayerNumber != PlayerNumber
             && ActionPoints >= 1
             && otherUnit.HitPoints > 0;
