@@ -354,7 +354,7 @@ public class Unit : MonoBehaviour, IClickable
     /// Positions the unit at the given tile
     /// </summary>
     /// <param name="tile"> Tile to position unit on</param>
-    private void PositionCharacter(OverlayTile tile)
+    public void PositionCharacter(OverlayTile tile)
     {
         transform.position = tile.transform.position;
         GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;

@@ -2,12 +2,11 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 
 public class AIPlayer : Player
 {
 	Unit currentUnit;
-
-	List<Unit> unitList;
 
 	public AIPlanOfAttack Evaluate(TileGrid tileGrid, Unit unit)
 	{
@@ -15,46 +14,40 @@ public class AIPlayer : Player
 		currentUnit = unit;
 		AIPlanOfAttack poa = new AIPlanOfAttack();
 
-		DefaultAttackPattern(poa, tileGrid);
+		PlanPositionIndependent(poa, tileGrid);
 
-		PlanPosition(poa, tileGrid);
-		
-		if (poa.ability == null)
-        {
-			StartCoroutine(MoveUnit(poa, tileGrid));
-		}
-			
 
 		return poa;
 	}
 
-    public override void Play(TileGrid tileGrid)
-    {
+	public override void Play(TileGrid tileGrid)
+	{
 		tileGrid.GridState = new TileGridStateBlockInput(tileGrid);
 		var myUnits = tileGrid.GetCurrentPlayerUnits();
-		foreach(Unit unit in myUnits)
-        {
-			Evaluate(tileGrid, unit);
-        }
+		var poa = new AIPlanOfAttack();
 		
-	}
+		foreach (Unit unit in myUnits)
+		{
+			poa = Evaluate(tileGrid, unit);
+			unit.GetComponent<MoveAbility>().Destination = poa.tileToMove;
+			StartCoroutine(unit.GetComponent<MoveAbility>().AIExecute(tileGrid));
+			unit.GetComponent<AttackAbility>().UnitToAttack = poa.target;
+			StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
+		}
+		
 
-
-
-    void DefaultAttackPattern(AIPlanOfAttack poa, TileGrid tileGrid)
-	{		
-		poa.ability = GetComponentInChildren<Ability>();
 	}
 
 	
-
-	void PlanPosition(AIPlanOfAttack poa, TileGrid tileGrid)
+	void PlanPositionIndependent(AIPlanOfAttack poa, TileGrid tileGrid)
 	{
 		List<OverlayTile> moveOptions = GetMoveOptions(poa, tileGrid);
 		OverlayTile tile = moveOptions[Random.Range(0, moveOptions.Count)];
-		poa.moveLocation = poa.fireLocation = tile.gridLocation2D;
+		poa.tileToMove = poa.target.Tile;
 
 	}
+
+
 
 	IEnumerator MoveUnit(AIPlanOfAttack poa, TileGrid tileGrid)
 	{
@@ -71,22 +64,22 @@ public class AIPlayer : Player
 				yield return 0;
 		}
 
-		poa.moveLocation = currentUnit.Tile.gridLocation2D;
+		poa.tileToMove = currentUnit.Tile;
 	}
 
 	Unit FindNearestEnemy(TileGrid tileGrid)
-    {
+	{
 		var enemyUnits = tileGrid.GetEnemyUnits(this);
 		var enemiesInRange = new List<Unit>();
 		Unit nearestEnemy;
 
-		foreach(Unit enemy in enemyUnits)
-        {
+		foreach (Unit enemy in enemyUnits)
+		{
 			if (currentUnit.IsUnitAttackable(enemy))
-            {
+			{
 				enemiesInRange.Add(enemy);
-            }
-        }
+			}
+		}
 		//Finds nearest enemy by comparing their mahatten distances
 		nearestEnemy = enemiesInRange.OrderByDescending(e => tileGrid.GetManhattenDistance(currentUnit.Tile, e.Tile)).FirstOrDefault();
 
@@ -105,6 +98,6 @@ public class AIPlayer : Player
 
 		return potentialDestinations;
 	}
-
-
 }
+
+    
