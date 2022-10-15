@@ -5,5 +5,6 @@ using UnityEngine;
 public class AIPlanOfAttack
 {
     public Unit target;
+    public bool isTargetInRangeAtStart;
     public OverlayTile tileToMove;
 }
