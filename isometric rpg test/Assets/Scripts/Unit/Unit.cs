@@ -227,12 +227,14 @@ public class Unit : MonoBehaviour, IClickable
     /// Handles the attack event against the other unit
     /// </summary>
     /// <param name="unitToAttack"></param>
-    public void AttackHandler(Unit unitToAttack)
+    public DamageDetails AttackHandler(Unit unitToAttack)
     {
         AttackAction attackAction = GetAttackAndCost(unitToAttack);
-        MarkAsAttacking(unitToAttack);
-        unitToAttack.DefendHandler(this, attackAction.Damage);
+        // TODO Start attack animation in the battle system
+        attackAnimation.StartAttackAnimation(this, unitToAttack);
         ActionPoints -= attackAction.ActionCost;
+        return unitToAttack.DefendHandler(this, attackAction.Damage);
+        
     }
 
     /// <summary>
@@ -250,19 +252,21 @@ public class Unit : MonoBehaviour, IClickable
     /// </summary>
     /// <param name="aggressor"> Unit that is attacking </param>
     /// <param name="damage"> Damage given by the other unit </param>
-    public void DefendHandler(Unit aggressor, int damage)
+    public DamageDetails DefendHandler(Unit aggressor, int damage)
     {
-
         int damageTaken = CalculateDamageTaken(aggressor, damage);
         HitPoints -= damageTaken;
 
-        if (UnitAttacked != null)
+        var damageDetails = new DamageDetails()
         {
-            UnitAttacked.Invoke(this, new AttackEventArgs(aggressor, this, damage));
-        }
+            Critical = 0f,
+            IsDead = false
+        };
+
         if (HitPoints <= 0)
         {
             HitPoints = 0;
+            damageDetails.IsDead = true;
             if (UnitDestroyed != null)
             {
                 UnitDestroyed.Invoke(this, new AttackEventArgs(aggressor, this, damage));
@@ -270,6 +274,7 @@ public class Unit : MonoBehaviour, IClickable
             OnDestroyed();
         }
 
+        return damageDetails;
     }
 
     /// <summary>
@@ -400,7 +405,7 @@ public class Unit : MonoBehaviour, IClickable
     public virtual void MarkAsAttacking(Unit target)
     {
         GetComponent<SpriteRenderer>().color = Color.red;
-        attackAnimation.StartAttackAnimation(this, target);
+        
     }
 
     //Visual indication that the unit is destroyed
