@@ -1,27 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] GameObject hpBar;
 
-    private void Start()
+    public void SetupHP(float hp)
     {
-        hpBar.transform.localScale = new Vector3(0.5f, 1f);
+        hpBar.GetComponent<Image>().fillAmount = hp;
     }
 
-    public IEnumerator SetHP(float newHp)
+    public IEnumerator SetHP(float newHp, float maxHp)
     {
-        float currentHp = hpBar.transform.localScale.x;
+        //current fill of the hp bar
+        float currentHp = hpBar.GetComponent<Image>().fillAmount;
+        //amount
         float changeAmount = currentHp - newHp;
 
         while(currentHp - newHp > Mathf.Epsilon)
         {
             currentHp -= changeAmount * Time.deltaTime;
-            hpBar.transform.localScale = new Vector3(currentHp, 1f);
+            hpBar.GetComponent<Image>().fillAmount = currentHp;
             yield return null;
         }
-        hpBar.transform.localScale = new Vector3(newHp, 1f);
+        hpBar.GetComponent<Image>().fillAmount = newHp;
     }
 }

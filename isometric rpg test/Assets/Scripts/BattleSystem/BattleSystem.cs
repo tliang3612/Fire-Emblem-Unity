@@ -1,84 +1,93 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleSystem : MonoBehaviour
 {
-    public enum BattleState { Start, PlayerAction, EnemyAction, Busy}
-    BattleUnit playerUnit;
-    BattleSystemHUD playerHUD;
 
-    BattleUnit enemyUnit;
-    BattleSystemHUD enemyHUD;
+    [SerializeField] BattleUnit playerUnit;
+    [SerializeField] BattleSystemHUD playerHUD;
 
-    BattleState battleState;
+    [SerializeField] BattleUnit enemyUnit;
+    [SerializeField] BattleSystemHUD enemyHUD;
 
-    private void Start()
+    public event EventHandler OnBattleOver;
+
+    public void StartBattle(Unit attacker, Unit defender)
     {
+        playerUnit.unit = attacker;
+        playerUnit.isPlayerUnit = true;
+
+        enemyUnit.unit = defender;
+
         SetUpBattle();
     }
 
     public void SetUpBattle()
     {
-        playerUnit.Setup();
+        playerUnit.Setup(enemyUnit);
         playerHUD.SetData(playerUnit.unit);
-        enemyUnit.Setup();
+
+        enemyUnit.Setup(playerUnit);
         enemyHUD.SetData(enemyUnit.unit);
 
-        PlayerAction();
+        StartCoroutine(PerformPlayerMove());
     }
-
-    void PlayerAction()
-    {
-        battleState = BattleState.PlayerAction;
-
-        PerformPlayerMove();
-
-    }
-
-    
 
     private IEnumerator PerformPlayerMove()
     {
-        var damageDetails = playerUnit.unit.AttackHandler(enemyUnit.unit);
+        var damageDetails = playerUnit.unit.AttackHandler(enemyUnit.unit, false);
 
+        yield return playerUnit.PlayAttackAnimation(damageDetails.IsCrit);
+        yield return new WaitForSeconds(0.5f);
+
+        enemyUnit.PlayHitAnimation();
+        
         yield return enemyHUD.UpdateHP();
 
-        if (!damageDetails.IsDead)
+        yield return playerUnit.PlayBackupAnimation(damageDetails.IsCrit);
+        yield return new WaitForSeconds(0.5f);
+
+        if (damageDetails.IsDead)
         {
-            StartCoroutine(EnemyMove());
+            enemyUnit.PlayDeathAnimation();
+
+            yield return new WaitForSeconds(2f);
+            OnBattleOver(damageDetails, EventArgs.Empty);
+        }
+        else
+        {
+            StartCoroutine(EnemyMove());          
         }
     }
 
     private IEnumerator EnemyMove()
     {
-        battleState = BattleState.EnemyAction;
+        var damageDetails = enemyUnit.unit.AttackHandler(playerUnit.unit, true);
 
-        var damageDetails = enemyUnit.unit.AttackHandler(playerUnit.unit);
+        yield return enemyUnit.PlayAttackAnimation(damageDetails.IsCrit);
+        yield return new WaitForSeconds(1f);
+
+        playerUnit.PlayHitAnimation();
+        
 
         yield return playerHUD.UpdateHP();
-        
-        if(damageDetails.IsDead)
+
+        yield return enemyUnit.PlayBackupAnimation(damageDetails.IsCrit);
+        yield return new WaitForSeconds(1f);
+
+        if (damageDetails.IsDead)
         {
-            //play death animation
             //end battle scene
+            playerUnit.PlayDeathAnimation();
+
+            yield return new WaitForSeconds(2f);
+            OnBattleOver(damageDetails, EventArgs.Empty);
         }
         else
         {
-            //end battle scene
-        }
-    }
-
-    IEnumerator HandleDamageDetails(DamageDetails details)
-    {
-        if(details.Critical > 1f)
-        {
-            //play crit animation
-            yield return 0;
-        }
-        if(details.IsDead)
-        {
-            //play death animation
+            OnBattleOver(damageDetails, EventArgs.Empty);
         }
     }
 

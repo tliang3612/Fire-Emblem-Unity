@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 379211e3342d5b94bb41977b209a7340
+guid: 1592e1623aa917342b1a86acf1759928
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,133 +139,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: PlayerBattleFrame
-      rect:
-        serializedVersion: 2
-        x: 122
-        y: 324
-        width: 120
-        height: 160
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1948660923e2a354c9c4e17b4e2c6172
-      internalID: -1918751913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyBattleFrame
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1
-        width: 120
-        height: 160
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b1e71886b2d3d643966e0e140310292
-      internalID: 478326224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HPBar
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 274
-        width: 2
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 023830a0e0ce72c4f8ca2d12e7943cb5
-      internalID: 2108705403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EmptyHBar
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 283
-        width: 2
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e28e725aa7218de46a023d8381f52000
-      internalID: 2082650314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hpbar
-      rect:
-        serializedVersion: 2
-        x: 370
-        y: 263
-        width: 58
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44ce5bd3133ed7748b0505e18c943196
-      internalID: 6732333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hpbarempty
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 263
-        width: 81
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e22511ccbc939d46ada491967e81b57
-      internalID: -403687889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -276,13 +150,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      HPBar: 2108705403
-      EmptyHBar: 2082650314
-      hpbarempty: -403687889
-      PlayerBattleFrame: -1918751913
-      hpbar: 6732333
-      EnemyBattleFrame: 478326224
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

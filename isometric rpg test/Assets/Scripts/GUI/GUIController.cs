@@ -122,7 +122,6 @@ public class GUIController : MonoBehaviour
     {
         unit.UnitHighlighted += OnUnitHighlighted;
         unit.UnitDehighlighted += OnUnitDehighlighted;
-        unit.UnitAttacked += OnUnitAttacked;
         unit.UnitClicked += OnUnitClicked;
     }
 

@@ -23,9 +23,6 @@ public class Unit : MonoBehaviour, IClickable
     // UnitDehighlighted event is invoked when cursor exits unit's collider. 
     public event EventHandler UnitDehighlighted;
 
-    // UnitAttacked event is invoked when the unit is attacked.
-    public event EventHandler<AttackEventArgs> UnitAttacked;
-
     // UnitDestroyed event is invoked when unit's hitpoints drop below 0.
     public event EventHandler<AttackEventArgs> UnitDestroyed;
 
@@ -53,6 +50,7 @@ public class Unit : MonoBehaviour, IClickable
     public int DefenceFactor;
     public string UnitName;
     public Sprite UnitPortrait;
+    public Sprite UnitBattleSprite;
 
     [SerializeField]
     private int movementPoints;
@@ -227,24 +225,19 @@ public class Unit : MonoBehaviour, IClickable
     /// Handles the attack event against the other unit
     /// </summary>
     /// <param name="unitToAttack"></param>
-    public DamageDetails AttackHandler(Unit unitToAttack)
+    public DamageDetails AttackHandler(Unit unitToAttack, bool isCounterAttacker)
     {
-        AttackAction attackAction = GetAttackAndCost(unitToAttack);
-        // TODO Start attack animation in the battle system
-        attackAnimation.StartAttackAnimation(this, unitToAttack);
+        AttackAction attackAction = GetAttackAndCost(unitToAttack, isCounterAttacker);
         ActionPoints -= attackAction.ActionCost;
-        return unitToAttack.DefendHandler(this, attackAction.Damage);
-        
-    }
+        var damageDetails = new DamageDetails()
+        {
+            IsCrit = false,
+            IsDead = false,
+            TotalDamage = 0f
+        };
 
-    /// <summary>
-    /// Gets damage given to the other unit and action point cost of the action
-    /// </summary>
-    /// <param name="unitToAttack"> The unit under attack </param>
-    /// <returns>An AttackAction that contains the damage given and action cost taken </returns>
-    protected virtual AttackAction GetAttackAndCost(Unit unitToAttack)
-    {
-        return new AttackAction(AttackFactor, 1);
+        return unitToAttack.DefendHandler(this, attackAction.Damage, damageDetails);
+        
     }
 
     /// <summary>
@@ -252,17 +245,13 @@ public class Unit : MonoBehaviour, IClickable
     /// </summary>
     /// <param name="aggressor"> Unit that is attacking </param>
     /// <param name="damage"> Damage given by the other unit </param>
-    public DamageDetails DefendHandler(Unit aggressor, int damage)
+    public DamageDetails DefendHandler(Unit aggressor, int damage, DamageDetails damageDetails)
     {
         int damageTaken = CalculateDamageTaken(aggressor, damage);
+        damageDetails.TotalDamage = damageTaken;
+
         HitPoints -= damageTaken;
-
-        var damageDetails = new DamageDetails()
-        {
-            Critical = 0f,
-            IsDead = false
-        };
-
+ 
         if (HitPoints <= 0)
         {
             HitPoints = 0;
@@ -275,6 +264,21 @@ public class Unit : MonoBehaviour, IClickable
         }
 
         return damageDetails;
+    }
+
+    /// <summary>
+    /// Gets damage given to the other unit and action point cost of the action
+    /// </summary>
+    /// <param name="unitToAttack"> The unit under attack </param>
+    /// <returns>An AttackAction that contains the damage given and action cost taken </returns>
+    protected virtual AttackAction GetAttackAndCost(Unit unitToAttack, bool isCounterAttacker)
+    {
+        //counterattacker will deal half damage
+        if(isCounterAttacker)
+        {
+            return new AttackAction(AttackFactor, 0);
+        }
+        return new AttackAction(AttackFactor, 1);
     }
 
     /// <summary>

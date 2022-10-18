@@ -84,6 +84,11 @@ public class TileGrid : MonoBehaviour
     public List<TileData> TileDataList;
     public ArrowTranslator ArrowTranslator;
 
+    [SerializeField]
+    private BattleSystem battleSystem;
+    [SerializeField]
+    private Camera worldCamera;
+
 
 
     private void Start()
@@ -103,9 +108,11 @@ public class TileGrid : MonoBehaviour
         
     public void Initialize()
     {
-            
+
         if (LevelLoading != null)
             LevelLoading.Invoke(this, EventArgs.Empty);
+
+        battleSystem.gameObject.SetActive(false);
 
         TileDataMap = new Dictionary<TileBase, TileData>();
 
@@ -164,6 +171,8 @@ public class TileGrid : MonoBehaviour
         {
             Debug.LogError("No UnitGenerator script attached to grid");
         }
+
+        battleSystem.OnBattleOver += EndBattle;
 
         if (LevelLoadingDone != null)
             LevelLoadingDone.Invoke(this, EventArgs.Empty);
@@ -393,6 +402,22 @@ public class TileGrid : MonoBehaviour
     public int GetManhattenDistance(OverlayTile start, OverlayTile other)
     {
         return Mathf.Abs(start.gridLocation.x - other.gridLocation.x) + Mathf.Abs(start.gridLocation.y - other.gridLocation.y);
+    }
+
+    public void StartBattle(Unit attacker, Unit defender)
+    {
+        GridState = new TileGridStateBlockInput(this);
+        battleSystem.gameObject.SetActive(true);
+        worldCamera.gameObject.SetActive(false);
+
+        battleSystem.StartBattle(attacker, defender);
+    }
+
+    public void EndBattle(object sender, EventArgs e)
+    {
+        GridState = new TileGridStateWaitingForInput(this);
+        battleSystem.gameObject.SetActive(false);
+        worldCamera.gameObject.SetActive(true);
     }
 }
 

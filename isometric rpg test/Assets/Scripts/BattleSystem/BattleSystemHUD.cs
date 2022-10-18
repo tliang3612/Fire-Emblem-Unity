@@ -16,12 +16,12 @@ public class BattleSystemHUD : MonoBehaviour
         _unit = unit;
         nameText.text = unit.UnitName;
         defText.text = unit.DefenceFactor.ToString();
-        hpBar.SetHP(unit.HitPoints / unit.TotalHitPoints);
+        hpBar.SetupHP((float)_unit.HitPoints / _unit.TotalHitPoints);
     }
 
     public IEnumerator UpdateHP()
     {
-        yield return hpBar.SetHP((float)_unit.HitPoints / _unit.TotalHitPoints);
+        yield return hpBar.SetHP((float)_unit.HitPoints / _unit.TotalHitPoints, _unit.TotalHitPoints);
     }
 
 }

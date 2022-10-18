@@ -13,7 +13,7 @@ public class AttackAbility : Ability
     {
         if (CanPerform(tileGrid) && UnitReference.IsUnitAttackable(UnitToAttack))
         {
-            UnitReference.AttackHandler(UnitToAttack);
+            tileGrid.StartBattle(UnitReference, UnitToAttack);
             yield return new WaitForSeconds(0.5f);
         }
         yield return 0;
