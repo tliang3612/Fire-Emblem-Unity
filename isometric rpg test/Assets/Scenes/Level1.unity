@@ -6674,7 +6674,6 @@ RectTransform:
   - {fileID: 178945559}
   - {fileID: 800905044}
   - {fileID: 367200919}
-  - {fileID: 1136677403}
   m_Father: {fileID: 461572795}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6768,7 +6767,7 @@ RectTransform:
   - {fileID: 437405266}
   - {fileID: 2123406430}
   m_Father: {fileID: 1752968051}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7997,12 +7996,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 437405266}
+  m_Father: {fileID: 1752968051}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -786, y: -684}
+  m_AnchoredPosition: {x: -786, y: -681}
   m_SizeDelta: {x: 315, y: 308}
   m_Pivot: {x: 0.31, y: 0.07}
 --- !u!222 &1136677404
@@ -8028,6 +8027,7 @@ MonoBehaviour:
   isPlayerUnit: 1
   anim: {fileID: 1136677407}
   originalPosition: {x: 0, y: 0, z: 0}
+  originalAnchoredPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &1136677407
 Animator:
   serializedVersion: 4
@@ -9429,6 +9429,8 @@ RectTransform:
   - {fileID: 1389350694}
   - {fileID: 1553657477}
   - {fileID: 1027482915}
+  - {fileID: 1136677403}
+  - {fileID: 2120759969}
   - {fileID: 461572795}
   m_Father: {fileID: 1307233530}
   m_RootOrder: 1
@@ -10181,12 +10183,12 @@ RectTransform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2123406430}
-  m_RootOrder: 3
+  m_Father: {fileID: 1752968051}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -152.00002, y: -681}
+  m_AnchoredPosition: {x: -1112.0001, y: -681.00006}
   m_SizeDelta: {x: 315, y: 308}
   m_Pivot: {x: 0.31, y: 0.07}
 --- !u!95 &2120759970
@@ -10224,6 +10226,7 @@ MonoBehaviour:
   isPlayerUnit: 0
   anim: {fileID: 2120759970}
   originalPosition: {x: 0, y: 0, z: 0}
+  originalAnchoredPosition: {x: 0, y: 0, z: 0}
 --- !u!222 &2120759972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10308,7 +10311,6 @@ RectTransform:
   - {fileID: 879979995}
   - {fileID: 1952576489}
   - {fileID: 258904154}
-  - {fileID: 2120759969}
   m_Father: {fileID: 461572795}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

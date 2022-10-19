@@ -123,7 +123,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.26666668
+  - time: 0.36666667
     functionName: MoveBackToPosition
     data: 
     objectReferenceParameter: {fileID: 0}

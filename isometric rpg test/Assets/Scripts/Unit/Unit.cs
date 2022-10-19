@@ -48,6 +48,9 @@ public class Unit : MonoBehaviour, IClickable
     public int AttackRange;
     public int AttackFactor;
     public int DefenceFactor;
+    public int SkillFactor;
+    public int LuckFactor;
+    public int CritFactor = 100;
     public string UnitName;
     public Sprite UnitPortrait;
     public Sprite UnitBattleSprite;
@@ -273,11 +276,24 @@ public class Unit : MonoBehaviour, IClickable
     /// <returns>An AttackAction that contains the damage given and action cost taken </returns>
     protected virtual AttackAction GetAttackAndCost(Unit unitToAttack, bool isCounterAttacker)
     {
-        //counterattacker will deal half damage
-        if(isCounterAttacker)
+        //Dodge Formula = Luck + Terrain Bonus;
+        //Raw Accuracy formula = (Skill x 2) + (Luck / 2) + Weapon Triangle bonus
+        //Battle Accuracy formula = Accuracy – enemy’s Avoid;
+        //Attack formula = Attack + Weapon Triangle bonus
+        //Defence formula = = Defence + Terrain bonus
+        //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
+
+
+        float critChance = CritFactor; //-unitToAttack.critDodgeChance;
+        //formula for crit: (Class Crit)+(Weapon Crit)
+        //formula for crit avoid: Class Crit Avoid
+
+        //counterattacker will not use action points
+        if (isCounterAttacker)
         {
             return new AttackAction(AttackFactor, 0);
         }
+
         return new AttackAction(AttackFactor, 1);
     }
 
