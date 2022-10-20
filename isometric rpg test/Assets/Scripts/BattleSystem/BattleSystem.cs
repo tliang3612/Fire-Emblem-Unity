@@ -39,19 +39,30 @@ public class BattleSystem : MonoBehaviour
     {
         var damageDetails = playerUnit.unit.AttackHandler(enemyUnit.unit, false);
 
-        yield return playerUnit.PlayAttackAnimation(damageDetails.IsCrit);
-        yield return new WaitForSeconds(0.5f);
+        if (damageDetails.IsHit)
+        {
+            yield return playerUnit.PlayAttackAnimation(damageDetails.IsCrit);
 
-        enemyUnit.PlayHitAnimation();
+            yield return enemyHUD.UpdateHP();
+            enemyUnit.PlayHitAnimation();
+            
+
+            yield return playerUnit.PlayBackupAnimation(damageDetails.IsCrit);
+        }
+        else
+        {
+            yield return playerUnit.PlayAttackAnimation(damageDetails.IsCrit);
+
+            enemyUnit.PlayDodgeAnimation();
+
+            yield return playerUnit.PlayBackupAnimation(damageDetails.IsCrit);
+        }
         
-        yield return enemyHUD.UpdateHP();
-
-        yield return playerUnit.PlayBackupAnimation(damageDetails.IsCrit);
-        yield return new WaitForSeconds(0.5f);
-
+        
         if (damageDetails.IsDead)
         {
             enemyUnit.PlayDeathAnimation();
+            
 
             yield return new WaitForSeconds(2f);
             OnBattleOver(damageDetails, EventArgs.Empty);
@@ -66,16 +77,23 @@ public class BattleSystem : MonoBehaviour
     {
         var damageDetails = enemyUnit.unit.AttackHandler(playerUnit.unit, true);
 
-        yield return enemyUnit.PlayAttackAnimation(damageDetails.IsCrit);
-        yield return new WaitForSeconds(1f);
+        if (damageDetails.IsHit)
+        {
+            yield return enemyUnit.PlayAttackAnimation(damageDetails.IsCrit);
 
-        playerUnit.PlayHitAnimation();
-        
+            playerUnit.PlayHitAnimation();
+            yield return playerHUD.UpdateHP();
 
-        yield return playerHUD.UpdateHP();
+            yield return enemyUnit.PlayBackupAnimation(damageDetails.IsCrit);
+        }
+        else
+        {
+            yield return enemyUnit.PlayAttackAnimation(damageDetails.IsCrit);
 
-        yield return enemyUnit.PlayBackupAnimation(damageDetails.IsCrit);
-        yield return new WaitForSeconds(1f);
+            playerUnit.PlayDodgeAnimation();
+
+            yield return enemyUnit.PlayBackupAnimation(damageDetails.IsCrit);
+        }
 
         if (damageDetails.IsDead)
         {
@@ -90,7 +108,4 @@ public class BattleSystem : MonoBehaviour
             OnBattleOver(damageDetails, EventArgs.Empty);
         }
     }
-
-    
-
 }

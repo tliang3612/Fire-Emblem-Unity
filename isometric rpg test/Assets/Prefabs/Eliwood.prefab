@@ -153,10 +153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6c4f19daf8e734f8c5d16c7841b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 10
+  HitPoints: 25
   AttackRange: 1
-  AttackFactor: 5
-  DefenceFactor: 2
+  AttackFactor: 9
+  DefenceFactor: 7
+  SkillFactor: 10
+  LuckFactor: 11
+  CritFactor: 100
   UnitName: Eliwood
   UnitPortrait: {fileID: -1034901625, guid: 64de7c8cb24cfec4fb5f77b2a31ea8ed, type: 3}
   UnitBattleSprite: {fileID: -1413286227, guid: d166b22e2166bc64badcb2758a248942, type: 3}

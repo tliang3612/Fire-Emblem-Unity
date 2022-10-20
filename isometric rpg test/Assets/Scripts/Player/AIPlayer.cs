@@ -11,22 +11,20 @@ public class AIPlayer : Player
 
 	public override void Play(TileGrid grid)
 	{
-		grid.GridState = new TileGridStateAITurn(tileGrid, this);
+		
 		random = new System.Random();
 		tileGrid = grid;
+		tileGrid.GridState = new TileGridStateBlockInput(tileGrid);
 
 		StartCoroutine(Play());
-
-		//Coroutine is necessary to allow Unity to run updates on other objects (like UI).
 	}
 
 	public IEnumerator Play()
-	{
-		tileGrid.GridState = new TileGridStateBlockInput(tileGrid);
+	{	
 		var myUnits = tileGrid.GetCurrentPlayerUnits();
-
 		foreach (Unit unit in myUnits)
 		{
+			
 			var moveAbility = unit.GetComponent<MoveAbility>();
 			var attackAbility = unit.GetComponent<AttackAbility>();
 
@@ -51,6 +49,10 @@ public class AIPlayer : Player
 					attackAbility.OnAbilitySelected(tileGrid);
 					attackAbility.UnitToAttack = GetUnitToAttack(unit);
 					StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
+					while(tileGrid.IsBattling)
+                    {
+						yield return null; 
+                    }
 					yield return new WaitForSeconds(1f);
 					continue;
 				}				

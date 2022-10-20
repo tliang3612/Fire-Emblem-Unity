@@ -6,6 +6,7 @@ using DG.Tweening;
 public class BattleUnit : MonoBehaviour
 {
     public Unit unit { get; set; }
+
     public BattleUnit unitToAttack { get; set; }
     public bool isPlayerUnit;
     public Animator anim;
@@ -23,12 +24,13 @@ public class BattleUnit : MonoBehaviour
     public IEnumerator PlayAttackAnimation(bool isCrit)
     {
         if (isCrit)
-            Debug.Log("PlayCritAnimation");
+            anim.SetTrigger("Crit");
         else
             anim.SetTrigger("Attack");
 
         while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < anim.GetCurrentAnimatorStateInfo(0).length)
         {
+            Debug.Log(true);
             yield return null;
         }
         
@@ -38,14 +40,23 @@ public class BattleUnit : MonoBehaviour
     public IEnumerator PlayBackupAnimation(bool isCrit)
     {
         if (isCrit)
-            Debug.Log("PlayCritAnimation");
+            anim.SetTrigger("CritBackup");
         else
             anim.SetTrigger("Backup");
 
+        //not accurate
         while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < anim.GetCurrentAnimatorStateInfo(0).length)
         {
             yield return null;
         }
+    }
+
+    public void PlayDodgeAnimation()
+    {
+        if(isPlayerUnit)
+            Debug.Log("Player Dodged");
+        else
+            Debug.Log("Enemy Dodged");
     }
 
     public void PlayHitAnimation()

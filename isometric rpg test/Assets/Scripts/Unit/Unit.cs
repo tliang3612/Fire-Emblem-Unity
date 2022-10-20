@@ -232,14 +232,7 @@ public class Unit : MonoBehaviour, IClickable
     {
         AttackAction attackAction = GetAttackAndCost(unitToAttack, isCounterAttacker);
         ActionPoints -= attackAction.ActionCost;
-        var damageDetails = new DamageDetails()
-        {
-            IsCrit = false,
-            IsDead = false,
-            TotalDamage = 0f
-        };
-
-        return unitToAttack.DefendHandler(this, attackAction.Damage, damageDetails);
+        return unitToAttack.DefendHandler(this, attackAction);
         
     }
 
@@ -248,12 +241,10 @@ public class Unit : MonoBehaviour, IClickable
     /// </summary>
     /// <param name="aggressor"> Unit that is attacking </param>
     /// <param name="damage"> Damage given by the other unit </param>
-    public DamageDetails DefendHandler(Unit aggressor, int damage, DamageDetails damageDetails)
-    {
-        int damageTaken = CalculateDamageTaken(aggressor, damage);
-        damageDetails.TotalDamage = damageTaken;
-
-        HitPoints -= damageTaken;
+    public DamageDetails DefendHandler(Unit aggressor, AttackAction attackAction)
+    {       
+        var damageDetails = CalculateDamageDetails(aggressor, attackAction);
+        HitPoints -= damageDetails.TotalDamage;
  
         if (HitPoints <= 0)
         {
@@ -261,7 +252,7 @@ public class Unit : MonoBehaviour, IClickable
             damageDetails.IsDead = true;
             if (UnitDestroyed != null)
             {
-                UnitDestroyed.Invoke(this, new AttackEventArgs(aggressor, this, damage));
+                UnitDestroyed.Invoke(this, new AttackEventArgs(aggressor, this, damageDetails.TotalDamage));
             }
             OnDestroyed();
         }
@@ -269,32 +260,49 @@ public class Unit : MonoBehaviour, IClickable
         return damageDetails;
     }
 
+    public int GetCritChance()
+    {
+        //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
+        return (SkillFactor / 2) + 80;
+    }
+
+    public int GetHitChance()
+    {
+        //Raw Accuracy formula = (Skill x 2) + (Luck / 2) + Weapon Triangle bonus
+        return (SkillFactor * 2) + (LuckFactor / 2);
+    }
+
+    public int GetAttack()
+    {
+        //Attack formula = Attack + Weapon Triangle bonus
+        return AttackFactor;
+    }
+
+
     /// <summary>
     /// Gets damage given to the other unit and action point cost of the action
     /// </summary>
     /// <param name="unitToAttack"> The unit under attack </param>
     /// <returns>An AttackAction that contains the damage given and action cost taken </returns>
     protected virtual AttackAction GetAttackAndCost(Unit unitToAttack, bool isCounterAttacker)
-    {
-        //Dodge Formula = Luck + Terrain Bonus;
-        //Raw Accuracy formula = (Skill x 2) + (Luck / 2) + Weapon Triangle bonus
-        //Battle Accuracy formula = Accuracy – enemy’s Avoid;
-        //Attack formula = Attack + Weapon Triangle bonus
-        //Defence formula = = Defence + Terrain bonus
-        //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
+    {      
+        
+        var rawAccuracy = GetHitChance();
+        
+        
+        var rawAttack = GetAttack();
+        
+        
+        var rawCritChance = GetCritChance();
 
-
-        float critChance = CritFactor; //-unitToAttack.critDodgeChance;
-        //formula for crit: (Class Crit)+(Weapon Crit)
-        //formula for crit avoid: Class Crit Avoid
 
         //counterattacker will not use action points
         if (isCounterAttacker)
         {
-            return new AttackAction(AttackFactor, 0);
+            return new AttackAction(rawAttack, rawAccuracy, rawCritChance, 0);
         }
 
-        return new AttackAction(AttackFactor, 1);
+        return new AttackAction(rawAttack, rawAccuracy, rawCritChance, 1);
     }
 
     /// <summary>
@@ -303,9 +311,48 @@ public class Unit : MonoBehaviour, IClickable
     /// <param name="aggressor">Unit that performed the attack</param>
     /// <param name="rawDamage">Raw damage that the attack caused</param>
     /// <returns>Actual damage the unit has taken</returns>        
-    protected int CalculateDamageTaken(Unit aggressor, int rawDamage)
+    protected DamageDetails CalculateDamageDetails(Unit aggressor, AttackAction action)
     {
-        return (rawDamage - DefenceFactor);
+        //Defence formula = Defence + Terrain bonus
+        var defence = DefenceFactor + Tile.DefenseBoost;
+
+        //Dodge Formula = Luck + Terrain Bonus;
+        var dodgeChance = LuckFactor;
+
+        //Battle Accuracy formula = Accuracy – enemy’s Avoid;
+        var battleAccuracy = action.RawAccuracy - dodgeChance;
+        
+        //modifiers
+        int crit = 1;
+        int dodge = 1;
+        //check for crit, crits are 2x damage
+        if (UnityEngine.Random.value < (action.RawCritChance * 0.01))
+        {
+            Debug.Log("Crit");
+            crit = 2;
+        }
+        //check for hit, dodges negate all damage
+        else if (UnityEngine.Random.value < (battleAccuracy * 0.01))
+        {
+            Debug.Log("Dodged");
+            dodge = 0;
+        }
+
+        var totalDamage = (action.RawDamage - defence) * dodge * crit;
+
+
+        //calculate damage
+        //check if unit is dead
+
+        var damageDetails = new DamageDetails()
+        {
+            IsCrit = crit == 2f,
+            IsHit = dodge == 1f,
+            IsDead = false,
+            TotalDamage = totalDamage
+        };
+
+        return damageDetails;
     }
 
     /// <summary>
@@ -468,12 +515,16 @@ public class Unit : MonoBehaviour, IClickable
     
 public class AttackAction
 {
-    public readonly int Damage;
+    public readonly int RawDamage;
+    public readonly int RawAccuracy;
+    public readonly int RawCritChance;
     public readonly int ActionCost;
 
-    public AttackAction(int damage, int actionCost)
+    public AttackAction(int rawDmg, int rawAccuracy, int rawCritChance, int actionCost)
     {
-        Damage = damage;
+        RawDamage = rawDmg;
+        RawAccuracy = rawAccuracy;
+        RawCritChance = rawCritChance;
         ActionCost = actionCost;
     }
 }

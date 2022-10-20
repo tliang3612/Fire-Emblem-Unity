@@ -749,6 +749,1476 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 510
+        width: 43
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3488372, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74469223aa9b57946bef8324d1844d37
+      internalID: 1587156434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_30
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 510
+        width: 43
+        height: 45
+      alignment: 9
+      pivot: {x: 0.39534885, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222bc5aba3388924fa35b2d559348452
+      internalID: -1050728586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_31
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 510
+        width: 47
+        height: 45
+      alignment: 9
+      pivot: {x: 0.4468085, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2118f7891dded2849932f53e8cf7f8de
+      internalID: -397170586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_32
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 510
+        width: 45
+        height: 45
+      alignment: 9
+      pivot: {x: 0.35555556, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a84b891ba8e6794682543b8a8ce67bc
+      internalID: -461469035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_33
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 510
+        width: 33
+        height: 45
+      alignment: 9
+      pivot: {x: 0.15151516, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b55c04ef6df5648a5f1344c8d04479
+      internalID: -1588736956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_34
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 510
+        width: 33
+        height: 45
+      alignment: 9
+      pivot: {x: 0.21212122, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3057b61fad735484aa04981d1a9d6ec9
+      internalID: -1935669002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_35
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 510
+        width: 33
+        height: 45
+      alignment: 9
+      pivot: {x: 0.18181819, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20daeaa1760a0f41af4f14b42cceacf
+      internalID: 689688863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_36
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 510
+        width: 33
+        height: 45
+      alignment: 9
+      pivot: {x: 0.15151516, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d4207cb1c4223e43af7a3bb509ece57
+      internalID: -1608086842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_37
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 510
+        width: 33
+        height: 45
+      alignment: 9
+      pivot: {x: 0.15151516, y: 0.022222223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7504ff76b68c7084581d4c2ca06e91df
+      internalID: -1525762357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_38
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 510
+        width: 33
+        height: 46
+      alignment: 9
+      pivot: {x: 0.18181819, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4fb696fc15dc346a9c7788c8058681
+      internalID: 1073642423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_39
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 510
+        width: 34
+        height: 46
+      alignment: 9
+      pivot: {x: 0.23529412, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 991a4279feb3bfe4e921e2ab421d15b9
+      internalID: -309126616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_40
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 510
+        width: 34
+        height: 46
+      alignment: 9
+      pivot: {x: 0.20588236, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938d5335c79d0e4488120ed4380a2c89
+      internalID: 161892842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_41
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 510
+        width: 33
+        height: 46
+      alignment: 9
+      pivot: {x: 0.21212122, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2e34169105fa149828c0955e71c53a
+      internalID: 205512774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 447
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.20588236, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8133c85a1ad2c0442a39851aea45da74
+      internalID: -164970603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_43
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 447
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.20588236, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d010db8b140973846b4f677a889928d3
+      internalID: 397308526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_44
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 447
+        width: 34
+        height: 58
+      alignment: 9
+      pivot: {x: 0.23529412, y: 0.01724138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f0956bfd51b7d47a4e8407f3a280be
+      internalID: 315592960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_45
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 447
+        width: 34
+        height: 58
+      alignment: 9
+      pivot: {x: 0.23529412, y: 0.01724138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8354e45b94d9221458ca40ba8ba64efc
+      internalID: -556149568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_46
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 447
+        width: 34
+        height: 58
+      alignment: 9
+      pivot: {x: 0.23529412, y: 0.01724138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8247111d1cd793c48969c00bbb80276f
+      internalID: -1089881742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_47
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 447
+        width: 58
+        height: 58
+      alignment: 9
+      pivot: {x: 0.51724136, y: 0.01724138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7941b7d301478df4d97daf96f60a9016
+      internalID: -2077642731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_48
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 447
+        width: 54
+        height: 38
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.02631579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149216785cc2c4e49bd66f3dfdce9781
+      internalID: 579754178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_49
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 447
+        width: 54
+        height: 38
+      alignment: 9
+      pivot: {x: 0.2037037, y: 0.02631579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89071c8e545c7bb468fcd5e32e561b02
+      internalID: 1591870257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_50
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 447
+        width: 54
+        height: 54
+      alignment: 9
+      pivot: {x: 0.14814815, y: 0.018518519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8aba0c5a4772eb4c9533cca34cc7561
+      internalID: -2055314922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_51
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 447
+        width: 32
+        height: 54
+      alignment: 9
+      pivot: {x: 0.09375, y: 0.018518519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1399f978959f6f4684da67759c852db
+      internalID: -1166036384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_52
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 447
+        width: 36
+        height: 54
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.018518519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9fb8a498c1b884d9a4c107b1a9fe5d
+      internalID: -395876163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_53
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 447
+        width: 37
+        height: 54
+      alignment: 9
+      pivot: {x: 0.35135135, y: 0.018518519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f218da08659009944a23cdc349f71dd3
+      internalID: -647175931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_54
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 384
+        width: 53
+        height: 53
+      alignment: 9
+      pivot: {x: 0.13207547, y: 0.018867925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46df6362d2e01f44ca74cac3ca5b3789
+      internalID: -871623399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_55
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 384
+        width: 53
+        height: 36
+      alignment: 9
+      pivot: {x: 0.24528302, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a81316a0c66da4d807e81b6705745f
+      internalID: 1831769572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_56
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 384
+        width: 50
+        height: 35
+      alignment: 9
+      pivot: {x: 0.17999999, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e95d6757816c24d8f825c248e8578a
+      internalID: -1650003689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_57
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 384
+        width: 50
+        height: 35
+      alignment: 9
+      pivot: {x: 0.12, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaeb1843ac82e1c41a9503695c537270
+      internalID: -976986736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_58
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 384
+        width: 44
+        height: 35
+      alignment: 9
+      pivot: {x: 0.06818182, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da44d45f27fa284e9cbb29d79e4c7cd
+      internalID: 1966827535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_59
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 384
+        width: 48
+        height: 35
+      alignment: 9
+      pivot: {x: 0.14583334, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ded2918e289644d9af4ab9d6881f51
+      internalID: 1484185714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_60
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 384
+        width: 48
+        height: 35
+      alignment: 9
+      pivot: {x: 0.16666667, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf0961ca564b51949bad8dc4eae8f5e2
+      internalID: 884109825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_61
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 384
+        width: 48
+        height: 35
+      alignment: 9
+      pivot: {x: 0.1875, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47bf5ad187241034da6ff125cb2df938
+      internalID: 834985329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_62
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 384
+        width: 45
+        height: 35
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e84fb1601e3d24086f877ff2d25f9c
+      internalID: 665878467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_63
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 384
+        width: 45
+        height: 35
+      alignment: 9
+      pivot: {x: 0.11111111, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ebf45e637b75447b5c93459e9a7fa4
+      internalID: -1424808010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 40
+        height: 36
+      alignment: 9
+      pivot: {x: 0.125, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666a36b7af75ed24ba767315325dad89
+      internalID: 1529641216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_65
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 330
+        width: 40
+        height: 36
+      alignment: 9
+      pivot: {x: 0.175, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139fa1cb4e591ba4c967651b6650da8a
+      internalID: 937132643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_66
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 330
+        width: 79
+        height: 36
+      alignment: 9
+      pivot: {x: 0.443038, y: 0.055555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bbbe65187bdd841bbf82dc8bbf2997
+      internalID: -1849757704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_67
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 330
+        width: 72
+        height: 36
+      alignment: 9
+      pivot: {x: 0.45833334, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b0fde56ef476f428d720b7f13b02d6
+      internalID: 862535920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_68
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 330
+        width: 64
+        height: 36
+      alignment: 9
+      pivot: {x: 0.453125, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c400dad5c6f4148a5c74f32ef69d8f
+      internalID: -1021647430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_69
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 330
+        width: 64
+        height: 36
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6a478481be7474a9836bed3dc41fff
+      internalID: -958792883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_70
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 330
+        width: 64
+        height: 36
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68c278238ff7b341aaaba8f5b402767
+      internalID: -1886801652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_71
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 330
+        width: 64
+        height: 36
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075d129ce79811e45adc4ae529700c84
+      internalID: 1244865957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 228
+        width: 61
+        height: 100
+      alignment: 9
+      pivot: {x: 0.44262293, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23ca3c0b97c42144acb1fcb8fc82972
+      internalID: -956555528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_73
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 228
+        width: 34
+        height: 100
+      alignment: 9
+      pivot: {x: 0.20588236, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc20a71d76082ff4da483cecbb1a079d
+      internalID: 1011676900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_74
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 228
+        width: 42
+        height: 99
+      alignment: 9
+      pivot: {x: 0.45238096, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ab1b9dc445b344397ec8e2b9ba2041
+      internalID: 1670761831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_75
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 228
+        width: 47
+        height: 99
+      alignment: 9
+      pivot: {x: 0.48936167, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24e07c4d0b732144b4a9eace8c41ef4
+      internalID: 1887437006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_76
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 228
+        width: 43
+        height: 99
+      alignment: 9
+      pivot: {x: 0.39534885, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786844ea8ce86ab4184876a5d5c22963
+      internalID: -169310557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_77
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 228
+        width: 43
+        height: 99
+      alignment: 9
+      pivot: {x: 0.37209302, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f77cc5fcf2002d045bfa8ef4d5c80851
+      internalID: -1334688744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_78
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 228
+        width: 40
+        height: 99
+      alignment: 9
+      pivot: {x: 0.375, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d0d275baf482d438a5e6c38ed958c3
+      internalID: -624644284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_79
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 228
+        width: 39
+        height: 99
+      alignment: 9
+      pivot: {x: 0.3846154, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a75f9b9f9b10945488d7abd668dde22b
+      internalID: -1752762275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_80
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 228
+        width: 39
+        height: 99
+      alignment: 9
+      pivot: {x: 0.35897437, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a311d97e344859488627ad8170029de
+      internalID: -1200746898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_81
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 228
+        width: 39
+        height: 99
+      alignment: 9
+      pivot: {x: 0.2820513, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485e7a55415fe8d46a640f0c97e25cff
+      internalID: -1602165833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_82
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 228
+        width: 39
+        height: 100
+      alignment: 9
+      pivot: {x: 0.2820513, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd7eee9888fad44b8044fe0c63db14d
+      internalID: 587885925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_84
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 136
+        width: 44
+        height: 81
+      alignment: 9
+      pivot: {x: 0.13636364, y: 0.012345679}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340179207ac2f9c44b5f9a628f8ad517
+      internalID: 1067511196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_85
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 136
+        width: 58
+        height: 68
+      alignment: 9
+      pivot: {x: 0.25862068, y: 0.014705882}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4203f660ff2eaa4d9eee4380d0edbb0
+      internalID: -243176302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_86
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 136
+        width: 58
+        height: 64
+      alignment: 9
+      pivot: {x: 0.36206895, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baeb2e248bc9abe419c326abb64ce42d
+      internalID: -393839335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_87
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 136
+        width: 52
+        height: 60
+      alignment: 9
+      pivot: {x: 0.30769232, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd03bfd08a0cbcd41b11cd29c4b6ba21
+      internalID: 674326526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_88
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 136
+        width: 52
+        height: 52
+      alignment: 9
+      pivot: {x: 0.28846154, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b440390b7c6876438161d8b39055248
+      internalID: -1289278199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_89
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 136
+        width: 48
+        height: 42
+      alignment: 9
+      pivot: {x: 0.14583334, y: 0.023809524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9591af7ea6d3c5343b710e88297349e9
+      internalID: -518685758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_90
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 136
+        width: 44
+        height: 42
+      alignment: 9
+      pivot: {x: 0.11363637, y: 0.023809524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbee47a3bd3447b4c9caecf3b09abe26
+      internalID: -1148412539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_91
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 136
+        width: 44
+        height: 42
+      alignment: 9
+      pivot: {x: 0.09090909, y: 0.023809524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93c869ecdcf84cf4c8d39bbf9518af1f
+      internalID: -1695683219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_92
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 136
+        width: 48
+        height: 42
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.023809524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209a85734df642d48bc7753a7468c0d7
+      internalID: -1953760463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_93
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 136
+        width: 40
+        height: 42
+      alignment: 9
+      pivot: {x: 0.45000002, y: 0.023809524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ce7af589b4bbd47be8a6efa5d866f3
+      internalID: -1371896738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 82
+        width: 40
+        height: 43
+      alignment: 9
+      pivot: {x: 0.35, y: 0.023255814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d754a4d6dd09d4facb2b1e9bed4454
+      internalID: -178275365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_95
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 82
+        width: 49
+        height: 43
+      alignment: 9
+      pivot: {x: 0.30612245, y: 0.023255814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf309b2e9f9afad4e97068219463f035
+      internalID: 339410969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_96
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 82
+        width: 53
+        height: 43
+      alignment: 9
+      pivot: {x: 0.33962265, y: 0.023255814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a78183a46c97e24a8c5102ca05d4e9e
+      internalID: -658158604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_97
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 82
+        width: 49
+        height: 43
+      alignment: 9
+      pivot: {x: 0.3265306, y: 0.023255814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95594a26ce05d8844a7eb1654514be70
+      internalID: 170068457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_98
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 82
+        width: 49
+        height: 43
+      alignment: 9
+      pivot: {x: 0.3265306, y: 0.023255814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5dc7d4b4f484a47b7255c7d2443e86
+      internalID: 766779415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_99
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 82
+        width: 49
+        height: 43
+      alignment: 9
+      pivot: {x: 0.3265306, y: 0.023255814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1deb6c2aafd734144a3f351ab11cfb36
+      internalID: -1011535480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -760,35 +2230,107 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      eliwood_attack_animation_6: -409089606
-      eliwood_attack_animation_13: -77255988
-      eliwood_attack_animation_18: 1279130769
-      eliwood_attack_animation_28: 173094651
-      eliwood_attack_animation_0: -1413286227
+      eliwood_attack_animation_68: -1021647430
       eliwood_attack_animation_2: -1510354465
-      eliwood_attack_animation_1: -940497157
       eliwood_attack_animation_4: -934233564
-      eliwood_attack_animation_9: 47152565
-      eliwood_attack_animation_11: 1710646941
-      eliwood_attack_animation_19: -959933949
       eliwood_attack_animation_20: -2048811492
+      eliwood_attack_animation_79: -1752762275
       eliwood_attack_animation_22: 1373215413
-      eliwood_attack_animation_12: 576248550
+      eliwood_attack_animation_92: -1953760463
+      eliwood_attac_animation_30: 471735396
+      eliwood_attack_animation_44: 315592960
+      eliwood_attack_animation_80: -1200746898
+      eliwood_attack_animation_36: -1608086842
+      eliwood_attack_animation_62: 665878467
+      eliwood_attack_animation_96: -658158604
+      eliwood_attack_animation_73: 1011676900
+      eliwood_attack_animation_37: -1525762357
+      eliwood_attack_animation_26: 247572503
+      eliwood_attack_animation_21: 1410833140
+      eliwood_attack_animation_70: -1886801652
+      eliwood_attack_animation_83: -1422389023
+      eliwood_attack_animation_40: 161892842
+      eliwood_attack_animation_84: 1067511196
+      eliwood_attack_animation_6: -409089606
+      eliwood_attack_animation_35: 689688863
+      eliwood_attack_animation_57: -976986736
+      eliwood_attack_animation_9: 47152565
+      eliwood_attack_animation_45: -556149568
+      eliwood_attack_animation_90: -1148412539
+      eliwood_attack_animation_56: -1650003689
       eliwood_attack_animation_24: 1779141322
-      eliwood_attack_animation_25: 1412967721
+      eliwood_attack_animation_47: -2077642731
       eliwood_attack_animation_27: 908999372
+      eliwood_attack_animation_99: -1011535480
+      eliwood_attack_animation_48: 579754178
+      eliwood_attack_animation_98: 766779415
+      eliwood_attack_animation_88: -1289278199
+      eliwood_attack_animation_52: -395876163
       eliwood_attack_animation_15: 386228082
       eliwood_attack_animation_3: -1163212597
       eliwood_attack_animation_14: 1581909851
-      eliwood_attack_animation_8: 940084196
-      eliwood_attack_animation_26: 247572503
-      eliwood_attack_animation_21: 1410833140
+      eliwood_attack_animation_87: 674326526
+      eliwood_attack_animation_74: 1670761831
       eliwood_attack_animation_5: -2136476194
-      eliwood_attack_animation_7: -29744098
+      eliwood_attack_animation_81: -1602165833
+      eliwood_attack_animation_58: 1966827535
+      eliwood_attack_animation_72: -956555528
+      eliwood_attack_animation_67: 862535920
+      eliwood_attack_animation_86: -393839335
+      eliwood_attack_animation_60: 884109825
+      eliwood_attack_animation_18: 1279130769
+      eliwood_attack_animation_94: -178275365
+      eliwood_attack_animation_39: -309126616
+      eliwood_attack_animation_1: -940497157
+      eliwood_attack_animation_11: 1710646941
+      eliwood_attack_animation_91: -1695683219
+      eliwood_attack_animation_19: -959933949
+      eliwood_attack_animation_12: 576248550
+      eliwood_attack_animation_75: 1887437006
+      eliwood_attack_animation_77: -1334688744
+      eliwood_attack_animation_63: -1424808010
+      eliwood_attack_animation_64: 1529641216
+      eliwood_attack_animation_29: 1587156434
+      eliwood_attack_animation_38: 1073642423
+      eliwood_attack_animation_71: 1244865957
+      eliwood_attack_animation_61: 834985329
+      eliwood_attack_animation_97: 170068457
+      eliwood_attack_animation_78: -624644284
+      eliwood_attack_animation_50: -2055314922
+      eliwood_attack_animation_59: 1484185714
       eliwood_attack_animation_23: 815907610
+      eliwood_attack_animation_31: -397170586
+      eliwood_attack_animation_54: -871623399
+      eliwood_attack_animation_32: -461469035
+      eliwood_attack_animation_55: 1831769572
+      eliwood_attack_animation_85: -243176302
+      eliwood_attack_animation_89: -518685758
+      eliwood_attack_animation_49: 1591870257
+      eliwood_attack_animation_13: -77255988
+      eliwood_attack_animation_66: -1849757704
+      eliwood_attack_animation_76: -169310557
+      eliwood_attack_animation_28: 173094651
+      eliwood_attack_animation_0: -1413286227
+      eliwood_attack_animation_65: 937132643
+      eliwood_attack_animation_34: -1935669002
+      eliwood_attack_animation_51: -1166036384
+      eliwood_attack_animation_82: 587885925
+      eliwood_attack_animation_46: -1089881742
+      eliwood_attack_animation_25: 1412967721
+      eliwood_attack_animation_53: -647175931
+      eliwood_attack_animation_42: -164970603
+      eliwood_attack_animation_95: 339410969
+      eliwood_attack_animation_30: -1050728586
+      eliwood_attack_animation_41: 205512774
+      eliwood_attack_animation_8: 940084196
+      eliwood_attack_animation_69: -958792883
+      eliwood_attack_animation_7: -29744098
+      eliwood_attack_animation_43: 397308526
+      eliwood_attack_animation_93: -1371896738
       eliwood_attack_animation_10: 1793907863
       eliwood_attack_animation_17: 2125318969
       eliwood_attack_animation_16: 1314947283
+      eliwood_attack_animation_33: -1588736956
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

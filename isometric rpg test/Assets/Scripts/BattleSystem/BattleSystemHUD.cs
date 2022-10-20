@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class BattleSystemHUD : MonoBehaviour
 {
-    [SerializeField] Text nameText;
-    [SerializeField] Text defText;
+    [SerializeField] Text hitText;
+    [SerializeField] Text damageText;
+    [SerializeField] Text critText;
+
     [SerializeField] HealthBar hpBar;
 
     Unit _unit;
@@ -14,8 +16,9 @@ public class BattleSystemHUD : MonoBehaviour
     public void SetData(Unit unit)
     {
         _unit = unit;
-        nameText.text = unit.UnitName;
-        defText.text = unit.DefenceFactor.ToString();
+        hitText.text = unit.GetHitChance().ToString();
+        damageText.text = unit.GetAttack().ToString();
+        critText.text = unit.GetCritChance().ToString();
         hpBar.SetupHP((float)_unit.HitPoints / _unit.TotalHitPoints);
     }
 

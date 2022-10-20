@@ -88,6 +88,7 @@ public class TileGrid : MonoBehaviour
     private BattleSystem battleSystem;
     [SerializeField]
     private Camera worldCamera;
+    public bool IsBattling = false;
 
 
 
@@ -411,6 +412,7 @@ public class TileGrid : MonoBehaviour
         worldCamera.gameObject.SetActive(false);
 
         battleSystem.StartBattle(attacker, defender);
+        IsBattling = true;
     }
 
     public void EndBattle(object sender, EventArgs e)
@@ -418,6 +420,8 @@ public class TileGrid : MonoBehaviour
         GridState = new TileGridStateWaitingForInput(this);
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
+        IsBattling = false;
+
     }
 }
 

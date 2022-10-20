@@ -603,6 +603,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eca07d23943665845b47bf5b1d29beff, type: 2}
   battleSystem: {fileID: 1307233531}
   worldCamera: {fileID: 1878331628}
+  IsBattling: 0
 --- !u!114 &236689270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6732,8 +6733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bee58185753ee45a0c6a7dce34c653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1309046835}
-  defText: {fileID: 1023312437}
+  hitText: {fileID: 1309046835}
+  damageText: {fileID: 1023312437}
+  critText: {fileID: 507549323}
   hpBar: {fileID: 198997715}
 --- !u!1 &461572794
 GameObject:
@@ -7972,9 +7974,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1136677403}
+  - component: {fileID: 1136677406}
   - component: {fileID: 1136677408}
   - component: {fileID: 1136677404}
-  - component: {fileID: 1136677406}
   - component: {fileID: 1136677407}
   - component: {fileID: 1136677409}
   m_Layer: 0
@@ -8026,8 +8028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerUnit: 1
   anim: {fileID: 1136677407}
-  originalPosition: {x: 0, y: 0, z: 0}
-  originalAnchoredPosition: {x: 0, y: 0, z: 0}
+  originalAnchoredPosition: {x: 0, y: 0}
 --- !u!95 &1136677407
 Animator:
   serializedVersion: 4
@@ -10159,9 +10160,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2120759969}
+  - component: {fileID: 2120759971}
   - component: {fileID: 2120759973}
   - component: {fileID: 2120759972}
-  - component: {fileID: 2120759971}
   - component: {fileID: 2120759970}
   - component: {fileID: 2120759974}
   m_Layer: 0
@@ -10225,8 +10226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerUnit: 0
   anim: {fileID: 2120759970}
-  originalPosition: {x: 0, y: 0, z: 0}
-  originalAnchoredPosition: {x: 0, y: 0, z: 0}
+  originalAnchoredPosition: {x: 0, y: 0}
 --- !u!222 &2120759972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10369,8 +10369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bee58185753ee45a0c6a7dce34c653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1393674377}
-  defText: {fileID: 4238312}
+  hitText: {fileID: 1393674377}
+  damageText: {fileID: 4238312}
+  critText: {fileID: 916660271}
   hpBar: {fileID: 2073820711}
 --- !u!1 &2126462809
 GameObject:
