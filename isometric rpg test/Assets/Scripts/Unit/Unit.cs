@@ -263,19 +263,19 @@ public class Unit : MonoBehaviour, IClickable
     public int GetCritChance()
     {
         //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
-        return (SkillFactor / 2) + 80;
+        return (SkillFactor / 2) + 10;
     }
 
     public int GetHitChance()
     {
-        //Raw Accuracy formula = (Skill x 2) + (Luck / 2) + Weapon Triangle bonus
-        return (SkillFactor * 2) + (LuckFactor / 2);
+        //Raw Accuracy formula = (Skill x 2) + (Luck / 2) + Weapon Triangle bonus + Weapon hit
+        return (SkillFactor * 2) + (LuckFactor / 2) + 90;
     }
 
     public int GetAttack()
     {
-        //Attack formula = Attack + Weapon Triangle bonus
-        return AttackFactor;
+        //Attack formula = Attack + Weapon Triangle bonus + Weapon Hit
+        return AttackFactor + 5;
     }
 
 
@@ -311,34 +311,33 @@ public class Unit : MonoBehaviour, IClickable
     /// <param name="aggressor">Unit that performed the attack</param>
     /// <param name="rawDamage">Raw damage that the attack caused</param>
     /// <returns>Actual damage the unit has taken</returns>        
-    protected DamageDetails CalculateDamageDetails(Unit aggressor, AttackAction action)
+    protected DamageDetails CalculateDamageDetails(Unit aggressor, AttackAction attackerAction)
     {
         //Defence formula = Defence + Terrain bonus
         var defence = DefenceFactor + Tile.DefenseBoost;
 
         //Dodge Formula = Luck + Terrain Bonus;
-        var dodgeChance = LuckFactor;
+        var dodgeChance = LuckFactor + Tile.AvoidBoost;
 
-        //Battle Accuracy formula = Accuracy – enemy’s Avoid;
-        var battleAccuracy = action.RawAccuracy - dodgeChance;
+        //Battle Accuracy formula = attacker Accuracy – defender’s Avoid;
+        var battleAccuracy = attackerAction.RawAccuracy - dodgeChance;
         
         //modifiers
         int crit = 1;
         int dodge = 1;
         //check for crit, crits are 2x damage
-        if (UnityEngine.Random.value < (action.RawCritChance * 0.01))
+        if (UnityEngine.Random.value < (attackerAction.RawCritChance * 0.01))
         {
             Debug.Log("Crit");
             crit = 2;
         }
         //check for hit, dodges negate all damage
-        else if (UnityEngine.Random.value < (battleAccuracy * 0.01))
-        {
+        else if (UnityEngine.Random.value > (battleAccuracy * 0.01))
+        {           
             Debug.Log("Dodged");
             dodge = 0;
         }
-
-        var totalDamage = (action.RawDamage - defence) * dodge * crit;
+        var totalDamage = (attackerAction.RawDamage - defence) * dodge * crit;
 
 
         //calculate damage

@@ -17,7 +17,6 @@ public class OverlayTile : MonoBehaviour, IClickable
     public event EventHandler TileDehighlighted;
 
 
-
     public bool IsBlocked { get; set; }
 
     public Vector3Int gridLocation;
@@ -32,6 +31,7 @@ public class OverlayTile : MonoBehaviour, IClickable
     public string TileName;
     public int MovementCost;
     public int DefenseBoost;
+    public int AvoidBoost;
 
     public int MovementRating;
 
@@ -84,6 +84,7 @@ public class OverlayTile : MonoBehaviour, IClickable
                 IsBlocked = true;
             MovementCost = val.MovementCost;
             DefenseBoost = val.DefenseBoost;
+            AvoidBoost = val.AvoidBoost;
         }
         else if(tilemap.GetTile(tileLocation) != null)
         {
@@ -91,7 +92,8 @@ public class OverlayTile : MonoBehaviour, IClickable
 
             TileName = tileData.TileName;
             MovementCost = tileData.MovementCost;
-            DefenseBoost = tileData.DefenseBoost;            
+            DefenseBoost = tileData.DefenseBoost;
+            AvoidBoost = tileData.AvoidBoost;
         }
         else
         {

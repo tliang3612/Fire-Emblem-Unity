@@ -43,8 +43,9 @@ public class AIPlayer : Player
 				StartCoroutine(unit.GetComponent<MoveAbility>().AIExecute(tileGrid));
 				while (unit.IsMoving)
 					yield return 0;
+                yield return new WaitForSeconds(0.5f);
 
-				if(GetUnitToAttack(unit))
+                if (GetUnitToAttack(unit))
                 {
 					attackAbility.OnAbilitySelected(tileGrid);
 					attackAbility.UnitToAttack = GetUnitToAttack(unit);

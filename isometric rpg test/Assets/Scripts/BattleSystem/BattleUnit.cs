@@ -5,11 +5,17 @@ using DG.Tweening;
 
 public class BattleUnit : MonoBehaviour
 {
+
+    [SerializeField] private Animator anim;
+
     public Unit unit { get; set; }
 
     public BattleUnit unitToAttack { get; set; }
-    public bool isPlayerUnit;
-    public Animator anim;
+    public GameObject HitEffect;
+    
+
+    //set to false with unity animation events
+    public bool isAnimationPlaying;
 
     public Vector2 originalAnchoredPosition;
 
@@ -28,13 +34,13 @@ public class BattleUnit : MonoBehaviour
         else
             anim.SetTrigger("Attack");
 
-        while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < anim.GetCurrentAnimatorStateInfo(0).length)
+        isAnimationPlaying = true;
+
+        while (isAnimationPlaying)
         {
-            Debug.Log(true);
             yield return null;
         }
-        
-             
+                  
     }
 
     public IEnumerator PlayBackupAnimation(bool isCrit)
@@ -44,29 +50,44 @@ public class BattleUnit : MonoBehaviour
         else
             anim.SetTrigger("Backup");
 
-        //not accurate
-        while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < anim.GetCurrentAnimatorStateInfo(0).length)
+        isAnimationPlaying = true;
+
+        while (isAnimationPlaying)
         {
             yield return null;
         }
     }
 
-    public void PlayDodgeAnimation()
+    public IEnumerator PlayDodgeAnimation()
     {
-        if(isPlayerUnit)
-            Debug.Log("Player Dodged");
-        else
-            Debug.Log("Enemy Dodged");
+        anim.SetTrigger("Dodge");
+
+        isAnimationPlaying = true;
+
+        while (isAnimationPlaying)
+        {
+            yield return null;
+        }
+
     }
 
     public void PlayHitAnimation()
     {
-        Debug.Log("Hit");
+        //Instantiate Hit Effect at the center of unit
+        var hitEffect = Instantiate(HitEffect, transform.position, transform.rotation, transform);
+        hitEffect.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+
+        Destroy(hitEffect, 2f);
     }
 
     public void PlayDeathAnimation()
     {
         Debug.Log("Dead");
+    }
+
+    public void EndPlayAnimation()
+    {
+        isAnimationPlaying = false;
     }
 
     

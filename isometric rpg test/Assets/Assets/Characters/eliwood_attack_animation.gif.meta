@@ -2219,6 +2219,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 51
+        height: 36
+      alignment: 9
+      pivot: {x: 0.27450982, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ce085a38dd21840b7662c9a3062e1c
+      internalID: -1422389023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eliwood_attack_animation_101
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 20
+        width: 36
+        height: 36
+      alignment: 9
+      pivot: {x: 0.19444445, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80668ec5737408d4dbbb0e98cdbb524d
+      internalID: 867919818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2248,7 +2290,7 @@ TextureImporter:
       eliwood_attack_animation_26: 247572503
       eliwood_attack_animation_21: 1410833140
       eliwood_attack_animation_70: -1886801652
-      eliwood_attack_animation_83: -1422389023
+      eliwood_attack_animation_83: 1778454416
       eliwood_attack_animation_40: 161892842
       eliwood_attack_animation_84: 1067511196
       eliwood_attack_animation_6: -409089606
@@ -2312,12 +2354,14 @@ TextureImporter:
       eliwood_attack_animation_28: 173094651
       eliwood_attack_animation_0: -1413286227
       eliwood_attack_animation_65: 937132643
+      eliwood_attack_animation_101: 867919818
       eliwood_attack_animation_34: -1935669002
       eliwood_attack_animation_51: -1166036384
       eliwood_attack_animation_82: 587885925
       eliwood_attack_animation_46: -1089881742
       eliwood_attack_animation_25: 1412967721
       eliwood_attack_animation_53: -647175931
+      eliwood_attack_animation_100: -1422389023
       eliwood_attack_animation_42: -164970603
       eliwood_attack_animation_95: 339410969
       eliwood_attack_animation_30: -1050728586

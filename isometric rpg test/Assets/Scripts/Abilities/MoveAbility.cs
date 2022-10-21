@@ -62,10 +62,6 @@ public class MoveAbility : Ability
             path = UnitReference.FindPath(tile, tileGrid);
             TranslateArrows(tileGrid);       
         }
-        else
-        {
-            ResetArrows();
-        }
     }
 
     public override void OnTileDeselected(OverlayTile tile, TileGrid tileGrid)
@@ -73,10 +69,6 @@ public class MoveAbility : Ability
         if (CanPerform(tileGrid) && availableDestinations.Contains(tile))
         {
             availableDestinations.ForEach(t => t.MarkAsReachable());
-        }
-        else
-        {
-            ResetArrows();
         }
     }
 

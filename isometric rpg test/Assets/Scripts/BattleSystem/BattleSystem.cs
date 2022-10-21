@@ -17,8 +17,6 @@ public class BattleSystem : MonoBehaviour
     public void StartBattle(Unit attacker, Unit defender)
     {
         playerUnit.unit = attacker;
-        playerUnit.isPlayerUnit = true;
-
         enemyUnit.unit = defender;
 
         SetUpBattle();
@@ -38,22 +36,23 @@ public class BattleSystem : MonoBehaviour
     private IEnumerator PerformPlayerMove()
     {
         var damageDetails = playerUnit.unit.AttackHandler(enemyUnit.unit, false);
+        yield return new WaitForSeconds(1f);
 
         if (damageDetails.IsHit)
         {
             yield return playerUnit.PlayAttackAnimation(damageDetails.IsCrit);
 
-            yield return enemyHUD.UpdateHP();
             enemyUnit.PlayHitAnimation();
+            yield return enemyHUD.UpdateHP();
             
-
+            
             yield return playerUnit.PlayBackupAnimation(damageDetails.IsCrit);
         }
         else
         {
             yield return playerUnit.PlayAttackAnimation(damageDetails.IsCrit);
 
-            enemyUnit.PlayDodgeAnimation();
+            yield return enemyUnit.PlayDodgeAnimation();
 
             yield return playerUnit.PlayBackupAnimation(damageDetails.IsCrit);
         }
@@ -90,7 +89,7 @@ public class BattleSystem : MonoBehaviour
         {
             yield return enemyUnit.PlayAttackAnimation(damageDetails.IsCrit);
 
-            playerUnit.PlayDodgeAnimation();
+            yield return playerUnit.PlayDodgeAnimation();
 
             yield return enemyUnit.PlayBackupAnimation(damageDetails.IsCrit);
         }

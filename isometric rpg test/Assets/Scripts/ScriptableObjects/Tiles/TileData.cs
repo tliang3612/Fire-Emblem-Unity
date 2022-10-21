@@ -12,4 +12,5 @@ public class TileData : ScriptableObject
     public string TileName;
     public int DefenseBoost;
     public int MovementCost;
+    public int AvoidBoost;
 }

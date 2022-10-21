@@ -17,8 +17,10 @@ public class GUIController : MonoBehaviour
 
     public GameObject TerrainInfoPanel;
     public Text TerrainName;
+    public Text TerrainDef;
+    public Text TerrainAvo;
 
-   private void Awake()
+    private void Awake()
     {
         TerrainInfoPanel.SetActive(false);
         UnitInfoPanel.SetActive(false);
@@ -75,13 +77,15 @@ public class GUIController : MonoBehaviour
     private void OnUnitDehighlighted(object sender, EventArgs e)
     {
         HideUnitPanel();
+        HideTerrainPanel();
     }
     private void OnUnitHighlighted(object sender, EventArgs e)
     {
         var unit = sender as Unit;
         UpdateHpBar(unit);
         StatsText.text = unit.UnitName + "\nHP: " + unit.HitPoints + "/" + unit.TotalHitPoints;
-        ShowUnitPanel(unit);   
+        ShowUnitPanel(unit);
+        ShowTerrainPanel(unit.Tile);
     }
 
 
@@ -104,6 +108,9 @@ public class GUIController : MonoBehaviour
     private void ShowTerrainPanel(OverlayTile tile)
     {
         TerrainName.text = tile.TileName;
+        TerrainDef.text = tile.DefenseBoost.ToString();
+        TerrainAvo.text = tile.AvoidBoost.ToString();
+
         TerrainInfoPanel.SetActive(true);
     }
     private void HideUnitPanel()

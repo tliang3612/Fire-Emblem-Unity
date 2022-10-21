@@ -37,5 +37,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 189de4cb74bec064dbe27ce27cdddbac, type: 2}
   - {fileID: 11400000, guid: a2f7e5da9141c9e45a1d099812617413, type: 2}
   TileName: Cliff
-  DefenseBoost: 3
-  MovementCost: 10
+  DefenseBoost: 2
+  MovementCost: 4
+  AvoidBoost: 40
