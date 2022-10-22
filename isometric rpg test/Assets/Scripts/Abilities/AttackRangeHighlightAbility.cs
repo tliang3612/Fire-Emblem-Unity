@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 
 public class AttackRangeHighlightAbility : Ability
 {
@@ -64,5 +66,10 @@ public class AttackRangeHighlightAbility : Ability
     public override void OnTurnEnd(TileGrid cellGrid)
     {
         enemiesInRange = null;
+    }
+
+    public override bool CanPerform(TileGrid tileGrid)
+    {
+        return UnitReference.InSelectionMenu == false;
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 public class AttackAbility : Ability
 {
     public Unit UnitToAttack { get; set; }
-    public List<Unit> enemiesInAttackRange;
+    public List<Unit> enemiesInAttackRange { get; set; }
         
 
     public override IEnumerator Act(TileGrid tileGrid)
@@ -64,7 +64,7 @@ public class AttackAbility : Ability
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
         enemiesInAttackRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u)).ToList();
 
-        return enemiesInAttackRange.Count > 0;
+        return enemiesInAttackRange.Count > 0 && UnitReference.InSelectionMenu == false;
     }
 
     

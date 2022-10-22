@@ -226,7 +226,6 @@ public class TileGrid : MonoBehaviour
         e.DestinationTile.CurrentUnit = (sender as Unit);
         e.DestinationTile.IsBlocked = true;
         
-
         CheckGameFinished();
     }
 

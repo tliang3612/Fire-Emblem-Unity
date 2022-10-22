@@ -7,7 +7,7 @@ public class MoveAbility : Ability
 {
     public OverlayTile Destination { get; set; }
     public List<OverlayTile> availableDestinations { get; set; }
-    private List<OverlayTile> path;
+    public List<OverlayTile> path { get; set; }
         
 
     public override IEnumerator Act(TileGrid tileGrid)
@@ -21,6 +21,7 @@ public class MoveAbility : Ability
                 yield return 0;
             }
         }
+        UnitReference.InSelectionMenu = true;
         yield return 0;
     }
 
@@ -85,7 +86,7 @@ public class MoveAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1;
+        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1 && UnitReference.InSelectionMenu == false;
     }
 
     private void TranslateArrows(TileGrid tileGrid)

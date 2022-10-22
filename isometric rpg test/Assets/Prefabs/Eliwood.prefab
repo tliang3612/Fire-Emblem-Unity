@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4173244725878800295}
   - component: {fileID: 735354085006907964}
   - component: {fileID: 2539727127629995566}
+  - component: {fileID: 4227024709929348520}
   m_Layer: 0
   m_Name: Eliwood
   m_TagString: Untagged
@@ -126,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d6459d9e97d2d4da992da08b48d71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesInAttackRange: []
 --- !u!114 &4173244725878800295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +198,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4227024709929348520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252696446259133752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf6cb44b00d5be4eb512485d8eb11e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuActions: {fileID: 0}
+  cancelButton: {fileID: 0}

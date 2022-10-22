@@ -40,6 +40,7 @@ public class Unit : MonoBehaviour, IClickable
     public int TotalActionPoints { get; private set; }
 
     public OverlayTile Tile { get; set; }
+    public OverlayTile PreviousTile { get; set; }
 
     private Animator Anim;
     public float MovementAnimationSpeed { get; private set; }
@@ -54,6 +55,10 @@ public class Unit : MonoBehaviour, IClickable
     public string UnitName;
     public Sprite UnitPortrait;
     public Sprite UnitBattleSprite;
+
+    public bool InSelectionMenu = false;
+
+    private MovementEventArgs storedMovementDetails;
 
     [SerializeField]
     private int movementPoints;
@@ -330,7 +335,7 @@ public class Unit : MonoBehaviour, IClickable
     {
         //Defence formula = Defence + Terrain bonus
         var defence = DefenceFactor + Tile.DefenseBoost;
-
+        
         //Dodge Formula = Luck + Terrain Bonus;
         var dodgeChance = LuckFactor + Tile.AvoidBoost;
 
@@ -369,19 +374,8 @@ public class Unit : MonoBehaviour, IClickable
         return damageDetails;
     }
 
-    /// <summary>
-    /// Handles the movement event of the unit
-    /// </summary>
-    /// <param name="destinationTile">The tile the unit is moving to</param>
-    /// <param name="path"> List of tiles that the unit will move through</param>
-    public virtual void Move(OverlayTile destinationTile, List<OverlayTile> path)
+    public void Move(OverlayTile destinationTile, List<OverlayTile> path)
     {
-
-        foreach(var tile in path)
-        {
-            MovementPoints -= tile.MovementCost;
-        }
-
         if (MovementAnimationSpeed > 0)
         {
             Anim.SetBool("IsMoving", true);
@@ -391,12 +385,41 @@ public class Unit : MonoBehaviour, IClickable
         {
             OnMoveFinished(destinationTile);
         }
+        storedMovementDetails = new MovementEventArgs(Tile, destinationTile, path);
+    }
+
+    /// <summary>
+    /// Handles the movement event of the unit
+    /// </summary>
+    /// <param name="destinationTile">The tile the unit is moving to</param>
+    /// <param name="path"> List of tiles that the unit will move through</param>
+    public virtual MovementEventArgs GetStoredMovementDetails()
+    {
+        return storedMovementDetails;       
+    }
+
+    public void ConfirmMove(MovementEventArgs e)
+    {
+
+        foreach (var tile in e.Path)
+        {
+            MovementPoints -= tile.MovementCost;
+        }
 
         if (UnitMoved != null)
         {
-            UnitMoved.Invoke(this, new MovementEventArgs(Tile, destinationTile, path));             
+            UnitMoved.Invoke(this, e);
         }
+        storedMovementDetails = null;
     }
+
+    public void ResetMove(MovementEventArgs e)
+    {
+        MovementPoints = TotalMovementPoints;
+        PositionCharacter(e.StartingTile);
+        storedMovementDetails = null;
+    }
+
 
     /// <summary>
     /// Procedurally moves unit along the path
