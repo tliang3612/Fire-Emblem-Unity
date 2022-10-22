@@ -33,7 +33,11 @@ public class AIPlayer : Player
 				attackAbility.OnAbilitySelected(tileGrid);
 				attackAbility.UnitToAttack = GetUnitToAttack(unit);
 				StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
-				yield return new WaitForSeconds(1f);
+				while (tileGrid.IsBattling)
+				{
+					yield return null;
+				}
+				yield return new WaitForSeconds(0.5f);
 				continue;
 			}
 			else if(GetDestination(unit))
@@ -54,7 +58,7 @@ public class AIPlayer : Player
                     {
 						yield return null; 
                     }
-					yield return new WaitForSeconds(1f);
+					yield return new WaitForSeconds(0.5f);
 					continue;
 				}				
 			}

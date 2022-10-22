@@ -25,10 +25,11 @@ public class BattleSystem : MonoBehaviour
     public void SetUpBattle()
     {
         playerUnit.Setup(enemyUnit);
-        playerHUD.SetData(playerUnit.unit);
+        //Pass in enemy unit as well to precalculate battle accuracy
+        playerHUD.SetData(playerUnit.unit, enemyUnit.unit);
 
         enemyUnit.Setup(playerUnit);
-        enemyHUD.SetData(enemyUnit.unit);
+        enemyHUD.SetData(enemyUnit.unit, playerUnit.unit);
 
         StartCoroutine(PerformPlayerMove());
     }

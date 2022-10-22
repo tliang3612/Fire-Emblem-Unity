@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class MouseManager : MonoBehaviour
 {
+
     private void Update()
     {
         Vector2 mousePos = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-        if (Input.GetMouseButtonDown(0))
+        if (hit)
         {
-            if (hit)
+            if (Input.GetMouseButtonDown(0))
             {
                 IClickable objectHit = hit.collider.GetComponent<IClickable>();
                 objectHit.OnPointerDown();
             }
+            
         }
+        
     }
 }

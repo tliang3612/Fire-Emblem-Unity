@@ -13,7 +13,7 @@ public class TileGridStateWaitingForInput : TileGridState
     {
         if (_tileGrid.GetCurrentPlayerUnits().Contains(unit))
         {
-            _tileGrid.GridState = new TileGridStateAbilitySelected(_tileGrid, unit, unit.GetComponents<Ability>().ToList());
+            _tileGrid.GridState = new TileGridStateUnitSelected(_tileGrid, unit, unit.GetComponents<Ability>().ToList());
         }
     }
 }

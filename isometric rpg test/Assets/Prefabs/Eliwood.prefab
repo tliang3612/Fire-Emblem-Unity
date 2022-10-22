@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4466708332404604376}
   - component: {fileID: 5794801613768600458}
   - component: {fileID: 8935146473678027179}
-  - component: {fileID: 8173046501462882391}
   - component: {fileID: 4173244725878800295}
   - component: {fileID: 735354085006907964}
   - component: {fileID: 2539727127629995566}
@@ -79,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 40
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1034901625, guid: 64de7c8cb24cfec4fb5f77b2a31ea8ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -128,19 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesInAttackRange: []
---- !u!114 &8173046501462882391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252696446259133752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a93683a41a60a0046a88f532ab0294de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!114 &4173244725878800295
 MonoBehaviour:
   m_ObjectHideFlags: 0

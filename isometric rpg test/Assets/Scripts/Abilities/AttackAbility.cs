@@ -34,7 +34,7 @@ public class AttackAbility : Ability
         }
         else if (tileGrid.GetCurrentPlayerUnits().Contains(unit))
         {
-            tileGrid.GridState = new TileGridStateAbilitySelected(tileGrid, unit, unit.GetComponents<Ability>().ToList());
+            tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, unit, unit.GetComponents<Ability>().ToList());
         }
     }
 

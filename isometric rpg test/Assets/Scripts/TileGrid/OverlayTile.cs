@@ -44,6 +44,10 @@ public class OverlayTile : MonoBehaviour, IClickable
             if (TileHighlighted != null)
                 TileHighlighted.Invoke(this, EventArgs.Empty);
         }
+        else
+        {
+            UnMark();
+        }
     }
 
     public void OnMouseExit()
@@ -52,14 +56,23 @@ public class OverlayTile : MonoBehaviour, IClickable
         {
             if (TileDehighlighted != null)
                 TileDehighlighted.Invoke(this, EventArgs.Empty);
-        }       
+        }
+        else
+        {
+            UnMark();
+        }
     }
+
     public void OnPointerDown()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             if (TileClicked != null)
                 TileClicked.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            UnMark();
         }
     }
 
@@ -138,18 +151,21 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
     }
 
+    //Cursor stops animating when on a Unit
     public void HighlightedOnUnit()
     {
-        CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;
         CursorSprite.GetComponent<Animator>().SetBool("IsActive", false);
+        CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;       
     }
 
+    //Animates Cursor and makes the cursor on the tile visible
     public void ShowCursor()
     {
         CursorSprite.GetComponent<Animator>().SetBool("IsActive", true);
         CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;      
     }
 
+    //Stops Cursor animation and make it invisible
     public void HideCursor()
     {
         CursorSprite.GetComponent<Animator>().SetBool("IsActive", false);

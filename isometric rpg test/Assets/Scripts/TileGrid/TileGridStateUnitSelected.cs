@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using Units.UnitStates;
 using UnityEngine;
 using System.Linq;
-public class TileGridStateAbilitySelected : TileGridState
+public class TileGridStateUnitSelected : TileGridState
 {
     List<Ability> _abilities;
     Unit _unit;
 
-    public TileGridStateAbilitySelected(TileGrid tileGrid, Unit unit, List<Ability> abilities) : base(tileGrid)
+    public TileGridStateUnitSelected(TileGrid tileGrid, Unit unit, List<Ability> abilities) : base(tileGrid)
     {
         if (abilities.Count == 0)
         {
@@ -18,7 +18,7 @@ public class TileGridStateAbilitySelected : TileGridState
         _unit = unit;
     }
 
-    public TileGridStateAbilitySelected(TileGrid tileGrid, Unit unit, Ability ability) : this(tileGrid, unit, new List<Ability>() { ability }) { }
+    public TileGridStateUnitSelected(TileGrid tileGrid, Unit unit, Ability ability) : this(tileGrid, unit, new List<Ability>() { ability }) { }
 
     public override void OnUnitClicked(Unit unit)
     {
@@ -57,8 +57,6 @@ public class TileGridStateAbilitySelected : TileGridState
         var canPerformAction = _abilities.Select(a => a.CanPerform(_tileGrid))
                                             .DefaultIfEmpty()
                                             .Aggregate((result, next) => result || next);
-
-        //Debug.Log(canPerformAction);
 
         if (!canPerformAction)
         {       

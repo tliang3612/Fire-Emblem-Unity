@@ -10,16 +10,19 @@ public class BattleSystemHUD : MonoBehaviour
     [SerializeField] Text critText;
 
     [SerializeField] HealthBar hpBar;
+    
 
     Unit _unit;
 
-    public void SetData(Unit unit)
+    public void SetData(Unit unit, Unit enemyUnit)
     {
         _unit = unit;
-        hitText.text = unit.GetHitChance().ToString();
+  
+        hitText.text = unit.GetBattleAccuracy(enemyUnit).ToString();
         damageText.text = unit.GetAttack().ToString();
         critText.text = unit.GetCritChance().ToString();
-        hpBar.SetupHP((float)_unit.HitPoints / _unit.TotalHitPoints);
+
+        hpBar.SetupHP(_unit.HitPoints , _unit.TotalHitPoints);
     }
 
     public IEnumerator UpdateHP()

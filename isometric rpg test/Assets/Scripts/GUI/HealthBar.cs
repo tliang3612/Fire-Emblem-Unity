@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] GameObject hpBar;
+    [SerializeField] Text hpText;
 
-    public void SetupHP(float hp)
+    public void SetupHP(float currentHp, float totalHp)
     {
-        hpBar.GetComponent<Image>().fillAmount = hp;
+
+        hpBar.GetComponent<Image>().fillAmount = currentHp/totalHp;
+        hpText.text = currentHp.ToString();
     }
 
     public IEnumerator SetHP(float newHp, float maxHp)
@@ -23,8 +26,10 @@ public class HealthBar : MonoBehaviour
         {
             currentHp -= changeAmount * Time.deltaTime;
             hpBar.GetComponent<Image>().fillAmount = currentHp;
+            hpText.text = ((int)currentHp).ToString();
             yield return null;
         }
+
         hpBar.GetComponent<Image>().fillAmount = newHp;
     }
 }

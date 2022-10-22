@@ -28,12 +28,15 @@ public class TileGrid : MonoBehaviour
     /// GameEnded event is invoked when there is a single player left in the game.
     /// </summary>
     public event EventHandler<GameEndedArgs> GameEnded;
+
     /// <summary>
-    /// Turn ended event is invoked at the end of each turn.
-    /// </summary>
-    /// 
+    /// UnitAdded event is invoked when a unit gets added into the game
+    /// </summary> 
     public event EventHandler<UnitCreatedEventArgs> UnitAdded;
 
+    /// <summary>
+    /// Turn ended event is invoked at the end of each turn.
+    /// </summary> 
     public event EventHandler TurnEnded;
 
     private TileGridState _gridState;
@@ -70,6 +73,7 @@ public class TileGrid : MonoBehaviour
     public Transform PlayersHolder;
 
     public bool ShouldStartGameImmediately = true;
+    public bool TurnInProgress { get; set; }
     public bool GameFinished { get; private set; }
    
     public List<Unit> UnitList { get; private set; }
@@ -154,7 +158,7 @@ public class TileGrid : MonoBehaviour
             tile.TileClicked += OnTileClicked;
             tile.TileHighlighted += OnTileHighlighted;
             tile.TileDehighlighted += OnTileDehighlighted;
-               
+            tile.UnMark();
         }
 
         UnitList = new List<Unit>();
@@ -282,7 +286,7 @@ public class TileGrid : MonoBehaviour
 
         
     /// <summary>
-    /// Method is called once, at the beggining of the game.
+    /// Method is called once, at the begining of the game.
     /// </summary>
     public void StartGame()
     {
@@ -303,10 +307,17 @@ public class TileGrid : MonoBehaviour
             }
             u.OnTurnStart();
         }
+        
+    }
 
-        //PlayableUnits.ForEach(u => { u.GetComponents<Ability>().ToList().ForEach(a => a.OnTurnStart(this)); u.OnTurnStart(); });
+    public void StartPlayerTurn()
+    {
+        TurnInProgress = true;
         CurrentPlayer.Play(this);
     }
+
+    
+
     /// <summary>
     /// Method makes turn transitions. It is called by player at the end of his turn.
     /// </summary>
@@ -357,7 +368,6 @@ public class TileGrid : MonoBehaviour
             }
             unit.OnTurnStart();
         }
-        CurrentPlayer.Play(this);
     }
 
     public List<Unit> GetCurrentPlayerUnits()

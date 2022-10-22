@@ -76,7 +76,6 @@ public class Unit : MonoBehaviour, IClickable
 
     private AStarPathfinder _pathfinder = new AStarPathfinder();
     private RangeFinder rangeFinder;
-    private AttackAnimation attackAnimation;
 
     //Initializes the unit. Called whenever a unit gets added into the game
     public virtual void Initialize()
@@ -84,13 +83,10 @@ public class Unit : MonoBehaviour, IClickable
         UnitState = new UnitStateNormal(this);
         MovementAnimationSpeed = 7f;
 
-        GetComponent<SpriteRenderer>().sortingOrder = 40;
-
         TotalHitPoints = HitPoints;
         TotalMovementPoints = MovementPoints;
         TotalActionPoints = ActionPoints;
 
-        attackAnimation = GetComponent<AttackAnimation>();
         Anim = GetComponent<Animator>();
 
         rangeFinder = new RangeFinder();
@@ -119,8 +115,15 @@ public class Unit : MonoBehaviour, IClickable
         
     public void OnPointerDown()
     {
-        if (UnitClicked != null)
-            UnitClicked.Invoke(this, EventArgs.Empty);
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (UnitClicked != null)
+                UnitClicked.Invoke(this, EventArgs.Empty);
+        }  
+        else
+        {
+            UnMark();
+        }
     }
 
     public void OnMouseEnter()
@@ -129,10 +132,12 @@ public class Unit : MonoBehaviour, IClickable
         {
             if (UnitHighlighted != null)
                 UnitHighlighted.Invoke(this, EventArgs.Empty);
+            Tile.HighlightedOnUnit();
         }
-
-        Tile.HighlightedOnUnit();
-
+        else
+        {
+            UnMark();
+        }
     }
     public void OnMouseExit()
     {
@@ -147,7 +152,6 @@ public class Unit : MonoBehaviour, IClickable
     //Called at the start of each turn
     public virtual void OnTurnStart()
     {
-
         var name = this.name;
         var state = UnitState;
 
@@ -263,7 +267,7 @@ public class Unit : MonoBehaviour, IClickable
     public int GetCritChance()
     {
         //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
-        return (SkillFactor / 2) + 10;
+        return (SkillFactor / 2) + 90;
     }
 
     public int GetHitChance()
@@ -276,6 +280,17 @@ public class Unit : MonoBehaviour, IClickable
     {
         //Attack formula = Attack + Weapon Triangle bonus + Weapon Hit
         return AttackFactor + 5;
+    }
+
+    public int GetDodgeChance()
+    {
+        return LuckFactor + Tile.AvoidBoost;
+    }
+
+    public int GetBattleAccuracy(Unit unitToAttack)
+    {
+        //Attack formula = Attack + Weapon Triangle bonus + Weapon Hit
+        return GetHitChance() - unitToAttack.GetDodgeChance();
     }
 
 

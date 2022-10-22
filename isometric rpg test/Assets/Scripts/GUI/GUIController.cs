@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GUIController : MonoBehaviour
 {
     public TileGrid tileGrid;
+    public PhaseTransition phaseTransition;
     public Button NextTurnButton;
 
     public Image UnitImage;
@@ -39,7 +40,8 @@ public class GUIController : MonoBehaviour
             tile.TileHighlighted += OnTileHighlighted;
             tile.TileDehighlighted += OnTileDehighlighted;
         }
-        OnTurnEnded(sender, e);
+
+        OnTurnEnded(sender, e); 
     }
     private void OnGameEnded(object sender, EventArgs e)
     {
@@ -48,7 +50,7 @@ public class GUIController : MonoBehaviour
     }
     private void OnTurnEnded(object sender, EventArgs e)
     {
-        NextTurnButton.interactable = ((sender as TileGrid).CurrentPlayer is Player);
+        NextTurnButton.interactable = ((sender as TileGrid).CurrentPlayer is HumanPlayer);
 
         InfoText.text = "Player " + ((sender as TileGrid).CurrentPlayerNumber + 1);
     }
