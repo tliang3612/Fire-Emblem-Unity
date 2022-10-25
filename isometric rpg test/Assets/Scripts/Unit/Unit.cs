@@ -522,7 +522,6 @@ public class Unit : MonoBehaviour, IClickable
 
     public virtual void MarkAsEnemy(Player player)
     {
-        Debug.Log("Marked");
         GetComponent<SpriteRenderer>().color = player.Color;
     }
 
