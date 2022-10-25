@@ -130,6 +130,11 @@ public class OverlayTile : MonoBehaviour, IClickable
         ShowCursor();
     }
 
+    public virtual void MarkAsDeHighlighted()
+    {
+        HideCursor();
+    }
+
     public virtual void MarkAsAttackableTile()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = redTile;       
@@ -156,6 +161,11 @@ public class OverlayTile : MonoBehaviour, IClickable
     {
         CursorSprite.GetComponent<Animator>().SetBool("IsActive", false);
         CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;       
+    }
+
+    public void DeHighlightedOnUnit()
+    {
+        HideCursor();
     }
 
     //Animates Cursor and makes the cursor on the tile visible

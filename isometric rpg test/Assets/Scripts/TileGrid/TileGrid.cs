@@ -94,6 +94,8 @@ public class TileGrid : MonoBehaviour
     private Camera worldCamera;
     public bool IsBattling = false;
 
+    public bool InSelectionMenu = false;
+
 
 
     private void Start()

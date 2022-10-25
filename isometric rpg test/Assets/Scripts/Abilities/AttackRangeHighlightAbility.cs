@@ -19,7 +19,7 @@ public class AttackRangeHighlightAbility : Ability
 
     public override void Display(TileGrid tileGrid)
     {
-        if (UnitReference.ActionPoints > 0 && !UnitReference.InSelectionMenu)
+        if (UnitReference.ActionPoints > 0 && !tileGrid.InSelectionMenu)
         {
             tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
         }              
@@ -72,6 +72,6 @@ public class AttackRangeHighlightAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return !UnitReference.InSelectionMenu && UnitReference.ActionPoints > 0;
+        return !tileGrid.InSelectionMenu && UnitReference.ActionPoints > 0;
     }
 }

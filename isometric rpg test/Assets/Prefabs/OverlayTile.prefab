@@ -100,9 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa3636f884d7e841b7e333cc9108ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  G: 0
-  H: 0
-  previous: {fileID: 0}
   gridLocation: {x: 0, y: 0, z: 0}
   tileMap: {fileID: 0}
   arrowImages:
@@ -125,6 +122,7 @@ MonoBehaviour:
   TileName: 
   MovementCost: 0
   DefenseBoost: 0
+  AvoidBoost: 0
   MovementRating: 0
 --- !u!61 &4399094255726469832
 BoxCollider2D:

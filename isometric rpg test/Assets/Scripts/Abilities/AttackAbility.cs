@@ -14,7 +14,7 @@ public class AttackAbility : Ability
     {
         base.Awake();
         Name = "Attack";
-        IsDisplayable = true;
+        IsDisplayable = false;
     }
 
     public override IEnumerator Act(TileGrid tileGrid)
@@ -29,7 +29,8 @@ public class AttackAbility : Ability
     }
     public override void Display(TileGrid tileGrid)
     {
-        tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.AttackRange);
+                                                                                                //The tile the unit is standing on shouldn't be an attackable tile
+        tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.AttackRange).Where(t => t != UnitReference.Tile).ToList();
         tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
     }
 
@@ -57,9 +58,7 @@ public class AttackAbility : Ability
         enemiesInAttackRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u)).ToList();
 
         return enemiesInAttackRange.Count > 0 && UnitReference.ActionPoints > 0;
-    }
-
-    
+    }    
 }
 
 

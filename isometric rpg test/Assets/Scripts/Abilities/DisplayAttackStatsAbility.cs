@@ -6,38 +6,41 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
-public class DisplayActionsAbility : Ability
+public class DisplayAttackStatsAbility : Ability
 {
     public GameObject UnitCanvas;
-    [HideInInspector]
-    public GameObject SelectedButton;
+    public GameObject StatsDisplay;
 
-    public GameObject menuActions;
-    public GameObject ActionButton;
+    public Button CancelButton;
 
-    Dictionary<GameObject, Ability> abilitiesMap;
-
-    private List<GameObject> ButtonList;
+    public List<OverlayTile> tilesInRange;
+    public List<Unit> enemiesInAttackRange { get; set; }
+    private List<OverlayTile> tilesInAttackRange;
 
     private void Start()
     {
         UnitCanvas.SetActive(false);
     }
 
-    public override IEnumerator Act(TileGrid tileGrid)
+    protected override void Awake()
     {
-        yield return 0;
+        base.Awake();
+        Name = "Attack";
+        IsDisplayable = true;
     }
 
     public override void Display(TileGrid tileGrid)
     {
-        if(tileGrid.InSelectionMenu)
+        if (tileGrid.InSelectionMenu)
             UnitCanvas.SetActive(true);
 
-        foreach(Ability ability in GetComponentsInParent<Ability>())
+        tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.AttackRange).Where(t => t != UnitReference.Tile).ToList();
+        tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
+
+        /*foreach (Ability ability in GetComponentsInParent<Ability>())
         {
             ability.UnitReference = UnitReference;
-            if(ability.IsDisplayable && ability.CanPerform(tileGrid))
+            if (ability.IsDisplayable && ability.CanPerform(tileGrid))
             {
                 var actionButton = Instantiate(ActionButton, menuActions.transform);
                 actionButton.GetComponentInChildren<TextMeshProUGUI>().text = ability.Name;
@@ -45,8 +48,10 @@ public class DisplayActionsAbility : Ability
                 abilitiesMap.Add(actionButton, ability);
                 actionButton.SetActive(true);
                 ButtonList.Add(actionButton);
-            }    
-        }
+            }
+        }*/
+
+        CancelButton.onClick.AddListener(() => )
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
@@ -64,29 +69,18 @@ public class DisplayActionsAbility : Ability
         tile.UnMark();
     }
 
-    void ActWrapper(GameObject button, TileGrid tileGrid)
-    {
-        SelectedButton = button;
-        StartCoroutine(Execute(tileGrid,
-                _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, abilitiesMap[SelectedButton])));
-    }
+  
 
     public override void CleanUp(TileGrid tileGrid)
     {
-        foreach (var button in ButtonList)
-        {
-            Destroy(button);
-        }
+        
         UnitCanvas.SetActive(false);
 
     }
-
-    public override void OnAbilitySelected(TileGrid tileGrid)
+    
+    public void CancelButtonClicked()
     {
-        abilitiesMap = new Dictionary<GameObject, Ability>();
-        ButtonList = new List<GameObject>();
-        
+
     }
 
     public override bool CanPerform(TileGrid tileGrid)

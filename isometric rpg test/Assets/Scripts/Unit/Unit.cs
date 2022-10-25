@@ -125,10 +125,7 @@ public class Unit : MonoBehaviour, IClickable
             if (UnitClicked != null)
                 UnitClicked.Invoke(this, EventArgs.Empty);
         }  
-        else
-        {
-            UnMark();
-        }
+
     }
 
     public void OnMouseEnter()
@@ -137,12 +134,8 @@ public class Unit : MonoBehaviour, IClickable
         {
             if (UnitHighlighted != null)
                 UnitHighlighted.Invoke(this, EventArgs.Empty);
-            Tile.HighlightedOnUnit();
         }
-        else
-        {
-            UnMark();
-        }
+
     }
     public void OnMouseExit()
     {
@@ -151,7 +144,7 @@ public class Unit : MonoBehaviour, IClickable
             if (UnitDehighlighted != null)
                 UnitDehighlighted.Invoke(this, EventArgs.Empty);
         }
-        Tile.UnMark();
+
     }
 
     //Called at the start of each turn
@@ -268,13 +261,13 @@ public class Unit : MonoBehaviour, IClickable
     public int GetCritChance()
     {
         //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
-        return (SkillFactor / 2) + 90;
+        return (SkillFactor / 2);
     }
 
     public int GetHitChance()
     {
         //Raw Accuracy formula = (Skill x 2) + (Luck / 2) + Weapon Triangle bonus + Weapon hit
-        return (SkillFactor * 2) + (LuckFactor / 2);
+        return (SkillFactor * 2) + (LuckFactor / 2) + 50;
     }
 
     public int GetAttack()
@@ -337,6 +330,8 @@ public class Unit : MonoBehaviour, IClickable
 
         //Battle Accuracy formula = attacker Accuracy – defender’s Avoid;
         var battleAccuracy = attackerAction.RawAccuracy - dodgeChance;
+
+        Debug.Log(battleAccuracy);
         
         //modifiers
         int crit = 1;
@@ -378,10 +373,6 @@ public class Unit : MonoBehaviour, IClickable
         
         storedMovementDetails = new MovementEventArgs(Tile, destinationTile, path);
 
-        if (FindObjectOfType<TileGrid>().PlayersList[PlayerNumber] is HumanPlayer)
-            InSelectionMenu = true;
-        else
-            InSelectionMenu = false;
     }
 
     /// <summary>

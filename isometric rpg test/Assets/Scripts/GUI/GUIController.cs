@@ -62,6 +62,7 @@ public class GUIController : MonoBehaviour
     }
     private void OnTileHighlighted(object sender, EventArgs e)
     {
+
         ShowTerrainPanel(sender as OverlayTile);
     }
 

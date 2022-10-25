@@ -59,8 +59,12 @@ public abstract class Ability : MonoBehaviour
 
 
     public virtual void OnUnitClicked(Unit unit, TileGrid tileGrid) { }
-    public virtual void OnUnitHighlighted(Unit unit, TileGrid tileGrid) { }
-    public virtual void OnUnitDehighlighted(Unit unit, TileGrid tileGrid) { }
+    public virtual void OnUnitHighlighted(Unit unit, TileGrid tileGrid) {
+        unit.Tile.HighlightedOnUnit();
+    }
+    public virtual void OnUnitDehighlighted(Unit unit, TileGrid tileGrid) {
+        unit.Tile.DeHighlightedOnUnit();
+    }
     public virtual void OnUnitDestroyed(TileGrid tileGrid) { }
     public virtual void OnTileClicked(OverlayTile tile, TileGrid tileGrid) { }
     public virtual void OnTileSelected(OverlayTile tile, TileGrid tileGrid) { }

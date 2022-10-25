@@ -30,6 +30,10 @@ public class MoveAbility : Ability
             {
                 yield return 0;
             }
+            if (tileGrid.CurrentPlayer is HumanPlayer)
+                tileGrid.InSelectionMenu = true;
+            else
+                tileGrid.InSelectionMenu = false;
         }
         
         yield return 0;
@@ -103,7 +107,7 @@ public class MoveAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1 && !UnitReference.InSelectionMenu;
+        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1;
     }
 
     private void TranslateArrows(TileGrid tileGrid)

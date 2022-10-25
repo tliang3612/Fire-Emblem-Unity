@@ -23,10 +23,12 @@ public abstract class TileGridState
 
     public virtual void OnUnitHighlighted(Unit unit)
     {
+        unit.Tile.HighlightedOnUnit();
     }
 
     public virtual void OnUnitDehighlighted(Unit unit)
     {
+        unit.Tile.DeHighlightedOnUnit();
     }
 
 
@@ -36,7 +38,7 @@ public abstract class TileGridState
     /// <param name="cell">Cell that was deselected.</param>
     public virtual void OnTileDeselected(OverlayTile tile)
     {
-        tile.HideCursor();
+        tile.MarkAsDeHighlighted();
     }
 
     /// <summary>
@@ -71,5 +73,9 @@ public abstract class TileGridState
     /// </summary>
     public virtual void OnStateExit()
     {
+        foreach (var tile in _tileGrid.TileList)
+        {
+            tile.UnMark();
+        }
     }
 }

@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 8935146473678027179}
   - component: {fileID: 6907700527745128880}
   - component: {fileID: 2147278609997241859}
-  - component: {fileID: 735354085006907964}
   - component: {fileID: 2539727127629995566}
+  - component: {fileID: 1214570747789244960}
   m_Layer: 0
   m_Name: Eliwood
   m_TagString: Untagged
@@ -184,32 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8328a6175b6434c40aacb2032956f047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &735354085006907964
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252696446259133752}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.010834351, y: 0.010528654}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9444444, y: 1}
-    newSize: {x: 1.0625, y: 1.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8614472, y: 0.98301584}
-  m_EdgeRadius: 0
 --- !u!95 &2539727127629995566
 Animator:
   serializedVersion: 4
@@ -230,6 +204,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1214570747789244960
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252696446259133752}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9444444, y: 1}
+    newSize: {x: 1.0625, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.93, y: 0.93}
+  m_EdgeRadius: 0
 --- !u!1 &4904897773218565496
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,8 +393,8 @@ RectTransform:
   m_Father: {fileID: 6596817964276041942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 1.12355, y: 0}
   m_SizeDelta: {x: 1.8931, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
