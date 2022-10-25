@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+//Enemy unit isnt doing confirm mocve poropely 
 public class MoveAbility : Ability
 {
     public OverlayTile Destination { get; set; }
-    public List<OverlayTile> availableDestinations { get; set; }
+    public List<OverlayTile> availableDestinations { get; set; }  
     public List<OverlayTile> path { get; set; }
-        
+
+    private List<OverlayTile> tilesInAttackRange;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Name = "Move";
+        IsDisplayable = false;
+    }
+
 
     public override IEnumerator Act(TileGrid tileGrid)
     {
@@ -21,7 +31,7 @@ public class MoveAbility : Ability
                 yield return 0;
             }
         }
-        UnitReference.InSelectionMenu = true;
+        
         yield return 0;
     }
 
@@ -29,17 +39,22 @@ public class MoveAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
-            //Marks the reachable destinations
-            availableDestinations.ForEach(t => t.MarkAsReachable());
+            tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
 
+            availableDestinations.ForEach(t => t.MarkAsReachable());
         }
     }
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
     {
-        if (tileGrid.GetCurrentPlayerUnits().Contains(unit))
+        if(UnitReference == unit)
         {
-            tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, unit, unit.GetComponents<Ability>().ToList());
+            Destination = UnitReference.Tile;
+            StartCoroutine(CustomExecute(tileGrid));
+        }
+        else if (tileGrid.GetCurrentPlayerUnits().Contains(unit))
+        {
+            tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, unit, unit.GetComponent<MoveAbility>());
         }
     }
 
@@ -48,10 +63,10 @@ public class MoveAbility : Ability
         if (availableDestinations.Contains(tile) && UnitReference.IsTileMovableTo(tile))
         {
             Destination = tile;
-            StartCoroutine(HumanExecute(tileGrid));
+            StartCoroutine(CustomExecute(tileGrid));
         }
         else
-        {           
+        {
             tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
         }
     }
@@ -76,17 +91,19 @@ public class MoveAbility : Ability
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
         availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
+        tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
     }
 
     public override void CleanUp(TileGrid tileGrid)
     {
         availableDestinations.ForEach(t => t.UnMark());
+        tilesInAttackRange.ForEach(t => t.UnMark());
         ResetArrows();
     }
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1 && UnitReference.InSelectionMenu == false;
+        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1 && !UnitReference.InSelectionMenu;
     }
 
     private void TranslateArrows(TileGrid tileGrid)

@@ -5,7 +5,7 @@ public class UnitStateFriendly : UnitState
 
     public override void Apply()
     {
-        _unit.MarkAsFriendly();
+        
     }
 
     public override void TransitionState(UnitState state)

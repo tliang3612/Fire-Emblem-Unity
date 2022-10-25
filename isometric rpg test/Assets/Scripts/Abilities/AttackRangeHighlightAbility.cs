@@ -2,29 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
+using UnityEngine;
 
 public class AttackRangeHighlightAbility : Ability
 {
     List<Unit> enemiesInRange;
     List<OverlayTile> tilesInAttackRange;
 
-    public override void OnTileSelected(OverlayTile tile, TileGrid tileGrid)
+
+    protected override void Awake()
     {
-        var availableDestinations = UnitReference.GetComponent<MoveAbility>().availableDestinations;
-        if (!availableDestinations.Contains(tile))
-        {
-            return;
-        }
-        var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(e));
-
-        enemiesInRange.ForEach(u => u.MarkAsReachableEnemy());
-
+        base.Awake();
+        Name = "AttackRangeHighlight";
+        IsDisplayable = false;
     }
 
     public override void Display(TileGrid tileGrid)
     {
-        if (UnitReference.ActionPoints > 0)
+        if (UnitReference.ActionPoints > 0 && !UnitReference.InSelectionMenu)
         {
             tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
         }              
@@ -32,7 +27,7 @@ public class AttackRangeHighlightAbility : Ability
 
     public override void OnTileDeselected(OverlayTile tile, TileGrid tileGrid)
     {
-        enemiesInRange?.ForEach(u => u.UnMark());
+        /*enemiesInRange?.ForEach(u => u.UnMark());
 
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
         //searches for all enemy units that are attackable
@@ -44,17 +39,24 @@ public class AttackRangeHighlightAbility : Ability
         if (UnitReference.ActionPoints > 0)
         {
             tilesInAttackRange?.ForEach(t => t.MarkAsAttackableTile());
-        }
+        }*/
     }
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
-        var availableDestinations = UnitReference.GetComponent<MoveAbility>().availableDestinations;
+        var availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
 
-        var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        enemiesInRange = enemyUnits.FindAll(e => UnitReference.IsUnitAttackable(e));
+        if (availableDestinations.Count > 0)
+        {
+            tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
+        }        
+        else
+        {
+            availableDestinations.Add(UnitReference.Tile);
+            tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
+        }
+            
 
-        tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
     }
 
     public override void CleanUp(TileGrid tileGrid)
@@ -70,6 +72,6 @@ public class AttackRangeHighlightAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitReference.InSelectionMenu == false;
+        return !UnitReference.InSelectionMenu && UnitReference.ActionPoints > 0;
     }
 }

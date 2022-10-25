@@ -36,7 +36,7 @@ public abstract class TileGridState
     /// <param name="cell">Cell that was deselected.</param>
     public virtual void OnTileDeselected(OverlayTile tile)
     {
-        tile.UnMark();
+        tile.HideCursor();
     }
 
     /// <summary>

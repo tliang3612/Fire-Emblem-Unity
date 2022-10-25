@@ -9,9 +9,14 @@ public abstract class Ability : MonoBehaviour
     //The Unit that this ability script is attached to 
     public Unit UnitReference { get; set; }
 
+    public bool IsDisplayable { get; protected set; }
+    public string Name { get; protected set; }
+
     protected virtual void Awake()
     {
         UnitReference = GetComponent<Unit>();
+        IsDisplayable = false;
+        Name = "Ability";
     }
 
     public IEnumerator Execute(TileGrid tileGrid, Action<TileGrid> preAction, Action<TileGrid> postAction)
@@ -25,6 +30,13 @@ public abstract class Ability : MonoBehaviour
         yield return Execute(tileGrid,
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
             _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponents<Ability>().ToList()));
+    }
+
+    public IEnumerator CustomExecute(TileGrid tileGrid)
+    {
+        yield return Execute(tileGrid,
+            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<DisplayActionsAbility>()));
     }
 
     public IEnumerator AIExecute(TileGrid tileGrid)

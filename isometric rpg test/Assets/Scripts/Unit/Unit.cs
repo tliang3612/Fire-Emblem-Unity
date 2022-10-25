@@ -39,7 +39,7 @@ public class Unit : MonoBehaviour, IClickable
     public int TotalMovementPoints { get; private set; }
     public int TotalActionPoints { get; private set; }
 
-    public OverlayTile Tile { get; set; }
+    public OverlayTile Tile;
     public OverlayTile PreviousTile { get; set; }
 
     private Animator Anim;
@@ -58,7 +58,7 @@ public class Unit : MonoBehaviour, IClickable
 
     public bool InSelectionMenu = false;
 
-    private MovementEventArgs storedMovementDetails;
+    public MovementEventArgs storedMovementDetails;
 
     [SerializeField]
     private int movementPoints;
@@ -96,7 +96,7 @@ public class Unit : MonoBehaviour, IClickable
 
         rangeFinder = new RangeFinder();
 
-        if (!Tile)
+        if (Tile == null)
         {
             Tile = GetStartingTile();
             Tile.IsBlocked = true;
@@ -160,10 +160,6 @@ public class Unit : MonoBehaviour, IClickable
         var name = this.name;
         var state = UnitState;
 
-        if(HitPoints > 0)
-        {
-            SetState(new UnitStateFriendly(this));
-        }     
     }
 
     //Called on the end of each turn
@@ -278,7 +274,7 @@ public class Unit : MonoBehaviour, IClickable
     public int GetHitChance()
     {
         //Raw Accuracy formula = (Skill x 2) + (Luck / 2) + Weapon Triangle bonus + Weapon hit
-        return (SkillFactor * 2) + (LuckFactor / 2) + 90;
+        return (SkillFactor * 2) + (LuckFactor / 2);
     }
 
     public int GetAttack()
@@ -348,13 +344,11 @@ public class Unit : MonoBehaviour, IClickable
         //check for crit, crits are 2x damage
         if (UnityEngine.Random.value < (attackerAction.RawCritChance * 0.01))
         {
-            Debug.Log("Crit");
             crit = 2;
         }
         //check for hit, dodges negate all damage
         else if (UnityEngine.Random.value > (battleAccuracy * 0.01))
         {           
-            Debug.Log("Dodged");
             dodge = 0;
         }
         var totalDamage = (attackerAction.RawDamage - defence) * dodge * crit;
@@ -365,8 +359,8 @@ public class Unit : MonoBehaviour, IClickable
 
         var damageDetails = new DamageDetails()
         {
-            IsCrit = crit == 2f,
-            IsHit = dodge == 1f,
+            IsCrit = crit >= 2f,
+            IsHit = dodge >= 1f,
             IsDead = false,
             TotalDamage = totalDamage
         };
@@ -376,50 +370,19 @@ public class Unit : MonoBehaviour, IClickable
 
     public void Move(OverlayTile destinationTile, List<OverlayTile> path)
     {
-        if (MovementAnimationSpeed > 0)
+        if (MovementAnimationSpeed > 0 && path.Count > 1)
         {
             Anim.SetBool("IsMoving", true);
             StartCoroutine(MovementAnimation(path));
         }
-        else
-        {
-            OnMoveFinished(destinationTile);
-        }
+        
         storedMovementDetails = new MovementEventArgs(Tile, destinationTile, path);
+
+        if (FindObjectOfType<TileGrid>().PlayersList[PlayerNumber] is HumanPlayer)
+            InSelectionMenu = true;
+        else
+            InSelectionMenu = false;
     }
-
-    /// <summary>
-    /// Handles the movement event of the unit
-    /// </summary>
-    /// <param name="destinationTile">The tile the unit is moving to</param>
-    /// <param name="path"> List of tiles that the unit will move through</param>
-    public virtual MovementEventArgs GetStoredMovementDetails()
-    {
-        return storedMovementDetails;       
-    }
-
-    public void ConfirmMove(MovementEventArgs e)
-    {
-
-        foreach (var tile in e.Path)
-        {
-            MovementPoints -= tile.MovementCost;
-        }
-
-        if (UnitMoved != null)
-        {
-            UnitMoved.Invoke(this, e);
-        }
-        storedMovementDetails = null;
-    }
-
-    public void ResetMove(MovementEventArgs e)
-    {
-        MovementPoints = TotalMovementPoints;
-        PositionCharacter(e.StartingTile);
-        storedMovementDetails = null;
-    }
-
 
     /// <summary>
     /// Procedurally moves unit along the path
@@ -445,18 +408,54 @@ public class Unit : MonoBehaviour, IClickable
                 PositionCharacter(tempPath[0]);
                 tempPath.RemoveAt(0);
             }
-                
+
             yield return 0;
         }
         IsMoving = false;
-        Anim.SetBool("IsMoving", false);
-        OnMoveFinished(Tile);
+        
     }
 
-    //Called when movement animation terminates
-    protected virtual void OnMoveFinished(OverlayTile tile)
-    {        
-        PositionCharacter(tile);
+    public void ConfirmMove()
+    {
+        Anim.SetBool("IsMoving", false);
+
+        if (storedMovementDetails != null)
+        {
+            PositionCharacter(storedMovementDetails.DestinationTile);
+            foreach (var tile in storedMovementDetails.Path)
+            {
+                MovementPoints -= tile.MovementCost;
+            }
+
+            if (UnitMoved != null)
+            {
+                UnitMoved.Invoke(this, storedMovementDetails);
+            }
+
+            storedMovementDetails = null;
+            MovementPoints = 0;
+        }
+        
+    }
+
+    public void ResetMove()
+    {
+        Anim.SetBool("IsMoving", false);
+
+        if (storedMovementDetails != null)
+        {
+            MovementPoints = TotalMovementPoints;
+            PositionCharacter(storedMovementDetails.StartingTile);
+            storedMovementDetails = null;
+        }
+    }
+
+    public void SetFinshed()
+    {
+        Anim.SetBool("IsMoving", false);
+        SetState(new UnitStateFinished(this));
+        MovementPoints = 0;
+        ActionPoints = 0;
     }
 
     /// <summary>
@@ -466,25 +465,29 @@ public class Unit : MonoBehaviour, IClickable
     public void PositionCharacter(OverlayTile tile)
     {
         transform.position = tile.transform.position;
-        GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
         Tile = tile;
+        
     }
 
     public bool IsTileMovableTo(OverlayTile tile)
     {
+        if(Tile == tile)
+        {
+            return true;
+        }
         return !tile.IsBlocked;
     }
 
     //Get a list of tiles that the unit can move to
     public List<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
     {
-        return rangeFinder.GetTilesInMoveRange(this, tileGrid, GetTilesInRange(tileGrid));
+        return rangeFinder.GetTilesInMoveRange(this, tileGrid, GetTilesInRange(tileGrid, MovementPoints));
     }
 
     //Get a list of tiles within the unit's range. Doesn't take tile cost into consideration
-    public List<OverlayTile> GetTilesInRange(TileGrid tileGrid)
+    public List<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
     {
-        return rangeFinder.GetTilesInRange(this, tileGrid, MovementPoints);
+        return rangeFinder.GetTilesInRange(this, tileGrid, range);
     }
 
     //Get a list of attackable tiles that doesn't include the tiles that a unit can move to
@@ -505,35 +508,10 @@ public class Unit : MonoBehaviour, IClickable
         GetComponent<SpriteRenderer>().color = Color.cyan;
     }
 
-    /// Visual indication that the unit is starting an attack
-    public virtual void MarkAsAttacking(Unit target)
-    {
-        GetComponent<SpriteRenderer>().color = Color.red;
-        
-    }
-
     //Visual indication that the unit is destroyed
     public virtual void MarkAsDestroyed()
     {
         GetComponent<SpriteRenderer>().color = Color.black;
-    }
-
-    //Visual indication that the unit is part of the current player's units
-    public virtual void MarkAsFriendly()
-    {
-        GetComponent<SpriteRenderer>().color = Color.green;
-    }
-
-    //Visual indication that the unit marked is within attack range
-    public virtual void MarkAsReachableEnemy()
-    {
-        GetComponent<SpriteRenderer>().color = Color.red;
-    }
-
-    //Visual indication that the current unit as selected
-    public virtual void MarkAsSelected()
-    {
-        GetComponent<SpriteRenderer>().color = Color.blue;
     }
 
     //Visual indication that the unit has no more moves this turn
@@ -542,11 +520,18 @@ public class Unit : MonoBehaviour, IClickable
         GetComponent<SpriteRenderer>().color = Color.gray;
     }
 
+    public virtual void MarkAsEnemy(Player player)
+    {
+        Debug.Log("Marked");
+        GetComponent<SpriteRenderer>().color = player.Color;
+    }
+
     //Return the unit back to its original appearance
     public virtual void UnMark()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
     }
+
 }
 //End of unit class
     

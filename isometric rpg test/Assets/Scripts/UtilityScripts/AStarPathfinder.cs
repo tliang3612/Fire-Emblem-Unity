@@ -8,9 +8,16 @@ public class AStarPathfinder
     public List<OverlayTile> FindPath(OverlayTile start, OverlayTile end, List<OverlayTile> searchableTiles, TileGrid tileGrid)
     {
         PriorityQueue<OverlayTile> frontier = new PriorityQueue<OverlayTile>();
-
+        //Finished List
+        List<OverlayTile> path = new List<OverlayTile>();
         Dictionary<OverlayTile, OverlayTile> previousTile = new Dictionary<OverlayTile, OverlayTile>();
         Dictionary<OverlayTile, int> costSoFar = new Dictionary<OverlayTile, int>();
+
+        if(start == end)
+        {
+            path.Add(start);
+            return path;
+        }
 
         frontier.Enqueue(start, 0);
         costSoFar.Add(start, 0);
@@ -39,9 +46,6 @@ public class AStarPathfinder
                 }
             }
         }
-
-        //Get Finished List
-        List<OverlayTile> path = new List<OverlayTile>();
 
         //if end tile doesn't have a previous tile, it is unreachable
         if (!previousTile.ContainsKey(end))

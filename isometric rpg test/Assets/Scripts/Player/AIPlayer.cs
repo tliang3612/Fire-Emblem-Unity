@@ -44,11 +44,12 @@ public class AIPlayer : Player
             {
 				moveAbility.OnAbilitySelected(tileGrid);
 				moveAbility.Destination = GetDestination(unit);
-				StartCoroutine(unit.GetComponent<MoveAbility>().AIExecute(tileGrid));
+				StartCoroutine(unit.GetComponent<MoveAbility>().AIExecute(tileGrid));				
 				while (unit.IsMoving)
 					yield return 0;
-                yield return new WaitForSeconds(0.5f);
-
+				unit.ConfirmMove();
+				yield return new WaitForSeconds(0.5f);
+				
                 if (GetUnitToAttack(unit))
                 {
 					attackAbility.OnAbilitySelected(tileGrid);

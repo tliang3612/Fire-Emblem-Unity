@@ -296,15 +296,22 @@ public class TileGrid : MonoBehaviour
         PlayableUnits = transitionResult.PlayableUnits;
         CurrentPlayerNumber = transitionResult.NextPlayer.PlayerNumber;
 
-        foreach(Unit u in PlayableUnits)
+        foreach(Unit u in UnitList)
         {
-            var abilityList = u.GetComponents<Ability>();
-
-            foreach(Ability a in abilityList)
+            if (!PlayableUnits.Contains(u))
             {
-                a.OnTurnStart(this);
+                u.MarkAsEnemy(PlayersList[u.PlayerNumber]);
             }
-            u.OnTurnStart();
+            else
+            {
+                var abilityList = u.GetComponents<Ability>();
+
+                foreach (Ability a in abilityList)
+                {
+                    a.OnTurnStart(this);
+                }
+                u.OnTurnStart();
+            }
         }
         
     }
@@ -353,19 +360,27 @@ public class TileGrid : MonoBehaviour
         Debug.Log(string.Format("Player {0} turn", CurrentPlayerNumber));
 
         playableUnits = PlayableUnits;
-        foreach(Unit unit in playableUnits)
-        {
-            if (unit == null)
-            {
-                continue;
-            }
 
-            var abilities = unit.GetComponents<Ability>();
-            foreach(Ability ability in abilities)
+        foreach (Unit u in UnitList)
+        {
+            if (u == null)
+                continue;
+
+            if (!playableUnits.Contains(u))
             {
-                ability.OnTurnStart(this);
+                u.MarkAsEnemy(PlayersList[u.PlayerNumber]);
             }
-            unit.OnTurnStart();
+            else
+            {
+                var abilityList = u.GetComponents<Ability>();
+
+                foreach (Ability a in abilityList)
+                {
+                    a.OnTurnStart(this);
+                }
+                u.OnTurnStart();
+                u.UnMark();
+            }
         }
     }
 

@@ -65,7 +65,10 @@ public class BattleSystem : MonoBehaviour
             
 
             yield return new WaitForSeconds(2f);
-            OnBattleOver(damageDetails, EventArgs.Empty);
+
+
+            if (OnBattleOver != null)
+                OnBattleOver.Invoke(damageDetails, EventArgs.Empty);
         }
         else
         {
@@ -101,11 +104,13 @@ public class BattleSystem : MonoBehaviour
             playerUnit.PlayDeathAnimation();
 
             yield return new WaitForSeconds(2f);
-            OnBattleOver(damageDetails, EventArgs.Empty);
+            if (OnBattleOver != null)
+                OnBattleOver.Invoke(damageDetails, EventArgs.Empty);
         }
         else
         {
-            OnBattleOver(damageDetails, EventArgs.Empty);
+            if (OnBattleOver != null)
+                OnBattleOver.Invoke(damageDetails, EventArgs.Empty);
         }
     }
 }

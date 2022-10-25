@@ -67,7 +67,6 @@ public class GUIController : MonoBehaviour
 
     private void OnUnitAttacked(object sender, AttackEventArgs e)
     {
-        if (!(tileGrid.CurrentPlayer is Player)) return;
         OnUnitDehighlighted(sender, EventArgs.Empty);
 
         if ((sender as Unit).HitPoints <= 0) return;
@@ -117,6 +116,7 @@ public class GUIController : MonoBehaviour
     }
     private void HideUnitPanel()
     {
+
         UnitImage.sprite = null;
         UnitInfoPanel.SetActive(false);
     }

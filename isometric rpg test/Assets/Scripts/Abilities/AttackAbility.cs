@@ -7,22 +7,30 @@ public class AttackAbility : Ability
 {
     public Unit UnitToAttack { get; set; }
     public List<Unit> enemiesInAttackRange { get; set; }
-        
+
+    private List<OverlayTile> tilesInAttackRange;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Name = "Attack";
+        IsDisplayable = true;
+    }
 
     public override IEnumerator Act(TileGrid tileGrid)
     {
         if (CanPerform(tileGrid) && UnitReference.IsUnitAttackable(UnitToAttack))
         {
             tileGrid.StartBattle(UnitReference, UnitToAttack);
+            UnitReference.ConfirmMove();
             yield return new WaitForSeconds(0.5f);
         }
         yield return 0;
     }
     public override void Display(TileGrid tileGrid)
-    { 
-        var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        enemiesInAttackRange = enemyUnits.Where(e => UnitReference.IsUnitAttackable(e)).ToList();
-        enemiesInAttackRange.ForEach(e => e.MarkAsReachableEnemy());
+    {
+        tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.AttackRange);
+        tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
     }
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
@@ -38,33 +46,17 @@ public class AttackAbility : Ability
         }
     }
 
-    public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
-    {
-        tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
-    }
-
     public override void CleanUp(TileGrid cellGrid)
     {
-        enemiesInAttackRange.ForEach(u =>
-        {
-            if (u != null)
-            {
-                u.UnMark();
-            }
-        });
+        tilesInAttackRange.ForEach(t => t.UnMark());
     }
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        if (UnitReference.ActionPoints <= 0)
-        {
-            return false;
-        }
-
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
         enemiesInAttackRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u)).ToList();
 
-        return enemiesInAttackRange.Count > 0 && UnitReference.InSelectionMenu == false;
+        return enemiesInAttackRange.Count > 0 && UnitReference.ActionPoints > 0;
     }
 
     

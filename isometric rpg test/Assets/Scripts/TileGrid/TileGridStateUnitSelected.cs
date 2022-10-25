@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Units.UnitStates;
 using UnityEngine;
 using System.Linq;
 public class TileGridStateUnitSelected : TileGridState
@@ -54,14 +53,14 @@ public class TileGridStateUnitSelected : TileGridState
         _abilities.ForEach(a => a.Display(_tileGrid));
             
 
-        var canPerformAction = _abilities.Select(a => a.CanPerform(_tileGrid))
+        /*var canPerformAction = _abilities.Select(a => a.CanPerform(_tileGrid))
                                             .DefaultIfEmpty()
                                             .Aggregate((result, next) => result || next);
 
         if (!canPerformAction)
         {       
             _unit?.SetState(new UnitStateFinished(_unit));
-        }
+        }*/
 
     }
     public override void OnStateExit()

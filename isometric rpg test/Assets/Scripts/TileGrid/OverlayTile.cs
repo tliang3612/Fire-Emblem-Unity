@@ -46,7 +46,7 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
         else
         {
-            UnMark();
+            HideCursor();
         }
     }
 
@@ -59,7 +59,7 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
         else
         {
-            UnMark();
+            HideCursor();
         }
     }
 
@@ -72,7 +72,7 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
         else
         {
-            UnMark();
+            HideCursor();
         }
     }
 

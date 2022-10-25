@@ -5,7 +5,7 @@ public class UnitStateSelected : UnitState
 
     public override void Apply()
     {
-        _unit.MarkAsSelected();
+
     }
 
     public override void TransitionState(UnitState state)
