@@ -10,6 +10,8 @@ public class BattleUnit : MonoBehaviour
 
     public Unit unit { get; set; }
 
+    public BattleSystemHUD HUD;
+
     public BattleUnit unitToAttack { get; set; }
     public GameObject HitEffect;
     
@@ -17,14 +19,15 @@ public class BattleUnit : MonoBehaviour
     //set to false with unity animation events
     public bool isAnimationPlaying;
 
-    public Vector2 originalAnchoredPosition;
+    private Vector2 originalAnchoredPosition;
 
     public void Setup(BattleUnit battleUnitToAttack)
     {       
         GetComponent<Image>().sprite = unit.UnitBattleSprite;
         unitToAttack = battleUnitToAttack;
-
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+
+        HUD.SetData(unit, unitToAttack.unit);
     }
 
     public IEnumerator PlayAttackAnimation(bool isCrit)

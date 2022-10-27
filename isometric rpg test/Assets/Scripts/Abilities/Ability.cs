@@ -32,13 +32,6 @@ public abstract class Ability : MonoBehaviour
             _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponents<Ability>().ToList()));
     }
 
-    public IEnumerator CustomExecute(TileGrid tileGrid)
-    {
-        yield return Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<DisplayActionsAbility>()));
-    }
-
     public IEnumerator AIExecute(TileGrid tileGrid)
     {
         yield return Execute(tileGrid, _ => { }, _ => OnAbilityDeselected(tileGrid));

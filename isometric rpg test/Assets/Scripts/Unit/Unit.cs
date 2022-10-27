@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 using UnityEngine.UI;
 
 public class Unit : MonoBehaviour, IClickable
@@ -86,7 +87,7 @@ public class Unit : MonoBehaviour, IClickable
     public virtual void Initialize()
     {
         UnitState = new UnitStateNormal(this);
-        MovementAnimationSpeed = 7f;
+        MovementAnimationSpeed = 8f;
 
         TotalHitPoints = HitPoints;
         TotalMovementPoints = MovementPoints;
@@ -96,12 +97,10 @@ public class Unit : MonoBehaviour, IClickable
 
         rangeFinder = new RangeFinder();
 
-        if (Tile == null)
-        {
-            Tile = GetStartingTile();
-            Tile.IsBlocked = true;
-            Tile.CurrentUnit = this;
-        }
+        Tile = GetStartingTile();
+        Tile.IsBlocked = true;
+        Tile.CurrentUnit = this;
+        
     }
 
     private OverlayTile GetStartingTile()
@@ -218,8 +217,8 @@ public class Unit : MonoBehaviour, IClickable
     {
         return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= AttackRange
             && otherUnit.PlayerNumber != PlayerNumber
-            && ActionPoints >= 1
-            && otherUnit.HitPoints > 0;
+            && ActionPoints >= 1;
+            //&& otherUnit.HitPoints > 0;
     }
 
     /// <summary>
@@ -230,8 +229,7 @@ public class Unit : MonoBehaviour, IClickable
     {
         AttackAction attackAction = GetAttackAndCost(unitToAttack, isCounterAttacker);
         ActionPoints -= attackAction.ActionCost;
-        return unitToAttack.DefendHandler(this, attackAction);
-        
+        return unitToAttack.DefendHandler(this, attackAction);      
     }
 
     /// <summary>
@@ -258,34 +256,47 @@ public class Unit : MonoBehaviour, IClickable
         return damageDetails;
     }
 
+    //Gets weapon effectiveness against a unit. -1 for ineffective, 0 for neutral, and 1 for effective
+    public virtual int GetEffectiveness(Unit unitToAttack)
+    {
+        return 0;
+    }
+
     public int GetCritChance()
     {
         //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
-        return (SkillFactor / 2);
+        return (SkillFactor / 2) + 0;
     }
 
     public int GetHitChance()
     {
-        //Raw Accuracy formula = (Skill x 2) + (Luck / 2) + Weapon Triangle bonus + Weapon hit
+        //Raw Accuracy formula = (Skill x 2) + (Luck / 2)
         return (SkillFactor * 2) + (LuckFactor / 2) + 50;
     }
 
-    public int GetAttack()
+    public int GetAttack(){return AttackFactor + 5;}
+
+    public int GetDodgeChance(){return LuckFactor + Tile.AvoidBoost;}
+
+    public int GetDefense(){return DefenceFactor + Tile.DefenseBoost;}
+
+    public virtual int GetBattleAccuracy(Unit unitToAttack)
     {
-        //Attack formula = Attack + Weapon Triangle bonus + Weapon Hit
-        return AttackFactor + 5;
+        //Weapon Effectiveness mutiplier for hit chance = 15;
+        int weaponEffectiveness = GetEffectiveness(unitToAttack) * 15;
+
+        return (GetHitChance() + weaponEffectiveness) - unitToAttack.GetDodgeChance();
     }
 
-    public int GetDodgeChance()
+    public virtual int GetTotalDamage(Unit unitToAttack)
     {
-        return LuckFactor + Tile.AvoidBoost;
+        //Weapon Effectiveness mutiplier = 2;
+        int weaponEffectiveness = GetEffectiveness(unitToAttack) * 2;
+
+        return (GetAttack() + weaponEffectiveness) - unitToAttack.GetDefense();
     }
 
-    public int GetBattleAccuracy(Unit unitToAttack)
-    {
-        //Attack formula = Attack + Weapon Triangle bonus + Weapon Hit
-        return GetHitChance() - unitToAttack.GetDodgeChance();
-    }
+   
 
 
     /// <summary>
@@ -298,10 +309,8 @@ public class Unit : MonoBehaviour, IClickable
         
         var rawAccuracy = GetHitChance();
         
-        
         var rawAttack = GetAttack();
-        
-        
+                
         var rawCritChance = GetCritChance();
 
 
@@ -320,19 +329,11 @@ public class Unit : MonoBehaviour, IClickable
     /// <param name="aggressor">Unit that performed the attack</param>
     /// <param name="rawDamage">Raw damage that the attack caused</param>
     /// <returns>Actual damage the unit has taken</returns>        
-    protected DamageDetails CalculateDamageDetails(Unit aggressor, AttackAction attackerAction)
+    protected DamageDetails CalculateDamageDetails(Unit attacker, AttackAction attackerAction)
     {
-        //Defence formula = Defence + Terrain bonus
-        var defence = DefenceFactor + Tile.DefenseBoost;
-        
-        //Dodge Formula = Luck + Terrain Bonus;
-        var dodgeChance = LuckFactor + Tile.AvoidBoost;
-
         //Battle Accuracy formula = attacker Accuracy – defender’s Avoid;
-        var battleAccuracy = attackerAction.RawAccuracy - dodgeChance;
+        var battleAccuracy = attacker.GetBattleAccuracy(this) - GetDodgeChance();
 
-        Debug.Log(battleAccuracy);
-        
         //modifiers
         int crit = 1;
         int dodge = 1;
@@ -346,7 +347,7 @@ public class Unit : MonoBehaviour, IClickable
         {           
             dodge = 0;
         }
-        var totalDamage = (attackerAction.RawDamage - defence) * dodge * crit;
+        var totalDamage = (attackerAction.RawDamage - GetDefense()) * dodge * crit;
 
 
         //calculate damage
@@ -354,8 +355,8 @@ public class Unit : MonoBehaviour, IClickable
 
         var damageDetails = new DamageDetails()
         {
-            IsCrit = crit >= 2f,
-            IsHit = dodge >= 1f,
+            IsCrit = crit == 2,
+            IsHit = dodge == 1,
             IsDead = false,
             TotalDamage = totalDamage
         };
@@ -380,10 +381,9 @@ public class Unit : MonoBehaviour, IClickable
     /// </summary>
     /// <param name="path"> List of tiles the unit will move through </param>
     protected virtual IEnumerator MovementAnimation(List<OverlayTile> path)
-    {
+    {    
         var tempPath = path;
         IsMoving = true;
-
         while (tempPath.Count > 0 && IsMoving)
         {
             transform.position = Vector2.MoveTowards(transform.position, tempPath[0].transform.position, Time.deltaTime * MovementAnimationSpeed);
@@ -394,9 +394,8 @@ public class Unit : MonoBehaviour, IClickable
             Anim.SetFloat("MoveX", (heading / distance).normalized.x);
             Anim.SetFloat("MoveY", (heading / distance).normalized.y);
 
-            if (Vector2.Distance(transform.position, tempPath[0].transform.position) < 0.001f)
+            if (Vector2.Distance(transform.position, tempPath[0].transform.position) < 0.0001f)
             {
-                PositionCharacter(tempPath[0]);
                 tempPath.RemoveAt(0);
             }
 
@@ -412,6 +411,7 @@ public class Unit : MonoBehaviour, IClickable
 
         if (storedMovementDetails != null)
         {
+            Debug.Log("Move Confirmed");
             PositionCharacter(storedMovementDetails.DestinationTile);
             foreach (var tile in storedMovementDetails.Path)
             {

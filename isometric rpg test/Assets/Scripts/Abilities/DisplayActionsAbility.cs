@@ -31,8 +31,7 @@ public class DisplayActionsAbility : Ability
 
     public override void Display(TileGrid tileGrid)
     {
-        if(tileGrid.InSelectionMenu)
-            UnitCanvas.SetActive(true);
+        UnitCanvas.SetActive(true);
 
         foreach(Ability ability in GetComponentsInParent<Ability>())
         {
@@ -86,12 +85,12 @@ public class DisplayActionsAbility : Ability
     {
         abilitiesMap = new Dictionary<GameObject, Ability>();
         ButtonList = new List<GameObject>();
-        
+        UnitCanvas.SetActive(true);
     }
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return tileGrid.InSelectionMenu;
+        return true;
     }
 
 }

@@ -10,8 +10,7 @@ public class AIPlayer : Player
 	private TileGrid tileGrid;
 
 	public override void Play(TileGrid grid)
-	{
-		
+	{		
 		random = new System.Random();
 		tileGrid = grid;
 		tileGrid.GridState = new TileGridStateBlockInput(tileGrid);
@@ -24,18 +23,18 @@ public class AIPlayer : Player
 		var myUnits = tileGrid.GetCurrentPlayerUnits();
 		foreach (Unit unit in myUnits)
 		{
-			
+			yield return new WaitForSeconds(0.5f);
 			var moveAbility = unit.GetComponent<MoveAbility>();
 			var attackAbility = unit.GetComponent<AttackAbility>();
 
 			if (GetUnitToAttack(unit))
             {
-				attackAbility.OnAbilitySelected(tileGrid);
-				attackAbility.UnitToAttack = GetUnitToAttack(unit);
+				Debug.Log(true);
+				attackAbility.UnitToAttack = GetUnitToAttack(unit);			
 				StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
 				while (tileGrid.IsBattling)
 				{
-					yield return null;
+					yield return 0;
 				}
 				yield return new WaitForSeconds(0.5f);
 				continue;
@@ -51,26 +50,30 @@ public class AIPlayer : Player
 				yield return new WaitForSeconds(0.5f);
 				
                 if (GetUnitToAttack(unit))
-                {
-					attackAbility.OnAbilitySelected(tileGrid);
+                {					
 					attackAbility.UnitToAttack = GetUnitToAttack(unit);
 					StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
 					while(tileGrid.IsBattling)
                     {
-						yield return null; 
+						yield return 0; 
                     }
 					yield return new WaitForSeconds(0.5f);
 					continue;
 				}				
 			}
+			unit.GetComponent<WaitAbility>().AIExecute(tileGrid);
 		}
 		tileGrid.EndTurn();
 	}
 
+	//returns the unit to attack
 	Unit GetUnitToAttack(Unit unit)
-    {
+    {		
 		var enemyUnits = tileGrid.GetEnemyUnits(this);
 		var unitsInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e)).ToList();
+		var anyUnitsInRange = enemyUnits.Where(e => tileGrid.GetManhattenDistance(e.Tile, unit.Tile) <= unit.AttackRange).ToList();
+
+		Debug.Log(unitsInRange.Count);
 
 		if (unitsInRange.Count != 0)
 		{
@@ -118,9 +121,7 @@ public class AIPlayer : Player
 			var distanceFromEnemy = tileGrid.GetManhattenDistance(potentialDestination, closestEnemy.Tile);
 
 			//if there is no path
-			if ((bestDestination == null) ||
-				//if the current destination is closer to the enemy than the best destination
-				bestDestination != null && distanceFromEnemy < tileGrid.GetManhattenDistance(bestDestination, closestEnemy.Tile))
+			if ((!bestDestination) || distanceFromEnemy < tileGrid.GetManhattenDistance(bestDestination, closestEnemy.Tile))
 				bestDestination = potentialDestination;		
 		}
 

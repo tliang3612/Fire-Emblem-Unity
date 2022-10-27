@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BattleAction {Attack, Defend }
 public class BattleSystem : MonoBehaviour
 {
 
     [SerializeField] BattleUnit playerUnit;
-    [SerializeField] BattleSystemHUD playerHUD;
 
     [SerializeField] BattleUnit enemyUnit;
-    [SerializeField] BattleSystemHUD enemyHUD;
 
     public event EventHandler OnBattleOver;
 
+    private bool battleOver = false;
+
     public void StartBattle(Unit attacker, Unit defender)
     {
+        battleOver = false;
+
         playerUnit.unit = attacker;
         enemyUnit.unit = defender;
 
@@ -25,92 +28,60 @@ public class BattleSystem : MonoBehaviour
     public void SetUpBattle()
     {
         playerUnit.Setup(enemyUnit);
-        //Pass in enemy unit as well to precalculate battle accuracy
-        playerHUD.SetData(playerUnit.unit, enemyUnit.unit);
-
         enemyUnit.Setup(playerUnit);
-        enemyHUD.SetData(enemyUnit.unit, playerUnit.unit);
 
-        StartCoroutine(PerformPlayerMove());
+        StartCoroutine(PerformAttackerMove());
+             
     }
 
-    private IEnumerator PerformPlayerMove()
+    private IEnumerator RunSequence(BattleUnit attackerUnit, BattleUnit defenderUnit)
     {
-        var damageDetails = playerUnit.unit.AttackHandler(enemyUnit.unit, false);
-        yield return new WaitForSeconds(1f);
+        var damageDetails = attackerUnit.unit.AttackHandler(defenderUnit.unit, attackerUnit.Equals(enemyUnit));
+        yield return new WaitForSeconds(0.5f);
 
         if (damageDetails.IsHit)
         {
-            yield return playerUnit.PlayAttackAnimation(damageDetails.IsCrit);
+            yield return attackerUnit.PlayAttackAnimation(damageDetails.IsCrit);
+            defenderUnit.PlayHitAnimation();
+            yield return defenderUnit.HUD.UpdateHP();
 
-            enemyUnit.PlayHitAnimation();
-            yield return enemyHUD.UpdateHP();
-            
-            
-            yield return playerUnit.PlayBackupAnimation(damageDetails.IsCrit);
+            yield return attackerUnit.PlayBackupAnimation(damageDetails.IsCrit);
         }
         else
         {
-            yield return playerUnit.PlayAttackAnimation(damageDetails.IsCrit);
-
-            yield return enemyUnit.PlayDodgeAnimation();
-
-            yield return playerUnit.PlayBackupAnimation(damageDetails.IsCrit);
-        }
-        
-        
-        if (damageDetails.IsDead)
-        {
-            enemyUnit.PlayDeathAnimation();
-            
-
-            yield return new WaitForSeconds(2f);
-
-
-            if (OnBattleOver != null)
-                OnBattleOver.Invoke(damageDetails, EventArgs.Empty);
-        }
-        else
-        {
-            StartCoroutine(EnemyMove());          
-        }
-    }
-
-    private IEnumerator EnemyMove()
-    {
-        var damageDetails = enemyUnit.unit.AttackHandler(playerUnit.unit, true);
-
-        if (damageDetails.IsHit)
-        {
-            yield return enemyUnit.PlayAttackAnimation(damageDetails.IsCrit);
-
-            playerUnit.PlayHitAnimation();
-            yield return playerHUD.UpdateHP();
-
-            yield return enemyUnit.PlayBackupAnimation(damageDetails.IsCrit);
-        }
-        else
-        {
-            yield return enemyUnit.PlayAttackAnimation(damageDetails.IsCrit);
-
-            yield return playerUnit.PlayDodgeAnimation();
-
-            yield return enemyUnit.PlayBackupAnimation(damageDetails.IsCrit);
+            yield return attackerUnit.PlayAttackAnimation(false);
+            yield return defenderUnit.PlayDodgeAnimation();
+            yield return attackerUnit.PlayBackupAnimation(false);
         }
 
         if (damageDetails.IsDead)
         {
-            //end battle scene
-            playerUnit.PlayDeathAnimation();
-
-            yield return new WaitForSeconds(2f);
+            battleOver = true;
+            defenderUnit.PlayDeathAnimation();
+            yield return new WaitForSeconds(1f);
             if (OnBattleOver != null)
                 OnBattleOver.Invoke(damageDetails, EventArgs.Empty);
         }
-        else
+        else if (attackerUnit == enemyUnit)
         {
             if (OnBattleOver != null)
                 OnBattleOver.Invoke(damageDetails, EventArgs.Empty);
         }
     }
+
+    private IEnumerator PerformDefenderMove()
+    {
+        yield return RunSequence(enemyUnit, playerUnit);
+    }
+
+    private IEnumerator PerformAttackerMove()
+    {
+        yield return RunSequence(playerUnit, enemyUnit);
+        if (!battleOver)
+        {
+            StartCoroutine(PerformDefenderMove());
+        }
+    }
+
+   
 }

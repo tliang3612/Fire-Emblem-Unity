@@ -27,12 +27,12 @@ public class PhaseTransition : MonoBehaviour
     }
     IEnumerator PlayPhaseTransition(TileGrid tileGrid)
     {
-        /*if(tileGrid.CurrentPlayer is HumanPlayer)
+        if(tileGrid.CurrentPlayer is HumanPlayer)
             phaseTransitionAnim.SetTrigger("PlayerPhase");
         else
-            phaseTransitionAnim.SetTrigger("EnemyPhase");*/
+            phaseTransitionAnim.SetTrigger("EnemyPhase");
 
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(3.5f);
         tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
 
         gameObject.SetActive(false);

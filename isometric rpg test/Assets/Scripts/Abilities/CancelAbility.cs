@@ -18,7 +18,6 @@ public class CancelAbility : Ability
         if (CanPerform(tileGrid))
         {
             UnitReference.ResetMove();
-            tileGrid.InSelectionMenu = false;
         }
         yield return 0;
     }
@@ -32,7 +31,7 @@ public class CancelAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return tileGrid.InSelectionMenu && UnitReference.storedMovementDetails != null;
+        return UnitReference.storedMovementDetails != null;
     }
 
 

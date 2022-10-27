@@ -19,7 +19,6 @@ public class WaitAbility : Ability
         {
             UnitReference.SetFinshed();
             UnitReference.ConfirmMove();
-            tileGrid.InSelectionMenu = false;
         }
         yield return 0;
     }
@@ -33,7 +32,7 @@ public class WaitAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return tileGrid.InSelectionMenu;
+        return true;
     }
 
 

@@ -30,10 +30,6 @@ public class MoveAbility : Ability
             {
                 yield return 0;
             }
-            if (tileGrid.CurrentPlayer is HumanPlayer)
-                tileGrid.InSelectionMenu = true;
-            else
-                tileGrid.InSelectionMenu = false;
         }
         
         yield return 0;
@@ -54,7 +50,9 @@ public class MoveAbility : Ability
         if(UnitReference == unit)
         {
             Destination = UnitReference.Tile;
-            StartCoroutine(CustomExecute(tileGrid));
+            StartCoroutine(Execute(tileGrid,
+           _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<DisplayActionsAbility>())));
         }
         else if (tileGrid.GetCurrentPlayerUnits().Contains(unit))
         {
@@ -67,7 +65,9 @@ public class MoveAbility : Ability
         if (availableDestinations.Contains(tile) && UnitReference.IsTileMovableTo(tile))
         {
             Destination = tile;
-            StartCoroutine(CustomExecute(tileGrid));
+            StartCoroutine(Execute(tileGrid,
+            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<DisplayActionsAbility>())));
         }
         else
         {
