@@ -100,10 +100,7 @@ public class TileGrid : MonoBehaviour
 
     private void Start()
     {
-        if (ShouldStartGameImmediately)
-        {
-            InitializeAndStart();
-        }
+        InitializeAndStart();
     }
 
     public void InitializeAndStart()
@@ -118,8 +115,6 @@ public class TileGrid : MonoBehaviour
 
         if (LevelLoading != null)
             LevelLoading.Invoke(this, EventArgs.Empty);
-
-        battleSystem.gameObject.SetActive(false);
 
         TileDataMap = new Dictionary<TileBase, TileData>();
 
@@ -164,20 +159,18 @@ public class TileGrid : MonoBehaviour
         }
 
         UnitList = new List<Unit>();
+
         var unitGenerator = GetComponent<UnitGenerator>();
         if (unitGenerator != null)
         {
             var units = unitGenerator.SpawnUnits(this);
             foreach (var unit in units)
             {
-                AddUnit(unit);
-                    
+                AddUnit(unit);                    
             }
         }
-        else
-        {
-            Debug.LogError("No UnitGenerator script attached to grid");
-        }
+
+        Debug.Log(UnitList.Count);
 
         battleSystem.BattleOver += EndBattle;
 
@@ -261,14 +254,9 @@ public class TileGrid : MonoBehaviour
     /// Adds unit to the game
     /// </summary>
     /// <param name="unit">Unit to add</param>
-    public void AddUnit(Unit unit, OverlayTile tile = null, Player ownerPlayer = null)
+    public void AddUnit(Unit unit)
     {
         UnitList.Add(unit);
-
-        if (ownerPlayer != null)
-        {
-            unit.PlayerNumber = ownerPlayer.PlayerNumber;
-        }
         unit.Initialize();
 
         //Subscribe events

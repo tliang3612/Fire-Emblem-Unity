@@ -31,10 +31,8 @@ public class CancelAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitReference.storedMovementDetails != null;
+        return UnitReference.cachedPath.Count > 0;
     }
-
-
 }
 
 

@@ -59,7 +59,7 @@ public class Unit : MonoBehaviour, IClickable
 
     public bool InSelectionMenu = false;
 
-    public MovementEventArgs storedMovementDetails;
+    public List<OverlayTile> cachedPath;
 
     [SerializeField]
     private int movementPoints;
@@ -85,8 +85,7 @@ public class Unit : MonoBehaviour, IClickable
 
     //Initializes the unit. Called whenever a unit gets added into the game
     public virtual void Initialize()
-    {
-       
+    {      
         UnitState = new UnitStateNormal(this);
         MovementAnimationSpeed = 7f;
 
@@ -95,12 +94,13 @@ public class Unit : MonoBehaviour, IClickable
         TotalActionPoints = ActionPoints;
 
         Anim = GetComponent<Animator>();
-
         rangeFinder = new RangeFinder();
 
         Tile = GetStartingTile();
         Tile.IsBlocked = true;
         Tile.CurrentUnit = this;
+
+        //cachedPath = new List<OverlayTile>();
         
     }
 
@@ -150,7 +150,7 @@ public class Unit : MonoBehaviour, IClickable
     //Called at the start of each turn
     public virtual void OnTurnStart()
     {
-        storedMovementDetails = null;
+        //cachedPath = new List<OverlayTile>();
         Anim.SetBool("IsFinished", false);
 
     }
@@ -365,16 +365,14 @@ public class Unit : MonoBehaviour, IClickable
         return damageDetails;
     }
 
-    public void Move(OverlayTile destinationTile, List<OverlayTile> path)
+    public void Move(List<OverlayTile> path)
     {
         if (MovementAnimationSpeed > 0 && path.Count > 1)
         {
-            Anim.SetBool("IsMoving", true);
-            StartCoroutine(MovementAnimation(path));
+            cachedPath = path;
+            StartCoroutine(MovementAnimation(path));           
         }
-        
-        storedMovementDetails = new MovementEventArgs(Tile, destinationTile, path);
-
+        Debug.Log(cachedPath.Count);
     }
 
     /// <summary>
@@ -382,9 +380,12 @@ public class Unit : MonoBehaviour, IClickable
     /// </summary>
     /// <param name="path"> List of tiles the unit will move through </param>
     protected virtual IEnumerator MovementAnimation(List<OverlayTile> path)
-    {    
+    {
+        Anim.SetBool("IsMoving", true);
+
         var tempPath = path;
         IsMoving = true;
+
         while (tempPath.Count > 0 && IsMoving)
         {
             transform.position = Vector2.MoveTowards(transform.position, tempPath[0].transform.position, Time.deltaTime * MovementAnimationSpeed);
@@ -400,7 +401,7 @@ public class Unit : MonoBehaviour, IClickable
 
             }
 
-            if (Vector2.Distance(transform.position, tempPath[0].transform.position) < 0.0001f)
+            if (Vector2.Distance(transform.position, tempPath[0].transform.position) < Mathf.Epsilon)
             {
                 PositionCharacter(tempPath[0]);
                 tempPath.RemoveAt(0);
@@ -412,19 +413,22 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     public void ConfirmMove()
-    {   
-        if (storedMovementDetails != null)
+    {
+        Debug.Log(cachedPath.Count);
+
+        if (cachedPath.Count > 0)
         {
             
-            PositionCharacter(storedMovementDetails.DestinationTile);
-            foreach (var tile in storedMovementDetails.Path)
+            PositionCharacter(cachedPath[cachedPath.Count]);
+
+            foreach (var tile in cachedPath)
             {
                 MovementPoints -= tile.MovementCost;
             }
 
             if (UnitMoved != null)
             {
-                UnitMoved.Invoke(this, storedMovementDetails);
+                UnitMoved.Invoke(this, new MovementEventArgs(cachedPath[0], cachedPath[cachedPath.Count-1], cachedPath));
             }
 
             MovementPoints = 0;
@@ -441,7 +445,7 @@ public class Unit : MonoBehaviour, IClickable
     public void SetMove()
     {
         Anim.SetBool("IsMoving", true);
-        if(storedMovementDetails == null)
+        if(cachedPath.Count <= 0)
         {
             //start move down animation
             Anim.SetFloat("MoveX", 0);
@@ -453,11 +457,13 @@ public class Unit : MonoBehaviour, IClickable
     {
         Anim.SetBool("IsMoving", false);
         SetAnimationToIdle();
-        if (storedMovementDetails != null)
+
+        
+        if (cachedPath.Count > 0)
         {
             MovementPoints = TotalMovementPoints;
-            PositionCharacter(storedMovementDetails.StartingTile);
-            storedMovementDetails = null;
+            PositionCharacter(cachedPath[0]);
+            //cachedPath = new List<OverlayTile>();
         }
     }
 

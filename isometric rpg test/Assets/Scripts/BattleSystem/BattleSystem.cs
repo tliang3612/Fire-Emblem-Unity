@@ -14,6 +14,11 @@ public class BattleSystem : MonoBehaviour
 
     private bool battleOver = false;
 
+    public void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void StartBattle(Unit attacker, Unit defender)
     {
         battleOver = false;

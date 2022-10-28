@@ -25,7 +25,8 @@ public class MoveAbility : Ability
         if(CanPerform(tileGrid) && availableDestinations.Contains(Destination))
         {
             var path = UnitReference.FindPath(Destination, tileGrid);
-            UnitReference.Move(Destination, path);
+            UnitReference.Move(path);
+            Debug.Log("from act:" + path.Count);
             while (UnitReference.IsMoving)
             {
                 yield return 0;
@@ -117,7 +118,7 @@ public class MoveAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1;
+        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1 && UnitReference.cachedPath.Count <= 0;
     }
 
     private void TranslateArrows(TileGrid tileGrid)
