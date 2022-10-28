@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using UnityEngine.EventSystems;
-using DG.Tweening;
-using UnityEngine.UI;
+using Unity.VisualScripting;
+using UnityEngine.UIElements.Experimental;
 
 public class Unit : MonoBehaviour, IClickable
 {
@@ -86,8 +86,9 @@ public class Unit : MonoBehaviour, IClickable
     //Initializes the unit. Called whenever a unit gets added into the game
     public virtual void Initialize()
     {
+       
         UnitState = new UnitStateNormal(this);
-        MovementAnimationSpeed = 8f;
+        MovementAnimationSpeed = 7f;
 
         TotalHitPoints = HitPoints;
         TotalMovementPoints = MovementPoints;
@@ -149,8 +150,8 @@ public class Unit : MonoBehaviour, IClickable
     //Called at the start of each turn
     public virtual void OnTurnStart()
     {
-        var name = this.name;
-        var state = UnitState;
+        storedMovementDetails = null;
+        Anim.SetBool("IsFinished", false);
 
     }
 
@@ -391,27 +392,30 @@ public class Unit : MonoBehaviour, IClickable
             var heading = tempPath[0].transform.position - transform.position;
             var distance = heading.magnitude;
 
-            Anim.SetFloat("MoveX", (heading / distance).normalized.x);
-            Anim.SetFloat("MoveY", (heading / distance).normalized.y);
+            //this prevents blend tree parameters from ever going to (0,0)
+            if((heading / distance).normalized.x != (heading / distance).normalized.y)
+            {
+                Anim.SetFloat("MoveX", (heading / distance).normalized.x);
+                Anim.SetFloat("MoveY", (heading / distance).normalized.y);
+
+            }
 
             if (Vector2.Distance(transform.position, tempPath[0].transform.position) < 0.0001f)
             {
+                PositionCharacter(tempPath[0]);
                 tempPath.RemoveAt(0);
             }
 
             yield return 0;
         }
-        IsMoving = false;
-        
+        IsMoving = false;      
     }
 
     public void ConfirmMove()
-    {
-        Anim.SetBool("IsMoving", false);
-
+    {   
         if (storedMovementDetails != null)
         {
-            Debug.Log("Move Confirmed");
+            
             PositionCharacter(storedMovementDetails.DestinationTile);
             foreach (var tile in storedMovementDetails.Path)
             {
@@ -423,16 +427,32 @@ public class Unit : MonoBehaviour, IClickable
                 UnitMoved.Invoke(this, storedMovementDetails);
             }
 
-            storedMovementDetails = null;
             MovementPoints = 0;
-        }
-        
+        }      
+    }
+
+    public void SetAnimationToIdle()
+    {
+        Anim.SetBool("IsMoving", false);
+        Anim.Play("Idle", 0, FindObjectOfType<AnimationTimer>().GetCurrentCurrentTime());
+    }
+
+    //used for whenver we want to start the unit's movement animation
+    public void SetMove()
+    {
+        Anim.SetBool("IsMoving", true);
+        if(storedMovementDetails == null)
+        {
+            //start move down animation
+            Anim.SetFloat("MoveX", 0);
+            Anim.SetFloat("MoveY", -1);
+        }        
     }
 
     public void ResetMove()
     {
         Anim.SetBool("IsMoving", false);
-
+        SetAnimationToIdle();
         if (storedMovementDetails != null)
         {
             MovementPoints = TotalMovementPoints;
@@ -441,9 +461,10 @@ public class Unit : MonoBehaviour, IClickable
         }
     }
 
-    public void SetFinshed()
+    public void SetFinished()
     {
         Anim.SetBool("IsMoving", false);
+        Anim.SetBool("IsFinished", true);
         SetState(new UnitStateFinished(this));
         MovementPoints = 0;
         ActionPoints = 0;

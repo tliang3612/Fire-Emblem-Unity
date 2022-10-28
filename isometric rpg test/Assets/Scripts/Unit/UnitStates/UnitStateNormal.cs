@@ -9,7 +9,8 @@ public class UnitStateNormal : UnitState
 
     public override void Apply()
     {
-        _unit.UnMark();
+
+        _unit.SetAnimationToIdle();
     }
 
     public override void TransitionState(UnitState state)

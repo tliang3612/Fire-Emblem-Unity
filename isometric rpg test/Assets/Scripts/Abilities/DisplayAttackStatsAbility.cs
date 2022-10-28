@@ -96,7 +96,6 @@ public class DisplayAttackStatsAbility : Ability
         }
     }
 
-
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
         tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.AttackRange).Where(t => t != UnitReference.Tile).ToList();

@@ -47,12 +47,13 @@ public class MoveAbility : Ability
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
     {
+        //if unit the unit clicked was the UnitReference
         if(UnitReference == unit)
         {
             Destination = UnitReference.Tile;
             StartCoroutine(Execute(tileGrid,
-           _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<DisplayActionsAbility>())));
+                _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
+                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<DisplayActionsAbility>())));
         }
         else if (tileGrid.GetCurrentPlayerUnits().Contains(unit))
         {
@@ -94,8 +95,17 @@ public class MoveAbility : Ability
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
+        if(tileGrid.CurrentPlayer is HumanPlayer)
+            UnitReference.SetMove();
+
         availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
         tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
+    }
+
+    public override void OnAbilityDeselected(TileGrid tileGrid)
+    {
+        if (tileGrid.CurrentPlayer is HumanPlayer)
+            UnitReference.SetAnimationToIdle();
     }
 
     public override void CleanUp(TileGrid tileGrid)

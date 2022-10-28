@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BattleAction {Attack, Defend }
 public class BattleSystem : MonoBehaviour
 {
 
@@ -11,7 +10,7 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] BattleUnit enemyUnit;
 
-    public event EventHandler OnBattleOver;
+    public event EventHandler<BattleOverEventArgs> BattleOver;
 
     private bool battleOver = false;
 
@@ -59,14 +58,23 @@ public class BattleSystem : MonoBehaviour
             battleOver = true;
             defenderUnit.PlayDeathAnimation();
             yield return new WaitForSeconds(1f);
-            if (OnBattleOver != null)
-                OnBattleOver.Invoke(damageDetails, EventArgs.Empty);
+
+            EndBattle(damageDetails, attackerUnit.unit, defenderUnit.unit);
+
+            
         }
         else if (attackerUnit == enemyUnit)
         {
-            if (OnBattleOver != null)
-                OnBattleOver.Invoke(damageDetails, EventArgs.Empty);
+            EndBattle(damageDetails, attackerUnit.unit, defenderUnit.unit);
         }
+    }
+
+    public void EndBattle(DamageDetails damageDetails, Unit attacker, Unit defender)
+    {
+        if (BattleOver != null)
+            BattleOver.Invoke(this, new BattleOverEventArgs(attacker, defender, damageDetails.IsDead));
+
+        playerUnit.unit.SetFinished();
     }
 
     private IEnumerator PerformDefenderMove()
@@ -83,5 +91,18 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-   
+    public class BattleOverEventArgs : EventArgs
+    {
+        public BattleOverEventArgs(Unit attacker, Unit defender, bool isDead)
+        {
+            Attacker = attacker;
+            Defender = defender;
+            IsDead = isDead;
+        }
+
+        public Unit Attacker;
+        public Unit Defender;
+        public bool IsDead;
+
+    }
 }

@@ -29,9 +29,10 @@ public class AIPlayer : Player
 
 			if (GetUnitToAttack(unit))
             {
-				Debug.Log(true);
-				attackAbility.UnitToAttack = GetUnitToAttack(unit);			
-				StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
+				attackAbility.UnitToAttack = GetUnitToAttack(unit);
+				unit.SetMove();
+                yield return new WaitForSeconds(0.3f);
+                StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
 				while (tileGrid.IsBattling)
 				{
 					yield return 0;
@@ -41,9 +42,14 @@ public class AIPlayer : Player
 			}
 			else if(GetDestination(unit))
             {
+
 				moveAbility.OnAbilitySelected(tileGrid);
 				moveAbility.Destination = GetDestination(unit);
-				StartCoroutine(unit.GetComponent<MoveAbility>().AIExecute(tileGrid));				
+
+				//let calculations run
+                yield return new WaitForSeconds(0.3f);
+
+                StartCoroutine(unit.GetComponent<MoveAbility>().AIExecute(tileGrid));				
 				while (unit.IsMoving)
 					yield return 0;
 				unit.ConfirmMove();
@@ -52,7 +58,8 @@ public class AIPlayer : Player
                 if (GetUnitToAttack(unit))
                 {					
 					attackAbility.UnitToAttack = GetUnitToAttack(unit);
-					StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
+                    yield return new WaitForSeconds(0.3f);
+                    StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
 					while(tileGrid.IsBattling)
                     {
 						yield return 0; 
@@ -71,9 +78,6 @@ public class AIPlayer : Player
     {		
 		var enemyUnits = tileGrid.GetEnemyUnits(this);
 		var unitsInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e)).ToList();
-		var anyUnitsInRange = enemyUnits.Where(e => tileGrid.GetManhattenDistance(e.Tile, unit.Tile) <= unit.AttackRange).ToList();
-
-		Debug.Log(unitsInRange.Count);
 
 		if (unitsInRange.Count != 0)
 		{

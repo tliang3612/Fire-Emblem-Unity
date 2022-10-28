@@ -16,8 +16,6 @@ public class AttackAbility : Ability
     {
         if (CanPerform(tileGrid) && UnitReference.IsUnitAttackable(UnitToAttack))
         {
-            UnitReference.SetFinshed();
-            UnitReference.ConfirmMove();
             tileGrid.StartBattle(UnitReference, UnitToAttack);         
             yield return new WaitForSeconds(0.5f);
         }

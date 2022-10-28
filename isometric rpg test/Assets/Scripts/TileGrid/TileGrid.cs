@@ -179,7 +179,7 @@ public class TileGrid : MonoBehaviour
             Debug.LogError("No UnitGenerator script attached to grid");
         }
 
-        battleSystem.OnBattleOver += EndBattle;
+        battleSystem.BattleOver += EndBattle;
 
         if (LevelLoadingDone != null)
             LevelLoadingDone.Invoke(this, EventArgs.Empty);
@@ -312,8 +312,8 @@ public class TileGrid : MonoBehaviour
                 {
                     a.OnTurnStart(this);
                 }
-                u.OnTurnStart();
             }
+            u.OnTurnStart();
         }
         
     }
@@ -380,9 +380,9 @@ public class TileGrid : MonoBehaviour
                 {
                     a.OnTurnStart(this);
                 }
-                u.OnTurnStart();
                 u.UnMark();
             }
+            u.OnTurnStart();          
         }
     }
 
