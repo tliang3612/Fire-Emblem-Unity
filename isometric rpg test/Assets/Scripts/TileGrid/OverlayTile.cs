@@ -151,7 +151,6 @@ public class OverlayTile : MonoBehaviour, IClickable
         {
             arrow.color = new Color(1, 1, 1, 1);
             arrow.sprite = arrowImages[(int)direction];
-            arrow.GetComponent<SpriteRenderer>().sortingOrder += 1;
 
         }
     }

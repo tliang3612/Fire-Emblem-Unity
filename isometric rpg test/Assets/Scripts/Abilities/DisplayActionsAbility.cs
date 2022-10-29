@@ -8,21 +8,9 @@ using TMPro;
 
 public class DisplayActionsAbility : Ability
 {
-    public GameObject UnitCanvas;
-    [HideInInspector]
-    public GameObject SelectedButton;
+    public event EventHandler<ButtonCreatedEventArgs> ButtonCreated;
 
-    public GameObject menuActions;
     public GameObject ActionButton;
-
-    Dictionary<GameObject, Ability> abilitiesMap;
-
-    private List<GameObject> ButtonList;
-
-    private void Start()
-    {
-        UnitCanvas.SetActive(false);
-    }
 
     public override IEnumerator Act(TileGrid tileGrid)
     {
@@ -31,21 +19,22 @@ public class DisplayActionsAbility : Ability
 
     public override void Display(TileGrid tileGrid)
     {
-        UnitCanvas.SetActive(true);
-
-        foreach(Ability ability in GetComponentsInParent<Ability>())
+        foreach (Ability ability in GetComponents<Ability>())
         {
             ability.UnitReference = UnitReference;
-            if(ability.IsDisplayable && ability.CanPerform(tileGrid))
+            if (ability.IsDisplayable && ability.CanPerform(tileGrid))
             {
-                var actionButton = Instantiate(ActionButton, menuActions.transform);
-                actionButton.GetComponentInChildren<TextMeshProUGUI>().text = ability.Name;
-                actionButton.GetComponent<Button>().onClick.AddListener(() => ActWrapper(actionButton, tileGrid));
-                abilitiesMap.Add(actionButton, ability);
-                actionButton.SetActive(true);
-                ButtonList.Add(actionButton);
-            }    
+                if (ButtonCreated != null)
+                    ButtonCreated.Invoke(this, new ButtonCreatedEventArgs(ActWrapper(ability, tileGrid), ability.Name));
+            }
         }
+    }
+
+    public IEnumerator ActWrapper(Ability ability, TileGrid tileGrid)
+    {
+        return (Execute(tileGrid,
+                _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
+                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, ability)));
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
@@ -63,34 +52,34 @@ public class DisplayActionsAbility : Ability
         tile.UnMark();
     }
 
-    void ActWrapper(GameObject button, TileGrid tileGrid)
+    public override void OnAbilitySelected(TileGrid tileGrid)
     {
-        SelectedButton = button;
-        StartCoroutine(Execute(tileGrid,
-                _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, abilitiesMap[SelectedButton])));
+        base.OnAbilitySelected(tileGrid);
+    }
+
+    public override void OnAbilityDeselected(TileGrid tileGrid)
+    {
+        base.OnAbilityDeselected(tileGrid);
     }
 
     public override void CleanUp(TileGrid tileGrid)
     {
-        foreach (var button in ButtonList)
-        {
-            Destroy(button);
-        }
-        UnitCanvas.SetActive(false);
-
-    }
-
-    public override void OnAbilitySelected(TileGrid tileGrid)
-    {
-        abilitiesMap = new Dictionary<GameObject, Ability>();
-        ButtonList = new List<GameObject>();
-        UnitCanvas.SetActive(true);
     }
 
     public override bool CanPerform(TileGrid tileGrid)
     {
         return true;
     }
+}
 
+public class ButtonCreatedEventArgs : EventArgs
+{
+    public IEnumerator ButtonAction;
+    public string ButtonName;
+
+    public ButtonCreatedEventArgs(IEnumerator buttonAction, string buttonName)
+    {
+        ButtonAction = buttonAction;
+        ButtonName = buttonName;
+    }
 }

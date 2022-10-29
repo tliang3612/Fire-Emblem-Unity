@@ -24,15 +24,15 @@ public class AIPlayer : Player
 		foreach (Unit unit in myUnits)
 		{
 			yield return new WaitForSeconds(0.5f);
-			var moveAbility = unit.GetComponent<MoveAbility>();
-			var attackAbility = unit.GetComponent<AttackAbility>();
+			var moveAbility = unit.GetComponentInChildren<MoveAbility>();
+			var attackAbility = unit.GetComponentInChildren<AttackAbility>();
 
 			if (GetUnitToAttack(unit))
             {
 				attackAbility.UnitToAttack = GetUnitToAttack(unit);
 				unit.SetMove();
                 yield return new WaitForSeconds(0.3f);
-                StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
+                StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
 				while (tileGrid.IsBattling)
 				{
 					yield return 0;
@@ -42,33 +42,36 @@ public class AIPlayer : Player
 			}
 			else if(GetDestination(unit))
             {
-
 				moveAbility.OnAbilitySelected(tileGrid);
 				moveAbility.Destination = GetDestination(unit);
 
 				//let calculations run
                 yield return new WaitForSeconds(0.3f);
 
-                StartCoroutine(unit.GetComponent<MoveAbility>().AIExecute(tileGrid));				
+                StartCoroutine(unit.GetComponentInChildren<MoveAbility>().AIExecute(tileGrid));				
 				while (unit.IsMoving)
 					yield return 0;
-				unit.ConfirmMove();
+				unit.ConfirmMove();			
 				yield return new WaitForSeconds(0.5f);
 				
                 if (GetUnitToAttack(unit))
                 {					
 					attackAbility.UnitToAttack = GetUnitToAttack(unit);
                     yield return new WaitForSeconds(0.3f);
-                    StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(tileGrid));
+                    StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
 					while(tileGrid.IsBattling)
                     {
 						yield return 0; 
                     }
 					yield return new WaitForSeconds(0.5f);
 					continue;
-				}				
+				}
+                else
+                {
+					unit.SetFinished();
+                }
 			}
-			unit.GetComponent<WaitAbility>().AIExecute(tileGrid);
+			unit.GetComponentInChildren<WaitAbility>().AIExecute(tileGrid);
 		}
 		tileGrid.EndTurn();
 	}

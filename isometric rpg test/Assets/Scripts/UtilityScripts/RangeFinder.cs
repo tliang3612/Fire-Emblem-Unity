@@ -11,7 +11,6 @@ public class RangeFinder
     //Modified Djikstra
     public List<OverlayTile> GetTilesInMoveRange(Unit unit, TileGrid tileGrid, List<OverlayTile> tilesInRange)
     {
-
         Dictionary<OverlayTile, int> movementRating = new Dictionary<OverlayTile, int>();
         Queue<OverlayTile> queue = new Queue<OverlayTile>();
 
@@ -19,7 +18,6 @@ public class RangeFinder
 
         queue.Enqueue(start);
         movementRating.Add(start, unit.MovementPoints);
-
 
         //if there is any tile that has been unvisited
         while (queue.Count != 0)

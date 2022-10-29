@@ -61,6 +61,8 @@ public class AStarPathfinder
             temp = previousTile[temp];
         }
 
+        path.Add(start);
+
         path.Reverse();
         return path;
 

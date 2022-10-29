@@ -26,12 +26,17 @@ public class CancelAbility : Ability
     {
         StartCoroutine(Execute(tileGrid,
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<MoveAbility>())));
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<MoveAbility>())));
+    }
+
+    public override void OnAbilityDeselected(TileGrid tileGrid)
+    {
+        UnitReference.SetAnimationToIdle();
     }
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitReference.cachedPath.Count > 0;
+        return true;
     }
 }
 

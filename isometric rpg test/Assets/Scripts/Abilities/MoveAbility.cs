@@ -26,7 +26,6 @@ public class MoveAbility : Ability
         {
             var path = UnitReference.FindPath(Destination, tileGrid);
             UnitReference.Move(path);
-            Debug.Log("from act:" + path.Count);
             while (UnitReference.IsMoving)
             {
                 yield return 0;
@@ -54,11 +53,11 @@ public class MoveAbility : Ability
             Destination = UnitReference.Tile;
             StartCoroutine(Execute(tileGrid,
                 _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<DisplayActionsAbility>())));
+                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
         }
         else if (tileGrid.GetCurrentPlayerUnits().Contains(unit))
         {
-            tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, unit, unit.GetComponent<MoveAbility>());
+            tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, unit, unit.GetComponentInChildren<MoveAbility>());
         }
     }
 
@@ -69,11 +68,12 @@ public class MoveAbility : Ability
             Destination = tile;
             StartCoroutine(Execute(tileGrid,
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponent<DisplayActionsAbility>())));
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
         }
         else
         {
             tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
+            UnitReference.SetAnimationToIdle();
         }
     }
 
@@ -105,8 +105,7 @@ public class MoveAbility : Ability
 
     public override void OnAbilityDeselected(TileGrid tileGrid)
     {
-        if (tileGrid.CurrentPlayer is HumanPlayer)
-            UnitReference.SetAnimationToIdle();
+
     }
 
     public override void CleanUp(TileGrid tileGrid)

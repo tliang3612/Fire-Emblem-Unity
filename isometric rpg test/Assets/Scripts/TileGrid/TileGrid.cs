@@ -170,13 +170,46 @@ public class TileGrid : MonoBehaviour
             }
         }
 
-        Debug.Log(UnitList.Count);
-
         battleSystem.BattleOver += EndBattle;
+
+        Debug.Log("Initialized");
 
         if (LevelLoadingDone != null)
             LevelLoadingDone.Invoke(this, EventArgs.Empty);
     }
+
+    /// <summary>
+    /// Method is called once, at the begining of the game.
+    /// </summary>
+    public void StartGame()
+    {
+        if (GameStarted != null)
+            GameStarted.Invoke(this, EventArgs.Empty);
+
+        TransitionResult transitionResult = GetComponent<TurnResolver>().ResolveStart(this);
+        PlayableUnits = transitionResult.PlayableUnits;
+        CurrentPlayerNumber = transitionResult.NextPlayer.PlayerNumber;
+
+        foreach (Unit u in UnitList)
+        {
+            if (!PlayableUnits.Contains(u))
+            {
+                u.MarkAsEnemy(PlayersList[u.PlayerNumber]);
+            }
+            else
+            {
+                var abilityList = u.GetComponentsInChildren<Ability>();
+
+                foreach (Ability a in abilityList)
+                {
+                    a.OnTurnStart(this);
+                }
+            }
+            u.OnTurnStart();
+        }
+        Debug.Log("Game Started");
+    }
+
 
     private void OnTileDehighlighted(object sender, EventArgs e)
     {
@@ -189,8 +222,7 @@ public class TileGrid : MonoBehaviour
     private void OnTileClicked(object sender, EventArgs e)
     {
         GridState.OnTileClicked(sender as OverlayTile);
-    }
-        
+    }     
     private void OnUnitClicked(object sender, EventArgs e)
     {
         GridState.OnUnitClicked(sender as Unit);
@@ -207,7 +239,7 @@ public class TileGrid : MonoBehaviour
     private void OnUnitDestroyed(object sender, AttackEventArgs e)
     {
         UnitList.Remove(sender as Unit);
-        (sender as Unit).GetComponents<Ability>().ToList().ForEach(a => a.OnUnitDestroyed(this));
+        (sender as Unit).GetComponentsInChildren<Ability>().ToList().ForEach(a => a.OnUnitDestroyed(this));
         (sender as Unit).MarkAsDestroyed();
         CheckGameFinished();
     }
@@ -268,51 +300,18 @@ public class TileGrid : MonoBehaviour
 
         if (UnitAdded != null)
         {
-            UnitAdded.Invoke(this, new UnitCreatedEventArgs(unit));
+            UnitAdded.Invoke(this, new UnitCreatedEventArgs(unit, unit.GetComponentsInChildren<Ability>().ToList()));
         }
 
     }
 
         
-    /// <summary>
-    /// Method is called once, at the begining of the game.
-    /// </summary>
-    public void StartGame()
-    {
-        if (GameStarted != null)
-            GameStarted.Invoke(this, EventArgs.Empty);
-
-        TransitionResult transitionResult = GetComponent<TurnResolver>().ResolveStart(this);
-        PlayableUnits = transitionResult.PlayableUnits;
-        CurrentPlayerNumber = transitionResult.NextPlayer.PlayerNumber;
-
-        foreach(Unit u in UnitList)
-        {
-            if (!PlayableUnits.Contains(u))
-            {
-                u.MarkAsEnemy(PlayersList[u.PlayerNumber]);
-            }
-            else
-            {
-                var abilityList = u.GetComponents<Ability>();
-
-                foreach (Ability a in abilityList)
-                {
-                    a.OnTurnStart(this);
-                }
-            }
-            u.OnTurnStart();
-        }
-        
-    }
-
+    
     public void StartPlayerTurn()
     {
         TurnInProgress = true;
         CurrentPlayer.Play(this);
     }
-
-    
 
     /// <summary>
     /// Method makes turn transitions. It is called by player at the end of his turn.
@@ -336,7 +335,7 @@ public class TileGrid : MonoBehaviour
             }
 
             u.OnTurnEnd();
-            u.GetComponents<Ability>().ToList().ForEach(a => a.OnTurnEnd(this));
+            u.GetComponentsInChildren<Ability>().ToList().ForEach(a => a.OnTurnEnd(this));
 
         }
         TransitionResult transitionResult = GetComponent<TurnResolver>().ResolveTurn(this);
@@ -346,8 +345,6 @@ public class TileGrid : MonoBehaviour
 
         if (TurnEnded != null)
             TurnEnded.Invoke(this, EventArgs.Empty);
-
-        Debug.Log(string.Format("Player {0} turn", CurrentPlayerNumber));
 
         playableUnits = PlayableUnits;
 
@@ -362,7 +359,7 @@ public class TileGrid : MonoBehaviour
             }
             else
             {
-                var abilityList = u.GetComponents<Ability>();
+                var abilityList = u.GetComponentsInChildren<Ability>();
 
                 foreach (Ability a in abilityList)
                 {

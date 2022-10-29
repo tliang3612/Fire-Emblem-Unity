@@ -100,7 +100,7 @@ public class Unit : MonoBehaviour, IClickable
         Tile.IsBlocked = true;
         Tile.CurrentUnit = this;
 
-        //cachedPath = new List<OverlayTile>();
+        cachedPath = new List<OverlayTile>();
         
     }
 
@@ -150,7 +150,7 @@ public class Unit : MonoBehaviour, IClickable
     //Called at the start of each turn
     public virtual void OnTurnStart()
     {
-        //cachedPath = new List<OverlayTile>();
+        cachedPath = new List<OverlayTile>();
         Anim.SetBool("IsFinished", false);
 
     }
@@ -371,8 +371,7 @@ public class Unit : MonoBehaviour, IClickable
         {
             cachedPath = path;
             StartCoroutine(MovementAnimation(path));           
-        }
-        Debug.Log(cachedPath.Count);
+        }      
     }
 
     /// <summary>
@@ -383,7 +382,13 @@ public class Unit : MonoBehaviour, IClickable
     {
         Anim.SetBool("IsMoving", true);
 
-        var tempPath = path;
+        if (path.Count <= 1)
+        {
+            yield return null;
+        }
+
+        List<OverlayTile> tempPath = path.ToList();
+
         IsMoving = true;
 
         while (tempPath.Count > 0 && IsMoving)
@@ -414,13 +419,8 @@ public class Unit : MonoBehaviour, IClickable
 
     public void ConfirmMove()
     {
-        Debug.Log(cachedPath.Count);
-
         if (cachedPath.Count > 0)
-        {
-            
-            PositionCharacter(cachedPath[cachedPath.Count]);
-
+        {         
             foreach (var tile in cachedPath)
             {
                 MovementPoints -= tile.MovementCost;
@@ -457,13 +457,12 @@ public class Unit : MonoBehaviour, IClickable
     {
         Anim.SetBool("IsMoving", false);
         SetAnimationToIdle();
-
-        
+      
         if (cachedPath.Count > 0)
         {
             MovementPoints = TotalMovementPoints;
             PositionCharacter(cachedPath[0]);
-            //cachedPath = new List<OverlayTile>();
+            cachedPath = new List<OverlayTile>();
         }
     }
 
@@ -483,8 +482,7 @@ public class Unit : MonoBehaviour, IClickable
     public void PositionCharacter(OverlayTile tile)
     {
         transform.position = tile.transform.position;
-        Tile = tile;
-        
+        Tile = tile;       
     }
 
     public bool IsTileMovableTo(OverlayTile tile)
@@ -599,11 +597,13 @@ public class AttackEventArgs : EventArgs
 
 public class UnitCreatedEventArgs : EventArgs
 {
-    public Unit unit;
+    public Unit Unit;
+    public List<Ability> Abilities;
 
-    public UnitCreatedEventArgs(Unit unit)
+    public UnitCreatedEventArgs(Unit unit, List<Ability> unitAbilities )
     {
-        this.unit = unit;
+        Unit = unit;
+        Abilities = unitAbilities;
     }
 }
 

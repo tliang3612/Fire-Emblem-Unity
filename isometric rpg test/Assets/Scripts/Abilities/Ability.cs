@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 public abstract class Ability : MonoBehaviour
 {
+    public event EventHandler AbilitySelected;
+    public event EventHandler AbilityDeselected;
+
     //The Unit that this ability script is attached to 
     public Unit UnitReference { get; set; }
 
@@ -14,7 +17,7 @@ public abstract class Ability : MonoBehaviour
 
     protected virtual void Awake()
     {
-        UnitReference = GetComponent<Unit>();
+        UnitReference = GetComponentInParent<Unit>();
         IsDisplayable = false;
         Name = "Ability";
     }
@@ -29,7 +32,7 @@ public abstract class Ability : MonoBehaviour
     {
         yield return Execute(tileGrid,
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponents<Ability>().ToList()));
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentsInChildren<Ability>().ToList()));
     }
 
     public IEnumerator AIExecute(TileGrid tileGrid)
@@ -65,8 +68,8 @@ public abstract class Ability : MonoBehaviour
     public virtual void Display(TileGrid tileGrid) { }
     public virtual void CleanUp(TileGrid tileGrid) { }
 
-    public virtual void OnAbilitySelected(TileGrid tileGrid) { }
-    public virtual void OnAbilityDeselected(TileGrid tileGrid) { }
+    public virtual void OnAbilitySelected(TileGrid tileGrid) { AbilitySelected.Invoke(this, EventArgs.Empty); }
+    public virtual void OnAbilityDeselected(TileGrid tileGrid) { AbilityDeselected.Invoke(this, EventArgs.Empty); }
     public virtual void OnTurnStart(TileGrid tileGrid) { }
     public virtual void OnTurnEnd(TileGrid tileGrid) { }
 
