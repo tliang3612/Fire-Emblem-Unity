@@ -13962,9 +13962,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
+      propertyPath: UnitName
+      value: Hector
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
+      propertyPath: HitPoints
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
+      propertyPath: LuckFactor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
+      propertyPath: AttackRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
+      propertyPath: SkillFactor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
+      propertyPath: AttackFactor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
       propertyPath: UnitPortrait
       value: 
       objectReference: {fileID: -1818223156, guid: eecbc67727b43e243883e4b0074123c7, type: 3}
+    - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
+      propertyPath: DefenceFactor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894398932325286546, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
+      propertyPath: movementPoints
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c6b73b08168ab64ab25933927c22ed3, type: 3}
 --- !u!4 &6468181541137459310 stripped
