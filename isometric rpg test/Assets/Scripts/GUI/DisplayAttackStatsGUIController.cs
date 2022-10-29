@@ -33,6 +33,7 @@ public class DisplayAttackStatsGUIController : AbilityGUIController
         if (sender is DisplayAttackStatsAbility)
         {
             Panel.SetActive(false);
+            ClearStats();
         }
     }
 

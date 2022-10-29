@@ -59,6 +59,7 @@ public class Unit : MonoBehaviour, IClickable
 
     public bool InSelectionMenu = false;
 
+    [HideInInspector]
     public List<OverlayTile> cachedPath;
 
     [SerializeField]
