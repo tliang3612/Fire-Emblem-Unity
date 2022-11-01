@@ -79,7 +79,7 @@ public class BattleSystem : MonoBehaviour
         if (BattleOver != null)
             BattleOver.Invoke(this, new BattleOverEventArgs(attacker, defender, damageDetails.IsDead));
 
-        playerUnit.unit.SetFinished();
+        playerUnit.unit.SetState(new UnitStateFinished(playerUnit.unit));
     }
 
     private IEnumerator PerformDefenderMove()

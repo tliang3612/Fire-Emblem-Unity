@@ -153,10 +153,11 @@ MonoBehaviour:
   DefenceFactor: 3
   SkillFactor: 15
   LuckFactor: 15
-  CritFactor: 4
+  CritFactor: 0
   UnitName: Eliwood
   UnitPortrait: {fileID: 867919818, guid: d166b22e2166bc64badcb2758a248942, type: 3}
   UnitBattleSprite: {fileID: -1413286227, guid: d166b22e2166bc64badcb2758a248942, type: 3}
+  BattleAnimController: {fileID: 9100000, guid: 2f3bd0e661dc92e46949aabe3fb630f9, type: 2}
   InSelectionMenu: 0
   cachedPath: []
   movementPoints: 7

@@ -20,33 +20,33 @@ public class DisplayAttackStatsGUIController : AbilityGUIController
     public Text AttackerCritChance;
 
     
-    public override void OnAbilitySelected(object sender, EventArgs e)
+    protected override void OnAbilitySelected(object sender, EventArgs e)
     {
+        base.OnAbilitySelected(sender, e);
+
         if (sender is DisplayAttackStatsAbility)
         {
             Panel.SetActive(true);
+            SetState(GUIState.InAbilitySelection);
         }
     }
 
-    public override void OnAbilityDeselected(object sender, EventArgs e)
+    protected override void OnAbilityDeselected(object sender, EventArgs e)
     {
         if (sender is DisplayAttackStatsAbility)
         {
             Panel.SetActive(false);
+            SetState(GUIState.InAbilitySelection);
             ClearStats();
         }
     }
 
-    protected override void RegisterUnit(Unit unit, List<Ability> abilityList)
+    protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)
     {
-        base.RegisterUnit(unit, abilityList);
+        base.RegisterUnit(unit, unitAbilities);
 
-
-        foreach (Ability a in abilityList)
-        {
-            a.AbilitySelected += OnAbilitySelected;
-            a.AbilityDeselected += OnAbilityDeselected;
-
+        foreach(Ability a in unitAbilities)
+        { 
             if (a is DisplayAttackStatsAbility)
             {
                 (a as DisplayAttackStatsAbility).DisplayStatsChanged += OnStatsChanged;

@@ -9,7 +9,6 @@ public class UnitStateNormal : UnitState
 
     public override void Apply()
     {
-
         _unit.SetAnimationToIdle();
     }
 

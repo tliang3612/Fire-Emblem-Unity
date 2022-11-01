@@ -13,6 +13,7 @@ public class UnitStateFinished : UnitState
     public override void Apply()
     {
         _unit.MarkAsFinished();
+        _unit.SetFinished();
     }
 
     public override void TransitionState(UnitState state)

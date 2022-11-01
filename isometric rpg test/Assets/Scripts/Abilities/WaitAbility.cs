@@ -17,7 +17,8 @@ public class WaitAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
-            UnitReference.SetFinished();
+            Debug.Log("wait clicked");
+            UnitReference.SetState(new UnitStateFinished(UnitReference));
             UnitReference.ConfirmMove();
         }
         yield return 0;

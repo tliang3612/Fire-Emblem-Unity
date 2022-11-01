@@ -20,7 +20,6 @@ public class PhaseTransition : MonoBehaviour
 
     public void TransitionPhase(object sender, EventArgs e)
     {
-        Debug.Log("Phase Transitioned");
         gameObject.SetActive(true);
         tileGrid.GridState = new TileGridStateBlockInput(tileGrid);
     

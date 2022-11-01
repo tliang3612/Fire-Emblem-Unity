@@ -55,6 +55,7 @@ public class DisplayActionsAbility : Ability
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
         base.OnAbilitySelected(tileGrid);
+
     }
 
     public override void OnAbilityDeselected(TileGrid tileGrid)

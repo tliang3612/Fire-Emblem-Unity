@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 696ef7b134b90ed42b3690e7ab7c551f
+guid: 156132a86be6f56459612f6b615fd7a6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -139,7 +139,1267 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hector_attack_animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1110
+        width: 43
+        height: 38
+      alignment: 9
+      pivot: {x: 0.3488372, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bcfb719664b2d146b51af091582f10a
+      internalID: -2109196525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1023
+        width: 43
+        height: 38
+      alignment: 9
+      pivot: {x: 0.37209302, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04b139ee0e29bd4bb1be91baa414bb5
+      internalID: 1491766378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1023
+        width: 33
+        height: 38
+      alignment: 9
+      pivot: {x: 0.24242425, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f66550d3ea8f7c4fa6906134496d519
+      internalID: 1600300613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1023
+        width: 28
+        height: 38
+      alignment: 9
+      pivot: {x: 0.14285715, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c6aa88c96a0b64b8e8af3ffa3c59bb
+      internalID: -511740482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_4
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 1023
+        width: 28
+        height: 38
+      alignment: 9
+      pivot: {x: 0.14285715, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4c135ba8a42f845bcb9c2ef2b99ac9
+      internalID: -273515867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1023
+        width: 30
+        height: 38
+      alignment: 9
+      pivot: {x: 0.20000002, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484aefe9b61fae24bbab81ec67ccb67e
+      internalID: -1679347394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_6
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1023
+        width: 47
+        height: 55
+      alignment: 9
+      pivot: {x: 0.4255319, y: 0.036363635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccfeb864a60e3ff4282546d55d150b1a
+      internalID: -1477316391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_7
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 1023
+        width: 60
+        height: 55
+      alignment: 9
+      pivot: {x: 0.4166667, y: 0.036363635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e8085e3ce8ddc24497300b2e32fd8da
+      internalID: -1022063838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 961
+        width: 51
+        height: 30
+      alignment: 9
+      pivot: {x: 0.1764706, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b674b898809bd3948bb8d88c96dbc3fd
+      internalID: 1691088462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_9
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 960
+        width: 48
+        height: 31
+      alignment: 9
+      pivot: {x: 0.10416667, y: 0.06451613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f10f29ab17e48041aa7fdd3659379a7
+      internalID: 1366568672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_10
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 960
+        width: 48
+        height: 31
+      alignment: 9
+      pivot: {x: 0.125, y: 0.06451613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266e4a08775158141a9cff1568c1ce16
+      internalID: 53301230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_11
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 958
+        width: 46
+        height: 44
+      alignment: 9
+      pivot: {x: 0.43478262, y: 0.045454547}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ac12608266c8640a586557f5005158
+      internalID: 1995589098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 959
+        width: 38
+        height: 58
+      alignment: 9
+      pivot: {x: 0.23684211, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29d72597ce216c04398ca60021f41652
+      internalID: -503348437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_13
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 959
+        width: 38
+        height: 58
+      alignment: 9
+      pivot: {x: 0.18421052, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ff0e20c89b64e4d89c8c1156867970
+      internalID: 1783410943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 904
+        width: 42
+        height: 50
+      alignment: 9
+      pivot: {x: 0.30952382, y: 0.099999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb3914a305d8694487c6b583b111aa7
+      internalID: -1022354201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_15
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 904
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.3409091, y: 0.099999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420b2163ea67d2d4693a6121d84f206c
+      internalID: -750266407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_16
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 904
+        width: 49
+        height: 50
+      alignment: 9
+      pivot: {x: 0.34693876, y: 0.099999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaace9fecb42b9e4ea01c30068d9a6db
+      internalID: 1514808462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_17
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 904
+        width: 51
+        height: 50
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.099999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27709841ded8424479d52c2d4db02ada
+      internalID: 1648612136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_18
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 904
+        width: 51
+        height: 50
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.099999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1210cf074fcf8c46a970d57a6a01109
+      internalID: -1423138710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_19
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 904
+        width: 51
+        height: 50
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.099999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c8bacd7b21e4943a7887c6c1e21971
+      internalID: 842914169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_20
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 856
+        width: 55
+        height: 36
+      alignment: 9
+      pivot: {x: 0.27272725, y: 0.083333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4e26acc4e1ad24dacfeb922306bb91
+      internalID: -1046033515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_21
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 856
+        width: 63
+        height: 36
+      alignment: 9
+      pivot: {x: 0.41269845, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc37ce196c48ee54d818e9fcd2e7d3eb
+      internalID: 1322975409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_22
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 856
+        width: 47
+        height: 36
+      alignment: 9
+      pivot: {x: 0.29787233, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 686a8957987f9b743b25580c70a8c9fe
+      internalID: 647820431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_23
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 856
+        width: 32
+        height: 36
+      alignment: 9
+      pivot: {x: 0.25, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615d14ca41442fd44941441d5c6e0071
+      internalID: 772013787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_24
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 856
+        width: 43
+        height: 36
+      alignment: 9
+      pivot: {x: 0.44186047, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79744602ceb40f41b6418d42be2d4a3
+      internalID: 549618682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_25
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 776
+        width: 39
+        height: 46
+      alignment: 9
+      pivot: {x: 0.30769232, y: 0.04347826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06fc191cb5c66764c964cece362a194c
+      internalID: 1466181092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_26
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 776
+        width: 46
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4130435, y: 0.04347826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80302f9122ec44b41b6639043d2c83e6
+      internalID: -2104903292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_27
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 776
+        width: 40
+        height: 46
+      alignment: 9
+      pivot: {x: 0.3, y: 0.04347826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2afa4511d08643458e2f725861ecd52
+      internalID: 1524308212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_28
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 776
+        width: 34
+        height: 46
+      alignment: 9
+      pivot: {x: 0.1764706, y: 0.04347826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aeda2fa8b4175d4faa1f57ba21b77de
+      internalID: 531093382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_29
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 776
+        width: 33
+        height: 46
+      alignment: 9
+      pivot: {x: 0.15151516, y: 0.04347826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082b5882c0eb54a4b84069197989caaa
+      internalID: -1115471428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_30
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 776
+        width: 31
+        height: 51
+      alignment: 9
+      pivot: {x: 0.09677419, y: 0.039215688}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb1300c7bf9d1843ac8dfb9ab7d27db
+      internalID: 115457342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_31
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 776
+        width: 33
+        height: 52
+      alignment: 9
+      pivot: {x: 0.15151516, y: 0.03846154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9108e991b96ebfe4c9b875856dcd5fc3
+      internalID: 1397014852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_32
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 776
+        width: 33
+        height: 54
+      alignment: 9
+      pivot: {x: 0.18181819, y: 0.037037037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa33f97534ca4f1419bee3630baf4c76
+      internalID: 856003580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 715
+        width: 35
+        height: 58
+      alignment: 9
+      pivot: {x: 0.2, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27dc5046e8db99244baebb0edeecbafc
+      internalID: -1012114899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_34
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 715
+        width: 37
+        height: 58
+      alignment: 9
+      pivot: {x: 0.24324325, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9722b9fb3759d7148a4b1f79f7992d2e
+      internalID: -660451199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_35
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 715
+        width: 41
+        height: 58
+      alignment: 9
+      pivot: {x: 0.3414634, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3c0d71df99faa45945633ba03c372a
+      internalID: 472661823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_36
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 715
+        width: 42
+        height: 38
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa1322e4ddf9504dbef524c627ab7a9
+      internalID: 858440486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_37
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 715
+        width: 33
+        height: 38
+      alignment: 9
+      pivot: {x: 0.24242425, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1d09fc73e05ef4db5cc340ee49b60c
+      internalID: 997968676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_38
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 715
+        width: 33
+        height: 38
+      alignment: 9
+      pivot: {x: 0.21212122, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7250c243c289043adecc5e5932dc00
+      internalID: 542429483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_39
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 715
+        width: 33
+        height: 38
+      alignment: 9
+      pivot: {x: 0.21212122, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e03c75b5cae39243b5aa4f0d8ccb43e
+      internalID: -58781706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_40
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 715
+        width: 33
+        height: 38
+      alignment: 9
+      pivot: {x: 0.18181819, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f4159239d96e6448f9fa376df08609
+      internalID: -1091685742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 654
+        width: 46
+        height: 55
+      alignment: 9
+      pivot: {x: 0.4130435, y: 0.036363635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5c04ae482380c4b95640fabf9a9302
+      internalID: -802439246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_42
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 654
+        width: 60
+        height: 55
+      alignment: 9
+      pivot: {x: 0.4166667, y: 0.036363635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112ca0979ebfb6c45b95f6590be38faa
+      internalID: 1316731245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_43
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 654
+        width: 56
+        height: 29
+      alignment: 9
+      pivot: {x: 0.21428573, y: 0.06896552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6d34f39a8781d44b6b5c62d8c3203c
+      internalID: -1930652036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_44
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 654
+        width: 56
+        height: 29
+      alignment: 9
+      pivot: {x: 0.125, y: 0.06896552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff916d9b9810c5d4da0e391b82e59707
+      internalID: -272978373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_45
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 654
+        width: 45
+        height: 29
+      alignment: 9
+      pivot: {x: 0.06666667, y: 0.06896552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4c1cd6853ac60d4f8caca7708bc5c41
+      internalID: -1740325486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 593
+        width: 39
+        height: 46
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30502daf4d08cc44cafdf170d94a288a
+      internalID: -78994014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_47
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 593
+        width: 42
+        height: 58
+      alignment: 9
+      pivot: {x: 0.26190478, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc3895bf1f335b44a19789964e8cd4c
+      internalID: -1535402141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_48
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 593
+        width: 34
+        height: 58
+      alignment: 9
+      pivot: {x: 0.23529412, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bcf713f10ef2447925aa8e034336e4
+      internalID: 660375848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_49
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 589
+        width: 42
+        height: 62
+      alignment: 9
+      pivot: {x: 0.2857143, y: 0.08064516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb8b0d4b0072f84ea0cd74197cc6286
+      internalID: 763267655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_50
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 589
+        width: 43
+        height: 62
+      alignment: 9
+      pivot: {x: 0.27906978, y: 0.08064516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9357ed4e7a7e24a841dd7286f13a72
+      internalID: -1491208877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_51
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 589
+        width: 45
+        height: 62
+      alignment: 9
+      pivot: {x: 0.26666668, y: 0.08064516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a27cdfd69ee3684a91d838148a694a3
+      internalID: -1030073112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_52
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 547
+        width: 47
+        height: 34
+      alignment: 9
+      pivot: {x: 0.25531915, y: 0.14705883}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068daaeff6d3a8840a88cad2a087b530
+      internalID: -940098675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_53
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 547
+        width: 46
+        height: 34
+      alignment: 9
+      pivot: {x: 0.26086956, y: 0.14705883}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a9d7f2d39a8bd4f8f74a4b587d0382
+      internalID: -1658433544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_54
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 547
+        width: 41
+        height: 34
+      alignment: 9
+      pivot: {x: 0.29268292, y: 0.14705883}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9283b9482c1c9204b94895da475ea106
+      internalID: -550442812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_55
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 40
+        height: 38
+      alignment: 9
+      pivot: {x: 0.3, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517ae5ac7807fa34cbc3e02be2e51620
+      internalID: 322542100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_56
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 54
+        height: 40
+      alignment: 9
+      pivot: {x: 0.22222222, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c4e6b39e0897ee44badcd7737c1c3fe
+      internalID: -1719063071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_57
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 0
+        width: 41
+        height: 45
+      alignment: 9
+      pivot: {x: 0.19512194, y: 0.044444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb65cbecebc15c749b1d9eef1170a0a4
+      internalID: 122446620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_58
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 54
+        height: 45
+      alignment: 9
+      pivot: {x: 0.22222222, y: 0.044444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4260634a117cff84d860af68bbebd510
+      internalID: 2131100967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_attack_animation_59
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 39
+        height: 45
+      alignment: 9
+      pivot: {x: 0.30769232, y: 0.044444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586894a8c2ead494cbcf86890ed32b30
+      internalID: 1174021713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -150,7 +1410,68 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Game Boy Advance - Fire Emblem The Blazing Blade - Hector Lord (1) (1)_0: -276987973
+      hector_attack_animation_37: 997968676
+      hector_attack_animation_58: 2131100967
+      hector_attack_animation_13: 1783410943
+      hector_attack_animation_56: -1719063071
+      hector_attack_animation_7: -1022063838
+      hector_attack_animation_21: 1322975409
+      hector_attack_animation_44: -272978373
+      hector_attack_animation_1: 1491766378
+      hector_attack_animation_16: 1514808462
+      hector_attack_animation_55: 322542100
+      hector_attack_animation_0: -2109196525
+      hector_attack_animation_43: -1930652036
+      hector_attack_animation_52: -940098675
+      hector_attack_animation_48: 660375848
+      hector_attack_animation_33: -1012114899
+      hector_attack_animation_3: -511740482
+      hector_attack_animation_59: 1174021713
+      hector_attack_animation_22: 647820431
+      hector_attack_animation_2: 1600300613
+      hector_attack_animation_24: 549618682
+      hector_attack_animation_6: -1477316391
+      hector_attack_animation_49: 763267655
+      hector_attack_animation_35: 472661823
+      hector_attack_animation_45: -1740325486
+      hector_attack_animation_29: -1115471428
+      hector_attack_animation_50: -1491208877
+      hector_attack_animation_9: 1366568672
+      hector_attack_animation_17: 1648612136
+      hector_attack_animation_14: -1022354201
+      hector_attack_animation_10: 53301230
+      hector_attack_animation_11: 1995589098
+      hector_attack_animation_38: 542429483
+      hector_attack_animation_12: -503348437
+      hector_attack_animation_54: -550442812
+      hector_attack_animation_40: -1091685742
+      hector_attack_animation_41: -802439246
+      hector_attack_animation_36: 858440486
+      hector_attack_animation_8: 1691088462
+      hector_attack_animation_4: -273515867
+      hector_attack_animation_30: 115457342
+      hector_attack_animation_19: 842914169
+      hector_attack_animation_5: -1679347394
+      hector_attack_animation_18: -1423138710
+      hector_attack_animation_27: 1524308212
+      hector_attack_animation_42: 1316731245
+      hector_attack_animation_47: -1535402141
+      hector_attack_animation_39: -58781706
+      hector_attack_animation_25: 1466181092
+      hector_attack_animation_53: -1658433544
+      hector_attack_animation_32: 856003580
+      hector_attack_animation_57: 122446620
+      hector_attack_animation_15: -750266407
+      hector_attack_animation_46: -78994014
+      hector_attack_animation_51: -1030073112
+      hector_attack_animation_28: 531093382
+      hector_attack_animation_26: -2104903292
+      hector_attack_animation_31: 1397014852
+      hector_attack_animation_20: -1046033515
+      hector_attack_animation_23: 772013787
+      hector_attack_animation_34: -660451199
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

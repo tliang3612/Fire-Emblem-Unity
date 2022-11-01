@@ -68,8 +68,8 @@ public class AIPlayer : Player
 				}
                 else
                 {
-					unit.SetFinished();
-                }
+					unit.SetState(new UnitStateFinished(unit));
+				}
 			}
 			unit.GetComponentInChildren<WaitAbility>().AIExecute(tileGrid);
 		}

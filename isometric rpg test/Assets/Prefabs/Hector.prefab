@@ -156,7 +156,8 @@ MonoBehaviour:
   CritFactor: 100
   UnitName: 
   UnitPortrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  UnitBattleSprite: {fileID: 0}
+  UnitBattleSprite: {fileID: 1491766378, guid: 156132a86be6f56459612f6b615fd7a6, type: 3}
+  BattleAnimController: {fileID: 9100000, guid: c3925eca2fa5e914cad2503056ec0d9f, type: 2}
   InSelectionMenu: 0
   cachedPath: []
   movementPoints: 0

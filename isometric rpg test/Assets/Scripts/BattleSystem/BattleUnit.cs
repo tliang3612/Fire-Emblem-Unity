@@ -26,6 +26,7 @@ public class BattleUnit : MonoBehaviour
         GetComponent<Image>().sprite = unit.UnitBattleSprite;
         unitToAttack = battleUnitToAttack;
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+        anim.runtimeAnimatorController = unit.BattleAnimController;
 
         HUD.SetData(unit, unitToAttack.unit);
     }
@@ -97,7 +98,7 @@ public class BattleUnit : MonoBehaviour
     public void MoveTowardsEnemy()
     {
         var toDestinationInLocalSpace = unitToAttack.GetComponent<RectTransform>().anchoredPosition - GetComponent<RectTransform>().anchoredPosition;
-        GetComponent<RectTransform>().DOAnchorPos(toDestinationInLocalSpace, .2f).SetRelative(true);
+        GetComponent<RectTransform>().DOAnchorPos(toDestinationInLocalSpace, .3f).SetRelative(true);
     }
 
     public void MoveBackToPosition()

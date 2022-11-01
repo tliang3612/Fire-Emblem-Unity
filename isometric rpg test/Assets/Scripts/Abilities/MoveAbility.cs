@@ -47,10 +47,11 @@ public class MoveAbility : Ability
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
     {
-        //if unit the unit clicked was the UnitReference
+        
         if(UnitReference == unit)
         {
             Destination = UnitReference.Tile;
+            //We would still call execute so we can run Act
             StartCoroutine(Execute(tileGrid,
                 _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
                 _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
@@ -73,7 +74,9 @@ public class MoveAbility : Ability
         else
         {
             tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
-            UnitReference.SetAnimationToIdle();
+            //We call this to inform GUI that the move has been cancelled, which allows the GUI to show 
+            base.OnAbilityDeselected(tileGrid);
+            UnitReference.SetState(new UnitStateNormal(UnitReference));
         }
     }
 
@@ -96,8 +99,14 @@ public class MoveAbility : Ability
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
+        //play move animation when a human player selects the unit,
+        //we dont want ai to play it because ai instantly selects a move option while the player has to think
         if(tileGrid.CurrentPlayer is HumanPlayer)
+        {
             UnitReference.SetMove();
+            base.OnAbilitySelected(tileGrid);
+        }
+            
 
         availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
         tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
@@ -105,7 +114,7 @@ public class MoveAbility : Ability
 
     public override void OnAbilityDeselected(TileGrid tileGrid)
     {
-
+        
     }
 
     public override void CleanUp(TileGrid tileGrid)

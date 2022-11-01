@@ -31,7 +31,7 @@ public class CancelAbility : Ability
 
     public override void OnAbilityDeselected(TileGrid tileGrid)
     {
-        UnitReference.SetAnimationToIdle();
+        UnitReference.SetState(new UnitStateNormal(UnitReference));
     }
 
     public override bool CanPerform(TileGrid tileGrid)

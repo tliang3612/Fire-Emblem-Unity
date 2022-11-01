@@ -68,8 +68,10 @@ public abstract class Ability : MonoBehaviour
     public virtual void Display(TileGrid tileGrid) { }
     public virtual void CleanUp(TileGrid tileGrid) { }
 
+    //Invoked when the ability communicates with the GUI controllers
     public virtual void OnAbilitySelected(TileGrid tileGrid) { AbilitySelected.Invoke(this, EventArgs.Empty); }
     public virtual void OnAbilityDeselected(TileGrid tileGrid) { AbilityDeselected.Invoke(this, EventArgs.Empty); }
+
     public virtual void OnTurnStart(TileGrid tileGrid) { }
     public virtual void OnTurnEnd(TileGrid tileGrid) { }
 

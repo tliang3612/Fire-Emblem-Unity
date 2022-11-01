@@ -5,13 +5,33 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum GUIState
+{
+    Clear,
+    InAbilitySelection,
+    InGameGUISelection,
+    BlockInput
+}
 public class GUIController : MonoBehaviour
 {
     public GameObject Panel;
     public TileGrid tileGrid;
+    protected Camera mainCamera;
+
+    //communicates state between all gui classes
+    protected static GUIState State;
+    [SerializeField] public GameObject RightPanelHolder;
+
+    protected Vector2 rightPanelPosition;
 
     protected virtual void Awake()
     {
+        State = GUIState.Clear;
+
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        rightPanelPosition = RightPanelHolder.GetComponent<RectTransform>().anchoredPosition;
+        RightPanelHolder.SetActive(false);
+
         tileGrid.GameStarted += OnGameStarted;
         tileGrid.TurnEnded += OnTurnEnded;
         tileGrid.GameEnded += OnGameEnded;
@@ -20,9 +40,26 @@ public class GUIController : MonoBehaviour
 
     protected virtual void OnGameStarted(object sender, EventArgs e)
     {
+        foreach (OverlayTile tile in tileGrid.TileList)
+        {
+            tile.TileHighlighted += OnTileHighlighted;
+            tile.TileDehighlighted += OnTileDehighlighted;
+            tile.TileClicked += OnTileClicked;
+        }
+
         OnTurnEnded(sender, e); 
     }
 
+    protected void SetState(GUIState state)
+    {
+        State = state;
+    }
+
+    protected virtual void OnTileClicked(object sender, EventArgs e)
+    {
+        
+    }   
+    
     protected virtual void OnGameEnded(object sender, EventArgs e)
     {
         
@@ -57,6 +94,15 @@ public class GUIController : MonoBehaviour
         
     }
 
+    protected virtual void OnAbilitySelected(object sender, EventArgs e)
+    {
+    }
+
+    protected virtual void OnAbilityDeselected(object sender, EventArgs e)
+    {
+
+    }
+
     protected virtual void OnUnitAdded(object sender, UnitCreatedEventArgs e)
     {
         RegisterUnit(e.Unit, e.Abilities);
@@ -65,6 +111,12 @@ public class GUIController : MonoBehaviour
 
     protected virtual void RegisterUnit(Unit unit, List<Ability> unitAbilities)
     {
+        foreach (Ability a in unitAbilities)
+        {
+            a.AbilitySelected += OnAbilitySelected;
+            a.AbilityDeselected += OnAbilityDeselected;
+        }
+
         unit.UnitHighlighted += OnUnitHighlighted;
         unit.UnitDehighlighted += OnUnitDehighlighted;
         unit.UnitClicked += OnUnitClicked;

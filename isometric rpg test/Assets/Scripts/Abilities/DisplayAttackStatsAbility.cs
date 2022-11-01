@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 
 public class DisplayAttackStatsAbility : Ability
 {
@@ -44,6 +42,8 @@ public class DisplayAttackStatsAbility : Ability
 
     public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
     {
+        OnAbilityDeselected(tileGrid);
+
         StartCoroutine(Execute(tileGrid,
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
             _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));

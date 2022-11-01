@@ -56,6 +56,7 @@ public class Unit : MonoBehaviour, IClickable
     public string UnitName;
     public Sprite UnitPortrait;
     public Sprite UnitBattleSprite;
+    public RuntimeAnimatorController BattleAnimController;
 
     public bool InSelectionMenu = false;
 
@@ -121,31 +122,21 @@ public class Unit : MonoBehaviour, IClickable
         
     public void OnPointerDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (UnitClicked != null)
-                UnitClicked.Invoke(this, EventArgs.Empty);
-        }  
-
+        if (UnitClicked != null)
+            UnitClicked.Invoke(this, EventArgs.Empty);       
     }
 
     public void OnMouseEnter()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (UnitHighlighted != null)
-                UnitHighlighted.Invoke(this, EventArgs.Empty);
-        }
-
+    {       
+        if (UnitHighlighted != null)
+            UnitHighlighted.Invoke(this, EventArgs.Empty);
+        
     }
     public void OnMouseExit()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (UnitDehighlighted != null)
-                UnitDehighlighted.Invoke(this, EventArgs.Empty);
-        }
-
+    {       
+        if (UnitDehighlighted != null)
+            UnitDehighlighted.Invoke(this, EventArgs.Empty);
+        
     }
 
     //Called at the start of each turn
@@ -267,7 +258,7 @@ public class Unit : MonoBehaviour, IClickable
     public int GetCritChance()
     {
         //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
-        return (SkillFactor / 2) + 0;
+        return (SkillFactor / 2) + CritFactor;
     }
 
     public int GetHitChance()
@@ -456,8 +447,7 @@ public class Unit : MonoBehaviour, IClickable
 
     public void ResetMove()
     {
-        Anim.SetBool("IsMoving", false);
-        SetAnimationToIdle();
+        SetState(new UnitStateNormal(this));
       
         if (cachedPath.Count > 0)
         {
@@ -471,7 +461,6 @@ public class Unit : MonoBehaviour, IClickable
     {
         Anim.SetBool("IsMoving", false);
         Anim.SetBool("IsFinished", true);
-        SetState(new UnitStateFinished(this));
         MovementPoints = 0;
         ActionPoints = 0;
     }
@@ -517,12 +506,6 @@ public class Unit : MonoBehaviour, IClickable
     public List<OverlayTile> FindPath(OverlayTile destination, TileGrid tileGrid)
     {
         return _pathfinder.FindPath(Tile, destination, GetAvailableDestinations(tileGrid), tileGrid);
-    }
-
-    //Visual indication that the unit is under attack
-    public virtual void MarkAsUnderAttack()
-    {
-        GetComponent<SpriteRenderer>().color = Color.cyan;
     }
 
     //Visual indication that the unit is destroyed

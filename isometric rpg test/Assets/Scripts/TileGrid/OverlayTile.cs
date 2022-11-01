@@ -39,12 +39,10 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public void OnMouseEnter()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (TileHighlighted != null)
-                TileHighlighted.Invoke(this, EventArgs.Empty);
-        }
-        else
+        if (TileHighlighted != null)
+            TileHighlighted.Invoke(this, EventArgs.Empty);
+
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             HideCursor();
         }
@@ -52,12 +50,10 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public void OnMouseExit()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (TileDehighlighted != null)
-                TileDehighlighted.Invoke(this, EventArgs.Empty);
-        }
-        else
+        if (TileDehighlighted != null)
+            TileDehighlighted.Invoke(this, EventArgs.Empty);
+
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             HideCursor();
         }
@@ -65,12 +61,10 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public void OnPointerDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (TileClicked != null)
-                TileClicked.Invoke(this, EventArgs.Empty);
-        }
-        else
+        if (TileClicked != null)
+            TileClicked.Invoke(this, EventArgs.Empty);
+
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             HideCursor();
         }
