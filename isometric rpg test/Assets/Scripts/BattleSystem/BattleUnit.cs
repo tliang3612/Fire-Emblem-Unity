@@ -21,14 +21,14 @@ public class BattleUnit : MonoBehaviour
 
     private Vector2 originalAnchoredPosition;
 
-    public void Setup(BattleUnit battleUnitToAttack)
+    public void SetupAttack(BattleUnit battleUnitToAttack, BattleEvent battleEvent)
     {       
         GetComponent<Image>().sprite = unit.UnitBattleSprite;
         unitToAttack = battleUnitToAttack;
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         anim.runtimeAnimatorController = unit.BattleAnimController;
 
-        HUD.SetData(unit, unitToAttack.unit);
+        HUD.SetData(unit, unitToAttack.unit, battleEvent);
     }
 
     public IEnumerator PlayAttackAnimation(bool isCrit)
@@ -75,7 +75,7 @@ public class BattleUnit : MonoBehaviour
 
     }
 
-    public void PlayHitAnimation()
+    public void PlayHitAnimation(GameObject effect = null)
     {
         //Instantiate Hit Effect at the center of unit
         var hitEffect = Instantiate(HitEffect, transform.position, transform.rotation, transform);
@@ -105,6 +105,10 @@ public class BattleUnit : MonoBehaviour
     {
         var toDestinationInLocalSpace = originalAnchoredPosition - GetComponent<RectTransform>().anchoredPosition;
         GetComponent<RectTransform>().DOAnchorPos(toDestinationInLocalSpace, .2f).SetRelative(true);
+    }
+
+    public void ShootArrow()
+    {
 
     }
 }

@@ -1,0 +1,534 @@
+fileFormatVersion: 2
+guid: 75e371211aac1844ba0110582914316f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lucius_heal_animation_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 95
+        width: 24
+        height: 35
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.057142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef4382f196be3e84bba0cc8be28b2a60
+      internalID: -2055004362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 94
+        width: 22
+        height: 34
+      alignment: 9
+      pivot: {x: 0.3181818, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b0256f647795a4a8c10a37bb115b67
+      internalID: -2059592509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 90
+        width: 23
+        height: 34
+      alignment: 9
+      pivot: {x: 0.30434784, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1abc0b10051db064e9a4a6f08ff6a8bd
+      internalID: 1003249763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_3
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 85
+        width: 26
+        height: 40
+      alignment: 9
+      pivot: {x: 0.3846154, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d7b0b9b875ad84a97b5b4d24f7ace3
+      internalID: -795596237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_4
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 83
+        width: 28
+        height: 39
+      alignment: 9
+      pivot: {x: 0.3214286, y: 0.051282052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cefc88e98c5a875449bce38b83e0d6ad
+      internalID: 2014028360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 60
+        width: 45
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5777778, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44c23f25dd52dc47ab19f6095c25b30
+      internalID: -524284557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_6
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 64
+        width: 45
+        height: 60
+      alignment: 9
+      pivot: {x: 0.37777779, y: 0.033333335}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4208e3105b13f954391d6a8a5102eb44
+      internalID: -2070340877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_7
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 53
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.4, y: 0.025316456}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ec0ca284c386a4b8b3922198c8a437
+      internalID: -1119337135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_8
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 72
+        width: 38
+        height: 54
+      alignment: 9
+      pivot: {x: 0.31578946, y: 0.037037037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81ab655641a5204abd959f7130890fc
+      internalID: 1686445369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_9
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 40
+        width: 36
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.051282052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d50eb94c5d5fc4fbf19383eca12c09
+      internalID: -1473144377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_10
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 39
+        width: 37
+        height: 38
+      alignment: 9
+      pivot: {x: 0.45945948, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e82c9d7a70154b47bf4ff4abd68c0a8
+      internalID: -2118667617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_11
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 34
+        width: 36
+        height: 38
+      alignment: 9
+      pivot: {x: 0.47222224, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ff8c44dce8fef54ebea3a2170782a43
+      internalID: 90590022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_12
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 17
+        width: 35
+        height: 38
+      alignment: 9
+      pivot: {x: 0.4857143, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5410fef5aadec1c4e9af5e5a17098710
+      internalID: 1022976524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_13
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 15
+        width: 35
+        height: 38
+      alignment: 9
+      pivot: {x: 0.4857143, y: 0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090f8dd075a010245bc0d66dc2df0a5b
+      internalID: 401324218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_14
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 12
+        width: 33
+        height: 34
+      alignment: 9
+      pivot: {x: 0.4848485, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06dbf520aa7d35840b60b87476ba68f2
+      internalID: -1968160339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_15
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 138
+        width: 32
+        height: 34
+      alignment: 9
+      pivot: {x: 0.4375, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d314ab65a1143b4a82eff4aa209bd23
+      internalID: -1077998575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_heal_animation_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 138
+        width: 25
+        height: 34
+      alignment: 9
+      pivot: {x: 0.39999998, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47c22638c08a324bac2a1d49a49e5f1
+      internalID: 1772085821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lucius_heal_animation_14: -1968160339
+      lucius_heal_animation_17: 1882525094
+      lucius_heal_animation_9: -1473144377
+      lucius_heal_animation_0: -2055004362
+      lucius_heal_animation_8: 1686445369
+      lucius_heal_animation_10: -2118667617
+      lucius_heal_animation_5: -524284557
+      lucius_heal_animation_6: -2070340877
+      lucius_heal_animation_2: 1003249763
+      lucius_heal_animation_7: -1119337135
+      lucius_heal_animation_4: 2014028360
+      lucius_heal_animation_12: 1022976524
+      lucius_heal_animation_13: 401324218
+      lucius_heal_animation_11: 90590022
+      lucius_heal_animation_16: 1772085821
+      lucius_heal_animation_3: -795596237
+      lucius_heal_animation_15: -1077998575
+      lucius_heal_animation_1: -2059592509
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

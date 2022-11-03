@@ -24,20 +24,16 @@ public class DisplayActionsGUIController : AbilityGUIController
     protected override void OnAbilitySelected(object sender, EventArgs e)
     {
         base.OnAbilitySelected(sender, e);
-        SetState(GUIState.InAbilitySelection);
-
-        ButtonList = new List<GameObject>();
-
+        
         if (sender is DisplayActionsAbility)
         {
+            ButtonList = new List<GameObject>();
             Panel.SetActive(true);
-        }
-      
+        }         
     }
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)
     {
-        base.OnAbilityDeselected(sender, e);
         if (sender is DisplayActionsAbility)
         {
             Panel.SetActive(false);
@@ -47,6 +43,11 @@ public class DisplayActionsGUIController : AbilityGUIController
             {
                 Destroy(button);
             }
+        }
+        else
+        {
+            Debug.Log("State Cleared");
+            SetState(GUIState.Clear);
         }
     }
 

@@ -12,15 +12,25 @@ public class BattleSystemHUD : MonoBehaviour
     [SerializeField] HealthBar hpBar;
     Unit _unit;
 
-    public void SetData(Unit unit, Unit enemyUnit)
+    public void SetData(Unit unit, Unit enemyUnit, BattleEvent battleEvent)
     {
         _unit = unit;
-  
-        hitText.text = unit.GetBattleAccuracy(enemyUnit).ToString();
-        damageText.text = unit.GetTotalDamage(enemyUnit).ToString();
-        critText.text = unit.GetCritChance().ToString();
 
-        hpBar.SetupHP(_unit.HitPoints , _unit.TotalHitPoints);
+        if (battleEvent == BattleEvent.HealAction)
+        {
+            hitText.text = "100";
+            damageText.text = _unit.GetAttack().ToString();
+            critText.text = "0";
+        }
+        else
+        {
+            hitText.text = _unit.GetBattleAccuracy(enemyUnit).ToString();
+            damageText.text = _unit.GetTotalDamage(enemyUnit).ToString();
+            critText.text = _unit.GetCritChance().ToString();
+
+            hpBar.SetupHP(_unit.HitPoints, _unit.TotalHitPoints);
+        }
+                
     }
 
     public IEnumerator UpdateHP()

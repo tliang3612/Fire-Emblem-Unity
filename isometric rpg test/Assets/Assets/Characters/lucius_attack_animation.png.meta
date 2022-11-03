@@ -1,0 +1,1194 @@
+fileFormatVersion: 2
+guid: a0efa4a5d34bb364c92a7fd7cf1f1b95
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 19
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lucius_sprites_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 33
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9fc2b9867533264191b4f1d517a09cb
+      internalID: 382127858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 34
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3fef4be9c3a96546ba84b0a11de33c1
+      internalID: 349091200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 34
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe110be0a5d90744fab7d02e6499888a
+      internalID: 709941316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_4
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 11
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cedfb2300d5766442892348d8e89ae03
+      internalID: -2032474034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_5
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 11
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff984a4e0b3dfd41881f85c2a95c3f2
+      internalID: 748036491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 11
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cbb8157b2eac154c961e36fddae901b
+      internalID: 1301153551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_7
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 10
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752ae4e9a50ea6346bbe76a03c27f193
+      internalID: -988394228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_8
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 10
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c21b9d35ba87049b008ff72f69f8ce
+      internalID: 758312548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_9
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 10
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1613098f8e3a79e468d631398aaf8824
+      internalID: -801238733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_10
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 33
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29043bb1b188659468a86e741e5eca00
+      internalID: -1967971042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 33
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e335c130dac300438c6f4ddbc39841a
+      internalID: -1532115219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_sprites_12
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 33
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd49c21d7462dad48864312f33e9b133
+      internalID: -869926008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 269
+        width: 22
+        height: 34
+      alignment: 9
+      pivot: {x: 0.3181818, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3a6ced72f05c94c81341380a5f9571
+      internalID: 1643626598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 269
+        width: 21
+        height: 34
+      alignment: 9
+      pivot: {x: 0.2857143, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b1886ed1503df48994dc857c52bff2
+      internalID: -1806131765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_2
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 269
+        width: 26
+        height: 34
+      alignment: 9
+      pivot: {x: 0.42307693, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c2b040cd98e434e872d73f5e899493
+      internalID: 34389599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_3
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 269
+        width: 26
+        height: 34
+      alignment: 9
+      pivot: {x: 0.42307693, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b5c796cc147914f85743d4fd228a42
+      internalID: 831115154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_4
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 268
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.4074074, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76839f97fdf64674fbd695b4d86d9169
+      internalID: 1799518626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 268
+        width: 29
+        height: 35
+      alignment: 9
+      pivot: {x: 0.31034482, y: 0.057142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ac5b7946d586a49bd51ec6ff917b55
+      internalID: 1353441504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 266
+        width: 34
+        height: 33
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.030303031}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc3da26a64af9144ad2da4cecda6fd2
+      internalID: 1954001762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_7
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 267
+        width: 31
+        height: 33
+      alignment: 9
+      pivot: {x: 0.29032257, y: 0.060606062}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ddf4a1dafe0a04ea2d52a075c10d28
+      internalID: 1307269442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_8
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 267
+        width: 31
+        height: 33
+      alignment: 9
+      pivot: {x: 0.32258064, y: 0.030303031}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb29d5e067c44374992dc977b673e5d5
+      internalID: 1916290515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 220
+        width: 31
+        height: 33
+      alignment: 9
+      pivot: {x: 0.32258064, y: 0.030303031}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ade0ca9caabd5439c2a0aa422ed1a6
+      internalID: -380758841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_10
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 219
+        width: 28
+        height: 34
+      alignment: 9
+      pivot: {x: 0.21428573, y: 0.029411765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af4ff041bb6e9c409f6dcf01666ba80
+      internalID: 34409901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 219
+        width: 41
+        height: 34
+      alignment: 9
+      pivot: {x: 0.3414634, y: 0.029411765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281633d2f78fbae4ea92120c957562c2
+      internalID: 36919962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_12
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 222
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.09375, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c92ce2235e7b9e47ac5816c694bba13
+      internalID: -1936478277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_13
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 221
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.1875, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf6ccf1df7456948a2efc0e5cbd1a7b
+      internalID: -2116062604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_14
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 221
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.21875, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0e0b9240547ed45962a7b5e7a38b96
+      internalID: 1883263754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_15
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 221
+        width: 30
+        height: 33
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.060606062}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe8675525aed4843960aee6df6b9cae
+      internalID: 944998198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_16
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 222
+        width: 21
+        height: 34
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.060606062}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5097fb2fa778df24aabd4a0f343b336b
+      internalID: -1314643566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_17
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 145
+        width: 21
+        height: 34
+      alignment: 9
+      pivot: {x: 0.2857143, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a443546bf0e8b9e4cb3b241dc1576a50
+      internalID: -1613601587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_18
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 146
+        width: 24
+        height: 34
+      alignment: 9
+      pivot: {x: 0.375, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd4db9b8b3d7a44e9cd8696d42bff72
+      internalID: -1553604400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_19
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 147
+        width: 29
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4827586, y: 0.057142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9320bd0e5cb6ce48bd9d04122c7cc7c
+      internalID: 922830562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_20
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 148
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.057142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757b0e9c5a3fbd44bb98acbafd0ba871
+      internalID: 1206732470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_21
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 146
+        width: 33
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5151515, y: 0.046511628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422cd08dbd91cc04598ab72152d70ee7
+      internalID: 2093992955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_22
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 147
+        width: 33
+        height: 46
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0.04347826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76c7e4d2126f6b47be357cbbb800e0e
+      internalID: -651633757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_23
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 146
+        width: 22
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3181818, y: 0.071428575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce812187ca6bd8742a8041310edd7efe
+      internalID: 1070042858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_24
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 146
+        width: 22
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3181818, y: 0.04761905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b38c2bdb1e1dbb44a661b9cb1cc155a
+      internalID: -1962090598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_25
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 94
+        width: 22
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3181818, y: 0.04761905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9920bf4f47c664f43b133623acae35cc
+      internalID: -1240044228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_26
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 94
+        width: 22
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3181818, y: 0.071428575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e494aca37cb385c499e7c0626722a806
+      internalID: 612623458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_27
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 96
+        width: 26
+        height: 41
+      alignment: 9
+      pivot: {x: 0.26923078, y: 0.048780486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39e77804da13f945b98003ea6bdd0e2
+      internalID: 2080269532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_28
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 94
+        width: 26
+        height: 41
+      alignment: 9
+      pivot: {x: 0.30769232, y: 0.048780486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a83b6aafa720c44bd28d5781d9b466
+      internalID: 1453844221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_29
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 92
+        width: 26
+        height: 41
+      alignment: 9
+      pivot: {x: 0.34615386, y: 0.048780486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829ba2fe4779ae442811231c8b4432cb
+      internalID: 256013518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_30
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 92
+        width: 29
+        height: 42
+      alignment: 9
+      pivot: {x: 0.31034482, y: 0.04761905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e579a6d39897f9c4bad38f7fffc12999
+      internalID: -1743695625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_31
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 90
+        width: 35
+        height: 43
+      alignment: 9
+      pivot: {x: 0.34285715, y: 0.023255814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4888631603d78094b94ac4ff8d99b4ff
+      internalID: 511520827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_32
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 92
+        width: 33
+        height: 41
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35fd706889d4b244da86fdfffd17a9b0
+      internalID: 2120914729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_33
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 21
+        width: 22
+        height: 35
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.057142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45a4422c1e684e40bae2c82fa086ff3
+      internalID: 246865105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_attack_animation_34
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 22
+        width: 22
+        height: 35
+      alignment: 9
+      pivot: {x: 0.18181819, y: 0.057142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca5dfc4d2e9eed4d80df2ac08bab3c3
+      internalID: -1097820129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lucius_attack_animation_9: -380758841
+      lucius_sprites_11: -1532115219
+      lucius_attack_animation_8: 1916290515
+      lucius_attack_animation_23: 1070042858
+      lucius_sprites_7: -988394228
+      lucius_attack_animation_7: 1307269442
+      lucius_attack_animation_21: 2093992955
+      lucius_attack_animation_17: -1613601587
+      lucius_attack_animation_24: -1962090598
+      lucius_attack_animation_26: 612623458
+      lucius_sprites_10: -1967971042
+      lucius_attack_animation_16: -1314643566
+      lucius_attack_animation_14: 1883263754
+      lucius_sprites_5: 748036491
+      lucius_sprites_9: -801238733
+      lucius_attack_animation_19: 922830562
+      lucius_attack_animation_22: -651633757
+      lucius_sprites_3: 709941316
+      lucius_attack_animation_29: 256013518
+      lucius_sprites_0: 1219761830
+      lucius_sprites_4: -2032474034
+      lucius_attack_animation_34: -1097820129
+      lucius_attack_animation_20: 1206732470
+      lucius_sprites_6: 1301153551
+      lucius_attack_animation_31: 511520827
+      lucius_sprites_2: 349091200
+      lucius_attack_animation_2: 34389599
+      lucius_sprites_1: 382127858
+      lucius_attack_animation_33: 246865105
+      lucius_attack_animation_1: -1806131765
+      lucius_attack_animation_30: -1743695625
+      lucius_attack_animation_32: 2120914729
+      lucius_attack_animation_18: -1553604400
+      lucius_sprites_8: 758312548
+      lucius_attack_animation_0: 1643626598
+      lucius_attack_animation_4: 1799518626
+      lucius_attack_animation_12: -1936478277
+      lucius_attack_animation_6: 1954001762
+      lucius_attack_animation_25: -1240044228
+      lucius_attack_animation_15: 944998198
+      lucius_attack_animation_10: 34409901
+      lucius_attack_animation_27: 2080269532
+      lucius_sprites_12: -869926008
+      lucius_attack_animation_3: 831115154
+      lucius_attack_animation_5: 1353441504
+      lucius_attack_animation_11: 36919962
+      lucius_attack_animation_28: 1453844221
+      lucius_attack_animation_13: -2116062604
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

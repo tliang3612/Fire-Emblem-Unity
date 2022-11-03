@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BattleEvent
+{
+    RangedAction,
+    MeleeAction,
+    HealAction
+}
 public class BattleSystem : MonoBehaviour
 {
-
     [SerializeField] BattleUnit playerUnit;
-
     [SerializeField] BattleUnit enemyUnit;
 
     public event EventHandler<BattleOverEventArgs> BattleOver;
@@ -19,28 +23,42 @@ public class BattleSystem : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void StartBattle(Unit attacker, Unit defender)
+    public void StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
     {
         battleOver = false;
 
         playerUnit.unit = attacker;
         enemyUnit.unit = defender;
 
-        SetUpBattle();
+        SetUpBattle(battleEvent);
+
+        if(battleEvent == BattleEvent.HealAction)
+        {
+            StartCoroutine(PerformHealerMove());
+        }
+        else
+        {
+            var damageDetails = playerUnit.unit.AttackHandler(enemyUnit.unit, false);
+            StartCoroutine(PerformAttackerMove(damageDetails));
+        }
+
+        if(battleEvent == BattleEvent.RangedAction)
+        {
+            //split the two platforms
+
+        }
+
+        
     }
 
-    public void SetUpBattle()
+    public void SetUpBattle(BattleEvent battleEvent)
     {
-        playerUnit.Setup(enemyUnit);
-        enemyUnit.Setup(playerUnit);
-
-        StartCoroutine(PerformAttackerMove());
-             
+        playerUnit.SetupAttack(enemyUnit, battleEvent);
+        enemyUnit.SetupAttack(playerUnit, battleEvent);                    
     }
 
-    private IEnumerator RunSequence(BattleUnit attackerUnit, BattleUnit defenderUnit)
-    {
-        var damageDetails = attackerUnit.unit.AttackHandler(defenderUnit.unit, attackerUnit.Equals(enemyUnit));
+    private IEnumerator RunSequence(BattleUnit attackerUnit, BattleUnit defenderUnit, DamageDetails damageDetails)
+    {       
         yield return new WaitForSeconds(0.5f);
 
         if (damageDetails.IsHit)
@@ -80,21 +98,33 @@ public class BattleSystem : MonoBehaviour
             BattleOver.Invoke(this, new BattleOverEventArgs(attacker, defender, damageDetails.IsDead));
 
         playerUnit.unit.SetState(new UnitStateFinished(playerUnit.unit));
+        Debug.Log("battle ended");
     }
 
-    private IEnumerator PerformDefenderMove()
+    private IEnumerator PerformHealerMove()
     {
-        yield return RunSequence(enemyUnit, playerUnit);
+        yield return 0;
     }
 
-    private IEnumerator PerformAttackerMove()
-    {
-        yield return RunSequence(playerUnit, enemyUnit);
-        if (!battleOver)
-        {
-            StartCoroutine(PerformDefenderMove());
-        }
+    private IEnumerator PerformDefenderMove(DamageDetails damageDetails)
+    {    
+        yield return RunSequence(enemyUnit, playerUnit, damageDetails);
     }
+
+    private IEnumerator PerformAttackerMove(DamageDetails damageDetails)
+    {
+        yield return RunSequence(playerUnit, enemyUnit, damageDetails);
+
+        //Get Defender Damage details
+        var defenderDamageDetails = enemyUnit.unit.AttackHandler(playerUnit.unit, true);
+
+        if (defenderDamageDetails.InRange && !battleOver)
+             StartCoroutine(PerformDefenderMove(defenderDamageDetails));
+        else
+            EndBattle(damageDetails, playerUnit.unit, enemyUnit.unit);
+        
+    }
+
 
     public class BattleOverEventArgs : EventArgs
     {

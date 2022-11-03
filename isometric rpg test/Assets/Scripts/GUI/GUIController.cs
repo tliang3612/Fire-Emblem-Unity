@@ -96,11 +96,13 @@ public class GUIController : MonoBehaviour
 
     protected virtual void OnAbilitySelected(object sender, EventArgs e)
     {
+        Debug.Log(sender.ToString());
     }
 
     protected virtual void OnAbilityDeselected(object sender, EventArgs e)
     {
-
+        SetState(GUIState.Clear);
+        Debug.Log(sender.ToString());
     }
 
     protected virtual void OnUnitAdded(object sender, UnitCreatedEventArgs e)

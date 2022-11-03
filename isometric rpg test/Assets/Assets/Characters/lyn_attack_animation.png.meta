@@ -1,0 +1,1459 @@
+fileFormatVersion: 2
+guid: c95a6d029a0f99941ab88bcd809c976e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 18
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LynSprites_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 89
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea8f93e37117724ea4eb76f8ea4f8a1
+      internalID: -539657099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 89
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a604f3bd2580fe448b5dee300e74ccf6
+      internalID: 1920101064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 89
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3e8ac7c6353024ab4fef5bba4e805c
+      internalID: -648011701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_3
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 67
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1bd3496188b61a4686a055ebe34938c
+      internalID: 338017686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 67
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ceabb75343ce6149ad8c0ef74da8290
+      internalID: 1613583888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_5
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 67
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8720d021deed5cc4e8a2093bbc5d35dd
+      internalID: -529728968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_6
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 46
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b1c4c890661414b9553bdf5b2823a9
+      internalID: 536288261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_7
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 46
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d5a946a7a111c46be757b4a9b471fb
+      internalID: -211951035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 46
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33298fa082067c644b50332f6473e36b
+      internalID: 1808541341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_9
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 23
+        width: 20
+        height: 19
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53e90f7e07ae99441ac204583e10e3ee
+      internalID: 1794703519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_10
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 23
+        width: 20
+        height: 19
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 918fa640e7e2fa04583d140e1653f1d0
+      internalID: 1266467411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 23
+        width: 20
+        height: 19
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86964840cc5abcc468f59b08f523e9dd
+      internalID: -626406443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_12
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 72
+        width: 23
+        height: 25
+      alignment: 9
+      pivot: {x: 0.6956522, y: 0.44}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a0bd466d9bc0e43876005b583836e7
+      internalID: 1501764510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_13
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 32
+        width: 23
+        height: 28
+      alignment: 9
+      pivot: {x: 0.73913044, y: 0.42857146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3153752de3a9e4eaf827e2771dfebf
+      internalID: -2123910475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSprites_14
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 32
+        width: 26
+        height: 28
+      alignment: 9
+      pivot: {x: 0.61538464, y: 0.42857146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30d350cfb7f9f5429144e3591c742d5
+      internalID: -1471976154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_41
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 29
+        height: 33
+      alignment: 9
+      pivot: {x: 0.1724138, y: 0.121212125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2af88bf64f2f247a04f85fa478387e
+      internalID: -1058769853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 317
+        width: 29
+        height: 38
+      alignment: 9
+      pivot: {x: 0.1724138, y: 0.02631579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff20fc0926eb4e9419785d0920cc2033
+      internalID: -1192792482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 317
+        width: 29
+        height: 38
+      alignment: 9
+      pivot: {x: 0.20689654, y: 0.02631579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d6913fc64b9614589b08639e380d02
+      internalID: 1515449607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 317
+        width: 29
+        height: 39
+      alignment: 9
+      pivot: {x: 0.2413793, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5f0f44f793cc246ae2127b70e8b348
+      internalID: -1277591956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 317
+        width: 29
+        height: 39
+      alignment: 9
+      pivot: {x: 0.2413793, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b916bf0c1885944abf2c5bdfad96ab9
+      internalID: 2005521749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 317
+        width: 29
+        height: 39
+      alignment: 9
+      pivot: {x: 0.20689654, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8c5072b784b2549b2f4cd6e2ba322b
+      internalID: 1302121418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 317
+        width: 29
+        height: 52
+      alignment: 9
+      pivot: {x: 0.2413793, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810752e2eb5d7b548875581e93fccb16
+      internalID: -1435440201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_6
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 317
+        width: 30
+        height: 52
+      alignment: 9
+      pivot: {x: 0.26666668, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6366732a5aaaa428d660c14e1121be
+      internalID: 1025448345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_7
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 317
+        width: 34
+        height: 52
+      alignment: 9
+      pivot: {x: 0.38235295, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205a4ecaf10a93a47b083ba19eea25d4
+      internalID: 831478551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_8
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 317
+        width: 37
+        height: 52
+      alignment: 9
+      pivot: {x: 0.4054054, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c96680acfa344e34ba2b72a9b0378f51
+      internalID: 1418678743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_9
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 317
+        width: 37
+        height: 52
+      alignment: 9
+      pivot: {x: 0.4054054, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3cbc57344596b4d8ff2379bc19bb07
+      internalID: 1751701710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_10
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 317
+        width: 33
+        height: 52
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86761545b7825145a2b675d8737cdb8
+      internalID: -218927513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_11
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 317
+        width: 31
+        height: 52
+      alignment: 9
+      pivot: {x: 0.29032257, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb3c8c2cfaaf6248bd71904a4c57fef
+      internalID: -2082557966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_12
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 317
+        width: 28
+        height: 52
+      alignment: 9
+      pivot: {x: 0.21428573, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061b667a7e4594e44952a3a1f965ee44
+      internalID: -277707236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_13
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 316
+        width: 32
+        height: 52
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.03846154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e268ce691749cfc41a7b23a9af4babe5
+      internalID: 817335528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_14
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 320
+        width: 32
+        height: 49
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020408163}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f7e59e07d8d76488444e06a17a90a3
+      internalID: -688936390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_arrow
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 334
+        width: 19
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01453b9ed18f7714ab6273035cd61e8c
+      internalID: -1648941454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_15
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 231
+        width: 29
+        height: 35
+      alignment: 9
+      pivot: {x: 0.1724138, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc09d9d38e7394f4c986c49f97ca8546
+      internalID: -987999422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_16
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 231
+        width: 29
+        height: 35
+      alignment: 9
+      pivot: {x: 0.2413793, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20950064fea089d4288ff5088918b9cc
+      internalID: -507692337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_17
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 231
+        width: 29
+        height: 39
+      alignment: 9
+      pivot: {x: 0.2413793, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dade0294627ee384993cc3f62a6d2fe3
+      internalID: -1989539888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_18
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 231
+        width: 29
+        height: 39
+      alignment: 9
+      pivot: {x: 0.2413793, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c4b62232af0c14dab7d3d4bb6631aa
+      internalID: -717772995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_19
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 231
+        width: 29
+        height: 39
+      alignment: 9
+      pivot: {x: 0.2413793, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ab9d6817843a94988ceba3fc76da4b
+      internalID: -523170780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_20
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 218
+        width: 32
+        height: 52
+      alignment: 9
+      pivot: {x: 0.16129032, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742a37926166293478db26646a0dbe86
+      internalID: -1910208400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_21
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 218
+        width: 32
+        height: 52
+      alignment: 9
+      pivot: {x: 0.21875, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca01ccec28c64c04cabe1415e4d4fd57
+      internalID: -1656026548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_22
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 218
+        width: 34
+        height: 52
+      alignment: 9
+      pivot: {x: 0.1764706, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec7afd9fc7a6fa4fa3f965a8f08e25b
+      internalID: -781100024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_23
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 218
+        width: 39
+        height: 52
+      alignment: 9
+      pivot: {x: 0.15384616, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da7d1fb08bbc4f44a0d4421ea78777e
+      internalID: -511510722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_24
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 218
+        width: 39
+        height: 52
+      alignment: 9
+      pivot: {x: 0.25641027, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e687c9c495afe343b5a7fd38ed9a245
+      internalID: -1649635969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_25
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 218
+        width: 29
+        height: 52
+      alignment: 9
+      pivot: {x: 0.20689654, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f122390754b3a6b49b12a140dfb11ac2
+      internalID: -2038786362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_26
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 218
+        width: 29
+        height: 52
+      alignment: 9
+      pivot: {x: 0.20689654, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3855d1e6179ed4ab734f0064ab90e7
+      internalID: 464787263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_27
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 218
+        width: 34
+        height: 52
+      alignment: 9
+      pivot: {x: 0.20588236, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7805b91020faf834faaffce10a6b58aa
+      internalID: 1158516482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_28
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 150
+        width: 32
+        height: 51
+      alignment: 9
+      pivot: {x: 0.25, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b6513dd16af3742a3bb2d8a8e011aa
+      internalID: -825124178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_29
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 150
+        width: 32
+        height: 51
+      alignment: 9
+      pivot: {x: 0.21875, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd750dae218ca5a4582cd36e6ac71717
+      internalID: -455638431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_30
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 150
+        width: 28
+        height: 51
+      alignment: 9
+      pivot: {x: 0.21428573, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c46737631727f542b4c6c05827dd4de
+      internalID: 1641816051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_31
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 150
+        width: 32
+        height: 51
+      alignment: 9
+      pivot: {x: 0.21875, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee53478cb3f6fc429f8b61d1c58d944
+      internalID: 1181942618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_32
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 150
+        width: 32
+        height: 51
+      alignment: 9
+      pivot: {x: 0.25, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e975acaf5809f3a4181904509b2f376d
+      internalID: 680792535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_33
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 150
+        width: 35
+        height: 51
+      alignment: 9
+      pivot: {x: 0.37142858, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9b1482da27b034fb77db7101b36644
+      internalID: 32385817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_34
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 150
+        width: 37
+        height: 51
+      alignment: 9
+      pivot: {x: 0.4054054, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5df998bc7a0e40449908c9b5220b33a
+      internalID: -431817281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_35
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 150
+        width: 38
+        height: 51
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0488d4436f25461438cf85b5a611da8c
+      internalID: -830505613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_36
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 150
+        width: 34
+        height: 51
+      alignment: 9
+      pivot: {x: 0.3529412, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a801ebd2420292243beeb4527f34a0ed
+      internalID: 1003257294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_37
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 150
+        width: 30
+        height: 51
+      alignment: 9
+      pivot: {x: 0.26666668, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d18e1784003994da5f53e63c567378
+      internalID: -986466897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_38
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 150
+        width: 30
+        height: 51
+      alignment: 9
+      pivot: {x: 0.23333335, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7adbf262399c494aa10087ba43a4426
+      internalID: 1857032214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_39
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 150
+        width: 33
+        height: 51
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21f63bd866928b4cbdc558d90f4a9cd
+      internalID: -1483603601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_40
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 148
+        width: 28
+        height: 35
+      alignment: 9
+      pivot: {x: 0.21428573, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbc9db9b5039db4ba19add3aa8d78e1
+      internalID: 2006490135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lyn_attack_animation_42
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1
+        width: 36
+        height: 28
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.107142866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578c1f13d1643df41b80a3a5e488a2c1
+      internalID: 24083367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      LynSprites_6: 536288261
+      lyn_attack_animation_2: -1277591956
+      LynDefault: 1115534568
+      LynSprites_14: -1471976154
+      LynSprites_0: -539657099
+      lyn_attack_animation_16: -507692337
+      attack_arrow: -1648941454
+      lyn_attack_animation_10: -218927513
+      lyn_attack_animation_40: -1483603601
+      lyn_attack_animation_12: -277707236
+      lyn_attack_animation_29: -825124178
+      lyn_attack_animation_42: 24083367
+      LynSprites_11: -626406443
+      lyn_attack_animation_36: -830505613
+      LynSprites_10: 1266467411
+      lyn_attack_animation_14: -688936390
+      lyn_attack_animation_41: -1058769853
+      lyn_attack_animation_31: 1641816051
+      lyn_attack_animation_34: 32385817
+      lyn_attack_animation_25: -1649635969
+      LynSprites_13: -2123910475
+      lyn_attack_animation_38: -986466897
+      LynSprites_9: 1794703519
+      LynSprites_2: -648011701
+      lyn_attack_animation_5: -1435440201
+      LynSprites_12: 1501764510
+      LynSprites_16: -349581694
+      LynSprites_1: 1920101064
+      LynSprites_8: 1808541341
+      lyn_attack_animation_17: -1989539888
+      lyn_attack_animation_28: 1158516482
+      lyn_attack_animation_18: -717772995
+      lyn_attack_animation_0: -1192792482
+      LynSprites_5: -529728968
+      lyn_attack_animation_33: 680792535
+      lyn_attack_animation_23: -781100024
+      lyn_attack_animation_1: 1515449607
+      LynSprites_3: 338017686
+      lyn_attack_animation_19: -523170780
+      lyn_attack_animation_37: 1003257294
+      lyn_attack_animation_24: -511510722
+      LynSprites_7: -211951035
+      lyn_attack_animation_15: -987999422
+      lyn_attack_animation_7: 831478551
+      lyn_attack_animation_39: 1857032214
+      lyn_attack_animation_13: 817335528
+      lyn_attack_animation_35: -431817281
+      LynSprites_4: 1613583888
+      lyn_attack_animation_9: 1751701710
+      lyn_attack_animation_6: 1025448345
+      lyn_attack_animation_8: 1418678743
+      lyn_attack_animation_20: -1910208400
+      lyn_attack_animation_4: 1302121418
+      lyn_attack_animation_11: -2082557966
+      lyn_attack_animation_32: 1181942618
+      lyn_attack_animation_3: 2005521749
+      lyn_attack_animation_22: -1656026548
+      lyn_attack_animation_26: -2038786362
+      lyn_attack_animation_27: 464787263
+      lyn_attack_animation_21: 793653878
+      lyn_attack_animation_30: -455638431
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

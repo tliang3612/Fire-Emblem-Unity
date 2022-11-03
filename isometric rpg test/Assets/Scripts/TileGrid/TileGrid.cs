@@ -321,8 +321,7 @@ public class TileGrid : MonoBehaviour
         GridState = new TileGridStateBlockInput(this);
         bool isGameFinished = CheckGameFinished();
         if (isGameFinished)
-        {
-               
+        {            
             return;
         }
 
@@ -388,7 +387,6 @@ public class TileGrid : MonoBehaviour
     {
         var gameResult = GetComponent<GameEndCondition>().CheckGameEnd(this);
 
-
         if (gameResult.GameOver)
         {
             GridState = new TileGridStateGameOver(this);
@@ -416,13 +414,13 @@ public class TileGrid : MonoBehaviour
         return Mathf.Abs(start.gridLocation.x - other.gridLocation.x) + Mathf.Abs(start.gridLocation.y - other.gridLocation.y);
     }
 
-    public void StartBattle(Unit attacker, Unit defender)
+    public void StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
     {
         GridState = new TileGridStateBlockInput(this);
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
-        battleSystem.StartBattle(attacker, defender);
+        battleSystem.StartBattle(attacker, defender, battleEvent);
         IsBattling = true;
     }
 

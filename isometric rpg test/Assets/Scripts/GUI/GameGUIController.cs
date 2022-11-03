@@ -64,7 +64,8 @@ public class GameGUIController : GUIController
             SetState(GUIState.Clear);
             HideMenuOptionsPanel();
             tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
-        }      
+        }
+        Debug.Log(State);
     }
 
     protected override void OnTileDehighlighted(object sender, EventArgs e)

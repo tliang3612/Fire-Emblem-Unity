@@ -51,16 +51,7 @@ public class TileGridStateUnitSelected : TileGridState
         _unit?.OnUnitSelected();
         _abilities.ForEach(a => a.OnAbilitySelected(_tileGrid));
         _abilities.ForEach(a => a.Display(_tileGrid));
-            
-
-        /*var canPerformAction = _abilities.Select(a => a.CanPerform(_tileGrid))
-                                            .DefaultIfEmpty()
-                                            .Aggregate((result, next) => result || next);
-
-        if (!canPerformAction)
-        {       
-            _unit?.SetState(new UnitStateFinished(_unit));
-        }*/
+           
 
     }
     public override void OnStateExit()

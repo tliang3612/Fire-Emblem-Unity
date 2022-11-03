@@ -44,7 +44,6 @@ public class Unit : MonoBehaviour, IClickable
     public OverlayTile PreviousTile { get; set; }
 
     private Animator Anim;
-    public float MovementAnimationSpeed { get; private set; }
 
     public int HitPoints;
     public int AttackRange;
@@ -53,6 +52,7 @@ public class Unit : MonoBehaviour, IClickable
     public int SkillFactor;
     public int LuckFactor;
     public int CritFactor = 100;
+    public float MovementAnimationSpeed = 7f;
     public string UnitName;
     public Sprite UnitPortrait;
     public Sprite UnitBattleSprite;
@@ -210,19 +210,49 @@ public class Unit : MonoBehaviour, IClickable
     {
         return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= AttackRange
             && otherUnit.PlayerNumber != PlayerNumber
-            && ActionPoints >= 1;
-            //&& otherUnit.HitPoints > 0;
+            && ActionPoints >= 1
+            && otherUnit.HitPoints > 0;
     }
 
     /// <summary>
     /// Handles the attack event against the other unit
     /// </summary>
     /// <param name="unitToAttack"></param>
-    public DamageDetails AttackHandler(Unit unitToAttack, bool isCounterAttacker)
+    public virtual DamageDetails AttackHandler(Unit unitToAttack, bool isCounterAttacker)
     {
         AttackAction attackAction = GetAttackAndCost(unitToAttack, isCounterAttacker);
         ActionPoints -= attackAction.ActionCost;
-        return unitToAttack.DefendHandler(this, attackAction);      
+        if (!attackAction.InRange)
+        {
+            Debug.Log("Damge Details false");
+            return new DamageDetails(false);
+        }
+        else
+        {
+            Debug.Log("Damge Details true");
+            return unitToAttack.DefendHandler(this, attackAction);
+        }
+                
+    }
+
+    /// <summary>
+    /// Gets damage given to the other unit and action point cost of the action
+    /// </summary>
+    /// <param name="unitToAttack"> The unit under attack </param>
+    /// <returns>An AttackAction that contains the damage given and action cost taken </returns>
+    protected virtual AttackAction GetAttackAndCost(Unit unitToAttack, bool isCounterAttacker)
+    {
+        //counterattacker will not use action points
+        if (isCounterAttacker)
+        {
+            //if the counter attacking unit can match the enemy range
+            if (CanDefenderCounter(unitToAttack))
+                return new AttackAction(true, 0);
+            else
+                return new AttackAction(false, 0);
+        }
+
+        return new AttackAction(true, 1);
     }
 
     /// <summary>
@@ -234,7 +264,7 @@ public class Unit : MonoBehaviour, IClickable
     {       
         var damageDetails = CalculateDamageDetails(aggressor, attackAction);
         HitPoints -= damageDetails.TotalDamage;
- 
+            
         if (HitPoints <= 0)
         {
             HitPoints = 0;
@@ -247,6 +277,13 @@ public class Unit : MonoBehaviour, IClickable
         }
 
         return damageDetails;
+    }
+
+    public void ReceiveHealing(int healAmount)
+    {
+        HitPoints += healAmount;
+        if (HitPoints > TotalHitPoints)
+            HitPoints = TotalHitPoints;
     }
 
     //Gets weapon effectiveness against a unit. -1 for ineffective, 0 for neutral, and 1 for effective
@@ -267,7 +304,7 @@ public class Unit : MonoBehaviour, IClickable
         return (SkillFactor * 2) + (LuckFactor / 2) + 50;
     }
 
-    public int GetAttack(){return AttackFactor + 5;}
+    public int GetAttack(){return AttackFactor;}
 
     public int GetDodgeChance(){return LuckFactor + Tile.AvoidBoost;}
 
@@ -289,32 +326,10 @@ public class Unit : MonoBehaviour, IClickable
         return (GetAttack() + weaponEffectiveness) - unitToAttack.GetDefense();
     }
 
-   
+    
 
-
-    /// <summary>
-    /// Gets damage given to the other unit and action point cost of the action
-    /// </summary>
-    /// <param name="unitToAttack"> The unit under attack </param>
-    /// <returns>An AttackAction that contains the damage given and action cost taken </returns>
-    protected virtual AttackAction GetAttackAndCost(Unit unitToAttack, bool isCounterAttacker)
-    {      
-        
-        var rawAccuracy = GetHitChance();
-        
-        var rawAttack = GetAttack();
-                
-        var rawCritChance = GetCritChance();
-
-
-        //counterattacker will not use action points
-        if (isCounterAttacker)
-        {
-            return new AttackAction(rawAttack, rawAccuracy, rawCritChance, 0);
-        }
-
-        return new AttackAction(rawAttack, rawAccuracy, rawCritChance, 1);
-    }
+    //enemy can counterattack if their attack range is within distance
+    public bool CanDefenderCounter(Unit defendingUnit) => defendingUnit.AttackRange >= FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, defendingUnit.Tile);
 
     /// <summary>
     /// Calculates actual damage given
@@ -323,15 +338,14 @@ public class Unit : MonoBehaviour, IClickable
     /// <param name="rawDamage">Raw damage that the attack caused</param>
     /// <returns>Actual damage the unit has taken</returns>        
     protected DamageDetails CalculateDamageDetails(Unit attacker, AttackAction attackerAction)
-    {
-        //Battle Accuracy formula = attacker Accuracy – defender’s Avoid;
+    {     
         var battleAccuracy = attacker.GetBattleAccuracy(this) - GetDodgeChance();
 
         //modifiers
         int crit = 1;
         int dodge = 1;
         //check for crit, crits are 2x damage
-        if (UnityEngine.Random.value < (attackerAction.RawCritChance * 0.01))
+        if (UnityEngine.Random.value < (attacker.GetCritChance() * 0.01))
         {
             crit = 2;
         }
@@ -340,21 +354,10 @@ public class Unit : MonoBehaviour, IClickable
         {           
             dodge = 0;
         }
-        var totalDamage = (attackerAction.RawDamage - GetDefense()) * dodge * crit;
-
+        var totalDamage = attacker.GetTotalDamage(this) * dodge * crit;
 
         //calculate damage
-        //check if unit is dead
-
-        var damageDetails = new DamageDetails()
-        {
-            IsCrit = crit == 2,
-            IsHit = dodge == 1,
-            IsDead = false,
-            TotalDamage = totalDamage
-        };
-
-        return damageDetails;
+        return new DamageDetails(true, false, crit == 2, dodge == 1, totalDamage);
     }
 
     public void Move(List<OverlayTile> path)
@@ -536,16 +539,12 @@ public class Unit : MonoBehaviour, IClickable
     
 public class AttackAction
 {
-    public readonly int RawDamage;
-    public readonly int RawAccuracy;
-    public readonly int RawCritChance;
-    public readonly int ActionCost;
+    public bool InRange;
+    public int ActionCost;
 
-    public AttackAction(int rawDmg, int rawAccuracy, int rawCritChance, int actionCost)
+    public AttackAction(bool inRange, int actionCost)
     {
-        RawDamage = rawDmg;
-        RawAccuracy = rawAccuracy;
-        RawCritChance = rawCritChance;
+        InRange = inRange;
         ActionCost = actionCost;
     }
 }

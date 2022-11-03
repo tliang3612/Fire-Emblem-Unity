@@ -81,9 +81,8 @@ public class DisplayAttackStatsAbility : Ability
     private DisplayStats GetStats(Unit unit, Unit unitToAttack)
     {
         return new DisplayStats(unit.HitPoints, unit.GetTotalDamage(unitToAttack),
-            unit.GetBattleAccuracy(unitToAttack), unit.GetCritChance(), unit.UnitName);
+            unit.GetBattleAccuracy(unitToAttack), unit.GetCritChance(), unit.UnitName, unit.GetEffectiveness(unitToAttack));
     }
-
 }
 
 public class DisplayStatsChangedEventArgs : EventArgs
@@ -106,13 +105,15 @@ public class DisplayStats
     public int Damage { get; private set; }
     public int Hit { get; private set; }
     public int Crit { get; private set; }
+    public int Effectiveness { get; private set; }
 
-    public DisplayStats(int health, int damage, int hitChance, int critChance, string unitName)
+    public DisplayStats(int health, int damage, int hitChance, int critChance, string unitName, int effectiveness)
     {
         Name = unitName;
         Hp = health;
         Damage = damage;
         Hit = hitChance;
         Crit = critChance;
+        Effectiveness = effectiveness;
     }
 }

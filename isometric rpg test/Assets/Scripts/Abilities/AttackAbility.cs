@@ -17,7 +17,10 @@ public class AttackAbility : Ability
         if (CanPerform(tileGrid) && UnitReference.IsUnitAttackable(UnitToAttack))
         {
             UnitReference.ConfirmMove();
-            tileGrid.StartBattle(UnitReference, UnitToAttack);         
+            if (tileGrid.GetManhattenDistance(UnitReference.Tile, UnitToAttack.Tile) > 1)        
+                tileGrid.StartBattle(UnitReference, UnitToAttack, BattleEvent.RangedAction);    
+            else
+                tileGrid.StartBattle(UnitReference, UnitToAttack, BattleEvent.MeleeAction);
             yield return new WaitForSeconds(0.5f);
         }
         yield return 0;
@@ -30,6 +33,10 @@ public class AttackAbility : Ability
             _ => tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid)));
     }
 
+    public override void OnAbilityDeselected(TileGrid tileGrid)
+    {
+        base.OnAbilityDeselected(tileGrid);
+    }
     public override bool CanPerform(TileGrid tileGrid)
     {
         return UnitReference.ActionPoints > 0;
