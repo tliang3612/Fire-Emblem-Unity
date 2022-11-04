@@ -32,10 +32,4 @@ public class AbilityGUIController : GUIController
             }
         }        
     }
-
-    protected override void OnAbilityDeselected(object sender, EventArgs e)
-    {
-        base.OnAbilityDeselected(sender, e);
-        SetState(GUIState.Clear);
-    }
 }

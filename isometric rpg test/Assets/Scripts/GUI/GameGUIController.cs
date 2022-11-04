@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class GameGUIController : GUIController
 {
@@ -46,6 +47,8 @@ public class GameGUIController : GUIController
         //if it is not a human player's turn, block gui input
         if (((sender as TileGrid).CurrentPlayer is not HumanPlayer))
             SetState(GUIState.BlockInput);
+        else
+            SetState(GUIState.Clear);
         HideMenuOptionsPanel();
     }
 
@@ -59,7 +62,7 @@ public class GameGUIController : GUIController
             tileGrid.GridState = new TileGridStateBlockInput(tileGrid);
             
         }
-        else if(State == GUIState.InGameGUISelection)
+        else if(State == GUIState.InGameGUISelection && !EventSystem.current.IsPointerOverGameObject())
         {
             SetState(GUIState.Clear);
             HideMenuOptionsPanel();
@@ -104,6 +107,7 @@ public class GameGUIController : GUIController
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)
     {
+        Debug.Log(sender.ToString());
         SetState(GUIState.Clear);
     }
 
@@ -211,6 +215,18 @@ public class GameGUIController : GUIController
             MenuOptionsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(rightPanelPosition.x, panelPositionY);
         }
     }
+
+    protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)
+    {
+        base.RegisterUnit(unit, unitAbilities);
+
+        foreach (Ability a in unitAbilities)
+        {
+            a.AbilitySelected += OnAbilitySelected;
+            a.AbilityDeselected += OnAbilityDeselected;
+        }
+    }
+
 
     protected void RestartLevel()
     {

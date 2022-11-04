@@ -14,6 +14,12 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleUnit playerUnit;
     [SerializeField] BattleUnit enemyUnit;
 
+    public GameObject rightPlatform;
+    public GameObject leftPlatform;
+
+    [SerializeField] public float RangedPlatformOffset;
+    private Vector2 originalAnchoredPosition;
+
     public event EventHandler<BattleOverEventArgs> BattleOver;
 
     private bool battleOver = false;
@@ -21,6 +27,7 @@ public class BattleSystem : MonoBehaviour
     public void Start()
     {
         gameObject.SetActive(false);
+        originalAnchoredPosition = rightPlatform.GetComponent<RectTransform>().anchoredPosition;
     }
 
     public void StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
@@ -44,8 +51,18 @@ public class BattleSystem : MonoBehaviour
 
         if(battleEvent == BattleEvent.RangedAction)
         {
-            //split the two platforms
+            Debug.Log(true);
+            var rightPlatFormPosition = rightPlatform.GetComponent<RectTransform>().anchoredPosition;
+            rightPlatform.GetComponent<RectTransform>().anchoredPosition = new Vector2(rightPlatFormPosition.x + RangedPlatformOffset, rightPlatFormPosition.y);
 
+            var leftPlatFormPosition = leftPlatform.GetComponent<RectTransform>().anchoredPosition;
+            leftPlatform.GetComponent<RectTransform>().anchoredPosition = new Vector2(leftPlatFormPosition.x - RangedPlatformOffset, leftPlatFormPosition.y);
+
+            var playerPos = playerUnit.GetComponent<RectTransform>().anchoredPosition;
+            playerUnit.GetComponent<RectTransform>().anchoredPosition = new Vector2(playerPos.x + RangedPlatformOffset, playerPos.y);
+
+            var enemyPos = enemyUnit.GetComponent<RectTransform>().anchoredPosition;
+            enemyUnit.GetComponent<RectTransform>().anchoredPosition = new Vector2(enemyPos.x - RangedPlatformOffset, enemyPos.y);
         }
 
         
@@ -96,6 +113,11 @@ public class BattleSystem : MonoBehaviour
     {
         if (BattleOver != null)
             BattleOver.Invoke(this, new BattleOverEventArgs(attacker, defender, damageDetails.IsDead));
+
+        leftPlatform.GetComponent<RectTransform>().anchoredPosition = -originalAnchoredPosition;
+        rightPlatform.GetComponent<RectTransform>().anchoredPosition = originalAnchoredPosition;
+
+
 
         playerUnit.unit.SetState(new UnitStateFinished(playerUnit.unit));
         Debug.Log("battle ended");

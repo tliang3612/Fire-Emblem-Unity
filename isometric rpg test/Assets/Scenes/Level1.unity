@@ -10457,8 +10457,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 463, y: 0}
-  m_SizeDelta: {x: 920, y: 990}
+  m_AnchoredPosition: {x: 481, y: 0}
+  m_SizeDelta: {x: 956, y: 990}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1027482916
 MonoBehaviour:
@@ -10755,7 +10755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: -141}
+  m_AnchoredPosition: {x: 180, y: -141}
   m_SizeDelta: {x: 154, y: 238}
   m_Pivot: {x: 0.32, y: 0.06}
 --- !u!222 &1136677404
@@ -11381,6 +11381,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUnit: {fileID: 1136677406}
   enemyUnit: {fileID: 2120759971}
+  rightPlatform: {fileID: 1027482914}
+  leftPlatform: {fileID: 1553657476}
+  RangedPlatformOffset: 250
 --- !u!1 &1309046832
 GameObject:
   m_ObjectHideFlags: 0
@@ -13344,8 +13347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -456, y: 0}
-  m_SizeDelta: {x: 920, y: 990}
+  m_AnchoredPosition: {x: -481, y: 0}
+  m_SizeDelta: {x: 964, y: 990}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553657478
 MonoBehaviour:
@@ -15799,7 +15802,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: -141.00002}
+  m_AnchoredPosition: {x: -180, y: -141.00002}
   m_SizeDelta: {x: 315, y: 294}
   m_Pivot: {x: 0.31, y: 0.02}
 --- !u!95 &2120759970

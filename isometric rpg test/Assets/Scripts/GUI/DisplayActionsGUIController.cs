@@ -13,6 +13,21 @@ public class DisplayActionsGUIController : AbilityGUIController
 
     public GameObject ActionButton;
 
+    protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)
+    {
+        base.RegisterUnit(unit, unitAbilities);
+
+        foreach (Ability a in unitAbilities)
+        {
+            if (a is DisplayActionsAbility)
+            {
+                (a as DisplayActionsAbility).AbilitySelected += OnAbilitySelected;
+                (a as DisplayActionsAbility).AbilityDeselected += OnAbilityDeselected;
+                (a as DisplayActionsAbility).ButtonCreated += OnButtonAdded;
+            }              
+        }
+    }
+
     protected void OnButtonAdded(object sender, ButtonCreatedEventArgs e)
     {
         var actionButton = Instantiate(ActionButton, menuActions.transform);
@@ -23,47 +38,20 @@ public class DisplayActionsGUIController : AbilityGUIController
 
     protected override void OnAbilitySelected(object sender, EventArgs e)
     {
-        base.OnAbilitySelected(sender, e);
-        
-        if (sender is DisplayActionsAbility)
-        {
-            ButtonList = new List<GameObject>();
-            Panel.SetActive(true);
-        }         
+        ButtonList = new List<GameObject>();
+        Panel.SetActive(true);
+                 
     }
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)
-    {
-        if (sender is DisplayActionsAbility)
+    {       
+        Panel.SetActive(false);
+        SetState(GUIState.Clear);
+
+        foreach (GameObject button in ButtonList)
         {
-            Panel.SetActive(false);
-            SetState(GUIState.Clear);
-
-            foreach (GameObject button in ButtonList)
-            {
-                Destroy(button);
-            }
-        }
-        else
-        {
-            Debug.Log("State Cleared");
-            SetState(GUIState.Clear);
-        }
-    }
-
-
-    protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)
-    {
-        base.RegisterUnit(unit, unitAbilities);
-
-        foreach (Ability a in unitAbilities)
-        {
-            if (a is DisplayActionsAbility)
-            {
-                (a as DisplayActionsAbility).ButtonCreated += OnButtonAdded;
-            }
-
-        }
+            Destroy(button);
+        }      
     }
 
 }

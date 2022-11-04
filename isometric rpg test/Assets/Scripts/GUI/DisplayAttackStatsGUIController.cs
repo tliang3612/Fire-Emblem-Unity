@@ -28,39 +28,33 @@ public class DisplayAttackStatsGUIController : AbilityGUIController
     {
         base.OnAbilitySelected(sender, e);
 
-        if (sender is DisplayAttackStatsAbility)
-        {
-            Panel.SetActive(true);
-            SetState(GUIState.InAbilitySelection);
-        }
+        Panel.SetActive(true);
+        SetState(GUIState.InAbilitySelection);
+        
     }
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)
-    {
+    {            
         Panel.SetActive(false);
         ClearStats();
-        if (sender is DisplayAttackStatsAbility)
-        {         
-            SetState(GUIState.InAbilitySelection);           
-        }
-        else
-        {
-            Debug.Log("State Cleared");
-            SetState(GUIState.Clear);
-        }
+        SetState(GUIState.InAbilitySelection);           
+        
     }
 
     protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)
     {
         base.RegisterUnit(unit, unitAbilities);
 
-        foreach(Ability a in unitAbilities)
-        { 
+        foreach (Ability a in unitAbilities)
+        {
             if (a is DisplayAttackStatsAbility)
             {
+                (a as DisplayAttackStatsAbility).AbilitySelected += OnAbilitySelected;
+                (a as DisplayAttackStatsAbility).AbilityDeselected += OnAbilityDeselected;
                 (a as DisplayAttackStatsAbility).DisplayStatsChanged += OnStatsChanged;
-            }
+            }              
         }
+
     }
 
     public void OnStatsChanged(object sender, DisplayStatsChangedEventArgs e)

@@ -113,12 +113,6 @@ public class GUIController : MonoBehaviour
 
     protected virtual void RegisterUnit(Unit unit, List<Ability> unitAbilities)
     {
-        foreach (Ability a in unitAbilities)
-        {
-            a.AbilitySelected += OnAbilitySelected;
-            a.AbilityDeselected += OnAbilityDeselected;
-        }
-
         unit.UnitHighlighted += OnUnitHighlighted;
         unit.UnitDehighlighted += OnUnitDehighlighted;
         unit.UnitClicked += OnUnitClicked;

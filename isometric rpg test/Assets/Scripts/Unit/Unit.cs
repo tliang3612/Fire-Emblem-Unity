@@ -246,7 +246,7 @@ public class Unit : MonoBehaviour, IClickable
         if (isCounterAttacker)
         {
             //if the counter attacking unit can match the enemy range
-            if (CanDefenderCounter(unitToAttack))
+            if (IsUnitAttackable(unitToAttack))
                 return new AttackAction(true, 0);
             else
                 return new AttackAction(false, 0);
@@ -326,11 +326,6 @@ public class Unit : MonoBehaviour, IClickable
         return (GetAttack() + weaponEffectiveness) - unitToAttack.GetDefense();
     }
 
-    
-
-    //enemy can counterattack if their attack range is within distance
-    public bool CanDefenderCounter(Unit defendingUnit) => defendingUnit.AttackRange >= FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, defendingUnit.Tile);
-
     /// <summary>
     /// Calculates actual damage given
     /// </summary>
@@ -357,7 +352,7 @@ public class Unit : MonoBehaviour, IClickable
         var totalDamage = attacker.GetTotalDamage(this) * dodge * crit;
 
         //calculate damage
-        return new DamageDetails(true, false, crit == 2, dodge == 1, totalDamage);
+        return new DamageDetails(true, false, dodge == 1, crit == 2, totalDamage);
     }
 
     public void Move(List<OverlayTile> path)

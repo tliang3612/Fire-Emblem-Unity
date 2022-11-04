@@ -5,9 +5,7 @@ using DG.Tweening;
 
 public class BattleUnit : MonoBehaviour
 {
-
     [SerializeField] private Animator anim;
-
     public Unit unit { get; set; }
 
     public BattleSystemHUD HUD;
@@ -29,6 +27,7 @@ public class BattleUnit : MonoBehaviour
         anim.runtimeAnimatorController = unit.BattleAnimController;
 
         HUD.SetData(unit, unitToAttack.unit, battleEvent);
+        
     }
 
     public IEnumerator PlayAttackAnimation(bool isCrit)

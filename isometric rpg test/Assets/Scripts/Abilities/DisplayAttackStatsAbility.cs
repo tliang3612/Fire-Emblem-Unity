@@ -42,12 +42,9 @@ public class DisplayAttackStatsAbility : Ability
 
     public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
     {
-        OnAbilityDeselected(tileGrid);
-
         StartCoroutine(Execute(tileGrid,
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
-        
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));     
     }
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
@@ -55,7 +52,9 @@ public class DisplayAttackStatsAbility : Ability
         if (UnitReference.IsUnitAttackable(unit))
         {
             UnitReference.GetComponentInChildren<AttackAbility>().UnitToAttack = unit;
-            UnitReference.GetComponentInChildren<AttackAbility>().OnAbilitySelected(tileGrid);
+            StartCoroutine(Execute(tileGrid,
+                _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
+                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<AttackAbility>())));
         }
     }
 
@@ -63,11 +62,6 @@ public class DisplayAttackStatsAbility : Ability
     {
         base.OnAbilitySelected(tileGrid);
         tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.AttackRange).Where(t => t != UnitReference.Tile).ToList();
-    }
-
-    public override void OnAbilityDeselected(TileGrid tileGrid)
-    {
-        base.OnAbilityDeselected(tileGrid);
     }
 
     public override bool CanPerform(TileGrid tileGrid)
