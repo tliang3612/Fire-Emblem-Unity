@@ -156,6 +156,7 @@ public class TileGrid : MonoBehaviour
             tile.TileHighlighted += OnTileHighlighted;
             tile.TileDehighlighted += OnTileDehighlighted;
             tile.UnMark();
+            tile.GetNeighborTiles(this);
         }
 
         UnitList = new List<Unit>();
@@ -273,7 +274,6 @@ public class TileGrid : MonoBehaviour
                     var tile = Instantiate(overlayTilePrefab, overlayTileContainer.transform);
 
                     tile.InitializeTile(tileMap, tileLocation, TileDataMap);
-
 
                     TileList.Add(tile);
                     Map.Add(tileKey, tile);

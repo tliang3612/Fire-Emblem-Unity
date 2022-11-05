@@ -8,14 +8,14 @@ using System.Linq;
 
 public class OverlayTile : MonoBehaviour, IClickable
 {
-
+    //directions the tile can scan for neighbors
+    private readonly Vector2Int[] neighborDirections = { new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1) };
     // TileClicked event is invoked when user clicks on the tile. 
     public event EventHandler TileClicked;
     // TileHighlighed event is invoked when cursor enters the tile's collider. 
     public event EventHandler TileHighlighted;
     // TileDehighlighted event is invoked when cursor exits the tile's collider. 
     public event EventHandler TileDehighlighted;
-
 
     public bool IsBlocked { get; set; }
 
@@ -32,10 +32,9 @@ public class OverlayTile : MonoBehaviour, IClickable
     public int MovementCost;
     public int DefenseBoost;
     public int AvoidBoost;
-
-    public int MovementRating;
-
     public Unit CurrentUnit { get; set; }
+
+    private List<OverlayTile> neighbors = null;
 
     public void OnMouseEnter()
     {
@@ -72,13 +71,11 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public void InitializeTile(Tilemap tilemap, Vector3Int tileLocation, Dictionary<TileBase, TileData> tileDataMap)
     {
-
         //Make sure the overlay tile appears ontop of the tilemap
         GetComponent<SpriteRenderer>().sortingOrder = tilemap.GetComponent<TilemapRenderer>().sortingOrder + 1;
 
         gridLocation = tileLocation;
         tileMap = tilemap;
-
 
         var cellWorldPosition = tilemap.GetCellCenterWorld(tileLocation);
         transform.position = new Vector2(cellWorldPosition.x, cellWorldPosition.y);
@@ -178,11 +175,26 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public List<OverlayTile> GetNeighborTiles(TileGrid tileGrid)
     {
-        var tilesToSearch = tileGrid.Map;
 
-        List<OverlayTile> neighbors = new List<OverlayTile>();
+        if(neighbors == null)
+        {
+            var tilesToSearch = tileGrid.Map;
 
-        //checks left and right neighbors
+            neighbors = new List<OverlayTile>(4);
+
+            foreach(Vector2Int direction in neighborDirections)
+            {
+                var locationToCheck = new Vector2Int(gridLocation2D.x + direction.x, gridLocation.y + direction.y);
+                if(tilesToSearch.ContainsKey(locationToCheck))
+                {
+                    neighbors.Add(tilesToSearch[locationToCheck]);
+                }
+            }
+        }
+
+        return neighbors;
+
+        /*//checks left and right neighbors
         for (int i = 1; i >= -1; i -= 2)
         {
             var locationToCheck = new Vector2Int(gridLocation.x + i, gridLocation.y);
@@ -202,7 +214,7 @@ public class OverlayTile : MonoBehaviour, IClickable
             }
         }
 
-        return neighbors;
+        return neighbors;*/
     }
 }
 

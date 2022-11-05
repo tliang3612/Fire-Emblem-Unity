@@ -68,7 +68,6 @@ public class GameGUIController : GUIController
             HideMenuOptionsPanel();
             tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
         }
-        Debug.Log(State);
     }
 
     protected override void OnTileDehighlighted(object sender, EventArgs e)
@@ -107,7 +106,6 @@ public class GameGUIController : GUIController
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)
     {
-        Debug.Log(sender.ToString());
         SetState(GUIState.Clear);
     }
 
