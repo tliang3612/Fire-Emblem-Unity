@@ -113,7 +113,8 @@ public class OverlayTile : MonoBehaviour, IClickable
     public virtual void UnMark()
     {
         HideCursor();
-        gameObject.GetComponent<SpriteRenderer>().sprite = null; 
+        gameObject.GetComponent<SpriteRenderer>().sprite = null;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public virtual void MarkAsHighlighted()
@@ -129,6 +130,12 @@ public class OverlayTile : MonoBehaviour, IClickable
     public virtual void MarkAsAttackableTile()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = redTile;       
+    }
+
+    public virtual void MarkAsHealableTile()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = blueTile;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
     }
 
     public virtual void MarkArrowPath(ArrowTranslator.ArrowDirection direction)

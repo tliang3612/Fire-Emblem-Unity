@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class BattleUnit : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
+    [SerializeField] protected Animator anim;
     public Unit unit { get; set; }
 
     public BattleSystemHUD HUD;
@@ -26,8 +26,7 @@ public class BattleUnit : MonoBehaviour
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         anim.runtimeAnimatorController = unit.BattleAnimController;
 
-        HUD.SetData(unit, unitToAttack.unit, battleEvent);
-        
+        HUD.SetData(unit, unitToAttack.unit, battleEvent);      
     }
 
     public IEnumerator PlayAttackAnimation(bool isCrit)
@@ -81,6 +80,34 @@ public class BattleUnit : MonoBehaviour
         hitEffect.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
 
         Destroy(hitEffect, 2f);
+    }
+
+    public IEnumerator PlayHealAnimation()
+    {
+        anim.SetTrigger("Heal");
+        isAnimationPlaying = true;
+
+        while (isAnimationPlaying)
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator PlayHealBackupAnimation()
+    {
+        anim.SetTrigger("HealBackup");
+
+        isAnimationPlaying = true;
+        while (isAnimationPlaying)
+        {
+            yield return null;
+        }
+
+    }
+
+    public void PlayHealingReceivedAnimation()
+    {
+
     }
 
     public void PlayDeathAnimation()

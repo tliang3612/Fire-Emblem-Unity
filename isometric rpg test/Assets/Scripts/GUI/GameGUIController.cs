@@ -53,7 +53,8 @@ public class GameGUIController : GUIController
     }
 
     protected override void OnTileClicked(object sender, EventArgs e)
-    {                                                                                 //we dont want to register tile click when mouse is over UI
+    {
+        //we dont want to register tile click when mouse is over UI
         if ((sender as OverlayTile).CurrentUnit == null && State == GUIState.Clear && !EventSystem.current.IsPointerOverGameObject())
         {
             SetState(GUIState.InGameGUISelection);
@@ -97,16 +98,20 @@ public class GameGUIController : GUIController
         }      
     }
 
-    protected override void OnAbilitySelected(object sender, EventArgs e)
+    protected virtual void OnAbilitySelected(object sender, EventArgs e)
     {
         HideTerrainPanel();
         HideUnitPanel();
         SetState(GUIState.BlockInput);
     }
 
-    protected override void OnAbilityDeselected(object sender, EventArgs e)
+    protected virtual void OnAbilityDeselected(object sender, EventArgs e)
     {
-        SetState(GUIState.Clear);
+        //if the ability deselected is displayable, ex a display ability, we don't want to set the gui state to clear
+        if(!(sender as Ability).IsDisplayable)
+        {
+            SetState(GUIState.Clear);
+        }
     }
 
     protected void ShowUnitPanel(Unit unit)
@@ -217,7 +222,6 @@ public class GameGUIController : GUIController
     protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)
     {
         base.RegisterUnit(unit, unitAbilities);
-
         foreach (Ability a in unitAbilities)
         {
             a.AbilitySelected += OnAbilitySelected;

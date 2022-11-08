@@ -58,8 +58,6 @@ public class Unit : MonoBehaviour, IClickable
     public Sprite UnitBattleSprite;
     public RuntimeAnimatorController BattleAnimController;
 
-    public bool InSelectionMenu = false;
-
     [HideInInspector]
     public List<OverlayTile> cachedPath;
 
@@ -279,11 +277,11 @@ public class Unit : MonoBehaviour, IClickable
         return damageDetails;
     }
 
-    public void ReceiveHealing(int healAmount)
+    public HealingDetails ReceiveHealing(int healAmount)
     {
-        HitPoints += healAmount;
-        if (HitPoints > TotalHitPoints)
-            HitPoints = TotalHitPoints;
+        HitPoints = Mathf.Clamp(HitPoints + healAmount, 0, TotalHitPoints);
+
+        return new HealingDetails(healAmount, HitPoints);
     }
 
     //Gets weapon effectiveness against a unit. -1 for ineffective, 0 for neutral, and 1 for effective
@@ -295,7 +293,7 @@ public class Unit : MonoBehaviour, IClickable
     public int GetCritChance()
     {
         //Critical Chance formula = (Skill / 2) + Critical bonus (raw crit bonus, unique for each unit)
-        return (SkillFactor / 2) + CritFactor;
+        return Mathf.Clamp((SkillFactor / 2) + CritFactor, 0, 100);
     }
 
     public int GetHitChance()
@@ -315,7 +313,7 @@ public class Unit : MonoBehaviour, IClickable
         //Weapon Effectiveness mutiplier for hit chance = 15;
         int weaponEffectiveness = GetEffectiveness(unitToAttack) * 15;
 
-        return (GetHitChance() + weaponEffectiveness) - unitToAttack.GetDodgeChance();
+        return Mathf.Clamp((GetHitChance() + weaponEffectiveness) - unitToAttack.GetDodgeChance(), 0, 100);
     }
 
     public virtual int GetTotalDamage(Unit unitToAttack)

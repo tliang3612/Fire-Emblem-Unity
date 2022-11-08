@@ -27,7 +27,6 @@ public class DisplayAttackStatsGUIController : AbilityGUIController
     protected override void OnAbilitySelected(object sender, EventArgs e)
     {
         base.OnAbilitySelected(sender, e);
-
         Panel.SetActive(true);
         SetState(GUIState.InAbilitySelection);
         
@@ -37,8 +36,7 @@ public class DisplayAttackStatsGUIController : AbilityGUIController
     {            
         Panel.SetActive(false);
         ClearStats();
-        SetState(GUIState.InAbilitySelection);           
-        
+        SetState(GUIState.InAbilitySelection);                  
     }
 
     protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)

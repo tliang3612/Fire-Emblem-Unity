@@ -38,9 +38,10 @@ public class DisplayActionsGUIController : AbilityGUIController
 
     protected override void OnAbilitySelected(object sender, EventArgs e)
     {
+        base.OnAbilitySelected(sender, e);
+        SetState(GUIState.InAbilitySelection);
         ButtonList = new List<GameObject>();
-        Panel.SetActive(true);
-                 
+        Panel.SetActive(true);                
     }
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)

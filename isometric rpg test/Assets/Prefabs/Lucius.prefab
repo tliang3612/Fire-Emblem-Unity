@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2546945378526788815}
   - component: {fileID: 2546945378526788812}
   - component: {fileID: 3459423048650783701}
-  - component: {fileID: 3459423048650783699}
   - component: {fileID: 3459423048650783698}
+  - component: {fileID: 6145262246702601188}
   m_Layer: 0
   m_Name: Lucius
   m_TagString: Untagged
@@ -114,36 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.89, y: 0.89}
   m_EdgeRadius: 0
---- !u!114 &3459423048650783699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2546945378526788813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6c4f19daf8e734f8c5d16c7841b91f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tile: {fileID: 0}
-  HitPoints: 10
-  AttackRange: 2
-  AttackFactor: 8
-  DefenceFactor: 4
-  SkillFactor: 10
-  LuckFactor: 5
-  CritFactor: 0
-  MovementAnimationSpeed: 5
-  UnitName: Lucius
-  UnitPortrait: {fileID: 382127858, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
-  UnitBattleSprite: {fileID: 1643626598, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
-  BattleAnimController: {fileID: 9100000, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
-  InSelectionMenu: 0
-  cachedPath: []
-  movementPoints: 7
-  actionPoints: 1
-  PlayerNumber: 0
 --- !u!95 &3459423048650783698
 Animator:
   serializedVersion: 4
@@ -164,6 +134,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6145262246702601188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546945378526788813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624bb9eb265515f478e7267e085c8b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tile: {fileID: 0}
+  HitPoints: 20
+  AttackRange: 2
+  AttackFactor: 6
+  DefenceFactor: 5
+  SkillFactor: 5
+  LuckFactor: 5
+  CritFactor: 100
+  MovementAnimationSpeed: 7
+  UnitName: Lucius
+  UnitPortrait: {fileID: 1643626598, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
+  UnitBattleSprite: {fileID: 1643626598, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
+  BattleAnimController: {fileID: 9100000, guid: 5ab9d025f2ed6db4f9c69e86a725af62, type: 2}
+  InSelectionMenu: 0
+  cachedPath: []
+  movementPoints: 5
+  actionPoints: 1
+  PlayerNumber: 0
 --- !u!1 &5657009156215899286
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,9 +176,11 @@ GameObject:
   - component: {fileID: 8295797603930945605}
   - component: {fileID: 5775755020194686635}
   - component: {fileID: 7558870398948338206}
+  - component: {fileID: 7767792803522752937}
   - component: {fileID: 1481688816972879088}
   - component: {fileID: 6848399713906815937}
   - component: {fileID: 8246458918338696950}
+  - component: {fileID: 7141593314245147570}
   m_Layer: 0
   m_Name: AbiltiesHolder
   m_TagString: Untagged
@@ -237,6 +239,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8328a6175b6434c40aacb2032956f047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7767792803522752937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5657009156215899286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcfac4ab1d1a27428798463ff3c4a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1481688816972879088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,5 +286,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f064afe26e084674a86046bee7d7a88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7141593314245147570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5657009156215899286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597cf7e16d4c44c499b1a9106e140219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

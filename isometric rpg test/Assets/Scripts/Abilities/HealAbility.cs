@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class AttackAbility : Ability
+public class HealAbility : Ability
 {
-    public Unit UnitToAttack { get; set; }
+    public Unit UnitToHeal { get; set; }
 
     protected override void Awake()
     {
@@ -16,10 +16,7 @@ public class AttackAbility : Ability
         if (CanPerform(tileGrid))
         {
             UnitReference.ConfirmMove();
-            if (tileGrid.GetManhattenDistance(UnitReference.Tile, UnitToAttack.Tile) > 1)        
-                tileGrid.StartBattle(UnitReference, UnitToAttack, BattleEvent.RangedAction);    
-            else
-                tileGrid.StartBattle(UnitReference, UnitToAttack, BattleEvent.MeleeAction);
+            tileGrid.StartBattle(UnitReference, UnitToHeal, BattleEvent.HealAction);
             yield return new WaitForSeconds(0.5f);
         }
     }
@@ -35,9 +32,8 @@ public class AttackAbility : Ability
     {
         base.OnAbilityDeselected(tileGrid);
     }
-
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitToAttack != null;
+        return UnitToHeal != null;
     }
 }

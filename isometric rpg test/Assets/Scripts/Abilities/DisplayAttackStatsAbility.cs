@@ -4,12 +4,8 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-public class DisplayAttackStatsAbility : Ability
+public class DisplayAttackStatsAbility : DisplayAbility
 {
-    public event EventHandler<DisplayStatsChangedEventArgs> DisplayStatsChanged;
-
-    private List<OverlayTile> tilesInAttackRange;
-
     protected override void Awake()
     {
         base.Awake();
@@ -21,22 +17,16 @@ public class DisplayAttackStatsAbility : Ability
         tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());     
     }
 
-    public override void CleanUp(TileGrid tileGrid)
-    {
-        tilesInAttackRange.ForEach(t => t.UnMark());
-    }
-
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
     {
-        if (UnitReference.IsUnitAttackable(unit))
+        unit.Tile.HighlightedOnUnit();
+
+        if (UnitReference.IsUnitAttackable(unit) && !UnitReference.Equals(unit))
         {
-            unit.Tile.HighlightedOnUnit();
-            //Change StatsDisplay stats
             var attackerStats = GetStats(UnitReference, unit);
             var defenderStats = GetStats(unit, UnitReference);
 
-            if (DisplayStatsChanged != null)
-                DisplayStatsChanged.Invoke(this, new DisplayStatsChangedEventArgs(attackerStats, defenderStats));
+            OnDisplayStatsChanged(attackerStats, defenderStats);
         }
     }
 
@@ -49,19 +39,13 @@ public class DisplayAttackStatsAbility : Ability
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
     {
-        if (UnitReference.IsUnitAttackable(unit))
+        if (UnitReference.IsUnitAttackable(unit) && !UnitReference.Equals(unit))
         {
             UnitReference.GetComponentInChildren<AttackAbility>().UnitToAttack = unit;
             StartCoroutine(Execute(tileGrid,
                 _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
                 _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<AttackAbility>())));
         }
-    }
-
-    public override void OnAbilitySelected(TileGrid tileGrid)
-    {
-        base.OnAbilitySelected(tileGrid);
-        tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.AttackRange).Where(t => t != UnitReference.Tile).ToList();
     }
 
     public override bool CanPerform(TileGrid tileGrid)
@@ -72,42 +56,9 @@ public class DisplayAttackStatsAbility : Ability
         return enemiesInRange.Count > 0 && UnitReference.ActionPoints > 0;
     }
 
-    private DisplayStats GetStats(Unit unit, Unit unitToAttack)
+    protected DisplayStats GetStats(Unit unit, Unit unitToAttack)
     {
-        return new DisplayStats(unit.HitPoints, unit.GetTotalDamage(unitToAttack),
-            unit.GetBattleAccuracy(unitToAttack), unit.GetCritChance(), unit.UnitName, unit.GetEffectiveness(unitToAttack));
-    }
-}
-
-public class DisplayStatsChangedEventArgs : EventArgs
-{
-    public DisplayStats AttackerStats;
-    public DisplayStats DefenderStats;
-
-    public DisplayStatsChangedEventArgs(DisplayStats attackerStats, DisplayStats defenderStats)
-    {
-        AttackerStats = attackerStats;
-        DefenderStats = defenderStats;
-    }
-}
-
-
-public class DisplayStats
-{
-    public string Name { get; private set; }
-    public int Hp { get; private set; }
-    public int Damage { get; private set; }
-    public int Hit { get; private set; }
-    public int Crit { get; private set; }
-    public int Effectiveness { get; private set; }
-
-    public DisplayStats(int health, int damage, int hitChance, int critChance, string unitName, int effectiveness)
-    {
-        Name = unitName;
-        Hp = health;
-        Damage = damage;
-        Hit = hitChance;
-        Crit = critChance;
-        Effectiveness = effectiveness;
+        return new DisplayStats(null, unit.UnitName, unit.HitPoints, unit.GetTotalDamage(unitToAttack),
+            unit.GetBattleAccuracy(unitToAttack), unit.GetCritChance(), unit.GetEffectiveness(unitToAttack));
     }
 }

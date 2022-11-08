@@ -52,21 +52,6 @@ public class DisplayActionsAbility : Ability
         tile.UnMark();
     }
 
-    public override void OnAbilitySelected(TileGrid tileGrid)
-    {
-        base.OnAbilitySelected(tileGrid);
-
-    }
-
-    public override void OnAbilityDeselected(TileGrid tileGrid)
-    {
-        base.OnAbilityDeselected(tileGrid);
-    }
-
-    public override void CleanUp(TileGrid tileGrid)
-    {
-    }
-
     public override bool CanPerform(TileGrid tileGrid)
     {
         return true;

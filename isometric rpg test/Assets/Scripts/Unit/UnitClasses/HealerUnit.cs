@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class HealerUnit : Unit
 {
-    public int HealHandler(Unit unitToHeal)
+    public HealingDetails HealHandler(Unit unitToHeal)
+    {      
+        return unitToHeal.ReceiveHealing(AttackFactor);
+    }
+
+    public bool IsUnitHealable(Unit otherUnit)
     {
-        unitToHeal.ReceiveHealing(AttackFactor);
-        return AttackFactor;
+        return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= AttackRange
+            && otherUnit.PlayerNumber == PlayerNumber
+            && ActionPoints >= 1
+            && otherUnit.HitPoints > 0;
     }
 }
