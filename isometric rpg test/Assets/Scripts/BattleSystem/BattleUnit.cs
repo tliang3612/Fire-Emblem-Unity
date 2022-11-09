@@ -6,12 +6,16 @@ using DG.Tweening;
 public class BattleUnit : MonoBehaviour
 {
     [SerializeField] protected Animator anim;
+    [SerializeField] private bool IsPlayer;
     public Unit unit { get; set; }
+    
 
     public BattleSystemHUD HUD;
 
     public BattleUnit unitToAttack { get; set; }
-    public GameObject HitEffect;
+
+    [HideInInspector] public GameObject hitEffect;
+    [HideInInspector] public GameObject critEffect;
     
 
     //set to false with unity animation events
@@ -25,6 +29,9 @@ public class BattleUnit : MonoBehaviour
         unitToAttack = battleUnitToAttack;
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         anim.runtimeAnimatorController = unit.BattleAnimController;
+
+        hitEffect = unit.HitEffect;
+        critEffect = unit.CritEffect;
 
         HUD.SetData(unit, unitToAttack.unit, battleEvent);      
     }
@@ -73,13 +80,33 @@ public class BattleUnit : MonoBehaviour
 
     }
 
-    public void PlayHitAnimation(GameObject effect = null)
+    public IEnumerator PlayHitAnimation(GameObject effect)
     {
-        //Instantiate Hit Effect at the center of unit
-        var hitEffect = Instantiate(HitEffect, transform.position, transform.rotation, transform);
-        hitEffect.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
 
-        Destroy(hitEffect, 2f);
+        HitEffect hitEffect;
+        
+        if (effect.GetComponent<HitEffect>().IsUnitBased)
+        {
+            //effect is instantiated as a child of the unit
+            hitEffect = Instantiate(effect, transform).GetComponent<HitEffect>();
+
+            //centered on the unit
+            hitEffect.SetProperties(Vector2.zero, Vector3.one);            
+        }
+        else
+        {
+            //effect is instantiated in the battle frame to take up the entire screen space, and centered based on the screen                       
+            hitEffect = Instantiate(effect, GameObject.Find("BattleFrame").transform).GetComponent<HitEffect>();
+
+            //reflect the image if the unit hit is the player unit
+            if (IsPlayer)
+                hitEffect.SetProperties(Vector2.zero, new Vector3(-1, 1, 1));
+            else
+                hitEffect.SetProperties(Vector2.zero, Vector3.one);
+        }
+
+        //PlayHitAnimation won't end until the hit effect animation is finished casting. Used for hit effects like magic
+        yield return hitEffect.StartCasting();
     }
 
     public IEnumerator PlayHealAnimation()

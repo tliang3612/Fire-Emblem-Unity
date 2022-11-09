@@ -58,6 +58,10 @@ public class Unit : MonoBehaviour, IClickable
     public Sprite UnitBattleSprite;
     public RuntimeAnimatorController BattleAnimController;
 
+    //BattleSystem 
+    public GameObject HitEffect;
+    public GameObject CritEffect;
+
     [HideInInspector]
     public List<OverlayTile> cachedPath;
 

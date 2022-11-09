@@ -71,7 +71,7 @@ public class BattleSystem : MonoBehaviour
         if (damageDetails.IsHit)
         {
             yield return attackerUnit.PlayAttackAnimation(damageDetails.IsCrit);
-            defenderUnit.PlayHitAnimation();
+            yield return defenderUnit.PlayHitAnimation(damageDetails.IsCrit ? attackerUnit.critEffect : attackerUnit.hitEffect);
             yield return defenderUnit.HUD.UpdateHP();
 
             yield return attackerUnit.PlayBackupAnimation(damageDetails.IsCrit);

@@ -101,6 +101,42 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -110,7 +146,7 @@ TextureImporter:
         serializedVersion: 2
         x: 252
         y: 1023
-        width: 176
+        width: 240
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -131,7 +167,7 @@ TextureImporter:
         serializedVersion: 2
         x: 9
         y: 1023
-        width: 176
+        width: 240
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -152,7 +188,7 @@ TextureImporter:
         serializedVersion: 2
         x: 252
         y: 1349
-        width: 176
+        width: 240
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -173,7 +209,7 @@ TextureImporter:
         serializedVersion: 2
         x: 495
         y: 1349
-        width: 175
+        width: 240
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -194,7 +230,7 @@ TextureImporter:
         serializedVersion: 2
         x: 9
         y: 1186
-        width: 176
+        width: 240
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -215,7 +251,7 @@ TextureImporter:
         serializedVersion: 2
         x: 252
         y: 1186
-        width: 176
+        width: 240
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -236,7 +272,7 @@ TextureImporter:
         serializedVersion: 2
         x: 495
         y: 1186
-        width: 176
+        width: 240
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -257,7 +293,7 @@ TextureImporter:
         serializedVersion: 2
         x: 495
         y: 1023
-        width: 176
+        width: 240
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -268,6 +304,153 @@ TextureImporter:
       bones: []
       spriteID: 72f700281f42c14438d24d977f0776cc
       internalID: -956858118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physical Effects_8
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 843
+        width: 240
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ae0491f7b4e06429f5702afc607301
+      internalID: 957383128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physical Effects_9
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 843
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83307d4445981824fbd77d541271729e
+      internalID: 235187174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physical Effects_10
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 680
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06c905de6724c74fae2bbfb29de038f
+      internalID: -1391249732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physical Effects_11
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 680
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96abe0d8101d2fc49818b7982998b1f2
+      internalID: 253990651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physical Effects_12
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 680
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f015458fc86b3e49bc1d7ad71512e51
+      internalID: 416536584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physical Effects_13
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 516
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3ea750837488e4ea12438b81de7211
+      internalID: 542007459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physical Effects_14
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 517
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3979279d6d0b0884a9fa899291833ba2
+      internalID: -1157094958
       vertices: []
       indices: 
       edges: []
@@ -289,9 +472,15 @@ TextureImporter:
       Physical Effects_1: -701200134
       Physical Effects_4: 627321448
       Physical Effects_8: 957383128
+      Physical Effects_11: 253990651
+      Physical Effects_9: 235187174
       Physical Effects_3: -2077295971
+      Physical Effects_13: 542007459
+      Physical Effects_14: -1157094958
       Physical Effects_0: 939584684
+      Physical Effects_10: -1391249732
       Physical Effects_2: 294683116
+      Physical Effects_12: 416536584
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

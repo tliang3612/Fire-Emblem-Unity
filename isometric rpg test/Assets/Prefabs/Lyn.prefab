@@ -139,7 +139,8 @@ MonoBehaviour:
   UnitPortrait: {fileID: 1920101064, guid: c95a6d029a0f99941ab88bcd809c976e, type: 3}
   UnitBattleSprite: {fileID: -1192792482, guid: c95a6d029a0f99941ab88bcd809c976e, type: 3}
   BattleAnimController: {fileID: 9100000, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
-  InSelectionMenu: 0
+  HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
+  CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
   cachedPath: []
   movementPoints: 7
   actionPoints: 1
