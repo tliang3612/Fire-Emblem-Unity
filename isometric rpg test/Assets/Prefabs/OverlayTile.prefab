@@ -119,11 +119,11 @@ MonoBehaviour:
   CursorSprite: {fileID: 9014737047535682117}
   blueTile: {fileID: -1516456419, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
   redTile: {fileID: 1456363428, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
+  greenTile: {fileID: 1092156390, guid: 34c9b31ad62d91d40913d06f57a1fd79, type: 3}
   TileName: 
   MovementCost: 0
   DefenseBoost: 0
   AvoidBoost: 0
-  MovementRating: 0
 --- !u!61 &4399094255726469832
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -512,6 +512,7 @@ public class Unit : MonoBehaviour, IClickable
     public virtual void MarkAsDestroyed()
     {
         GetComponent<SpriteRenderer>().color = Color.black;
+        Destroy(gameObject);
     }
 
     //Visual indication that the unit has no more moves this turn

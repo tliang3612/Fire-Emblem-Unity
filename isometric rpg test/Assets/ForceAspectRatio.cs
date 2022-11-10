@@ -4,35 +4,34 @@ using UnityEngine;
 
 public class ForceAspectRatio : MonoBehaviour
 {
-    public float targetaspect = 3f / 2f;
+    public float targetAspect = 3f / 2f;
 
     [ExecuteAlways]
     void Start()
     {   
         // determine the game window's current aspect ratio
-        float windowaspect = (float)Screen.width / (float)Screen.height;
+        float windowAspect = (float)Screen.width / (float)Screen.height;
 
         // current viewport height should be scaled by this amount
-        float scaleheight = windowaspect / targetaspect;
+        float scaleHeight = windowAspect / targetAspect;
 
-        // obtain camera component so we can modify its viewport
         Camera camera = GetComponent<Camera>();
 
         // if scaled height is less than current height, add letterbox
-        if (scaleheight < 1.0f)
+        if (scaleHeight < 1.0f)
         {
             Rect rect = camera.rect;
 
             rect.width = 1.0f;
-            rect.height = scaleheight;
+            rect.height = scaleHeight;
             rect.x = 0;
-            rect.y = (1.0f - scaleheight) / 2.0f;
+            rect.y = (1.0f - scaleHeight) / 2.0f;
 
             camera.rect = rect;
         }
         else // add pillarbox
         {
-            float scalewidth = 1.0f / scaleheight;
+            float scalewidth = 1.0f / scaleHeight;
 
             Rect rect = camera.rect;
 

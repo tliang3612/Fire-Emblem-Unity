@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public enum BattleEvent
 {
@@ -11,17 +13,28 @@ public enum BattleEvent
 }
 public class BattleSystem : MonoBehaviour
 {
-    [SerializeField] BattleUnit playerUnit;
-    [SerializeField] BattleUnit enemyUnit;
+    [SerializeField] private BattleUnit playerUnit;
+    [SerializeField] private BattleUnit enemyUnit;
 
-    public GameObject rightPlatform;
-    public GameObject leftPlatform;
+    [SerializeField] private GameObject rightPlatform;
+    [SerializeField] private GameObject leftPlatform;
+    [SerializeField] private GameObject[] PannedComponents = new GameObject[4];
+    [SerializeField] private GameObject foreground;
+
+    [SerializeField] private float shakeDuration;
+    [SerializeField] private float shakeMagnitude;
+
+    [SerializeField] private Image Background;
+
+    private BattleEvent currentBattleEvent;
 
     [SerializeField] public float RangedPlatformOffset;
+    [SerializeField] public float panDuration; 
     private Vector2 originalRightAnchoredPosition;
     private Vector2 originalLeftAnchoredPosition;
 
     public event EventHandler BattleOver;
+    
 
     private bool battleOver = false;
 
@@ -34,12 +47,15 @@ public class BattleSystem : MonoBehaviour
 
     public void StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
     {
-        battleOver = false;
+        
 
+        battleOver = false;
         playerUnit.unit = attacker;
         enemyUnit.unit = defender;
 
         SetUpBattle(battleEvent);
+
+        currentBattleEvent = battleEvent;
 
         if(battleEvent == BattleEvent.HealAction)
         {
@@ -65,20 +81,31 @@ public class BattleSystem : MonoBehaviour
     }
 
     private IEnumerator RunAttackSequence(BattleUnit attackerUnit, BattleUnit defenderUnit, DamageDetails damageDetails)
-    {       
+    {
+        Action<float> shake = ShakeBattlefield;
+
         yield return new WaitForSeconds(0.5f);
 
         if (damageDetails.IsHit)
         {
             yield return attackerUnit.PlayAttackAnimation(damageDetails.IsCrit);
-            yield return defenderUnit.PlayHitAnimation(damageDetails.IsCrit ? attackerUnit.critEffect : attackerUnit.hitEffect);
-            yield return defenderUnit.HUD.UpdateHP();
+            if(currentBattleEvent == BattleEvent.RangedAction)
+                yield return ShiftPlatformsAndUnits(attackerUnit.IsPlayer ? 1 : -1);
 
+            yield return defenderUnit.PlayHitAnimation(damageDetails.IsCrit ? attackerUnit.critEffect : attackerUnit.hitEffect);
+            ShakeBattlefield(damageDetails.IsCrit ? 2 : 1);
+            yield return defenderUnit.HUD.UpdateHP();
             yield return attackerUnit.PlayBackupAnimation(damageDetails.IsCrit);
+
+            if (currentBattleEvent == BattleEvent.RangedAction)
+                yield return ShiftPlatformsAndUnits(attackerUnit.IsPlayer ? -1f : 1f);
         }
         else
         {
             yield return attackerUnit.PlayAttackAnimation(false);
+            if (currentBattleEvent == BattleEvent.RangedAction)
+                yield return ShiftPlatformsAndUnits(attackerUnit.IsPlayer ? 1 : -1);
+
             yield return defenderUnit.PlayDodgeAnimation();
             yield return attackerUnit.PlayBackupAnimation(false);
         }
@@ -146,23 +173,32 @@ public class BattleSystem : MonoBehaviour
         if (defenderDamageDetails.InRange && !battleOver)
              StartCoroutine(PerformDefenderMove(defenderDamageDetails));
         else
-            EndBattle(playerUnit.unit, enemyUnit.unit);
-        
+            EndBattle(playerUnit.unit, enemyUnit.unit);        
     }
 
     public void SetUpRangedPlatforms()
     {
-        var rightPlatFormPosition = rightPlatform.GetComponent<RectTransform>().anchoredPosition;
-        rightPlatform.GetComponent<RectTransform>().anchoredPosition = new Vector2(rightPlatFormPosition.x + RangedPlatformOffset, rightPlatFormPosition.y);
+        foreach(GameObject gameObject in PannedComponents)
+        {
+            var position = gameObject.GetComponent<RectTransform>().anchoredPosition;
+            //if position.x > 0, then the component is on the right side, which is the player side
+            var k = position.x > 0 ? 1 : -1;
 
-        var leftPlatFormPosition = leftPlatform.GetComponent<RectTransform>().anchoredPosition;
-        leftPlatform.GetComponent<RectTransform>().anchoredPosition = new Vector2(leftPlatFormPosition.x - RangedPlatformOffset, leftPlatFormPosition.y);
+            gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(position.x + k*RangedPlatformOffset, position.y);           
+        }
+    }
 
-        var playerPos = playerUnit.GetComponent<RectTransform>().anchoredPosition;
-        playerUnit.GetComponent<RectTransform>().anchoredPosition = new Vector2(playerPos.x + RangedPlatformOffset, playerPos.y);
+    //k is positive if its player unit
+    public IEnumerator ShiftPlatformsAndUnits(float k)
+    {        
+        foreach(GameObject gameObject in PannedComponents)
+        {
+            var positionX = gameObject.GetComponent<RectTransform>().anchoredPosition.x;
+            gameObject.GetComponent<RectTransform>().DOAnchorPosX(positionX + k * (RangedPlatformOffset), panDuration).SetEase(Ease.Linear);
+        }
 
-        var enemyPos = enemyUnit.GetComponent<RectTransform>().anchoredPosition;
-        enemyUnit.GetComponent<RectTransform>().anchoredPosition = new Vector2(enemyPos.x - RangedPlatformOffset, enemyPos.y);
+        yield return new WaitForSeconds(panDuration);
+
     }
 
     public void CleanpRangedPlatforms()
@@ -173,4 +209,10 @@ public class BattleSystem : MonoBehaviour
         playerUnit.GetComponent<RectTransform>().anchoredPosition = originalRightAnchoredPosition;
         enemyUnit.GetComponent<RectTransform>().anchoredPosition = originalLeftAnchoredPosition;
     }
+
+    public void ShakeBattlefield(float shakeMultiplier)
+    {
+        foreground.GetComponent<Transform>().DOShakePosition(shakeDuration * shakeMultiplier, shakeMagnitude * shakeMultiplier, fadeOut: true);
+    }
+    
 }

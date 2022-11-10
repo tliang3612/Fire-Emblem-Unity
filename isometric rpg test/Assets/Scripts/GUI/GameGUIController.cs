@@ -9,24 +9,34 @@ using System.Collections.Generic;
 
 public class GameGUIController : GUIController
 {
+                                                    //top right            top left               bottom right           bottom left
+    private readonly Vector2Int[] panelPositions = { new Vector2Int(1, 1), new Vector2Int(-1, 1), new Vector2Int(1, -1), new Vector2Int(-1, -1)};
+
+    [Header("Menu Options")]
     public GameObject MenuOptionsPanel;
     public Button EndTurnButton;
 
+    [Header("Unit Info")]
     public GameObject UnitInfoPanel;
     public Image UnitImage;
     public Image HpBar;
     public Text StatsText;
-    
+
+    [Header("Terrain Info")]
     public GameObject TerrainInfoPanel;
     public Text TerrainName;
     public Text TerrainDef;
     public Text TerrainAvo;
 
-    [SerializeField] GameObject BottomLeftPanelHolder;
+    [Header("Win Condition")]
+    public GameObject WinConditionPanel;
+    public Text WinConditionText;
+
+    [SerializeField] GameObject TopRightPanelHolder;
     [SerializeField] private float panelOffSet = 70f;
     [SerializeField] private float lerpDuration = .15f;
 
-    private Vector2 bottomLeftPanelPosition;
+    private Vector2 topRightPosition;
 
     //flags the side that the terrain panel is on. 
     private bool onLeftSide;
@@ -37,8 +47,8 @@ public class GameGUIController : GUIController
         base.Awake();
         TerrainInfoPanel.SetActive(false);
         UnitInfoPanel.SetActive(false);
-        bottomLeftPanelPosition = BottomLeftPanelHolder.GetComponent<RectTransform>().anchoredPosition;
-        BottomLeftPanelHolder.SetActive(false);
+        topRightPosition = TopRightPanelHolder.GetComponent<RectTransform>().anchoredPosition;
+        TopRightPanelHolder.SetActive(false);
     }
 
     protected override void OnTurnEnded(object sender, EventArgs e)
@@ -78,7 +88,11 @@ public class GameGUIController : GUIController
     protected override void OnTileHighlighted(object sender, EventArgs e)
     {
         if (State == GUIState.Clear && !EventSystem.current.IsPointerOverGameObject())
+        {
             ShowTerrainPanel(sender as OverlayTile);
+            ShowWinConditionPanel(sender as OverlayTile);
+        }
+            
     }
 
     protected override void OnUnitDehighlighted(object sender, EventArgs e)
@@ -114,14 +128,14 @@ public class GameGUIController : GUIController
         }
     }
 
-    protected void ShowUnitPanel(Unit unit)
+    private void ShowUnitPanel(Unit unit)
     {
         SetUnitPanelPosition(unit.transform.position);
         UnitInfoPanel.SetActive(true);
         UnitImage.sprite = unit.UnitPortrait;
     }
 
-    protected void ShowTerrainPanel(OverlayTile tile)
+    private void ShowTerrainPanel(OverlayTile tile)
     {
         SetTerrainPanelPosition(tile.transform.position);
         TerrainName.text = tile.TileName;
@@ -131,11 +145,17 @@ public class GameGUIController : GUIController
         TerrainInfoPanel.SetActive(true);
     }
 
-    protected void ShowMenuOptionsPanel(OverlayTile tile)
+    private void ShowMenuOptionsPanel(OverlayTile tile)
     {
         SetState(GUIState.InGameGUISelection);
         SetMenuOptionsPanelPosition(tile.transform.position);
         MenuOptionsPanel.SetActive(true);
+    }
+
+    private void ShowWinConditionPanel(OverlayTile tile)
+    {
+        SetWinConditionPanelPosition(tile.transform.position);
+        WinConditionText.text = String.Format("{0} Enemies Remaining", tileGrid.UnitList.Where(u => u.PlayerNumber != tileGrid.CurrentPlayerNumber).Count());
     }
 
     protected void HideUnitPanel()
@@ -159,24 +179,24 @@ public class GameGUIController : GUIController
         HpBar.transform.localScale = new Vector3((float)(unit.HitPoints / (float)unit.TotalHitPoints), 1, 1);
     }
 
-    private void SetTerrainPanelPosition(Vector3 postion)
+    private void SetTerrainPanelPosition(Vector3 position)
     {
         //Gets the screen point of the ability's position
-        var worldToScreenPoint = mainCamera.WorldToScreenPoint(postion);
+        var worldToScreenPoint = mainCamera.WorldToScreenPoint(position);
         //Get the center of the screen
         var halfViewPoint = mainCamera.pixelWidth / 2;
         //Check to see if the the ability's transform.x is greater than the center of the screen
         var panelPositionY = TerrainInfoPanel.GetComponent<RectTransform>().anchoredPosition.y;
         if (worldToScreenPoint.x > halfViewPoint && !onLeftSide) //Makes sure that the lerp animation doesn't always play when the mouse is moved
         {
-            TerrainInfoPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(bottomLeftPanelPosition.x - panelOffSet, panelPositionY);
-            TerrainInfoPanel.GetComponent<RectTransform>().DOAnchorPosX(bottomLeftPanelPosition.x, lerpDuration);
+            TerrainInfoPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(topRightPosition.x - panelOffSet, panelPositionY);
+            TerrainInfoPanel.GetComponent<RectTransform>().DOAnchorPosX(topRightPosition.x, lerpDuration);
             onLeftSide = true;
         }
         else if(worldToScreenPoint.x < halfViewPoint && onLeftSide)
         {
-            TerrainInfoPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(-(bottomLeftPanelPosition.x - panelOffSet), panelPositionY);
-            TerrainInfoPanel.GetComponent<RectTransform>().DOAnchorPosX(-bottomLeftPanelPosition.x, lerpDuration);
+            TerrainInfoPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(-(topRightPosition.x - panelOffSet), panelPositionY);
+            TerrainInfoPanel.GetComponent<RectTransform>().DOAnchorPosX(-topRightPosition.x, lerpDuration);
             onLeftSide = false;
         }
     }
@@ -192,12 +212,12 @@ public class GameGUIController : GUIController
         var panelPositionX = UnitInfoPanel.GetComponent<RectTransform>().anchoredPosition.x;
         if (worldToScreenPoint.y > halfViewPointY && worldToScreenPoint.x < halfViewPointX)
         {
-            UnitInfoPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelPositionX - panelOffSet , bottomLeftPanelPosition.y);
+            UnitInfoPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelPositionX - panelOffSet , topRightPosition.y);
             UnitInfoPanel.GetComponent<RectTransform>().DOAnchorPosX(panelPositionX, lerpDuration);
         }
         else
         {
-            UnitInfoPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelPositionX - panelOffSet, -bottomLeftPanelPosition.y);
+            UnitInfoPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelPositionX - panelOffSet, -topRightPosition.y);
             UnitInfoPanel.GetComponent<RectTransform>().DOAnchorPosX(panelPositionX, lerpDuration);
         }
     }
@@ -216,6 +236,28 @@ public class GameGUIController : GUIController
         else
         {
             MenuOptionsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(rightPanelPosition.x, panelPositionY);
+        }
+    }
+
+    private void SetWinConditionPanelPosition(Vector3 position)
+    {
+        var worldToScreenPoint = mainCamera.WorldToScreenPoint(position);
+        var halfViewPointX = mainCamera.pixelWidth / 2;
+        var halfViewPointY = mainCamera.pixelHeight / 2;
+
+        var panelPositionY = WinConditionPanel.GetComponent<RectTransform>().anchoredPosition.y;
+        var panelPositionX = WinConditionPanel.GetComponent<RectTransform>().anchoredPosition.x;
+
+        //if mouse is at the top right quadrant of the screen
+        if (worldToScreenPoint.x > halfViewPointX && worldToScreenPoint.y > halfViewPointY)
+        {
+            WinConditionPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(-topRightPosition.x, topRightPosition.y - panelOffSet);
+            WinConditionPanel.GetComponent<RectTransform>().DOAnchorPosY(panelPositionY, lerpDuration);
+        }
+        else
+        {
+            WinConditionPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(-topRightPosition.x, -topRightPosition.y + panelOffSet);
+            WinConditionPanel.GetComponent<RectTransform>().DOAnchorPosY(panelPositionY, lerpDuration);
         }
     }
 

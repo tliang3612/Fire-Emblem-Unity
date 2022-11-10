@@ -2,22 +2,23 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class BattleUnit : MonoBehaviour
 {
     [SerializeField] protected Animator anim;
-    [SerializeField] private bool IsPlayer;
-    public Unit unit { get; set; }
-    
+    [SerializeField] public bool IsPlayer;
+    [SerializeField] public GameObject PrefabHolder;
+    [SerializeField] public GameObject ProjectilePrefab;
 
+    public Unit unit { get; set; }    
     public BattleSystemHUD HUD;
-
     public BattleUnit unitToAttack { get; set; }
 
     [HideInInspector] public GameObject hitEffect;
     [HideInInspector] public GameObject critEffect;
-    
 
+    private Image background;   
     //set to false with unity animation events
     public bool isAnimationPlaying;
 
@@ -33,9 +34,10 @@ public class BattleUnit : MonoBehaviour
         hitEffect = unit.HitEffect;
         critEffect = unit.CritEffect;
 
+        background = GameObject.Find("DimBackground").GetComponent<Image>();
         HUD.SetData(unit, unitToAttack.unit, battleEvent);      
     }
-
+    
     public IEnumerator PlayAttackAnimation(bool isCrit)
     {
         if (isCrit)
@@ -48,8 +50,13 @@ public class BattleUnit : MonoBehaviour
         while (isAnimationPlaying)
         {
             yield return null;
+        }      
+        
+        if(unit.UnitName == "Lyn")
+        {
+            yield return ShootArrow();
         }
-                  
+       
     }
 
     public IEnumerator PlayBackupAnimation(bool isCrit)
@@ -82,31 +89,24 @@ public class BattleUnit : MonoBehaviour
 
     public IEnumerator PlayHitAnimation(GameObject effect)
     {
-
         HitEffect hitEffect;
-        
-        if (effect.GetComponent<HitEffect>().IsUnitBased)
-        {
-            //effect is instantiated as a child of the unit
-            hitEffect = Instantiate(effect, transform).GetComponent<HitEffect>();
+        //effect is instantiated in the battle frame to take up the entire screen space, and centered based on the screen                       
+        hitEffect = Instantiate(effect, PrefabHolder.transform).GetComponent<HitEffect>();
 
-            //centered on the unit
-            hitEffect.SetProperties(Vector2.zero, Vector3.one);            
-        }
+        //reflect the image if the unit hit is the player unit
+        if (IsPlayer)
+            hitEffect.SetProperties(Vector2.zero, new Vector3(-1, 1, 1));
         else
-        {
-            //effect is instantiated in the battle frame to take up the entire screen space, and centered based on the screen                       
-            hitEffect = Instantiate(effect, GameObject.Find("BattleFrame").transform).GetComponent<HitEffect>();
+            hitEffect.SetProperties(Vector2.zero, Vector3.one);
 
-            //reflect the image if the unit hit is the player unit
-            if (IsPlayer)
-                hitEffect.SetProperties(Vector2.zero, new Vector3(-1, 1, 1));
-            else
-                hitEffect.SetProperties(Vector2.zero, Vector3.one);
-        }
+        if (hitEffect.CanDimBackground)
+            DimBackground();
 
         //PlayHitAnimation won't end until the hit effect animation is finished casting. Used for hit effects like magic
         yield return hitEffect.StartCasting();
+
+        if (hitEffect.CanDimBackground)
+            UndimBackground();
     }
 
     public IEnumerator PlayHealAnimation()
@@ -160,8 +160,27 @@ public class BattleUnit : MonoBehaviour
         GetComponent<RectTransform>().DOAnchorPos(toDestinationInLocalSpace, .2f).SetRelative(true);
     }
 
-    public void ShootArrow()
+    public IEnumerator ShootArrow()
     {
+        Projectile projectile;
+        //effect is instantiated in the battle frame to take up the entire screen space, and centered based on the screen                       
+        projectile = Instantiate(ProjectilePrefab, PrefabHolder.transform).GetComponent<Projectile>();
+
+        //reflect the image if the unit hit is the enemy unit
+        projectile.SetProperties(GetComponent<RectTransform>().anchoredPosition.x, unitToAttack.GetComponent<RectTransform>().anchoredPosition.x, IsPlayer ? 1 : -1);
+
+        yield return projectile.MoveProjectile();
 
     }
+
+    public void DimBackground()
+    {
+        background.DOFade(0.5f, 0.2f);
+    }
+
+    public void UndimBackground()
+    {
+        background.DOFade(0, 0.2f);
+    }
+
 }

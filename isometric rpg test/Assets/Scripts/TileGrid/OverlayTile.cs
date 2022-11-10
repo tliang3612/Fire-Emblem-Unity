@@ -27,6 +27,7 @@ public class OverlayTile : MonoBehaviour, IClickable
     public GameObject CursorSprite;
     public Sprite blueTile;
     public Sprite redTile;
+    public Sprite greenTile;
 
     public string TileName;
     public int MovementCost;
@@ -114,7 +115,6 @@ public class OverlayTile : MonoBehaviour, IClickable
     {
         HideCursor();
         gameObject.GetComponent<SpriteRenderer>().sprite = null;
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public virtual void MarkAsHighlighted()
@@ -134,8 +134,7 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public virtual void MarkAsHealableTile()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = blueTile;
-        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        gameObject.GetComponent<SpriteRenderer>().sprite = greenTile;
     }
 
     public virtual void MarkArrowPath(ArrowTranslator.ArrowDirection direction)
