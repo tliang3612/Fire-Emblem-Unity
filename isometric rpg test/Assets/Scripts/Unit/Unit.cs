@@ -41,7 +41,6 @@ public class Unit : MonoBehaviour, IClickable
     public int TotalActionPoints { get; private set; }
 
     public OverlayTile Tile;
-    public OverlayTile PreviousTile { get; set; }
 
     private Animator Anim;
 
@@ -233,8 +232,12 @@ public class Unit : MonoBehaviour, IClickable
         {
             Debug.Log("Damge Details true");
             return unitToAttack.DefendHandler(this, attackAction);
-        }
-                
+        }              
+    }
+
+    public virtual void ReceiveDamage(int dmg)
+    {
+        HitPoints -= dmg;
     }
 
     /// <summary>

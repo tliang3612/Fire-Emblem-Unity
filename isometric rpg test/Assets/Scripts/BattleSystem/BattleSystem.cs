@@ -82,8 +82,6 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator RunAttackSequence(BattleUnit attackerUnit, BattleUnit defenderUnit, DamageDetails damageDetails)
     {
-        Action<float> shake = ShakeBattlefield;
-
         yield return new WaitForSeconds(0.5f);
 
         if (damageDetails.IsHit)
@@ -216,3 +214,4 @@ public class BattleSystem : MonoBehaviour
     }
     
 }
+
