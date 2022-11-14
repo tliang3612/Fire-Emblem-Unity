@@ -146,24 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717a9431b4da434c9aa77a15a30fbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tile: {fileID: 0}
-  HitPoints: 0
-  AttackRange: 0
-  AttackFactor: 0
-  DefenceFactor: 0
-  SkillFactor: 0
-  LuckFactor: 0
-  CritFactor: 100
   MovementAnimationSpeed: 7
-  UnitName: 
-  UnitPortrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  UnitBattleSprite: {fileID: 1491766378, guid: 156132a86be6f56459612f6b615fd7a6, type: 3}
-  BattleAnimController: {fileID: 9100000, guid: c3925eca2fa5e914cad2503056ec0d9f, type: 2}
-  HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
-  CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
-  cachedPath: []
-  movementPoints: 0
-  actionPoints: 1
+  Tile: {fileID: 0}
+  baseInfo: {fileID: 11400000, guid: 67da47cb271fbee49b8186ff4c530140, type: 2}
   PlayerNumber: 0
 --- !u!1 &7298307185364403839
 GameObject:

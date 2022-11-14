@@ -21,10 +21,11 @@ public class DisplayAttackStatsAbility : DisplayAbility
     {
         unit.Tile.HighlightedOnUnit();
 
-        if (UnitReference.IsUnitAttackable(unit) && !UnitReference.Equals(unit))
+        if (UnitReference.IsUnitAttackable(unit, true) && !UnitReference.Equals(unit))
         {
-            var attackerStats = GetStats(UnitReference, unit);
-            var defenderStats = GetStats(unit, UnitReference);
+            var range = tileGrid.GetManhattenDistance(UnitReference.Tile, unit.Tile);
+            var attackerStats = GetStats(UnitReference, unit, range);
+            var defenderStats = GetStats(unit, UnitReference, range);
 
             OnDisplayStatsChanged(attackerStats, defenderStats);
         }
@@ -39,7 +40,7 @@ public class DisplayAttackStatsAbility : DisplayAbility
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
     {
-        if (UnitReference.IsUnitAttackable(unit) && !UnitReference.Equals(unit))
+        if (UnitReference.IsUnitAttackable(unit, true) && !UnitReference.Equals(unit))
         {
             UnitReference.GetComponentInChildren<AttackAbility>().UnitToAttack = unit;
             StartCoroutine(Execute(tileGrid,
@@ -51,14 +52,13 @@ public class DisplayAttackStatsAbility : DisplayAbility
     public override bool CanPerform(TileGrid tileGrid)
     {
         var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        var enemiesInRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u)).ToList();
+        var enemiesInRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u, false)).ToList();
 
         return enemiesInRange.Count > 0 && UnitReference.ActionPoints > 0;
     }
 
-    protected DisplayStats GetStats(Unit unit, Unit unitToAttack)
+    protected CombatStats GetStats(Unit unit, Unit unitToAttack, int range)
     {
-        return new DisplayStats(null, unit.UnitName, unit.HitPoints, unit.GetTotalDamage(unitToAttack),
-            unit.GetBattleAccuracy(unitToAttack), unit.GetCritChance(), unit.GetEffectiveness(unitToAttack));
+        return new CombatStats(unit, unitToAttack, range);
     }
 }

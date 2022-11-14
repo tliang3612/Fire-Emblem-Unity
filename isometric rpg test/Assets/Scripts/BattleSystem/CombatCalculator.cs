@@ -7,98 +7,99 @@ using UnityEngine.SocialPlatforms;
 
 public class CombatCalculator
 {
-    protected Unit playerUnit, enemyUnit;
+    protected CombatStats playerStats;
+    protected CombatStats enemyStats;
     protected int range;
+    protected int playerHealth;
+    protected int enemyHealth;
 
-    public CombatCalculator(Unit attacker, Unit defender, int range)
+    public CombatCalculator(CombatStats attackerStats, CombatStats defenderStats, int range)
     {
-        playerUnit = attacker;
-        enemyUnit = defender;
+        playerStats = attackerStats;
+        enemyStats = defenderStats;
+
+        //Save a copy of the health to pre run attack events
+        playerHealth = attackerStats.HealthStat;
+        enemyHealth = defenderStats.HealthStat;
         this.range = range;
     }   
     
-    public Queue<BattleAction> Calculate()
+    public virtual Queue<BattleAction> Calculate()
     {
         Queue<BattleAction> ret = new Queue<BattleAction>(); 
         List<bool> attackOrder = new List<bool>();
 
-        if (CanAttack(playerUnit, enemyUnit, range))
+        if (CanAttack(playerStats, enemyStats))
             attackOrder.Add(true);
         
-        if (CanAttack(enemyUnit, playerUnit, range))
+        if (CanAttack(enemyStats, playerStats))
             attackOrder.Add(false);
 
-        foreach(bool isPlayerAttack in attackOrder)
+        if (CanAttack(playerStats, enemyStats))
+            attackOrder.Add(true);
+
+        if (CanAttack(enemyStats, playerStats))
+            attackOrder.Add(false);
+
+        foreach (bool isPlayerAttack in attackOrder)
         {
             BattleAction currentAction;
 
-            if (isPlayerAttack && CanAttack(playerUnit, enemyUnit, range))
+            if (isPlayerAttack && CanAttack(playerStats,enemyStats))
             {
-                currentAction = RunAction(true);
+                currentAction = RunAction(true, playerStats);
                 ret.Enqueue(currentAction);
             }
-            else if (!isPlayerAttack && CanAttack(enemyUnit, playerUnit, range))
+            else if (!isPlayerAttack && CanAttack(enemyStats, playerStats))
             {
-                currentAction = RunAction(false);
+                currentAction = RunAction(false, enemyStats);
                 ret.Enqueue(currentAction);
             }           
         }
         Debug.Log(ret.Count);
         return ret;
-
-        
+       
     }
 
-    public BattleAction RunAction(bool isPlayer)
+    public virtual BattleAction RunAction(bool isPlayer, CombatStats combatStats)
     {
-        Unit attacker = isPlayer ? playerUnit : enemyUnit;
-        Unit defender = isPlayer ? enemyUnit : playerUnit;
-
         int damage;
         
         //modifiers
         int crit = 1;
         int dodge = 1;
 
-
-        if(UnityEngine.Random.value < (attacker.GetCritChance() * 0.01))
+        bool isDead = false;
+        
+        if(UnityEngine.Random.value < (combatStats.CritStat * 0.01))
         {
             crit = 2;
         }
-        else if (UnityEngine.Random.value > (GetBattleAccuracy(attacker, defender) * 0.01))
+        else if (UnityEngine.Random.value > (combatStats.HitStat * 0.01))
         {
             dodge = 0;
         }
 
-        damage = attacker.GetTotalDamage(defender) * crit * dodge;
+        damage = combatStats.DamageStat;
 
-        defender.ReceiveDamage(damage);
+        if (isPlayer)
+            enemyHealth -= damage;
+        else
+            playerHealth -= damage;
 
-        return new BattleAction(isPlayer, dodge == 1, crit == 2);
-
+        if (playerHealth <= 0 || enemyHealth <= 0)
+            isDead = true;
+        
+        return new BattleAction(isPlayer, dodge == 1, crit == 2, isDead, damage);
 
     }
 
-    public int GetBattleAccuracy(Unit attacker, Unit defender)
+    
+
+    public virtual bool CanAttack(CombatStats attackerStats, CombatStats defenderStats)
     {
-        //Weapon Effectiveness mutiplier for hit chance = 15;
-        int weaponEffectiveness = attacker.GetEffectiveness(defender) * 15;
-
-        return Mathf.Clamp((attacker.GetHitChance() + weaponEffectiveness) - defender.GetDodgeChance(), 0, 100);
-    }
-
-    public int GetTotalDamage(Unit attacker, Unit defender)
-    {
-        //Weapon Effectiveness mutiplier = 2;
-        int weaponEffectiveness = attacker.GetEffectiveness(defender) * 2;
-
-        return (attacker.GetAttack() + weaponEffectiveness) - defender.GetDefense(); 
-    }
-
-    public bool CanAttack(Unit attacker, Unit defender, int range)
-    {
-        if (attacker.HitPoints <= 0 || defender.HitPoints <= 0) return false;
-        if (attacker.AttackRange < range) return false;
+        if (attackerStats.HealthStat <= 0 || defenderStats.HealthStat <= 0) return false;
+        if (attackerStats.RangeStat < range) return false;
         return true;
     }
 
@@ -106,15 +107,18 @@ public class CombatCalculator
 
 public class BattleAction
 {
-    public bool IsPlayerAttacking;
-    public bool IsHit;
-    public bool IsCrit;
+    public bool IsPlayerAttacking { get; private set; }
+    public bool IsHit { get; private set; }
+    public bool IsCrit { get; private set; }
+    public bool IsDead { get; private set; }
+    public int Damage { get; private set; }
 
-    public BattleAction(bool isPlayerAttacking, bool isHit, bool isCrit)
+    public BattleAction(bool isPlayerAttacking, bool isHit, bool isCrit, bool isDead, int damage)
     {
         IsPlayerAttacking = isPlayerAttacking;
         IsHit = isHit;
         IsCrit = isCrit;
+        IsDead = isDead;
+        Damage = damage;
     }
 }
-

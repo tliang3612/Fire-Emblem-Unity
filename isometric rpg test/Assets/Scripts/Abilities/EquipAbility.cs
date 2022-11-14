@@ -1,24 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
-public class WaitAbility : Ability
+public class EquipAbility : Ability
 {
+    public Weapon WeaponToEquip { get; set; }
 
     protected override void Awake()
     {
         base.Awake();
-        Name = "Wait";
-        IsDisplayable = true;
+        IsDisplayable = false;
     }
 
     public override IEnumerator Act(TileGrid tileGrid)
     {
         if (CanPerform(tileGrid))
         {
-            UnitReference.SetState(new UnitStateFinished(UnitReference));
-            UnitReference.ConfirmMove();
+            UnitReference.EquipWeapon(WeaponToEquip);
         }
         yield return 0;
     }
@@ -30,12 +27,13 @@ public class WaitAbility : Ability
             _ => tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid)));
     }
 
-    public override bool CanPerform(TileGrid tileGrid)
+    public override void OnAbilityDeselected(TileGrid tileGrid)
     {
-        return true;
+        base.OnAbilityDeselected(tileGrid);
     }
 
-
+    public override bool CanPerform(TileGrid tileGrid)
+    {
+        return UnitReference.AvailableWeapons.Contains(WeaponToEquip);
+    }
 }
-
-

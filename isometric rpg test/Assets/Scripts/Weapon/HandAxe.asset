@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4e3ff7545066e498336ae468b6ce50, type: 3}
+  m_Name: HandAxe
+  m_EditorClassIdentifier: 
+  Name: Hand Axe
+  WeaponSprite: {fileID: -178486145, guid: 30e7095b079b9cf489e23081fc986b12, type: 3}
+  Attack: 7
+  Hit: 60
+  Crit: 5
+  Weight: 12
+  Range: 2
+  Type: 2
+  HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
+  CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}

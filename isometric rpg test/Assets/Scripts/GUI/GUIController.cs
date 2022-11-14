@@ -14,84 +14,39 @@ public enum GUIState
 }
 public class GUIController : MonoBehaviour
 {
-    public GameObject Panel;
     public TileGrid tileGrid;
-    protected Camera mainCamera;
 
-    //communicates state between all gui classes
-    protected static GUIState State;
+    //[SerializeField] private DisplayWeaponsPanel weaponsPanel;
+    [SerializeField] private DisplayActionsPanel actionsPanel;
+    [SerializeField] private DisplayAttackStatsPanel attackStatsPanel;
+    [SerializeField] private DisplayHealStatsPanel healStatsPanel;
+    [SerializeField] private OverlayPanel overlayPanel;
+
     [SerializeField] public GameObject RightPanelHolder;
+    [SerializeField] public GameObject TopRightPanelHolder;
 
+    protected Vector2 topRightPosition;
     protected Vector2 rightPanelPosition;
 
     protected virtual void Awake()
     {
-        State = GUIState.Clear;
-
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        topRightPosition = TopRightPanelHolder.GetComponent<RectTransform>().anchoredPosition;
         rightPanelPosition = RightPanelHolder.GetComponent<RectTransform>().anchoredPosition;
+
         RightPanelHolder.SetActive(false);
+        TopRightPanelHolder.SetActive(false);               
+    }
 
-        tileGrid.GameStarted += OnGameStarted;
-        tileGrid.TurnEnded += OnTurnEnded;
-        tileGrid.GameEnded += OnGameEnded;
+    protected virtual void Start()
+    {
         tileGrid.UnitAdded += OnUnitAdded;
-    }
 
-    protected virtual void OnGameStarted(object sender, EventArgs e)
-    {
-        foreach (OverlayTile tile in tileGrid.TileList)
+        overlayPanel.Bind(tileGrid);
+
+        foreach (GUIPanel panel in GetComponentsInChildren<GUIPanel>())
         {
-            tile.TileHighlighted += OnTileHighlighted;
-            tile.TileDehighlighted += OnTileDehighlighted;
-            tile.TileClicked += OnTileClicked;
-        }
-
-        OnTurnEnded(sender, e); 
-    }
-
-    protected void SetState(GUIState state)
-    {
-        State = state;
-    }
-
-    protected virtual void OnTileClicked(object sender, EventArgs e)
-    {
-        
-    }   
-    
-    protected virtual void OnGameEnded(object sender, EventArgs e)
-    {
-        
-    }
-    protected virtual void OnTurnEnded(object sender, EventArgs e)
-    {
-
-    }
-
-    protected virtual void OnTileDehighlighted(object sender, EventArgs e)
-    {
-        
-    }
-    protected virtual void OnTileHighlighted(object sender, EventArgs e)
-    {
-      
-    }
-
-    protected virtual void OnUnitDehighlighted(object sender, EventArgs e)
-    {
-        
-    }
-
-    protected virtual void OnUnitHighlighted(object sender, EventArgs e)
-    {
-        
-    }
-
-
-    protected virtual void OnUnitClicked(object sender, EventArgs e)
-    {
-        
+            panel.ReceivePanelPosition(topRightPosition, rightPanelPosition);
+        }     
     }
 
     protected virtual void OnUnitAdded(object sender, UnitCreatedEventArgs e)
@@ -102,9 +57,16 @@ public class GUIController : MonoBehaviour
 
     protected virtual void RegisterUnit(Unit unit, List<Ability> unitAbilities)
     {
-        unit.UnitHighlighted += OnUnitHighlighted;
-        unit.UnitDehighlighted += OnUnitDehighlighted;
-        unit.UnitClicked += OnUnitClicked;
+        overlayPanel.BindUnit(unit, unitAbilities);
+
+        //bind the ability 
+        foreach (var ability in unitAbilities)
+        {
+            //f (ability is DisplayWeaponsAbility) weaponsPanel.Bind(ability as DisplayWeaponsAbility);
+            if (ability is DisplayActionsAbility) actionsPanel.Bind(ability as DisplayActionsAbility);
+            if (ability is DisplayAttackStatsAbility) attackStatsPanel.Bind(ability as DisplayAttackStatsAbility);
+            if (ability is DisplayHealStatsAbility) healStatsPanel.Bind(ability as DisplayHealStatsAbility);
+        }      
     }
 }
 

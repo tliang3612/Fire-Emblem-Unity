@@ -26,17 +26,18 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] private Image Background;
 
-    private BattleEvent currentBattleEvent;
+    private int range;
 
     [SerializeField] public float RangedPlatformOffset;
     [SerializeField] public float panDuration; 
     private Vector2 originalRightAnchoredPosition;
     private Vector2 originalLeftAnchoredPosition;
 
-    public event EventHandler BattleOver;
-    
+    private CombatCalculator combatCalculator;
+    private CombatStats playerStats;
+    private CombatStats enemyStats;
 
-    private bool battleOver = false;
+    public event EventHandler BattleOver;
 
     public void Start()
     {
@@ -47,100 +48,120 @@ public class BattleSystem : MonoBehaviour
 
     public void StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
     {
-        
-
-        battleOver = false;
+        range = battleEvent == BattleEvent.RangedAction ? 2 : 1;
         playerUnit.unit = attacker;
         enemyUnit.unit = defender;
 
-        SetUpBattle(battleEvent);
-
-        currentBattleEvent = battleEvent;
-
-        if(battleEvent == BattleEvent.HealAction)
-        {
-            var healingDetails = (attacker as HealerUnit).HealHandler(defender);
-            StartCoroutine(PerformHealerMove(healingDetails));
-        }
-        else
-        {
-            var damageDetails = attacker.AttackHandler(defender, false);
-            StartCoroutine(PerformAttackerMove(damageDetails));
-        }
-        if(battleEvent == BattleEvent.RangedAction)
+        if (battleEvent == BattleEvent.RangedAction)
         {
             SetUpRangedPlatforms();
         }
-        
-    }
 
-    public void SetUpBattle(BattleEvent battleEvent)
-    {
-        playerUnit.SetupAttack(enemyUnit, battleEvent);
-        enemyUnit.SetupAttack(playerUnit, battleEvent);                    
-    }
-
-    private IEnumerator RunAttackSequence(BattleUnit attackerUnit, BattleUnit defenderUnit, DamageDetails damageDetails)
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        if (damageDetails.IsHit)
+        if (battleEvent == BattleEvent.HealAction)
         {
-            yield return attackerUnit.PlayAttackAnimation(damageDetails.IsCrit);
-            if(currentBattleEvent == BattleEvent.RangedAction)
-                yield return ShiftPlatformsAndUnits(attackerUnit.IsPlayer ? 1 : -1);
+            playerStats = new HealStats(attacker, defender, range);
+            enemyStats = new HealStats(defender, attacker, range);
 
-            yield return defenderUnit.PlayHitAnimation(damageDetails.IsCrit ? attackerUnit.critEffect : attackerUnit.hitEffect);
-            ShakeBattlefield(damageDetails.IsCrit ? 2 : 1);
-            yield return defenderUnit.HUD.UpdateHP();
-            yield return attackerUnit.PlayBackupAnimation(damageDetails.IsCrit);
-
-            if (currentBattleEvent == BattleEvent.RangedAction)
-                yield return ShiftPlatformsAndUnits(attackerUnit.IsPlayer ? -1f : 1f);
+            SetUpBattle(playerStats, enemyStats);
+            StartCoroutine(PerformHealerMove());
         }
         else
         {
-            yield return attackerUnit.PlayAttackAnimation(false);
-            if (currentBattleEvent == BattleEvent.RangedAction)
-                yield return ShiftPlatformsAndUnits(attackerUnit.IsPlayer ? 1 : -1);
+            playerStats = new CombatStats(attacker, defender, range);
+            enemyStats = new CombatStats(defender, attacker, range);
+            SetUpBattle(playerStats, enemyStats);
 
-            yield return defenderUnit.PlayDodgeAnimation();
-            yield return attackerUnit.PlayBackupAnimation(false);
-        }
-        yield return new WaitForSeconds(0.5f);
+            Queue<BattleAction> queue;
+            combatCalculator = new CombatCalculator(playerStats, enemyStats, range);
 
-        if (damageDetails.IsDead)
-        {
-            battleOver = true;
-            defenderUnit.PlayDeathAnimation();
-            yield return new WaitForSeconds(1f);
-
-            EndBattle(attackerUnit.unit, defenderUnit.unit);
-
-            
-        }
-        else if (attackerUnit == enemyUnit)
-        {
-            EndBattle(attackerUnit.unit, defenderUnit.unit);
+            queue = combatCalculator.Calculate();
+            StartCoroutine(RunBattleSequence(queue));
         }
     }
 
-    private IEnumerator RunHealerSequence(BattleUnit healerUnit, BattleUnit allyUnit, HealingDetails healingDetails)
+    public IEnumerator RunBattleSequence(Queue<BattleAction> battleActions)
+    {       
+        yield return new WaitForSeconds(0.5f);
+        
+        BattleUnit attacker;
+        BattleUnit defender;
+
+        while(battleActions.Count != 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            var currentAction = battleActions.Dequeue();
+            
+            attacker = currentAction.IsPlayerAttacking ? playerUnit : enemyUnit;
+            defender = currentAction.IsPlayerAttacking ? enemyUnit : playerUnit;
+
+            if (currentAction.IsHit)
+            {
+                yield return attacker.PlayAttackAnimation(currentAction.IsCrit);
+                if (range >= 2)
+                    yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? 1 : -1);
+
+                defender.unit.ReceiveDamage(attacker.unit, currentAction.Damage);
+                yield return defender.PlayHitAnimation(currentAction.IsCrit ? attacker.critEffect : attacker.hitEffect);
+                ShakeBattlefield(currentAction.IsCrit ? 2 : 1);
+                yield return defender.HUD.UpdateHP();
+                yield return attacker.PlayBackupAnimation(currentAction.IsCrit);
+
+                if (range >= 2)
+                    yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? -1f : 1f);
+            }
+            else
+            {
+                yield return attacker.PlayAttackAnimation(false);
+                if (range >= 2)
+                    yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? 1 : -1);
+
+                yield return defender.PlayDodgeAnimation();
+                yield return attacker.PlayBackupAnimation(false);
+
+                if (range >= 2)
+                    yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? -1f : 1f);
+            }
+
+            if (currentAction.IsDead)
+            {
+                defender.PlayDeathAnimation();
+                yield return new WaitForSeconds(1f);
+                EndBattle();
+            }
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        //EndBattle at the end of the sequence
+        EndBattle();
+
+        
+    }
+
+    public void SetUpBattle(CombatStats playerStats, CombatStats enemyStats)
+    {
+        playerUnit.SetupAttack(playerStats, enemyUnit);
+        enemyUnit.SetupAttack(enemyStats, playerUnit);                    
+    }
+
+    private IEnumerator RunHealerSequence(BattleUnit healerUnit, BattleUnit allyUnit)
     {
         yield return new WaitForSeconds(0.5f);
 
         yield return healerUnit.PlayHealAnimation();
+        allyUnit.unit.ReceiveHealing(healerUnit.unit.UnitAttack);
         allyUnit.PlayHealingReceivedAnimation();
         yield return allyUnit.HUD.UpdateHP();
 
         yield return healerUnit.PlayHealBackupAnimation();
         yield return new WaitForSeconds(0.5f);
 
-        EndBattle(healerUnit.unit, allyUnit.unit);
+        EndBattle();
     }
 
 
-    public void EndBattle(Unit attacker, Unit defender)
+    public void EndBattle()
     {
         if (BattleOver != null)
             BattleOver.Invoke(this, EventArgs.Empty);
@@ -151,27 +172,9 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("battle ended");
     }
 
-    private IEnumerator PerformHealerMove(HealingDetails healingDetails)
+    private IEnumerator PerformHealerMove()
     {
-        yield return RunHealerSequence(playerUnit, enemyUnit, healingDetails);
-    }
-    
-    private IEnumerator PerformDefenderMove(DamageDetails damageDetails)
-    {    
-        yield return RunAttackSequence(enemyUnit, playerUnit, damageDetails);
-    }
-
-    private IEnumerator PerformAttackerMove(DamageDetails damageDetails)
-    {
-        yield return RunAttackSequence(playerUnit, enemyUnit, damageDetails);
-
-        //Get Defender Damage details
-        var defenderDamageDetails = enemyUnit.unit.AttackHandler(playerUnit.unit, true);
-
-        if (defenderDamageDetails.InRange && !battleOver)
-             StartCoroutine(PerformDefenderMove(defenderDamageDetails));
-        else
-            EndBattle(playerUnit.unit, enemyUnit.unit);        
+        yield return RunHealerSequence(playerUnit, enemyUnit);
     }
 
     public void SetUpRangedPlatforms()

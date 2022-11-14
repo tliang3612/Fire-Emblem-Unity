@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayAttackStatsGUIController : AbilityGUIController
+public class DisplayAttackStatsPanel : GUIPanel
 {
     [Header("DisplayAttackStats")]
     public Text DefenderName;
@@ -24,73 +24,59 @@ public class DisplayAttackStatsGUIController : AbilityGUIController
     public Sprite AdvantageIcon;
     public Sprite DisadvantageIcon;
 
+    public void Bind(DisplayAttackStatsAbility ability)
+    {
+        ability.AbilitySelected += OnAbilitySelected;
+        ability.AbilityDeselected += OnAbilityDeselected;
+        ability.DisplayStatsChanged += OnStatsChanged;
+    }
+
     protected override void OnAbilitySelected(object sender, EventArgs e)
     {
         base.OnAbilitySelected(sender, e);
-        Panel.SetActive(true);
-        SetState(GUIState.InAbilitySelection);
-        
     }
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)
-    {            
-        Panel.SetActive(false);
-        ClearStats();
-        SetState(GUIState.InAbilitySelection);                  
-    }
-
-    protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)
     {
-        base.RegisterUnit(unit, unitAbilities);
-
-        foreach (Ability a in unitAbilities)
-        {
-            if (a is DisplayAttackStatsAbility)
-            {
-                (a as DisplayAttackStatsAbility).AbilitySelected += OnAbilitySelected;
-                (a as DisplayAttackStatsAbility).AbilityDeselected += OnAbilityDeselected;
-                (a as DisplayAttackStatsAbility).DisplayStatsChanged += OnStatsChanged;
-            }              
-        }
-
+        base.OnAbilityDeselected(sender, e);
     }
 
+    //Set the stats for the unit being healed
     public void OnStatsChanged(object sender, DisplayStatsChangedEventArgs e)
     {
         SetStats(e.AttackerStats, e.DefenderStats);
     }
 
-
-    public void SetStats(DisplayStats attackerStats, DisplayStats defenderStats)
+    public void SetStats(CombatStats attackerStats, CombatStats defenderStats)
     {
-        DefenderName.text = defenderStats.Name;
-        DefenderHealth.text = defenderStats.Hp.ToString();
-        DefenderDamage.text = defenderStats.Damage.ToString();
-        DefenderCritChance.text = defenderStats.Crit.ToString();
-        DefenderHitChance.text = defenderStats.Hit.ToString();
-        if (defenderStats.Effectiveness == -1f)
+        DefenderName.text = defenderStats.UnitName;
+        DefenderHealth.text = defenderStats.HealthStat.ToString();
+        DefenderDamage.text = defenderStats.DamageStat.ToString();
+        DefenderCritChance.text = defenderStats.CritStat.ToString();
+        DefenderHitChance.text = defenderStats.HitStat.ToString();
+        if (defenderStats.EffectivenessStat == -1f)
         {
             DefenderEffectiveness.sprite = DisadvantageIcon;
             DefenderEffectiveness.color = Color.white;
         }
-        else if (defenderStats.Effectiveness == 1f)
+        else if (defenderStats.EffectivenessStat == 1f)
         {
             DefenderEffectiveness.sprite = AdvantageIcon;
             DefenderEffectiveness.color = Color.white;
         }
 
 
-        AttackerName.text = attackerStats.Name;
-        AttackerHealth.text = attackerStats.Hp.ToString();
-        AttackerDamage.text = attackerStats.Damage.ToString();
-        AttackerCritChance.text = attackerStats.Crit.ToString();
-        AttackerHitChance.text = attackerStats.Hit.ToString();
-        if (attackerStats.Effectiveness == -1f)
+        AttackerName.text = attackerStats.UnitName;
+        AttackerHealth.text = attackerStats.HealthStat.ToString();
+        AttackerDamage.text = attackerStats.DamageStat.ToString();
+        AttackerCritChance.text = attackerStats.CritStat.ToString();
+        AttackerHitChance.text = attackerStats.HitStat.ToString();
+        if (attackerStats.EffectivenessStat == -1f)
         {
             AttackerEffectiveness.sprite = DisadvantageIcon;
             AttackerEffectiveness.color = Color.white;
         }         
-        else if (attackerStats.Effectiveness == 1f)
+        else if (attackerStats.EffectivenessStat == 1f)
         {
             AttackerEffectiveness.sprite = AdvantageIcon;
             AttackerEffectiveness.color = Color.white;

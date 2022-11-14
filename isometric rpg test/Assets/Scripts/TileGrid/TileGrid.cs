@@ -82,7 +82,7 @@ public class TileGrid : MonoBehaviour
     public Tilemap Tilemap { get; private set; }
     public List<OverlayTile> TileList { get; private set; }
     public Dictionary<Vector2Int, OverlayTile> Map { get; private set; }
-   
+
     //A dictionary that contains a TileBase key, and the TileData associated with that key
     public Dictionary<TileBase, TileData> TileDataMap;
     public List<TileData> TileDataList;
@@ -167,7 +167,7 @@ public class TileGrid : MonoBehaviour
             var units = unitGenerator.SpawnUnits(this);
             foreach (var unit in units)
             {
-                AddUnit(unit);                    
+                AddUnit(unit);             
             }
         }
 
@@ -297,7 +297,8 @@ public class TileGrid : MonoBehaviour
         unit.UnitDehighlighted += OnUnitDehighlighted;
         unit.UnitDestroyed += OnUnitDestroyed;
         unit.UnitMoved += OnUnitMoved;
-
+        
+        
         if (UnitAdded != null)
         {
             UnitAdded.Invoke(this, new UnitCreatedEventArgs(unit, unit.GetComponentsInChildren<Ability>().ToList()));

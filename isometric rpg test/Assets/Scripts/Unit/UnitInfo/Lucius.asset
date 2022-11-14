@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea9cd25287013240b8ad75678c16de2, type: 3}
+  m_Name: Lucius
+  m_EditorClassIdentifier: 
+  Name: Lucius
+  TotalMovementPoints: 6
+  TotalActionPoints: 1
+  TotalHitPoints: 21
+  BaseAttack: 11
+  BaseSkill: 10
+  BaseSpeed: 13
+  BaseLuck: 3
+  BaseDefence: 2
+  BaseConst: 6
+  Portrait: {fileID: 1643626598, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
+  BattleSprite: {fileID: 1643626598, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
+  BattleAnimController: {fileID: 9100000, guid: 5ab9d025f2ed6db4f9c69e86a725af62, type: 2}
+  StartingWeapons:
+  - {fileID: 11400000, guid: 342c63f2b05f76b459c4a9bb80609456, type: 2}
+  - {fileID: 11400000, guid: 846691757ba109d4394cc964cb685b0d, type: 2}

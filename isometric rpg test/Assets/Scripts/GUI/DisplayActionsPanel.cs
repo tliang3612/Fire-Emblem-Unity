@@ -4,28 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayActionsGUIController : AbilityGUIController
+public class DisplayActionsPanel : GUIPanel
 {
     [Header("DisplayActions")]
 
     public GameObject menuActions;
     private List<GameObject> ButtonList;
-
     public GameObject ActionButton;
 
-    protected override void RegisterUnit(Unit unit, List<Ability> unitAbilities)
+    public void Bind(DisplayActionsAbility ability)
     {
-        base.RegisterUnit(unit, unitAbilities);
-
-        foreach (Ability a in unitAbilities)
-        {
-            if (a is DisplayActionsAbility)
-            {
-                (a as DisplayActionsAbility).AbilitySelected += OnAbilitySelected;
-                (a as DisplayActionsAbility).AbilityDeselected += OnAbilityDeselected;
-                (a as DisplayActionsAbility).ButtonCreated += OnButtonAdded;
-            }              
-        }
+        ability.AbilitySelected += OnAbilitySelected;
+        ability.AbilityDeselected += OnAbilityDeselected;
+        ability.ButtonCreated += OnButtonAdded;
     }
 
     protected void OnButtonAdded(object sender, ButtonCreatedEventArgs e)
@@ -39,20 +30,17 @@ public class DisplayActionsGUIController : AbilityGUIController
     protected override void OnAbilitySelected(object sender, EventArgs e)
     {
         base.OnAbilitySelected(sender, e);
-        SetState(GUIState.InAbilitySelection);
         ButtonList = new List<GameObject>();
-        Panel.SetActive(true);                
     }
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)
-    {       
-        Panel.SetActive(false);
-        SetState(GUIState.Clear);
+    {
+        base.OnAbilityDeselected(sender, e);
 
-        foreach (GameObject button in ButtonList)
+        foreach(GameObject button in ButtonList)
         {
             Destroy(button);
-        }      
+        }
     }
 
 }

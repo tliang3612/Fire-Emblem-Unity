@@ -126,24 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6c4f19daf8e734f8c5d16c7841b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tile: {fileID: 0}
-  HitPoints: 10
-  AttackRange: 2
-  AttackFactor: 8
-  DefenceFactor: 4
-  SkillFactor: 90
-  LuckFactor: 3
-  CritFactor: 90
   MovementAnimationSpeed: 7
-  UnitName: Lyn
-  UnitPortrait: {fileID: 1920101064, guid: c95a6d029a0f99941ab88bcd809c976e, type: 3}
-  UnitBattleSprite: {fileID: -1192792482, guid: c95a6d029a0f99941ab88bcd809c976e, type: 3}
-  BattleAnimController: {fileID: 9100000, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
-  HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
-  CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
-  cachedPath: []
-  movementPoints: 7
-  actionPoints: 1
+  Tile: {fileID: 0}
+  baseInfo: {fileID: 11400000, guid: 3401e12f1c604e34885998d06a21c1e4, type: 2}
   PlayerNumber: 0
 --- !u!95 &3695077571870254115
 Animator:

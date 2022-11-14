@@ -146,24 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1efbc66523058043a3370e7b8db6c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tile: {fileID: 0}
-  HitPoints: 25
-  AttackRange: 1
-  AttackFactor: 7
-  DefenceFactor: 3
-  SkillFactor: 15
-  LuckFactor: 15
-  CritFactor: 0
   MovementAnimationSpeed: 7
-  UnitName: Eliwood
-  UnitPortrait: {fileID: 867919818, guid: d166b22e2166bc64badcb2758a248942, type: 3}
-  UnitBattleSprite: {fileID: -1413286227, guid: d166b22e2166bc64badcb2758a248942, type: 3}
-  BattleAnimController: {fileID: 9100000, guid: 2f3bd0e661dc92e46949aabe3fb630f9, type: 2}
-  HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
-  CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
-  cachedPath: []
-  movementPoints: 7
-  actionPoints: 1
+  Tile: {fileID: 0}
+  baseInfo: {fileID: 11400000, guid: 7423a9841b1fa4648939e354eb481b9c, type: 2}
   PlayerNumber: 0
 --- !u!1 &7951360903420544355
 GameObject:

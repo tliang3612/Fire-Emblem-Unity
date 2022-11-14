@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea9cd25287013240b8ad75678c16de2, type: 3}
+  m_Name: Lyn
+  m_EditorClassIdentifier: 
+  Name: Lyn
+  TotalMovementPoints: 7
+  TotalActionPoints: 1
+  TotalHitPoints: 22
+  BaseAttack: 8
+  BaseSkill: 12
+  BaseSpeed: 14
+  BaseLuck: 10
+  BaseDefence: 5
+  BaseConst: 5
+  Portrait: {fileID: -1192792482, guid: c95a6d029a0f99941ab88bcd809c976e, type: 3}
+  BattleSprite: {fileID: -1192792482, guid: c95a6d029a0f99941ab88bcd809c976e, type: 3}
+  BattleAnimController: {fileID: 9100000, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
+  StartingWeapons:
+  - {fileID: 11400000, guid: b670037712873eb4684dfd3211c41585, type: 2}
+  - {fileID: 11400000, guid: 9699cdf36751da04ca5cd0d8cd2e1881, type: 2}

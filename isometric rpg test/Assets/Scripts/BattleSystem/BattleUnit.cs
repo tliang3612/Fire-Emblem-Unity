@@ -24,18 +24,18 @@ public class BattleUnit : MonoBehaviour
 
     private Vector2 originalAnchoredPosition;
 
-    public void SetupAttack(BattleUnit battleUnitToAttack, BattleEvent battleEvent)
+    public void SetupAttack(CombatStats stats, BattleUnit battleUnitToAttack)
     {       
         GetComponent<Image>().sprite = unit.UnitBattleSprite;
         unitToAttack = battleUnitToAttack;
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         anim.runtimeAnimatorController = unit.BattleAnimController;
 
-        hitEffect = unit.HitEffect;
-        critEffect = unit.CritEffect;
+        hitEffect = unit.EquippedWeapon.HitEffect;
+        critEffect = unit.EquippedWeapon.CritEffect;
 
         background = GameObject.Find("DimBackground").GetComponent<Image>();
-        HUD.SetData(unit, unitToAttack.unit, battleEvent);      
+        HUD.SetData(unit, stats);      
     }
     
     public IEnumerator PlayAttackAnimation(bool isCrit)

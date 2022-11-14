@@ -23,8 +23,8 @@ public class DisplayHealStatsAbility : DisplayAbility
 
         if ((UnitReference as HealerUnit).IsUnitHealable(unit) && !UnitReference.Equals(unit))
         {
-            var healerStats = GetStats(UnitReference);
-            var allyStats = GetStats(unit);
+            var healerStats = GetStats(UnitReference, unit);
+            var allyStats = GetStats(unit, UnitReference);
             OnDisplayStatsChanged(healerStats, allyStats);
         }
     }
@@ -60,9 +60,9 @@ public class DisplayHealStatsAbility : DisplayAbility
         return friendlyUnitsInRange.Count > 0 && UnitReference.ActionPoints > 0;
     }
 
-    protected virtual DisplayStats GetStats(Unit unit)
+    protected virtual HealStats GetStats(Unit healer, Unit ally)
     {
-        return new DisplayStats(unit.UnitPortrait, unit.name, unit.HitPoints, unit.GetAttack(), 0, 0, 0);
+        return new HealStats(healer, ally, 1);
     }
 }
 

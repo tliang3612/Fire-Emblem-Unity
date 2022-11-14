@@ -126,7 +126,7 @@ public class MoveAbility : Ability
 
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitReference.ActionPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1 && UnitReference.cachedPath.Count <= 0;
+        return UnitReference.ActionPoints > 0 && UnitReference.MovementPoints > 0 && UnitReference.GetAvailableDestinations(tileGrid).Count > 1;
     }
 
     private void TranslateArrows(TileGrid tileGrid)

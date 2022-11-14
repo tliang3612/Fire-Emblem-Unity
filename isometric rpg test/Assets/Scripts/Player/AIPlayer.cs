@@ -80,7 +80,7 @@ public class AIPlayer : Player
 	Unit GetUnitToAttack(Unit unit)
     {		
 		var enemyUnits = tileGrid.GetEnemyUnits(this);
-		var unitsInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e)).ToList();
+		var unitsInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e, false)).ToList();
 
 		if (unitsInRange.Count != 0)
 		{
@@ -99,7 +99,7 @@ public class AIPlayer : Player
 		//Find potential tiles that a unit can to move and attack an enemy from
 		foreach (var enemyUnit in enemyUnits)
 		{
-			potentialDestinations.AddRange(tileGrid.TileList.FindAll(t => unit.IsTileMovableTo(t) && unit.IsUnitAttackable(enemyUnit)));		
+			potentialDestinations.AddRange(tileGrid.TileList.FindAll(t => unit.IsTileMovableTo(t) && unit.IsUnitAttackable(enemyUnit, false)));		
 		}
 
 		//Find all available destinations

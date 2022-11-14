@@ -6,11 +6,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
-public class DisplayActionsAbility : Ability
+public class DisplayActionsAbility : DisplayAbility
 {
-    public event EventHandler<ButtonCreatedEventArgs> ButtonCreated;
+    protected override void Awake()
+    {
+        base.Awake();
 
-    public GameObject ActionButton;
+    }
 
     public override IEnumerator Act(TileGrid tileGrid)
     {
@@ -24,8 +26,7 @@ public class DisplayActionsAbility : Ability
             ability.UnitReference = UnitReference;
             if (ability.IsDisplayable && ability.CanPerform(tileGrid))
             {
-                if (ButtonCreated != null)
-                    ButtonCreated.Invoke(this, new ButtonCreatedEventArgs(ActWrapper(ability, tileGrid), ability.Name));
+                OnButtonCreated(ActWrapper(ability, tileGrid), ability.Name);
             }
         }
     }
@@ -58,14 +59,3 @@ public class DisplayActionsAbility : Ability
     }
 }
 
-public class ButtonCreatedEventArgs : EventArgs
-{
-    public IEnumerator ButtonAction;
-    public string ButtonName;
-
-    public ButtonCreatedEventArgs(IEnumerator buttonAction, string buttonName)
-    {
-        ButtonAction = buttonAction;
-        ButtonName = buttonName;
-    }
-}
