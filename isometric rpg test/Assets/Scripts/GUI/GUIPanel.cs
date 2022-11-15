@@ -23,7 +23,7 @@ public abstract class GUIPanel : MonoBehaviour
     protected virtual void Awake()
     {       
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        halfViewPoint.x = mainCamera.pixelWidth / 2;
+        halfViewPoint.x = mainCamera.pixelWidth * 2/3;
         halfViewPoint.y = mainCamera.pixelHeight / 2;
     }
 

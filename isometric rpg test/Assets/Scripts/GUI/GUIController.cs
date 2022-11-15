@@ -34,22 +34,21 @@ public class GUIController : MonoBehaviour
         rightPanelPosition = RightPanelHolder.GetComponent<RectTransform>().anchoredPosition;
 
         RightPanelHolder.SetActive(false);
-        TopRightPanelHolder.SetActive(false);               
+        TopRightPanelHolder.SetActive(false);
+
+        tileGrid.UnitAdded += OnUnitAdded;
+        overlayPanel.Bind(tileGrid);
     }
 
     protected virtual void Start()
     {
-        tileGrid.UnitAdded += OnUnitAdded;
-
-        overlayPanel.Bind(tileGrid);
-
         foreach (GUIPanel panel in GetComponentsInChildren<GUIPanel>())
         {
             panel.ReceivePanelPosition(topRightPosition, rightPanelPosition);
-        }     
+        }       
     }
 
-    protected virtual void OnUnitAdded(object sender, UnitCreatedEventArgs e)
+    public virtual void OnUnitAdded(object sender, UnitCreatedEventArgs e)
     {
         RegisterUnit(e.Unit, e.Abilities);
     }

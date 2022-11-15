@@ -88,13 +88,11 @@ public class TileGrid : MonoBehaviour
     public List<TileData> TileDataList;
     public ArrowTranslator ArrowTranslator;
 
-    [SerializeField]
-    private BattleSystem battleSystem;
-    [SerializeField]
-    private Camera worldCamera;
+    [SerializeField] private BattleSystem battleSystem;
+    [SerializeField] private Camera worldCamera;
     public bool IsBattling = false;
 
-    public bool InSelectionMenu = false;
+    [SerializeField] private GUIController guiController;
 
 
 

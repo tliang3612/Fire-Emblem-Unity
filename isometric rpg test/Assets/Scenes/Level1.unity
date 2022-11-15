@@ -834,7 +834,7 @@ MonoBehaviour:
   battleSystem: {fileID: 1307233531}
   worldCamera: {fileID: 1878331628}
   IsBattling: 0
-  InSelectionMenu: 0
+  guiController: {fileID: 1570113397}
 --- !u!114 &236689270
 MonoBehaviour:
   m_ObjectHideFlags: 0

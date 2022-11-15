@@ -36,9 +36,9 @@ public class OverlayPanel : GUIPanel
 
     protected override void Start()
     {
-        MenuOptionsPanel.SetActive(false);
-        TerrainInfoPanel.SetActive(false);
         UnitInfoPanel.SetActive(false);
+        TerrainInfoPanel.SetActive(false);
+        MenuOptionsPanel.SetActive(false);
         WinConditionPanel.SetActive(false);
     }
 
@@ -48,6 +48,7 @@ public class OverlayPanel : GUIPanel
         tileGrid.GameStarted += OnGameStarted;
         tileGrid.TurnEnded += OnTurnEnded;
         tileGrid.GameEnded += OnGameEnded;
+        tileGrid.LevelLoading += OnLevelLoading;
     }
 
     public void BindUnit(Unit unit, List<Ability> unitAbilities)
@@ -63,20 +64,22 @@ public class OverlayPanel : GUIPanel
         }
     }
 
+    protected virtual void OnLevelLoading(object sender, EventArgs e)
+    {
+        UnitInfoPanel.SetActive(false);
+        TerrainInfoPanel.SetActive(false);
+        MenuOptionsPanel.SetActive(false);
+        WinConditionPanel.SetActive(false);
+    }
+
     protected virtual void OnGameStarted(object sender, EventArgs e)
     {
-
         foreach (OverlayTile tile in tileGrid.TileList)
         {
             tile.TileHighlighted += OnTileHighlighted;
             tile.TileDehighlighted += OnTileDehighlighted;
             tile.TileClicked += OnTileClicked;
         }
-
-        MenuOptionsPanel.SetActive(false);
-        TerrainInfoPanel.SetActive(false);
-        UnitInfoPanel.SetActive(false);
-        WinConditionPanel.SetActive(false);
 
         OnTurnEnded(sender, e);
     }

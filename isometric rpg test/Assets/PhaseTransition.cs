@@ -11,10 +11,9 @@ public class PhaseTransition : MonoBehaviour
 
     private void Awake()
     {
-        tileGrid.TurnEnded += TransitionPhase;
-        tileGrid.GameStarted += TransitionPhase;
-
         gameObject.SetActive(false);
+        tileGrid.GameStarted += TransitionPhase;
+        tileGrid.TurnEnded += TransitionPhase;            
     }
 
 

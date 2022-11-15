@@ -38,7 +38,8 @@ public class DisplayAttackStatsPanel : GUIPanel
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)
     {
-        base.OnAbilityDeselected(sender, e);
+        Panel.SetActive(false);
+        SetState(GUIState.InAbilitySelection);
     }
 
     //Set the stats for the unit being healed
