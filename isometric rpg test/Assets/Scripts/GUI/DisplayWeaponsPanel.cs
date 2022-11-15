@@ -8,7 +8,9 @@ public class DisplayWeaponsPanel : GUIPanel
 {
     [Header("DisplayActions")]
 
-    public GameObject menuActions;    
+    [SerializeField] private GameObject menuActions;
+    [SerializeField] private GameObject weaponStats;
+    
     private List<GameObject> ButtonList;
     public GameObject ActionButton;
 

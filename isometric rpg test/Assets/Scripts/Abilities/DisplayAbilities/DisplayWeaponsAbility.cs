@@ -25,9 +25,9 @@ public class DisplayWeaponsAbility : DisplayAbility
 
     public IEnumerator ActWrapper(Weapon w, TileGrid tileGrid)
     {
-        return (Execute(tileGrid,
+        return Execute(tileGrid,
                 _ => GetComponent<EquipAbility>().WeaponToEquip = w,
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, GetComponent<EquipAbility>())));
+                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, GetComponent<EquipAbility>()));
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
