@@ -111,6 +111,8 @@ public class BattleSystem : MonoBehaviour
                 yield return defender.HUD.UpdateHP();
                 yield return attacker.PlayBackupAnimation(currentAction.IsCrit);
 
+                Debug.Log("Enemy Hit");
+
                 if (range >= 2)
                     yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? -1f : 1f);
             }

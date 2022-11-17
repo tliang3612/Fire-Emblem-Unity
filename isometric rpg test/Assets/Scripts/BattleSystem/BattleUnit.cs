@@ -32,7 +32,7 @@ public class BattleUnit : MonoBehaviour
         HUD.SetAttackData(Unit, stats);
 
         //if the unit's weapon shoots a projectile
-        if (Unit.EquippedWeapon.Projectile)
+        if (Unit.EquippedWeapon.HasProjectile)
         {
             _projectilePrefab = Unit.EquippedWeapon.Projectile;
         }

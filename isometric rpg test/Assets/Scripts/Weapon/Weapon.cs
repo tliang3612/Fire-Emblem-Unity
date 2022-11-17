@@ -28,6 +28,7 @@ public class Weapon : ScriptableObject
 	public GameObject HitEffect;
 	public GameObject CritEffect;
 
+	public bool HasProjectile;
 	public GameObject Projectile { get; set; }
 
 	public int GetEffectiveness(WeaponType other)
@@ -62,7 +63,7 @@ public class Weapon : ScriptableObject
 
 			EditorGUILayout.Space();
 			
-			if(weapon.Range > 1 && (weapon.Type == WeaponType.BOW || weapon.Type == WeaponType.AXE))
+			if(weapon.HasProjectile)
             {
 				EditorGUILayout.LabelField("Projectile If Projectile Weapon");
 				weapon.Projectile = (GameObject)EditorGUILayout.ObjectField("Projectile", weapon.Projectile, typeof(GameObject), true);

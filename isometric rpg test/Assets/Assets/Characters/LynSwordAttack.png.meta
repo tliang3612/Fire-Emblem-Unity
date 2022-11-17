@@ -464,7 +464,7 @@ TextureImporter:
         width: 50
         height: 61
       alignment: 9
-      pivot: {x: 0.68, y: 0.032786883}
+      pivot: {x: 0.5, y: 0.032786883}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -482,10 +482,10 @@ TextureImporter:
         serializedVersion: 2
         x: 887
         y: 659
-        width: 49
+        width: 50
         height: 61
       alignment: 9
-      pivot: {x: 0.95918363, y: 0.032786883}
+      pivot: {x: 0.5, y: 0.032786883}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -503,10 +503,10 @@ TextureImporter:
         serializedVersion: 2
         x: 945
         y: 659
-        width: 49
+        width: 50
         height: 61
       alignment: 9
-      pivot: {x: 0.8979592, y: 0.032786883}
+      pivot: {x: 0.5, y: 0.032786883}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -524,10 +524,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 561
-        width: 49
+        width: 50
         height: 61
       alignment: 9
-      pivot: {x: 0.877551, y: 0.032786883}
+      pivot: {x: 0.5, y: 0.032786883}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -545,10 +545,10 @@ TextureImporter:
         serializedVersion: 2
         x: 52
         y: 561
-        width: 49
+        width: 50
         height: 61
       alignment: 9
-      pivot: {x: 0.8163265, y: 0.032786883}
+      pivot: {x: 0.5, y: 0.032786883}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -566,10 +566,10 @@ TextureImporter:
         serializedVersion: 2
         x: 101
         y: 561
-        width: 49
+        width: 50
         height: 61
       alignment: 9
-      pivot: {x: 0.79591835, y: 0.032786883}
+      pivot: {x: 0.5, y: 0.032786883}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -587,10 +587,10 @@ TextureImporter:
         serializedVersion: 2
         x: 152
         y: 561
-        width: 49
+        width: 50
         height: 61
       alignment: 9
-      pivot: {x: 0.48979592, y: 0.032786883}
+      pivot: {x: 0.5, y: 0.032786883}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -608,10 +608,10 @@ TextureImporter:
         serializedVersion: 2
         x: 204
         y: 561
-        width: 49
+        width: 50
         height: 61
       alignment: 9
-      pivot: {x: 0.3877551, y: 0.032786883}
+      pivot: {x: 0.5, y: 0.032786883}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -879,12 +879,12 @@ TextureImporter:
       name: LynSwordAttack_35
       rect:
         serializedVersion: 2
-        x: 179
+        x: 126
         y: 473
         width: 48
         height: 52
       alignment: 9
-      pivot: {x: 0.16666667, y: 0.01923077}
+      pivot: {x: 0.2916667, y: 0.01923077}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -900,12 +900,12 @@ TextureImporter:
       name: LynSwordAttack_36
       rect:
         serializedVersion: 2
-        x: 127
+        x: 178
         y: 473
         width: 47
         height: 52
       alignment: 9
-      pivot: {x: 0.27659574, y: 0.01923077}
+      pivot: {x: 0.19148935, y: 0.01923077}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -989,7 +989,7 @@ TextureImporter:
         width: 109
         height: 52
       alignment: 9
-      pivot: {x: 0.5412844, y: 0.01923077}
+      pivot: {x: 0.51376146, y: 0.01923077}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1052,7 +1052,7 @@ TextureImporter:
         width: 82
         height: 52
       alignment: 9
-      pivot: {x: 0.35365853, y: 0.30769232}
+      pivot: {x: 0.34146342, y: 0.30769232}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1430,7 +1430,7 @@ TextureImporter:
         width: 168
         height: 62
       alignment: 9
-      pivot: {x: 0.3313253, y: 0.049586773}
+      pivot: {x: 0.52380955, y: 0.048387095}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1447,11 +1447,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 396
-        y: 295
+        y: 292
         width: 168
-        height: 61
+        height: 64
       alignment: 9
-      pivot: {x: 0.32738096, y: 0.09836066}
+      pivot: {x: 0.5059524, y: 0.078125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1459,6 +1459,216 @@ TextureImporter:
       bones: []
       spriteID: 3646e58b6dd480040b4fdaacff0462b3
       internalID: 882809398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_64
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 292
+        width: 168
+        height: 64
+      alignment: 9
+      pivot: {x: 0.6309524, y: 0.078125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938d61c45bd1d834a87b67bfc7001f9f
+      internalID: -2081385426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_63
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 292
+        width: 168
+        height: 64
+      alignment: 9
+      pivot: {x: 0.6309524, y: 0.171875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa397c1a38ed3e049a2b6a06de8bcea9
+      internalID: 1685750105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_65
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 292
+        width: 76
+        height: 64
+      alignment: 9
+      pivot: {x: 0.17105263, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa3b181ebb880b41b9dc85ff2d8b6b2
+      internalID: -1493187721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_66
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 405
+        width: 42
+        height: 50
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.12}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d16d9997f321ab4891b256be2bd7011
+      internalID: -966896482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_67
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 183
+        width: 67
+        height: 56
+      alignment: 9
+      pivot: {x: 0.05970149, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216302499818d8249a9c97caa44dd5c1
+      internalID: -1084638933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_68
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 183
+        width: 67
+        height: 56
+      alignment: 9
+      pivot: {x: 0.05970149, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2e7bfa5ffcad54d9b93a94924b6ebb
+      internalID: -1421301963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_69
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 182
+        width: 67
+        height: 56
+      alignment: 9
+      pivot: {x: 0.43283582, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3cc6c57c7e54b4185aaa19563a712b
+      internalID: 350839923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_70
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 183
+        width: 67
+        height: 56
+      alignment: 9
+      pivot: {x: 0.46268657, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31a2f8cb9f1ffb47b0e22602fea3500
+      internalID: 794361374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_71
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 82
+        width: 27
+        height: 36
+      alignment: 9
+      pivot: {x: 0.11111111, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401268062388ae74e9f5d6e84cd22a9c
+      internalID: -856293292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LynSwordAttack_72
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 82
+        width: 27
+        height: 36
+      alignment: 9
+      pivot: {x: 0.11111111, y: 0.027777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9249826139035f34dbaf7b40887e3a36
+      internalID: -945345185
       vertices: []
       indices: 
       edges: []
@@ -1497,18 +1707,26 @@ TextureImporter:
       LynSwordAttack_47: -441963966
       LynSwordAttack_1: 2000544872
       LynSwordAttack_43: 1710902325
+      LynSwordAttack_69: 350839923
       LynSwordAttack_42: 152375212
       LynSwordAttack_13: 1586428077
       LynSwordAttack_53: -2050248280
       LynSwordAttack_55: -510263838
+      LynSwordAttack_68: -1421301963
       LynSwordAttack_49: -2134080838
+      LynSwordAttack_63: 1685750105
+      LynSwordAttack_67: -1084638933
+      LynSwordAttack_71: -856293292
       LynSwordAttack_45: 1938696692
       LynSwordAttack_54: 387406751
       LynSwordAttack_34: 1501713241
       LynSwordAttack_22: -1295392248
       LynSwordAttack_57: -1881672366
+      LynSwordAttack_70: 794361374
       LynSwordAttack_51: 25690992
       LynSwordAttack_58: 2093847206
+      LynSwordAttack_73: -250109226
+      LynSwordAttack_64: -2081385426
       LynSwordAttack_27: -1281578776
       LynSwordAttack_36: 1272837922
       LynSwordAttack_28: 1642134157
@@ -1522,21 +1740,24 @@ TextureImporter:
       LynSwordAttack_18: 239913212
       LynSwordAttack_52: 437510318
       LynSwordAttack_14: 584462536
+      LynSwordAttack_65: -1493187721
       LynSwordAttack_0: -1094527188
       LynSwordAttack_11: -1673839908
       LynSwordAttack_46: 1658893195
-      LynSwordAttack_59: 1083178877
-      LynSwordAttack_12: -240318804
-      LynSwordAttack_7: -23560090
-      LynSwordAttack_44: 1681002396
-      LynSwordAttack_23: 657685729
-      LynSwordAttack_60: 1223089548
-      LynSwordAttack_39: -391157988
-      LynSwordAttack_10: -354091775
-      LynSwordAttack_20: 917994526
-      LynSwordAttack_29: 531013298
-      LynSwordAttack_62: 882809398
-      LynSwordAttack_25: 137998914
+      LynSwordAttack_66: 1083178877
+      LynSwordAttack_59: -240318804
+      LynSwordAttack_12: -23560090
+      LynSwordAttack_7: 1681002396
+      LynSwordAttack_44: 657685729
+      LynSwordAttack_23: 1223089548
+      LynSwordAttack_60: -391157988
+      LynSwordAttack_72: -945345185
+      LynSwordAttack_39: -354091775
+      LynSwordAttack_10: 917994526
+      LynSwordAttack_20: 531013298
+      LynSwordAttack_29: 882809398
+      LynSwordAttack_62: 137998914
+      LynSwordAttack_25: -966896482
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
