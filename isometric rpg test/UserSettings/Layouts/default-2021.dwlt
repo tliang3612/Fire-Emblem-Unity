@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Sprite Editor
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 74
+  controlID: 33
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 88
+  controlID: 119
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 86
+  controlID: 31
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,8 +170,8 @@ MonoBehaviour:
     y: 0
     width: 485
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: SpriteEditorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -196,17 +196,17 @@ MonoBehaviour:
     y: 0
     width: 942
     height: 389
-  m_MinSize: {x: 101, y: 121}
+  m_MinSize: {x: 361, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 23}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 23}
   - {fileID: 17}
   - {fileID: 15}
-  - {fileID: 16}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 2
+  - {fileID: 16}
+  m_Selected: 1
+  m_LastSelected: 4
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 87
+  controlID: 32
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -390,7 +390,7 @@ MonoBehaviour:
         m_PaneScroll: {x: 0, y: 0}
         m_ViewType: 0
         updateViewLive: 0
-        m_CurrentFrameIndex: -1
+        m_CurrentFrameIndex: 6378
         m_HierarchyOverruledThreadFromSelection: 0
         m_ProfilerViewFilteringOptions: 0
         m_FrameDataHierarchyView:
@@ -1402,6 +1402,7 @@ MonoBehaviour:
     - {fileID: 4474567526435923132, guid: 2f3bd0e661dc92e46949aabe3fb630f9, type: 2}
     - {fileID: 6108630832675002889, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
     - {fileID: -2142162886403977993, guid: 4ac4a712b88d13c48a32673c314fa99a, type: 2}
+    - {fileID: 5562120436775332301, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
     m_ValueSerializationHelper:
     - e00: 1.027311
       e01: 0
@@ -1579,14 +1580,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.93792695
+    - e00: 0.7972378
       e01: 0
       e02: 0
-      e03: -131.23438
+      e03: -66.658875
       e10: 0
-      e11: 0.93792695
+      e11: 0.7972378
       e12: 0
-      e13: 51.033127
+      e13: -12.532242
       e20: 0
       e21: 0
       e22: 1
@@ -1707,10 +1708,28 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 0.88790834
+      e01: 0
+      e02: 0
+      e03: 21.728426
+      e10: 0
+      e11: 0.88790834
+      e12: 0
+      e13: 25.867973
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 24c0aecca2bb28c4c91f1cfcdc633358, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -4987876145405202121, guid: 24c0aecca2bb28c4c91f1cfcdc633358, type: 2}
+  - m_Target: {fileID: -4369875818840608120, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
+    m_ScrollPosition: {x: 0, y: 0}
+  - m_Target: {fileID: 5562120436775332301, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1753,7 +1772,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 25220
+  m_LastSelectedObjectID: 25230
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1784,10 +1803,10 @@ MonoBehaviour:
     m_SaveData: []
   m_ShowAlpha: 0
   m_MipLevel: 0
-  m_Zoom: -1
-  m_ScrollPosition: {x: 0, y: 0}
+  m_Zoom: 1.225768
+  m_ScrollPosition: {x: -171.09303, y: 173.89127}
   m_SelectedObject: {fileID: 0}
-  m_SelectedSpriteRectGUID: a604f3bd2580fe448b5dee300e74ccf6
+  m_SelectedSpriteRectGUID: 3646e58b6dd480040b4fdaacff0462b3
   m_LastUsedModuleTypeName: UnityEditor.U2D.Sprites.SpriteFrameModule
 --- !u!114 &18
 MonoBehaviour:
@@ -1830,22 +1849,22 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Weapon
+    - Assets/Assets/Characters
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Scripts/Weapon
+  - Assets/Assets/Characters
   m_LastFoldersGridSize: 57
   m_LastProjectPath: D:\IsometricRPG\isometric rpg test
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 276}
-    m_SelectedIDs: be710000
-    m_LastClickedID: 29118
-    m_ExpandedIDs: 00000000627100006471000066710000687100006c7100006e7100007071000072710000747100007671000000ca9a3b
+    scrollPos: {x: 0, y: 180}
+    m_SelectedIDs: 14720000
+    m_LastClickedID: 29204
+    m_ExpandedIDs: 00000000d4710000d6710000d8710000da710000dc710000de710000e0710000e2710000e47100000e720000d682000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1873,7 +1892,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000627100006471000066710000687100006a7100006c7100006e71000070710000727100007471000076710000
+    m_ExpandedIDs: 00000000d4710000d6710000d8710000da710000dc710000de710000e0710000e2710000e4710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1901,7 +1920,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000ae8f000092690000c2a10000228000008c7a0000b46900009a680000b0680000a8600000c47d0000d68e0000fa6a0000dcae0000000000004a7000004adb00004c700000806b0000
+    m_ExpandedInstanceIDs: c6230000ae8f000092690000c2a10000228000008c7a0000b46900009a680000b0680000a8600000c47d0000d68e0000fa6a0000dcae0000000000004a7000004adb00004c700000806b00002e8f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1925,7 +1944,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 646}
     m_GridSize: 57
   m_SkipHiddenPackages: 1
   m_DirectoriesAreaWidth: 162
@@ -2001,9 +2020,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 38610000
-      m_LastClickedID: 24888
-      m_ExpandedIDs: 3afaffff72fafffff0faffff2261000034620000ac620000ea6200007c63000092630000a0630000c8630000
+      m_SelectedIDs: 2e8f0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 26fbffffb862000002630000bc630000e4630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2103,7 +2122,7 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 1
+      displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -2274,9 +2293,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -39.47055, y: 0.38291454, z: 27.09678}
+    m_Target: {x: -32.92721, y: 3.6913111, z: 309.90903}
     speed: 2
-    m_Value: {x: -39.47055, y: 0.38291454, z: 27.09678}
+    m_Value: {x: -32.76757, y: 3.5494757, z: 297.21072}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2313,7 +2332,7 @@ MonoBehaviour:
       m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
@@ -2327,9 +2346,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.4714284
+    m_Target: 7.8564796
     speed: 2
-    m_Value: 7.4714284
+    m_Value: 7.5181623
   m_Ortho:
     m_Target: 1
     speed: 2
