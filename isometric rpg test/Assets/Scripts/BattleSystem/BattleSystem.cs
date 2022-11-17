@@ -18,6 +18,8 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] private GameObject rightPlatform;
     [SerializeField] private GameObject leftPlatform;
+
+    //For Ranged battles where these components will be shifted
     [SerializeField] private GameObject[] PannedComponents = new GameObject[4];
     [SerializeField] private GameObject foreground;
 
@@ -26,17 +28,20 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] private Image Background;
 
-    private int range;
-
     [SerializeField] public float RangedPlatformOffset;
     [SerializeField] public float panDuration; 
     private Vector2 originalRightAnchoredPosition;
     private Vector2 originalLeftAnchoredPosition;
 
+    //For battle between two players
     private CombatCalculator combatCalculator;
     private CombatStats playerStats;
     private CombatStats enemyStats;
 
+    //For healing action
+    private HealStats healStats;
+
+    private int range;
     public event EventHandler BattleOver;
 
     public void Start()
@@ -49,8 +54,8 @@ public class BattleSystem : MonoBehaviour
     public void StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
     {
         range = battleEvent == BattleEvent.RangedAction ? 2 : 1;
-        playerUnit.unit = attacker;
-        enemyUnit.unit = defender;
+        playerUnit.Unit = attacker;
+        enemyUnit.Unit = defender;
 
         if (battleEvent == BattleEvent.RangedAction)
         {
@@ -59,10 +64,9 @@ public class BattleSystem : MonoBehaviour
 
         if (battleEvent == BattleEvent.HealAction)
         {
-            playerStats = new HealStats(attacker, defender, range);
-            enemyStats = new HealStats(defender, attacker, range);
+            healStats = new HealStats(attacker, defender);
 
-            SetUpBattle(playerStats, enemyStats);
+            SetUpHeal(healStats);
             StartCoroutine(PerformHealerMove());
         }
         else
@@ -101,7 +105,7 @@ public class BattleSystem : MonoBehaviour
                 if (range >= 2)
                     yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? 1 : -1);
 
-                defender.unit.ReceiveDamage(attacker.unit, currentAction.Damage);
+                defender.Unit.ReceiveDamage(attacker.Unit, currentAction.Damage);
                 yield return defender.PlayHitAnimation(currentAction.IsCrit ? attacker.critEffect : attacker.hitEffect);
                 ShakeBattlefield(currentAction.IsCrit ? 2 : 1);
                 yield return defender.HUD.UpdateHP();
@@ -134,9 +138,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         //EndBattle at the end of the sequence
-        EndBattle();
-
-        
+        EndBattle();       
     }
 
     public void SetUpBattle(CombatStats playerStats, CombatStats enemyStats)
@@ -145,12 +147,18 @@ public class BattleSystem : MonoBehaviour
         enemyUnit.SetupAttack(enemyStats, playerUnit);                    
     }
 
+    public void SetUpHeal(HealStats healStats)
+    {
+        playerUnit.SetupHeal(healStats, enemyUnit);
+        enemyUnit.SetUpEmpty(playerUnit);
+    }
+
     private IEnumerator RunHealerSequence(BattleUnit healerUnit, BattleUnit allyUnit)
     {
         yield return new WaitForSeconds(0.5f);
 
         yield return healerUnit.PlayHealAnimation();
-        allyUnit.unit.ReceiveHealing(healerUnit.unit.UnitAttack);
+        allyUnit.Unit.ReceiveHealing(healerUnit.Unit.UnitAttack);
         allyUnit.PlayHealingReceivedAnimation();
         yield return allyUnit.HUD.UpdateHP();
 
@@ -167,8 +175,10 @@ public class BattleSystem : MonoBehaviour
             BattleOver.Invoke(this, EventArgs.Empty);
 
         CleanpRangedPlatforms();
+        playerUnit.EndBattleAnimation();
+        enemyUnit.EndBattleAnimation();
 
-        playerUnit.unit.SetState(new UnitStateFinished(playerUnit.unit));
+        playerUnit.Unit.SetState(new UnitStateFinished(playerUnit.Unit));
         Debug.Log("battle ended");
     }
 
@@ -189,7 +199,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    //k is positive if its player unit
+    //k is positive if its player Unit
     public IEnumerator ShiftPlatformsAndUnits(float k)
     {        
         foreach(GameObject gameObject in PannedComponents)
@@ -217,4 +227,5 @@ public class BattleSystem : MonoBehaviour
     }
     
 }
+
 

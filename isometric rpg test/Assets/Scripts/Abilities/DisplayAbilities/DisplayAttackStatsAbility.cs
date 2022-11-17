@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 public class DisplayAttackStatsAbility : DisplayAbility
 {
+    public event EventHandler<DisplayStatsChangedEventArgs> DisplayStatsChanged;
+
     protected override void Awake()
     {
         base.Awake();
-        Name = "Attack";
-        IsDisplayable = true;
     }
     public override void Display(TileGrid tileGrid)
     {                           
@@ -27,7 +27,8 @@ public class DisplayAttackStatsAbility : DisplayAbility
             var attackerStats = GetStats(UnitReference, unit, range);
             var defenderStats = GetStats(unit, UnitReference, range);
 
-            OnDisplayStatsChanged(attackerStats, defenderStats);
+            if (DisplayStatsChanged != null)
+                DisplayStatsChanged.Invoke(this, new DisplayStatsChangedEventArgs(attackerStats, defenderStats));
         }
     }
 
@@ -35,7 +36,7 @@ public class DisplayAttackStatsAbility : DisplayAbility
     {
         StartCoroutine(Execute(tileGrid,
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));     
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<SelectWeaponToAttackAbility>())));     
     }
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
@@ -60,5 +61,18 @@ public class DisplayAttackStatsAbility : DisplayAbility
     protected CombatStats GetStats(Unit unit, Unit unitToAttack, int range)
     {
         return new CombatStats(unit, unitToAttack, range);
+    }
+}
+
+
+public class DisplayStatsChangedEventArgs : EventArgs
+{
+    public CombatStats AttackerStats;
+    public CombatStats DefenderStats;
+
+    public DisplayStatsChangedEventArgs(CombatStats attackerStats, CombatStats defenderStats)
+    {
+        AttackerStats = attackerStats;
+        DefenderStats = defenderStats;
     }
 }

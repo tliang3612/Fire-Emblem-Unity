@@ -40,7 +40,7 @@ public abstract class Ability : MonoBehaviour
         yield return Execute(tileGrid, _ => { }, _ => OnAbilityDeselected(tileGrid));
     }
 
-    //Method used to define whether the ability can be used - for example it could check if the unit has any movement points left to move
+    //Method used to define whether the ability can be used - for example it could check if the Unit has any movement points left to move
     public virtual IEnumerator Act(TileGrid tileGrid) { yield return 0; }
 
     private IEnumerator Act(TileGrid tileGrid, Action<TileGrid> preAction, Action<TileGrid> postAction)

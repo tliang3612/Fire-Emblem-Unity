@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class CombatStats
+public struct CombatStats
 {
-    public string UnitName { get; protected set; }
-    public int HitStat { get; protected set; }
-    public int CritStat { get; protected set; }
-    public int DamageStat { get; protected set; }
-    public int RangeStat { get; protected set; }
-    public int HealthStat { get; protected set; }
-    public int EffectivenessStat { get; protected set; }
+    public string UnitName { get;}
+    public int HitStat { get; }
+    public int CritStat { get; }
+    public int DamageStat { get;}
+    public int RangeStat { get;}
+    public int HealthStat { get;}
+    public int EffectivenessStat { get;}
 
-    public CombatStats(Unit attacker, Unit defender, int range)
+    public CombatStats(Unit attacker, Unit defender, int range) : this()
     {
         HealthStat = attacker.HitPoints;
         RangeStat = attacker.EquippedWeapon.Range;

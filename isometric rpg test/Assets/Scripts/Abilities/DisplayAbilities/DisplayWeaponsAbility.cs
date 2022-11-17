@@ -8,26 +8,23 @@ using TMPro;
 
 public class DisplayWeaponsAbility : DisplayAbility
 {
-    public GameObject ActionButton;
+    protected override void Awake()
+    {
+        base.Awake();
+        Name = "Equip";
+        IsDisplayable = true;
+    }
+
+    public event EventHandler<EquipButtonCreatedEventArgs> EquipButtonCreated;
 
     public override IEnumerator Act(TileGrid tileGrid)
     {
         yield return 0;
     }
 
-    public override void Display(TileGrid tileGrid)
+    protected virtual void OnButtonCreated(IEnumerator action, string name, Weapon w)
     {
-        foreach (Weapon w in UnitReference.AvailableWeapons)
-        {
-            OnButtonCreated(ActWrapper(w, tileGrid), w.Name);
-        }
-    }
-
-    public IEnumerator ActWrapper(Weapon w, TileGrid tileGrid)
-    {
-        return Execute(tileGrid,
-                _ => GetComponent<EquipAbility>().WeaponToEquip = w,
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, GetComponent<EquipAbility>()));
+        EquipButtonCreated?.Invoke(this, new EquipButtonCreatedEventArgs(action, name, w, UnitReference));
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
@@ -48,6 +45,22 @@ public class DisplayWeaponsAbility : DisplayAbility
     public override bool CanPerform(TileGrid tileGrid)
     {
         return true;
+    }
+}
+
+public class EquipButtonCreatedEventArgs : EventArgs
+{
+    public IEnumerator ButtonAction;    
+    public string ButtonName;
+    public Weapon Weapon;
+    public Unit unit;
+
+    public EquipButtonCreatedEventArgs(IEnumerator buttonAction, string buttonName, Weapon w, Unit unitReference)
+    {
+        ButtonAction = buttonAction;
+        ButtonName = buttonName;
+        Weapon = w;
+        unit = unitReference;
     }
 }
 

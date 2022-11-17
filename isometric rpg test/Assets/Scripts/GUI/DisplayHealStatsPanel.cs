@@ -16,7 +16,7 @@ public class DisplayHealStatsPanel : GUIPanel
     {
         ability.AbilitySelected += OnAbilitySelected;
         ability.AbilityDeselected += OnAbilityDeselected;
-        ability.DisplayStatsChanged += OnStatsChanged;
+        ability.DisplayHealStatsChanged += OnStatsChanged;
     }
 
     protected override void OnAbilitySelected(object sender, EventArgs e)
@@ -30,19 +30,19 @@ public class DisplayHealStatsPanel : GUIPanel
         SetState(GUIState.InAbilitySelection);
     }
 
-    //Set the stats for the unit being healed
-    public void OnStatsChanged(object sender, DisplayStatsChangedEventArgs e)
+    //Set the stats for the Unit being healed
+    public void OnStatsChanged(object sender, DisplayHealStatsChangedEventArgs e)
     {
-        SetStats(e.AttackerStats, e.DefenderStats);
+        SetStats(e.healStat);
     }
 
 
-    public void SetStats(CombatStats healerStats, CombatStats allyStats)
+    public void SetStats(HealStats healStats)
     {
-        AllySprite.sprite = null;
-        AllyName.text = allyStats.UnitName;
-        AllyHealth.text = allyStats.HealthStat.ToString();
-        AllyNewHealth.text = (allyStats.HealthStat + healerStats.DamageStat).ToString();
+        AllySprite.sprite = healStats.AllySprite;
+        AllyName.text = healStats.AllyName;
+        AllyHealth.text = healStats.CurrentHealthStat.ToString();
+        AllyNewHealth.text = healStats.NewHealthStat.ToString();
     }
 
     public void ClearStats()

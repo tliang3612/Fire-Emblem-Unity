@@ -10,7 +10,7 @@ public class TileGridStateUnitSelected : TileGridState
     {
         if (abilities.Count == 0)
         {
-            Debug.LogError("No abilities were selected, check if your unit has any abilities attached to it");
+            Debug.LogError("No abilities were selected, check if your Unit has any abilities attached to it");
         }
 
         _abilities = abilities;

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Tilemaps;
 using UnityEngine;
+using System.Collections;
 
-    /// <summary>
-    /// CellGrid class keeps track of the game, stores cells, units and players objects. It starts the game and makes turn transitions. 
-    /// It reacts to user interacting with units or cells, and raises events related to game progress. 
-    /// </summary>
+/// <summary>
+/// CellGrid class keeps track of the game, stores cells, units and players objects. It starts the game and makes turn transitions. 
+/// It reacts to user interacting with units or cells, and raises events related to game progress. 
+/// </summary>
 public class TileGrid : MonoBehaviour
 {
     public OverlayTile overlayTilePrefab;
@@ -30,7 +31,7 @@ public class TileGrid : MonoBehaviour
     public event EventHandler<GameEndedArgs> GameEnded;
 
     /// <summary>
-    /// UnitAdded event is invoked when a unit gets added into the game
+    /// UnitAdded event is invoked when a Unit gets added into the game
     /// </summary> 
     public event EventHandler<UnitCreatedEventArgs> UnitAdded;
 
@@ -281,7 +282,7 @@ public class TileGrid : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds unit to the game
+    /// Adds Unit to the game
     /// </summary>
     /// <param name="unit">Unit to add</param>
     public void AddUnit(Unit unit)
@@ -413,7 +414,7 @@ public class TileGrid : MonoBehaviour
         return Mathf.Abs(start.gridLocation.x - other.gridLocation.x) + Mathf.Abs(start.gridLocation.y - other.gridLocation.y);
     }
 
-    public void StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
+    public IEnumerator StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
     {
         GridState = new TileGridStateBlockInput(this);
         battleSystem.gameObject.SetActive(true);
@@ -421,6 +422,9 @@ public class TileGrid : MonoBehaviour
 
         battleSystem.StartBattle(attacker, defender, battleEvent);
         IsBattling = true;
+
+        while (IsBattling)
+            yield return null;
     }
 
     public void EndBattle(object sender, EventArgs e)

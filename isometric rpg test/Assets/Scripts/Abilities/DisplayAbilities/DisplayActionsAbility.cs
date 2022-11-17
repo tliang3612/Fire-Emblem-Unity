@@ -8,6 +8,8 @@ using TMPro;
 
 public class DisplayActionsAbility : DisplayAbility
 {
+    public event EventHandler<ActionButtonCreatedEventArgs> ActionButtonCreated;
+
     protected override void Awake()
     {
         base.Awake();
@@ -26,7 +28,7 @@ public class DisplayActionsAbility : DisplayAbility
             ability.UnitReference = UnitReference;
             if (ability.IsDisplayable && ability.CanPerform(tileGrid))
             {
-                OnButtonCreated(ActWrapper(ability, tileGrid), ability.Name);
+                ActionButtonCreated?.Invoke(this, new ActionButtonCreatedEventArgs(ActWrapper(ability, tileGrid), ability.Name));
             }
         }
     }
@@ -56,6 +58,18 @@ public class DisplayActionsAbility : DisplayAbility
     public override bool CanPerform(TileGrid tileGrid)
     {
         return true;
+    }
+}
+
+public class ActionButtonCreatedEventArgs : EventArgs
+{
+    public IEnumerator ButtonAction;
+    public string ButtonName;
+
+    public ActionButtonCreatedEventArgs(IEnumerator buttonAction, string buttonName)
+    {
+        ButtonAction = buttonAction;
+        ButtonName = buttonName;
     }
 }
 

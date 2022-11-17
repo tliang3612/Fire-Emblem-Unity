@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class DisplayHealStatsAbility : DisplayAbility
 {
+    public event EventHandler<DisplayHealStatsChangedEventArgs> DisplayHealStatsChanged;
+
     protected override void Awake()
     {
         base.Awake();
@@ -23,9 +25,9 @@ public class DisplayHealStatsAbility : DisplayAbility
 
         if ((UnitReference as HealerUnit).IsUnitHealable(unit) && !UnitReference.Equals(unit))
         {
-            var healerStats = GetStats(UnitReference, unit);
-            var allyStats = GetStats(unit, UnitReference);
-            OnDisplayStatsChanged(healerStats, allyStats);
+            var healStats = GetStats(UnitReference, unit);
+            DisplayHealStatsChanged?.Invoke(this, new DisplayHealStatsChangedEventArgs(healStats));
+
         }
     }
 
@@ -62,7 +64,17 @@ public class DisplayHealStatsAbility : DisplayAbility
 
     protected virtual HealStats GetStats(Unit healer, Unit ally)
     {
-        return new HealStats(healer, ally, 1);
+        return new HealStats(healer, ally);
+    }
+}
+
+public class DisplayHealStatsChangedEventArgs : EventArgs
+{
+    public HealStats healStat;
+
+    public DisplayHealStatsChangedEventArgs(HealStats stat)
+    {
+        healStat = stat;
     }
 }
 

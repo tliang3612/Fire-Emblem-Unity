@@ -56,7 +56,6 @@ public class CombatCalculator
                 ret.Enqueue(currentAction);
             }           
         }
-        Debug.Log(ret.Count);
         return ret;
        
     }

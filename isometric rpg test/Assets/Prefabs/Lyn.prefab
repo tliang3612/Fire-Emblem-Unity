@@ -126,9 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6c4f19daf8e734f8c5d16c7841b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementAnimationSpeed: 7
   Tile: {fileID: 0}
+  MovementAnimationSpeed: 7
   baseInfo: {fileID: 11400000, guid: 3401e12f1c604e34885998d06a21c1e4, type: 2}
+  <MovementPoints>k__BackingField: 0
   PlayerNumber: 0
 --- !u!95 &3695077571870254115
 Animator:
@@ -165,6 +166,8 @@ GameObject:
   - component: {fileID: 1717524808056457985}
   - component: {fileID: 6651742806743936048}
   - component: {fileID: 8157308822698330375}
+  - component: {fileID: 8860034536585385888}
+  - component: {fileID: 6965663452100407243}
   m_Layer: 0
   m_Name: AbiltiesHolder
   m_TagString: Untagged
@@ -247,7 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf6cb44b00d5be4eb512485d8eb11e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionButton: {fileID: 8791545867925933072, guid: 55ad81786dedc824c9be69e9b921d03a, type: 3}
 --- !u!114 &8157308822698330375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,5 +260,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f064afe26e084674a86046bee7d7a88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8860034536585385888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603709718055328615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2f5f225ea8a0c47a4bc3d092db47a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6965663452100407243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603709718055328615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b91efd5433b0bc42a2ed64f785615ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

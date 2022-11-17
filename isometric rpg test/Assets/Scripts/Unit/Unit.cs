@@ -6,25 +6,25 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour, IClickable
 {
-    // UnitClicked event is invoked when user clicks the unit. 
+    // UnitClicked event is invoked when user clicks the Unit. 
     public event EventHandler UnitClicked;
 
-    // UnitSelected event is invoked when user clicks on unit that belongs to him. 
+    // UnitSelected event is invoked when user clicks on Unit that belongs to him. 
     public event EventHandler UnitSelected;
 
-    // UnitDeselected event is invoked when user click outside of currently selected unit's collider.
+    // UnitDeselected event is invoked when user click outside of currently selected Unit's collider.
     public event EventHandler UnitDeselected;
 
-    // UnitHighlighted event is invoked when user moves cursor over the unit. 
+    // UnitHighlighted event is invoked when user moves cursor over the Unit. 
     public event EventHandler UnitHighlighted;
 
-    // UnitDehighlighted event is invoked when cursor exits unit's collider. 
+    // UnitDehighlighted event is invoked when cursor exits Unit's collider. 
     public event EventHandler UnitDehighlighted;
 
-    // UnitDestroyed event is invoked when unit's hitpoints drop below 0.
+    // UnitDestroyed event is invoked when Unit's hitpoints drop below 0.
     public event EventHandler<AttackEventArgs> UnitDestroyed;
 
-    // UnitMoved event is invoked when unit moves from one tile to another.
+    // UnitMoved event is invoked when Unit moves from one tile to another.
     public event EventHandler<MovementEventArgs> UnitMoved;
 
     public UnitState UnitState { get; set; }
@@ -80,7 +80,7 @@ public class Unit : MonoBehaviour, IClickable
     private AStarPathfinder _pathfinder = new AStarPathfinder();
     private RangeFinder rangeFinder;
 
-    //Initializes the unit. Called whenever a unit gets added into the game
+    //Initializes the Unit. Called whenever a Unit gets added into the game
     public virtual void Initialize()
     {
         UnitState = new UnitStateNormal(this);
@@ -186,7 +186,7 @@ public class Unit : MonoBehaviour, IClickable
 
     }
 
-    //Called when unit is selected
+    //Called when Unit is selected
     public virtual void OnUnitSelected()
     {
         if (FindObjectOfType<TileGrid>().GetCurrentPlayerUnits().Contains(this))
@@ -199,7 +199,7 @@ public class Unit : MonoBehaviour, IClickable
         }
     }
 
-    //Called when unit is deselected
+    //Called when Unit is deselected
     public virtual void OnUnitDeselected()
     {
         if (FindObjectOfType<TileGrid>().GetCurrentPlayerUnits().Contains(this))
@@ -213,7 +213,7 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     /// <summary>
-    /// Calculates whether the unit is attackable
+    /// Calculates whether the Unit is attackable
     /// </summary>
     /// <param name="otherUnit">Unit to attack</param>
     /// <param name="tile">Tile to perform an attack from</param>
@@ -262,7 +262,7 @@ public class Unit : MonoBehaviour, IClickable
         return new HealingDetails(healAmount, HitPoints);
     }
 
-    //Gets weapon effectiveness against a unit. -1 for ineffective, 0 for neutral, and 1 for effective
+    //Gets weapon effectiveness against a Unit. -1 for ineffective, 0 for neutral, and 1 for effective
     public virtual int GetEffectiveness(WeaponType other)
     {
         return EquippedWeapon.GetEffectiveness(other);
@@ -285,6 +285,16 @@ public class Unit : MonoBehaviour, IClickable
         //Strength + Weapon Might + Weapon Triangle bonus
         return UnitAttack + EquippedWeapon.Attack + EquippedWeapon.GetEffectiveness(other);
     }
+
+    public WeaponPreviewStats GetPreviewWeaponStats(Weapon w)
+    {
+        return new WeaponPreviewStats(UnitAttack + w.Attack, //Attack
+            w.Hit + (UnitSkill * 2) + (UnitLuck / 2), //HitChance
+            Mathf.Clamp(w.Crit + (UnitSkill / 2), 0, 100), //CritChance
+            (UnitSpeed - (EquippedWeapon.Weight - UnitConst))*2 + UnitLuck); //DodgeChance
+    }
+    
+
     public int GetDefense()
     {
         return UnitDefence + Tile.DefenseBoost;
@@ -301,7 +311,6 @@ public class Unit : MonoBehaviour, IClickable
         return Mathf.Clamp(UnitSpeed - (EquippedWeapon.Weight - UnitConst), 0, 100);
     }
 
-
     public void Move(List<OverlayTile> path)
     {
         if (MovementAnimationSpeed > 0 && path.Count > 1)
@@ -312,9 +321,9 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     /// <summary>
-    /// Procedurally moves unit along the path
+    /// Procedurally moves Unit along the path
     /// </summary>
-    /// <param name="path"> List of tiles the unit will move through </param>
+    /// <param name="path"> List of tiles the Unit will move through </param>
     protected virtual IEnumerator MovementAnimation(List<OverlayTile> path)
     {
         Anim.SetBool("IsMoving", true);
@@ -378,7 +387,7 @@ public class Unit : MonoBehaviour, IClickable
         Anim.Play("Idle", 0, FindObjectOfType<AnimationTimer>().GetCurrentCurrentTime());
     }
 
-    //used for whenver we want to start the unit's movement animation
+    //used for whenver we want to start the Unit's movement animation
     public void SetMove()
     {
         Anim.SetBool("IsMoving", true);
@@ -411,9 +420,9 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     /// <summary>
-    /// Positions the unit at the given tile
+    /// Positions the Unit at the given tile
     /// </summary>
-    /// <param name="tile"> Tile to position unit on</param>
+    /// <param name="tile"> Tile to position Unit on</param>
     public void PositionCharacter(OverlayTile tile)
     {
         transform.position = tile.transform.position;
@@ -429,38 +438,38 @@ public class Unit : MonoBehaviour, IClickable
         return !tile.IsBlocked;
     }
 
-    //Get a list of tiles that the unit can move to
+    //Get a list of tiles that the Unit can move to
     public List<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
     {
         return rangeFinder.GetTilesInMoveRange(this, tileGrid, GetTilesInRange(tileGrid, MovementPoints));
     }
 
-    //Get a list of tiles within the unit's range. Doesn't take tile cost into consideration
+    //Get a list of tiles within the Unit's range. Doesn't take tile cost into consideration
     public List<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
     {
         return rangeFinder.GetTilesInRange(this, tileGrid, range);
     }
 
-    //Get a list of attackable tiles that doesn't include the tiles that a unit can move to
+    //Get a list of attackable tiles that doesn't include the tiles that a Unit can move to
     public List<OverlayTile> GetTilesInAttackRange(List<OverlayTile> availableDestinations, TileGrid tileGrid)
     {
         return rangeFinder.GetTilesInAttackRange(availableDestinations, tileGrid, AttackRange);
     }
 
-    //Find the optimal path from the tile the unit is on currently, to the destination tile
+    //Find the optimal path from the tile the Unit is on currently, to the destination tile
     public List<OverlayTile> FindPath(OverlayTile destination, TileGrid tileGrid)
     {
         return _pathfinder.FindPath(Tile, destination, GetAvailableDestinations(tileGrid), tileGrid);
     }
 
-    //Visual indication that the unit is destroyed
+    //Visual indication that the Unit is destroyed
     public virtual void MarkAsDestroyed()
     {
         GetComponent<SpriteRenderer>().color = Color.black;
         Destroy(gameObject);
     }
 
-    //Visual indication that the unit has no more moves this turn
+    //Visual indication that the Unit has no more moves this turn
     public virtual void MarkAsFinished()
     {
         GetComponent<SpriteRenderer>().color = Color.gray;
@@ -471,14 +480,33 @@ public class Unit : MonoBehaviour, IClickable
         GetComponent<SpriteRenderer>().color = player.Color;
     }
 
-    //Return the unit back to its original appearance
+    //Return the Unit back to its original appearance
     public virtual void UnMark()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
     }
+}
+//End of Unit class
+
+public struct WeaponPreviewStats
+{
+    public string WeaponAttack;
+    public string WeaponHit;
+    public string WeaponCrit;
+    public string WeaponAvoid;
+
+    public WeaponPreviewStats(int attack, int hit, int crit, int avoid) : this()
+    {
+        WeaponAttack = attack.ToString();
+        WeaponHit = hit.ToString();
+        WeaponCrit = crit.ToString();
+        WeaponAvoid = avoid.ToString();
+    }
+
 
 }
-//End of unit class
+
+
 public class MovementEventArgs : EventArgs
 {
     public OverlayTile StartingTile;

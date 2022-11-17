@@ -9,33 +9,62 @@ public class BattleUnit : MonoBehaviour
     [SerializeField] protected Animator anim;
     [SerializeField] public bool IsPlayer;
     [SerializeField] public GameObject PrefabHolder;
-    [SerializeField] public GameObject ProjectilePrefab;
+    private GameObject _projectilePrefab;
 
-    public Unit unit { get; set; }    
+    public Unit Unit { get; set; }    
     public BattleSystemHUD HUD;
-    public BattleUnit unitToAttack { get; set; }
+    public BattleUnit _unitToAttack { get; set; }
 
     [HideInInspector] public GameObject hitEffect;
     [HideInInspector] public GameObject critEffect;
 
-    private Image background;   
+    private Image background;
+    private string _animationStateKey;
+
     //set to false with unity animation events
     public bool isAnimationPlaying;
 
     private Vector2 originalAnchoredPosition;
 
     public void SetupAttack(CombatStats stats, BattleUnit battleUnitToAttack)
-    {       
-        GetComponent<Image>().sprite = unit.UnitBattleSprite;
-        unitToAttack = battleUnitToAttack;
+    {
+        SetUp(battleUnitToAttack);
+        HUD.SetAttackData(Unit, stats);
+
+        //if the unit's weapon shoots a projectile
+        if (Unit.EquippedWeapon.Projectile)
+        {
+            _projectilePrefab = Unit.EquippedWeapon.Projectile;
+        }
+    }
+
+    public void SetupHeal(HealStats stats, BattleUnit battleUnitToAttack)
+    {
+        SetUp(battleUnitToAttack);
+        HUD.SetHealData(Unit, stats);
+    }
+
+    public void SetUpEmpty(BattleUnit battleUnitToAttack)
+    {
+        SetUp(battleUnitToAttack);
+        HUD.SetEmptyData(Unit);
+    }
+
+    public void SetUp(BattleUnit battleUnitToAttack)
+    {
+        _unitToAttack = battleUnitToAttack;
+
+        GetComponent<Image>().sprite = Unit.UnitBattleSprite;
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-        anim.runtimeAnimatorController = unit.BattleAnimController;
-
-        hitEffect = unit.EquippedWeapon.HitEffect;
-        critEffect = unit.EquippedWeapon.CritEffect;
-
         background = GameObject.Find("DimBackground").GetComponent<Image>();
-        HUD.SetData(unit, stats);      
+
+        anim.runtimeAnimatorController = Unit.BattleAnimController;
+        hitEffect = Unit.EquippedWeapon.HitEffect;
+        critEffect = Unit.EquippedWeapon.CritEffect;
+
+        _animationStateKey = Unit.EquippedWeapon.Name;
+
+        anim.SetBool(_animationStateKey, true);
     }
     
     public IEnumerator PlayAttackAnimation(bool isCrit)
@@ -52,9 +81,9 @@ public class BattleUnit : MonoBehaviour
             yield return null;
         }      
         
-        if(unit.UnitName == "Lyn")
+        if(_projectilePrefab)
         {
-            yield return ShootArrow();
+            yield return ShootProjectile(_projectilePrefab);
         }
        
     }
@@ -93,7 +122,7 @@ public class BattleUnit : MonoBehaviour
         //effect is instantiated in the battle frame to take up the entire screen space, and centered based on the screen                       
         hitEffect = Instantiate(effect, PrefabHolder.transform).GetComponent<HitEffect>();
 
-        //reflect the image if the unit hit is the player unit
+        //reflect the image if the Unit hit is the player Unit
         if (IsPlayer)
             hitEffect.SetProperties(Vector2.zero, new Vector3(-1, 1, 1));
         else
@@ -146,11 +175,10 @@ public class BattleUnit : MonoBehaviour
     {
         isAnimationPlaying = false;
     }
-
     
     public void MoveTowardsEnemy()
     {
-        var toDestinationInLocalSpace = unitToAttack.GetComponent<RectTransform>().anchoredPosition - GetComponent<RectTransform>().anchoredPosition;
+        var toDestinationInLocalSpace = _unitToAttack.GetComponent<RectTransform>().anchoredPosition - GetComponent<RectTransform>().anchoredPosition;
         GetComponent<RectTransform>().DOAnchorPos(toDestinationInLocalSpace, .3f).SetRelative(true);
     }
 
@@ -160,14 +188,13 @@ public class BattleUnit : MonoBehaviour
         GetComponent<RectTransform>().DOAnchorPos(toDestinationInLocalSpace, .2f).SetRelative(true);
     }
 
-    public IEnumerator ShootArrow()
+    public IEnumerator ShootProjectile(GameObject projectileObject)
     {
-        Projectile projectile;
         //effect is instantiated in the battle frame to take up the entire screen space, and centered based on the screen                       
-        projectile = Instantiate(ProjectilePrefab, PrefabHolder.transform).GetComponent<Projectile>();
+        Projectile projectile = Instantiate(projectileObject, PrefabHolder.transform).GetComponent<Projectile>();
 
-        //reflect the image if the unit hit is the enemy unit
-        projectile.SetProperties(GetComponent<RectTransform>().anchoredPosition.x, unitToAttack.GetComponent<RectTransform>().anchoredPosition.x, IsPlayer ? 1 : -1);
+        //reflect the image if the Unit hit is the enemy Unit
+        projectile.SetProperties(GetComponent<RectTransform>().anchoredPosition.x, _unitToAttack.GetComponent<RectTransform>().anchoredPosition.x, IsPlayer ? 1 : -1);
 
         yield return projectile.MoveProjectile();
 
@@ -181,6 +208,11 @@ public class BattleUnit : MonoBehaviour
     public void UndimBackground()
     {
         background.DOFade(0, 0.2f);
+    }
+
+    public void EndBattleAnimation()
+    {
+        anim.SetBool(_animationStateKey, false);
     }
 
 }

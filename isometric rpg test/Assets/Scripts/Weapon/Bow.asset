@@ -17,6 +17,7 @@ MonoBehaviour:
   Attack: 9
   Hit: 75
   Crit: 20
+  Weight: 7
   Range: 2
   Type: 3
   HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}

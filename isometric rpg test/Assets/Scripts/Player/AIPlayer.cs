@@ -76,7 +76,7 @@ public class AIPlayer : Player
 		tileGrid.EndTurn();
 	}
 
-	//returns the unit to attack
+	//returns the Unit to attack
 	Unit GetUnitToAttack(Unit unit)
     {		
 		var enemyUnits = tileGrid.GetEnemyUnits(this);
@@ -93,10 +93,10 @@ public class AIPlayer : Player
 	OverlayTile GetDestination(Unit unit)
     {
 		List<OverlayTile> potentialDestinations = new List<OverlayTile>();
-		//Order enemies units by how close they are to the unit
+		//Order enemies units by how close they are to the Unit
 		var enemyUnits = tileGrid.GetEnemyUnits(this).OrderByDescending(e => tileGrid.GetManhattenDistance(e.Tile, unit.Tile)).ToList();
 
-		//Find potential tiles that a unit can to move and attack an enemy from
+		//Find potential tiles that a Unit can to move and attack an enemy from
 		foreach (var enemyUnit in enemyUnits)
 		{
 			potentialDestinations.AddRange(tileGrid.TileList.FindAll(t => unit.IsTileMovableTo(t) && unit.IsUnitAttackable(enemyUnit, false)));		
@@ -105,7 +105,7 @@ public class AIPlayer : Player
 		//Find all available destinations
 		var availableDestinations = unit.GetAvailableDestinations(tileGrid);
 
-		//if there are no tiles that a unit can move to and attack an enemy from, then add a random tile from the list of tiles that are within move range
+		//if there are no tiles that a Unit can move to and attack an enemy from, then add a random tile from the list of tiles that are within move range
 		if (potentialDestinations.Count == 0 && availableDestinations.Count != 0)
 		{
 			potentialDestinations.AddRange(availableDestinations);
@@ -115,7 +115,7 @@ public class AIPlayer : Player
 			return unit.Tile;
         }
 
-		//Get closest enemy from the unit, which we'll use to find the best movement path 
+		//Get closest enemy from the Unit, which we'll use to find the best movement path 
 		var closestEnemy = enemyUnits.First();
 
 		//order potential destinations by how close they are to the closest enemy

@@ -1,4 +1,4 @@
-//class that holds the states of the unit
+//class that holds the states of the Unit
 
 public abstract class UnitState
 {

@@ -20,6 +20,7 @@ public class GUIController : MonoBehaviour
     [SerializeField] private DisplayActionsPanel actionsPanel;
     [SerializeField] private DisplayAttackStatsPanel attackStatsPanel;
     [SerializeField] private DisplayHealStatsPanel healStatsPanel;
+    [SerializeField] private DisplayWeaponsPanel weaponsPanel;
     [SerializeField] private OverlayPanel overlayPanel;
 
     [SerializeField] public GameObject RightPanelHolder;
@@ -65,6 +66,7 @@ public class GUIController : MonoBehaviour
             if (ability is DisplayActionsAbility) actionsPanel.Bind(ability as DisplayActionsAbility);
             if (ability is DisplayAttackStatsAbility) attackStatsPanel.Bind(ability as DisplayAttackStatsAbility);
             if (ability is DisplayHealStatsAbility) healStatsPanel.Bind(ability as DisplayHealStatsAbility);
+            if (ability is DisplayWeaponsAbility) weaponsPanel.Bind(ability as DisplayWeaponsAbility);
         }      
     }
 }

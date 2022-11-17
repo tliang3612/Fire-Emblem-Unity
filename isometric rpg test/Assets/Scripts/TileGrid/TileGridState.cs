@@ -15,7 +15,7 @@ public abstract class TileGridState
     }
 
     /// <summary>
-    /// Method is called when a unit is clicked on.
+    /// Method is called when a Unit is clicked on.
     /// </summary>
     public virtual void OnUnitClicked(Unit unit)
     {

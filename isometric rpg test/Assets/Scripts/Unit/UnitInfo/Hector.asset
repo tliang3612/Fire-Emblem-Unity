@@ -26,5 +26,5 @@ MonoBehaviour:
   BattleSprite: {fileID: -2109196525, guid: 156132a86be6f56459612f6b615fd7a6, type: 3}
   BattleAnimController: {fileID: 9100000, guid: c3925eca2fa5e914cad2503056ec0d9f, type: 2}
   StartingWeapons:
-  - {fileID: 11400000, guid: bc989b6c14a7c99479733ef67258c073, type: 2}
   - {fileID: 11400000, guid: 2fef347d8d4d58840bb771af39a69fa3, type: 2}
+  - {fileID: 11400000, guid: bc989b6c14a7c99479733ef67258c073, type: 2}

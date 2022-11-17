@@ -16,10 +16,10 @@ public class DisplayActionsPanel : GUIPanel
     {
         ability.AbilitySelected += OnAbilitySelected;
         ability.AbilityDeselected += OnAbilityDeselected;
-        ability.ButtonCreated += OnButtonAdded;
+        ability.ActionButtonCreated += OnButtonAdded;
     }
 
-    protected void OnButtonAdded(object sender, ButtonCreatedEventArgs e)
+    protected void OnButtonAdded(object sender, ActionButtonCreatedEventArgs e)
     {
         var actionButton = Instantiate(ActionButton, menuActions.transform);
         actionButton.GetComponentInChildren<Text>().text = e.ButtonName;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -27,6 +28,8 @@ public class Weapon : ScriptableObject
 	public GameObject HitEffect;
 	public GameObject CritEffect;
 
+	public GameObject Projectile { get; set; }
+
 	public int GetEffectiveness(WeaponType other)
 	{
 		switch (Type)
@@ -48,4 +51,22 @@ public class Weapon : ScriptableObject
 		}
 	}
 
+	[CustomEditor(typeof(Weapon))]
+	public class WeaponEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+			Weapon weapon = (Weapon) target;
+
+			EditorGUILayout.Space();
+			
+			if(weapon.Range > 1 && (weapon.Type == WeaponType.BOW || weapon.Type == WeaponType.AXE))
+            {
+				EditorGUILayout.LabelField("Projectile If Projectile Weapon");
+				weapon.Projectile = (GameObject)EditorGUILayout.ObjectField("Projectile", weapon.Projectile, typeof(GameObject), true);
+			}				
+		}
+    }
 }

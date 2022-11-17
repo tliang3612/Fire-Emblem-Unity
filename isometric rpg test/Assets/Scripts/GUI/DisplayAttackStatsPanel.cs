@@ -42,7 +42,7 @@ public class DisplayAttackStatsPanel : GUIPanel
         SetState(GUIState.InAbilitySelection);
     }
 
-    //Set the stats for the unit being healed
+    //Set the stats for the Unit being healed
     public void OnStatsChanged(object sender, DisplayStatsChangedEventArgs e)
     {
         SetStats(e.AttackerStats, e.DefenderStats);

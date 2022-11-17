@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-//Enemy unit isnt doing confirm mocve poropely 
+//Enemy Unit isnt doing confirm mocve poropely 
 public class MoveAbility : Ability
 {
     public OverlayTile Destination { get; set; }
@@ -99,7 +99,7 @@ public class MoveAbility : Ability
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
-        //play move animation when a human player selects the unit,
+        //play move animation when a human player selects the Unit,
         //we dont want ai to play it because ai instantly selects a move option while the player has to think
         if(tileGrid.CurrentPlayer is HumanPlayer)
         {
