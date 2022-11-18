@@ -15,6 +15,10 @@ public class AttackAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
+            UnitReference.SetMove(UnitReference.GetDirectionToFace(UnitToAttack.transform.position));
+            UnitToAttack.Tile.MarkAsAttackableTile();
+            yield return new WaitForSeconds(0.7f);
+
             UnitReference.ConfirmMove();
             if (tileGrid.GetManhattenDistance(UnitReference.Tile, UnitToAttack.Tile) > 1)
                 yield return tileGrid.StartBattle(UnitReference, UnitToAttack, BattleEvent.RangedAction);    

@@ -6,30 +6,29 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.EventSystems;
-using UnityEngine.SocialPlatforms;
 
-public class SelectWeaponToEquipAbility : SelectItemToUseAbility
+public class SelectStaffToHealAbility : SelectItemToUseAbility
 {
     protected override void Awake()
     {
         base.Awake();
-        Name = "Equip";
+        Name = "Staff";
         IsDisplayable = true;
     }
 
     public override void Display(TileGrid tileGrid)
     {
-        foreach (Weapon w in UnitReference.AvailableWeapons)
+        foreach (Staff s in UnitReference.AvailableStaffs)
         {
-            OnButtonCreated(ActWrapper(w, tileGrid), w.Name, w);
+            OnButtonCreated(ActWrapper(s, tileGrid), s.Name, s);
         }
     }
 
-    public IEnumerator ActWrapper(Weapon w, TileGrid tileGrid)
+    public IEnumerator ActWrapper(Staff s, TileGrid tileGrid)
     {
         return Execute(tileGrid,
-                _ => UnitReference.EquipItem(w),
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, GetComponent<DisplayActionsAbility>()));
+                _ => UnitReference.EquipItem(s),
+                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, GetComponent<DisplayHealStatsAbility>()));
     }
 
     public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
@@ -43,9 +42,19 @@ public class SelectWeaponToEquipAbility : SelectItemToUseAbility
         }
     }
 
+
+    //Can Select Weapon to Attack if the Unit has a weapon
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return true;
+        if (UnitReference.AvailableStaffs.Count <= 0)
+        {
+            return false;
+        }
+
+        var allyUnits = tileGrid.GetPlayerUnits(tileGrid.CurrentPlayer);
+        var alliesInRange = allyUnits.Where(u => UnitReference.IsUnitHealable(u)).ToList();
+
+        return alliesInRange.Count > 0 && UnitReference.ActionPoints > 0;
     }
 }
 

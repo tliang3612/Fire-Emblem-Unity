@@ -200,27 +200,6 @@ public class OverlayTile : MonoBehaviour, IClickable
 
         return neighbors;
 
-        /*//checks left and right neighbors
-        for (int i = 1; i >= -1; i -= 2)
-        {
-            var locationToCheck = new Vector2Int(gridLocation.x + i, gridLocation.y);
-            if (tilesToSearch.ContainsKey(locationToCheck))
-            {
-                neighbors.Add(tilesToSearch[locationToCheck]);
-            }
-        }
-
-        //checks top and down neighbors
-        for (int i = 1; i >= -1; i -= 2)
-        {
-            var locationToCheck = new Vector2Int(gridLocation.x, gridLocation.y + i);
-            if (tilesToSearch.ContainsKey(locationToCheck))
-            {
-                neighbors.Add(tilesToSearch[locationToCheck]);
-            }
-        }
-
-        return neighbors;*/
     }
 }
 

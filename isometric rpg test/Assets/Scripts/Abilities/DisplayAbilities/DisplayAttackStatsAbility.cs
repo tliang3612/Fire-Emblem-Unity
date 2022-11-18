@@ -8,13 +8,16 @@ public class DisplayAttackStatsAbility : DisplayAbility
 {
     public event EventHandler<DisplayStatsChangedEventArgs> DisplayStatsChanged;
 
+    private List<OverlayTile> _tilesInAttackRange;
+
     protected override void Awake()
     {
         base.Awake();
     }
     public override void Display(TileGrid tileGrid)
     {                           
-        tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());     
+        _tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
+        UnitReference.Tile.UnMark();
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
@@ -23,6 +26,9 @@ public class DisplayAttackStatsAbility : DisplayAbility
 
         if (UnitReference.IsUnitAttackable(unit, true) && !UnitReference.Equals(unit))
         {
+            //face the unit we're highlighting
+            UnitReference.SetMove(UnitReference.GetDirectionToFace(unit.transform.position));
+
             var range = tileGrid.GetManhattenDistance(UnitReference.Tile, unit.Tile);
             var attackerStats = GetStats(UnitReference, unit, range);
             var defenderStats = GetStats(unit, UnitReference, range);
@@ -50,12 +56,11 @@ public class DisplayAttackStatsAbility : DisplayAbility
         }
     }
 
-    public override bool CanPerform(TileGrid tileGrid)
+    public override void OnAbilitySelected(TileGrid tileGrid)
     {
-        var enemyUnits = tileGrid.GetEnemyUnits(tileGrid.CurrentPlayer);
-        var enemiesInRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u, false)).ToList();
+        base.OnAbilitySelected(tileGrid);
 
-        return enemiesInRange.Count > 0 && UnitReference.ActionPoints > 0;
+        _tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.EquippedWeapon.Range);
     }
 
     protected CombatStats GetStats(Unit unit, Unit unitToAttack, int range)

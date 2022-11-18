@@ -13,7 +13,6 @@ public class DisplayActionsAbility : DisplayAbility
     protected override void Awake()
     {
         base.Awake();
-
     }
 
     public override IEnumerator Act(TileGrid tileGrid)

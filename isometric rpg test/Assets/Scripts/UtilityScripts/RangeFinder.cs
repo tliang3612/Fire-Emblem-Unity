@@ -29,7 +29,7 @@ public class RangeFinder
                 int newRating = movementRating[currentTile] - neighbor.MovementCost;
 
                 //if tile is able to be moved to
-                if (!neighbor.IsBlocked && tilesInRange.Contains(neighbor))
+                if (!neighbor.IsBlocked || tileGrid.GetCurrentPlayerUnits().Contains(neighbor.CurrentUnit) && tilesInRange.Contains(neighbor) )
                 {
                     //if tile has not been visited or the newRating of the tile is greater than its previous rating
                     if (!movementRating.ContainsKey(neighbor) || newRating > movementRating[neighbor])

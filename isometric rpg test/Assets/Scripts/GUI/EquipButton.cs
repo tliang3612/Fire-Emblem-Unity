@@ -6,19 +6,19 @@ using System;
 
 public class EquipButton : MonoBehaviour, IPointerEnterHandler
 {
-    private Action<Weapon, Unit> _mouseEntered;
+    private Action<Item, Unit> _mouseEntered;
 
-    private Weapon _weapon;
+    private Item _item;
     private Unit _unit;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _mouseEntered?.Invoke(_weapon, _unit);
+        _mouseEntered?.Invoke(_item, _unit);
     }
 
-    public void SetData(Unit unit, Weapon w, Action<Weapon, Unit> mouseEntered)
+    public void SetData(Unit unit, Item item, Action<Item, Unit> mouseEntered = null)
     {
-        _weapon = w;
+        _item = item;
         _unit = unit;
 
         _mouseEntered = mouseEntered;

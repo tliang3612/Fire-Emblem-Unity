@@ -109,6 +109,7 @@ public class BattleSystem : MonoBehaviour
                 yield return defender.PlayHitAnimation(currentAction.IsCrit ? attacker.critEffect : attacker.hitEffect);
                 ShakeBattlefield(currentAction.IsCrit ? 2 : 1);
                 yield return defender.HUD.UpdateHP();
+                yield return new WaitForSeconds(0.5f);
                 yield return attacker.PlayBackupAnimation(currentAction.IsCrit);
 
                 Debug.Log("Enemy Hit");

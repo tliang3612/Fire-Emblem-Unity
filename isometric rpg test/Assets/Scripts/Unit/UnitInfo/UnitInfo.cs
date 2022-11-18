@@ -21,6 +21,6 @@ public class UnitInfo : ScriptableObject
     public Sprite Portrait;
     public Sprite BattleSprite;
     public RuntimeAnimatorController BattleAnimController;
-    public List<Weapon> StartingWeapons;
+    public List<Item> StartingItems;
 
 }

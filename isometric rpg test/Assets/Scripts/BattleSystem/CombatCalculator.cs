@@ -7,6 +7,8 @@ using UnityEngine.SocialPlatforms;
 
 public class CombatCalculator
 {
+    private const int _critCoefficient = 2;
+
     protected CombatStats playerStats;
     protected CombatStats enemyStats;
     protected int range;
@@ -72,14 +74,14 @@ public class CombatCalculator
         
         if(UnityEngine.Random.value < (combatStats.CritStat * 0.01))
         {
-            crit = 2;
+            crit = _critCoefficient;
         }
         else if (UnityEngine.Random.value > (combatStats.HitStat * 0.01))
         {
             dodge = 0;
         }
 
-        damage = combatStats.DamageStat;
+        damage = combatStats.DamageStat * crit * dodge;
 
         if (isPlayer)
             enemyHealth -= damage;
@@ -89,7 +91,7 @@ public class CombatCalculator
         if (playerHealth <= 0 || enemyHealth <= 0)
             isDead = true;
         
-        return new BattleAction(isPlayer, dodge == 1, crit == 2, isDead, damage);
+        return new BattleAction(isPlayer, dodge == 1, crit == _critCoefficient, isDead, damage);
 
     }
 

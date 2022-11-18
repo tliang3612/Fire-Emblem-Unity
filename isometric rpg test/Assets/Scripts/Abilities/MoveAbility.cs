@@ -42,6 +42,7 @@ public class MoveAbility : Ability
             tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
 
             availableDestinations.ForEach(t => t.MarkAsReachable());
+            UnitReference.Tile.UnMark();
         }
     }
 
@@ -55,10 +56,6 @@ public class MoveAbility : Ability
             StartCoroutine(Execute(tileGrid,
                 _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
                 _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
-        }
-        else if (tileGrid.GetCurrentPlayerUnits().Contains(unit))
-        {
-            tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, unit, unit.GetComponentInChildren<MoveAbility>());
         }
     }
 
@@ -82,7 +79,7 @@ public class MoveAbility : Ability
 
     public override void OnTileSelected(OverlayTile tile, TileGrid tileGrid)
     {
-        if (CanPerform(tileGrid) && availableDestinations.Contains(tile) && UnitReference.IsTileMovableTo(tile))
+        if (CanPerform(tileGrid) && availableDestinations.Contains(tile) )
         {
             path = UnitReference.FindPath(tile, tileGrid);
             TranslateArrows(tileGrid);       

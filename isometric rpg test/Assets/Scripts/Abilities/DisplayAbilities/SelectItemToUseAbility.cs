@@ -6,12 +6,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
-public class DisplayWeaponsAbility : DisplayAbility
+public class SelectItemToUseAbility : DisplayAbility
 {
     protected override void Awake()
     {
         base.Awake();
-        Name = "Equip";
         IsDisplayable = true;
     }
 
@@ -22,9 +21,9 @@ public class DisplayWeaponsAbility : DisplayAbility
         yield return 0;
     }
 
-    protected virtual void OnButtonCreated(IEnumerator action, string name, Weapon w)
+    protected virtual void OnButtonCreated(IEnumerator action, string name, Item i)
     {
-        EquipButtonCreated?.Invoke(this, new EquipButtonCreatedEventArgs(action, name, w, UnitReference));
+        EquipButtonCreated?.Invoke(this, new EquipButtonCreatedEventArgs(action, name, i, UnitReference));
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
@@ -52,15 +51,15 @@ public class EquipButtonCreatedEventArgs : EventArgs
 {
     public IEnumerator ButtonAction;    
     public string ButtonName;
-    public Weapon Weapon;
-    public Unit unit;
+    public Item Item;
+    public Unit Unit;
 
-    public EquipButtonCreatedEventArgs(IEnumerator buttonAction, string buttonName, Weapon w, Unit unitReference)
+    public EquipButtonCreatedEventArgs(IEnumerator buttonAction, string buttonName, Item i, Unit unitReference)
     {
         ButtonAction = buttonAction;
         ButtonName = buttonName;
-        Weapon = w;
-        unit = unitReference;
+        Item = i;
+        Unit = unitReference;
     }
 }
 

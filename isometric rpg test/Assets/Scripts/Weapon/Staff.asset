@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4e3ff7545066e498336ae468b6ce50, type: 3}
+  m_Script: {fileID: 11500000, guid: 5967e1dc657645e42bfa73a4e268003e, type: 3}
   m_Name: Staff
   m_EditorClassIdentifier: 
   Name: Staff
-  WeaponSprite: {fileID: 1988066710, guid: 30e7095b079b9cf489e23081fc986b12, type: 3}
-  Attack: 10
-  Hit: 0
-  Crit: 0
+  Sprite: {fileID: 0}
+  HealAmount: 10
   Range: 1
-  Type: 4
-  HitEffect: {fileID: 4158285703963573327, guid: 41c6140f13be1de4195190aa662599dd, type: 3}
-  CritEffect: {fileID: 4158285703963573327, guid: 41c6140f13be1de4195190aa662599dd, type: 3}
+  HealEffect: {fileID: 4158285703963573327, guid: 41c6140f13be1de4195190aa662599dd, type: 3}

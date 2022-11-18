@@ -75,5 +75,5 @@ public abstract class Ability : MonoBehaviour
     public virtual void OnTurnStart(TileGrid tileGrid) { }
     public virtual void OnTurnEnd(TileGrid tileGrid) { }
 
-    public virtual bool CanPerform(TileGrid tileGrid) { return false; }
+    public virtual bool CanPerform(TileGrid tileGrid) { return true; }
 }

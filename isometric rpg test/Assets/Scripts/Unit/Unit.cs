@@ -56,22 +56,61 @@ public class Unit : MonoBehaviour, IClickable
     public Sprite UnitPortrait { get; private set; }
     public Sprite UnitBattleSprite { get; private set; }
     public RuntimeAnimatorController BattleAnimController { get; private set; }
-    public List<Weapon> AvailableWeapons { get; private set; }
+
+    public List<Item> Inventory { get; private set; }   
 
     [field: SerializeField]
     public int MovementPoints { get; private set; }
     public int ActionPoints { get; private set; }
 
-    public int AttackRange => AvailableWeapons.Max(w => w.Range);
+    public int AttackRange
+    {
+        get
+        {
+            if (AvailableWeapons.Count > 0)
+                return AvailableWeapons.Max(w => w.Range);
+            else
+                return 0;
+        }
+        private set { }
+    }
+
+    public List<Staff> AvailableStaffs
+    {
+        get{
+            return Inventory.OfType<Staff>().ToList();
+        }
+        private set { }
+    }
+    public List<Weapon> AvailableWeapons
+    {
+        get
+        {
+            return Inventory.OfType<Weapon>().ToList();
+        }
+        private set { }
+    }
 
     public Weapon EquippedWeapon
     {
         get
         {
-            return AvailableWeapons.First();
+            return AvailableWeapons.FirstOrDefault();
         }
         private set { }
     }
+
+    public Staff EquippedStaff
+    {
+        get
+        {
+            return AvailableStaffs.FirstOrDefault();
+        }
+        private set { }
+    }
+
+    public bool Unarmed => AvailableWeapons.Count <= 0;
+
     private List<OverlayTile> cachedPath;
 
     public int PlayerNumber;
@@ -106,7 +145,7 @@ public class Unit : MonoBehaviour, IClickable
         TotalMovementPoints = baseInfo.TotalMovementPoints;
         MovementPoints = baseInfo.TotalMovementPoints;
 
-        HitPoints = baseInfo.TotalHitPoints;
+        HitPoints = baseInfo.TotalHitPoints-1;
         UnitAttack = baseInfo.BaseAttack;
         UnitDefence = baseInfo.BaseDefence;
         UnitLuck = baseInfo.BaseLuck;
@@ -115,7 +154,7 @@ public class Unit : MonoBehaviour, IClickable
         UnitPortrait = baseInfo.Portrait;
         UnitBattleSprite = baseInfo.BattleSprite;
         BattleAnimController = baseInfo.BattleAnimController;
-        AvailableWeapons = baseInfo.StartingWeapons;
+        Inventory = baseInfo.StartingItems;
     }
 
     private OverlayTile GetStartingTile()
@@ -226,16 +265,27 @@ public class Unit : MonoBehaviour, IClickable
             && otherUnit.HitPoints > 0;
     }
 
-    public void EquipWeapon(Weapon w)
+    public bool IsUnitHealable(Unit otherUnit)
     {
-        if (AvailableWeapons.Contains(w))
+        return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= EquippedStaff.Range
+            && !otherUnit.Equals(this)
+            && otherUnit.PlayerNumber == PlayerNumber
+            && ActionPoints >= 1
+            && otherUnit.HitPoints > 0
+            && otherUnit.HitPoints < otherUnit.TotalHitPoints;
+
+    }
+
+    public void EquipItem(Item i)
+    {
+        if (Inventory.Contains(i))
         {
-            AvailableWeapons.Remove(w);
-            AvailableWeapons.Insert(0, w);
+            Inventory.Remove(i);
+            Inventory.Insert(0, i);
         }
         else
         {
-            Debug.Log("Unit Doesn't have the weapon");
+            Debug.Log("Unit have contain that item");
         }
         
     }
@@ -341,14 +391,13 @@ public class Unit : MonoBehaviour, IClickable
         {
             transform.position = Vector2.MoveTowards(transform.position, tempPath[0].transform.position, Time.deltaTime * MovementAnimationSpeed);
 
-            var heading = tempPath[0].transform.position - transform.position;
-            var distance = heading.magnitude;
+            var direction = GetDirectionToFace(tempPath[0].transform.position);
 
             //this prevents blend tree parameters from ever going to (0,0)
-            if ((heading / distance).normalized.x != (heading / distance).normalized.y)
+            if (direction.x != direction.y)
             {
-                Anim.SetFloat("MoveX", (heading / distance).normalized.x);
-                Anim.SetFloat("MoveY", (heading / distance).normalized.y);
+                Anim.SetFloat("MoveX", direction.x);
+                Anim.SetFloat("MoveY", direction.y);
 
             }
 
@@ -361,6 +410,14 @@ public class Unit : MonoBehaviour, IClickable
             yield return 0;
         }
         IsMoving = false;
+    }
+
+    public Vector2Int GetDirectionToFace(Vector3 headingPosition)
+    {
+        var heading = headingPosition - transform.position;
+        var distance = heading.magnitude;
+
+        return new Vector2Int((int)(heading / distance).normalized.x, (int)(heading / distance).normalized.y);
     }
 
     public void ConfirmMove()
@@ -388,15 +445,21 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     //used for whenver we want to start the Unit's movement animation
-    public void SetMove()
+    public void SetMove(Vector2Int direction = default)
     {
         Anim.SetBool("IsMoving", true);
-        if (cachedPath.Count <= 0)
+
+        //start move down animation
+        if(direction == default)
         {
-            //start move down animation
             Anim.SetFloat("MoveX", 0);
             Anim.SetFloat("MoveY", -1);
         }
+        else
+        {
+            Anim.SetFloat("MoveX", direction.x);
+            Anim.SetFloat("MoveY", direction.y);
+        }       
     }
 
     public void ResetMove()

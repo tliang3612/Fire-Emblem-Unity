@@ -15,11 +15,8 @@ public enum WeaponType
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Weapon", order = 2)]
-public class Weapon : ScriptableObject
+public class Weapon : Item
 {
-	public string Name;
-	public Sprite WeaponSprite;
-
 	public int Attack, Hit, Crit, Weight;
 	public int Range;
 

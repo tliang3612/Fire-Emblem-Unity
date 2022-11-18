@@ -15,9 +15,9 @@ public class HealAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
+            Debug.Log("yes");
             UnitReference.ConfirmMove();
-            tileGrid.StartBattle(UnitReference, UnitToHeal, BattleEvent.HealAction);
-            yield return new WaitForSeconds(0.5f);
+            yield return tileGrid.StartBattle(UnitReference, UnitToHeal, BattleEvent.HealAction);
         }
     }
 
@@ -34,6 +34,6 @@ public class HealAbility : Ability
     }
     public override bool CanPerform(TileGrid tileGrid)
     {
-        return UnitToHeal != null;
+        return true;
     }
 }

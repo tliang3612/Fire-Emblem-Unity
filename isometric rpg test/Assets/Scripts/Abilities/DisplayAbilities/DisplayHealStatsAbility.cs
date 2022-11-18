@@ -8,22 +8,24 @@ public class DisplayHealStatsAbility : DisplayAbility
 {
     public event EventHandler<DisplayHealStatsChangedEventArgs> DisplayHealStatsChanged;
 
+    private List<OverlayTile> _tilesInHealRange;
+
     protected override void Awake()
     {
         base.Awake();
         Name = "Heal";
-        IsDisplayable = true;
+        IsDisplayable = false;
     }
     public override void Display(TileGrid tileGrid)
     {
-        tilesInAttackRange.ForEach(t => t.MarkAsHealableTile());
+        _tilesInHealRange.ForEach(t => t.MarkAsHealableTile());
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
     {
         unit.Tile.HighlightedOnUnit();
 
-        if ((UnitReference as HealerUnit).IsUnitHealable(unit) && !UnitReference.Equals(unit))
+        if (UnitReference.IsUnitHealable(unit) && !UnitReference.Equals(unit))
         {
             var healStats = GetStats(UnitReference, unit);
             DisplayHealStatsChanged?.Invoke(this, new DisplayHealStatsChangedEventArgs(healStats));
@@ -40,7 +42,7 @@ public class DisplayHealStatsAbility : DisplayAbility
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
     {
-        if ((UnitReference as HealerUnit).IsUnitHealable(unit) && !UnitReference.Equals(unit))
+        if (UnitReference.IsUnitHealable(unit) && !UnitReference.Equals(unit))
         {
             UnitReference.GetComponentInChildren<HealAbility>().UnitToHeal = unit;
             StartCoroutine(Execute(tileGrid,
@@ -49,17 +51,13 @@ public class DisplayHealStatsAbility : DisplayAbility
         }
     }
 
-    public override bool CanPerform(TileGrid tileGrid)
-    {
-        if (UnitReference is not HealerUnit)
-        {
-            return false;
-        }
 
-        var friendlyUnits = tileGrid.GetCurrentPlayerUnits();
-        var friendlyUnitsInRange = friendlyUnits.Where(u => (UnitReference as HealerUnit).IsUnitHealable(u)).ToList();
-       
-        return friendlyUnitsInRange.Count > 0 && UnitReference.ActionPoints > 0;
+    public override void OnAbilitySelected(TileGrid tileGrid)
+    {
+        base.OnAbilitySelected(tileGrid);
+
+        _tilesInHealRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.EquippedStaff.Range);
+
     }
 
     protected virtual HealStats GetStats(Unit healer, Unit ally)

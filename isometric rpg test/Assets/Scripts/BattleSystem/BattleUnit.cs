@@ -28,7 +28,14 @@ public class BattleUnit : MonoBehaviour
 
     public void SetupAttack(CombatStats stats, BattleUnit battleUnitToAttack)
     {
+
+        _animationStateKey = Unit.EquippedWeapon.Name;
+
         SetUp(battleUnitToAttack);
+
+        hitEffect = Unit.EquippedWeapon.HitEffect;
+        critEffect = Unit.EquippedWeapon.CritEffect;
+
         HUD.SetAttackData(Unit, stats);
 
         //if the unit's weapon shoots a projectile
@@ -40,14 +47,24 @@ public class BattleUnit : MonoBehaviour
 
     public void SetupHeal(HealStats stats, BattleUnit battleUnitToAttack)
     {
+        _animationStateKey = Unit.EquippedStaff.Name;
+
         SetUp(battleUnitToAttack);
+
+        hitEffect = Unit.EquippedStaff.HealEffect;
+        critEffect = Unit.EquippedStaff.HealEffect;        
+
         HUD.SetHealData(Unit, stats);
     }
 
     public void SetUpEmpty(BattleUnit battleUnitToAttack)
-    {
+    { 
+        _animationStateKey = Unit.EquippedWeapon.Name;
+
         SetUp(battleUnitToAttack);
         HUD.SetEmptyData(Unit);
+
+        
     }
 
     public void SetUp(BattleUnit battleUnitToAttack)
@@ -58,11 +75,7 @@ public class BattleUnit : MonoBehaviour
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         background = GameObject.Find("DimBackground").GetComponent<Image>();
 
-        anim.runtimeAnimatorController = Unit.BattleAnimController;
-        hitEffect = Unit.EquippedWeapon.HitEffect;
-        critEffect = Unit.EquippedWeapon.CritEffect;
-
-        _animationStateKey = Unit.EquippedWeapon.Name;
+        anim.runtimeAnimatorController = Unit.BattleAnimController;        
 
         anim.SetBool(_animationStateKey, true);
     }

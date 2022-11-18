@@ -12,7 +12,7 @@ public struct HealStats
     {
         AllySprite = ally.UnitBattleSprite;
         AllyName = ally.UnitName;
-        HealAmount = healer.EquippedWeapon.Attack;
+        HealAmount = healer.EquippedStaff.HealAmount;
         CurrentHealthStat = ally.HitPoints;
         NewHealthStat = Mathf.Clamp(ally.HitPoints + HealAmount, 0, ally.TotalHitPoints);      
     }

@@ -35,7 +35,8 @@ public class AStarPathfinder
 
                 if (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])
                 {
-                    if (!neighbor.IsBlocked && searchableTiles.Contains(neighbor))
+                    //if the neighbor tile's unit is not blocked or is an ally
+                    if (!neighbor.IsBlocked || tileGrid.GetCurrentPlayerUnits().Contains(neighbor.CurrentUnit) && searchableTiles.Contains(neighbor))
                     {
                         costSoFar[neighbor] = newCost;
                         int priority = newCost + tileGrid.GetManhattenDistance(start, neighbor);
