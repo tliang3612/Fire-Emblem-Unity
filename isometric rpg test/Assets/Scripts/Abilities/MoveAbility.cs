@@ -10,7 +10,7 @@ public class MoveAbility : Ability
     public List<OverlayTile> availableDestinations { get; set; }  
     public List<OverlayTile> path { get; set; }
 
-    private List<OverlayTile> tilesInAttackRange;
+    private List<OverlayTile> _tilesInAttackRange;
 
     protected override void Awake()
     {
@@ -39,10 +39,9 @@ public class MoveAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
-            tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
+            _tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
 
             availableDestinations.ForEach(t => t.MarkAsReachable());
-            UnitReference.Tile.UnMark();
         }
     }
 
@@ -106,7 +105,7 @@ public class MoveAbility : Ability
             
 
         availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
-        tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
+        _tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
     }
 
     public override void OnAbilityDeselected(TileGrid tileGrid)
@@ -117,7 +116,7 @@ public class MoveAbility : Ability
     public override void CleanUp(TileGrid tileGrid)
     {
         availableDestinations.ForEach(t => t.UnMark());
-        tilesInAttackRange.ForEach(t => t.UnMark());
+        _tilesInAttackRange.ForEach(t => t.UnMark());
         ResetArrows();
     }
 

@@ -14,7 +14,6 @@ public struct CombatStats
     {
         HealthStat = attacker.HitPoints;
         RangeStat = attacker.EquippedWeapon.Range;
-        Debug.Log(defender.EquippedWeapon);
         EffectivenessStat = attacker.GetEffectiveness(defender.EquippedWeapon.Type);
         UnitName = attacker.UnitName;
 

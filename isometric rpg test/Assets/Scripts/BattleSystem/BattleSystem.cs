@@ -128,6 +128,8 @@ public class BattleSystem : MonoBehaviour
 
                 if (range >= 2)
                     yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? -1f : 1f);
+
+                Debug.Log("Enemy Dodged");
             }
 
             if (currentAction.IsDead)

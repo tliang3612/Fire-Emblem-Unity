@@ -32,7 +32,7 @@ public class AIPlayer : Player
 				attackAbility.UnitToAttack = GetUnitToAttack(unit);
 				unit.SetMove();
                 yield return new WaitForSeconds(0.3f);
-                StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
+				yield return StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
 				while (tileGrid.IsBattling)
 				{
 					yield return 0;
@@ -58,7 +58,7 @@ public class AIPlayer : Player
                 {					
 					attackAbility.UnitToAttack = GetUnitToAttack(unit);
                     yield return new WaitForSeconds(0.3f);
-                    StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
+                    yield return StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
 					while(tileGrid.IsBattling)
                     {
 						yield return 0; 

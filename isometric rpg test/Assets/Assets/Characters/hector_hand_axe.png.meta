@@ -1,0 +1,973 @@
+fileFormatVersion: 2
+guid: 607a4217a64b318429b5b51347a06611
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hector_hand_axe_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 371
+        width: 40
+        height: 41
+      alignment: 9
+      pivot: {x: 0.4, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7e481e4c8d2a947a15cfcdb3fa3ff4
+      internalID: -1492089837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 371
+        width: 55
+        height: 41
+      alignment: 9
+      pivot: {x: 0.14545454, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c606fc4ad16316143b760403da0366dd
+      internalID: -1733620501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 371
+        width: 55
+        height: 41
+      alignment: 9
+      pivot: {x: 0.14545454, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be97878050acd6b48811af3d3a7d8fdf
+      internalID: -668581055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_3
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 371
+        width: 55
+        height: 41
+      alignment: 9
+      pivot: {x: 0.10909091, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97547f991f1f9a41b2a5cc4a4b80a5b
+      internalID: -211111687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_4
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 371
+        width: 55
+        height: 41
+      alignment: 9
+      pivot: {x: 0.090909086, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b254a557383634ea326bc5e3385642
+      internalID: 596240931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 329
+        width: 55
+        height: 41
+      alignment: 9
+      pivot: {x: 0.29090908, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79675b93671c64d4eba238b0e6ac48ee
+      internalID: 523099701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_6
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 329
+        width: 51
+        height: 41
+      alignment: 9
+      pivot: {x: 0.1764706, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbafaafb6ae752247a616bb72b34b513
+      internalID: -374849656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_7
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 329
+        width: 43
+        height: 41
+      alignment: 9
+      pivot: {x: 0.13953489, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f28eb2348036fe498f3cb69a5932c37
+      internalID: -1858236123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_8
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 329
+        width: 43
+        height: 41
+      alignment: 9
+      pivot: {x: 0.13953489, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9b9f5d627f6014aa5a6c01b4759840
+      internalID: -1073975234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_9
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 329
+        width: 43
+        height: 41
+      alignment: 9
+      pivot: {x: 0.23255813, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f3822ae9d4a3948bd4031e7165c468
+      internalID: 491204272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_10
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 329
+        width: 43
+        height: 41
+      alignment: 9
+      pivot: {x: 0.18604651, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdc7a934e2e1ac646a1f9576400e33bc
+      internalID: -255432329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 286
+        width: 38
+        height: 41
+      alignment: 9
+      pivot: {x: 0.2631579, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c995913251cf6649aa9232e7fa00cd8
+      internalID: -1578706959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 286
+        width: 44
+        height: 41
+      alignment: 9
+      pivot: {x: 0.3181818, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6256b0a7d639d83489198358b94f2552
+      internalID: 1625249448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_13
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 286
+        width: 44
+        height: 41
+      alignment: 9
+      pivot: {x: 0.38636366, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8549b93ad000f4a4794e3547939344dc
+      internalID: 812395671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 213
+        width: 44
+        height: 41
+      alignment: 9
+      pivot: {x: 0.40909094, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22733826fdd584742818ae7d421b68da
+      internalID: 1155666019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_15
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 213
+        width: 56
+        height: 41
+      alignment: 9
+      pivot: {x: 0.1607143, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87366d8f109463c4bb5a6fce88ba3f20
+      internalID: 22338030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_16
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 213
+        width: 56
+        height: 41
+      alignment: 9
+      pivot: {x: 0.14285715, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09968589f36b85e4c99a21266b51c083
+      internalID: -1857462651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_17
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 213
+        width: 56
+        height: 41
+      alignment: 9
+      pivot: {x: 0.071428575, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbfe9a362d20a584faf69ceda03351c8
+      internalID: -1393051681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_18
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 213
+        width: 56
+        height: 41
+      alignment: 9
+      pivot: {x: 0.035714287, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a334b2a7cf4db9c4e922e6928bb5db79
+      internalID: 1559783088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_19
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 157
+        width: 56
+        height: 41
+      alignment: 9
+      pivot: {x: 0.125, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5201088605e26834cb3a9e5b8d90a75a
+      internalID: -1687090155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_20
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 157
+        width: 48
+        height: 41
+      alignment: 9
+      pivot: {x: 0.020833334, y: 0.024390243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dff8964038af6b745a466cc48542ecbd
+      internalID: 2125950611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_21
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 157
+        width: 42
+        height: 43
+      alignment: 9
+      pivot: {x: 0.023809524, y: 0.023255814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe6de61fbe87ae4b9eecc36b6f7c14e
+      internalID: -2044149129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_22
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 157
+        width: 48
+        height: 46
+      alignment: 9
+      pivot: {x: 0.020833334, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3b80b9c0f76674a93a2f7f9e708966
+      internalID: -1039550671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_23
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 157
+        width: 51
+        height: 46
+      alignment: 9
+      pivot: {x: 0.019607844, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c8b542549fcbc448e2c2d1da834f63
+      internalID: 2560362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_24
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 104
+        width: 50
+        height: 46
+      alignment: 9
+      pivot: {x: 0.06, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76df0d1b50ecaa74182192b18419b749
+      internalID: 1265838899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_25
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 104
+        width: 44
+        height: 46
+      alignment: 9
+      pivot: {x: 0.022727273, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45da11b6dc28ffc49ac3eeb43c03da64
+      internalID: -795560209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_26
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 104
+        width: 47
+        height: 46
+      alignment: 9
+      pivot: {x: 0, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7d8f7fd4f16804aa8a3d42697f97b2
+      internalID: 1472738255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_27
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 104
+        width: 48
+        height: 46
+      alignment: 9
+      pivot: {x: 0.020833334, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc14f550056a0d42add73e5689ae15f
+      internalID: -736504109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_28
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 104
+        width: 54
+        height: 46
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b167379d1c66e24ba4ccde95d0dab3b
+      internalID: -320728969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_29
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 60
+        width: 48
+        height: 39
+      alignment: 9
+      pivot: {x: 0.14583334, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a65d6459384fd449cb948b31abd4e8
+      internalID: 1256026292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_30
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 60
+        width: 48
+        height: 39
+      alignment: 9
+      pivot: {x: 0.1875, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4419a718754664688b585dfaa7a42c
+      internalID: -722408961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_31
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 60
+        width: 45
+        height: 39
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67fc4dbdd5f90bc42a27582508643711
+      internalID: -1011740127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_32
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 60
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.2, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2182eee6c254aa3499bceb1904bc9c9b
+      internalID: -967948437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_33
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 60
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.2, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de7c110e0101ad4b9317f3e3cd193a6
+      internalID: -286162489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_34
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 60
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.15, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21e5db72ecaa2d14b8b64b4c874a81ac
+      internalID: 357611563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_35
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 16
+        width: 45
+        height: 39
+      alignment: 9
+      pivot: {x: 0.31111112, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b76d298a1080e4da4660f8f41ecd22
+      internalID: 1667009781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_hand_axe_36
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 16
+        width: 45
+        height: 39
+      alignment: 9
+      pivot: {x: 0.35555556, y: 0.025641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4602bcb785b1dc840931eb076e171bd9
+      internalID: -1782009286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      hector_hand_axe_14: 1155666019
+      hector_hand_axe_4: 596240931
+      hector_hand_axe_26: 1472738255
+      hector_hand_axe_6: -374849656
+      hector_hand_axe_3: -211111687
+      hector_hand_axe_5: 523099701
+      hector_hand_axe_16: -1857462651
+      hector_hand_axe_32: -967948437
+      hector_hand_axe_29: 1256026292
+      hector_hand_axe_0: -1492089837
+      hector_hand_axe_10: -255432329
+      hector_hand_axe_35: 1667009781
+      hector_hand_axe_36: -1782009286
+      hector_hand_axe_7: -1858236123
+      hector_hand_axe_8: -1073975234
+      hector_hand_axe_13: 812395671
+      hector_hand_axe_18: 1559783088
+      hector_hand_axe_15: 22338030
+      hector_hand_axe_24: 1265838899
+      hector_hand_axe_17: -1393051681
+      hector_hand_axe_30: -722408961
+      hector_hand_axe_28: -320728969
+      hector_hand_axe_23: 2560362
+      hector_hand_axe_9: 491204272
+      hector_hand_axe_12: 1625249448
+      hector_hand_axe_11: -1578706959
+      hector_hand_axe_22: -1039550671
+      hector_hand_axe_19: -1687090155
+      hector_hand_axe_27: -736504109
+      hector_hand_axe_34: 357611563
+      hector_hand_axe_33: -286162489
+      hector_hand_axe_21: -2044149129
+      hector_hand_axe_31: -1011740127
+      hector_hand_axe_1: -1733620501
+      hector_hand_axe_25: -795560209
+      hector_hand_axe_20: 2125950611
+      hector_hand_axe_2: -668581055
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

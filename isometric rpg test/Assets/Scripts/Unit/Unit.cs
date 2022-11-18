@@ -141,9 +141,10 @@ public class Unit : MonoBehaviour, IClickable
     {
         UnitName = baseInfo.Name;
         TotalHitPoints = baseInfo.TotalHitPoints;
-        ActionPoints = baseInfo.TotalActionPoints;
+        TotalActionPoints = baseInfo.TotalActionPoints;
         TotalMovementPoints = baseInfo.TotalMovementPoints;
         MovementPoints = baseInfo.TotalMovementPoints;
+        ActionPoints = baseInfo.TotalActionPoints;
 
         HitPoints = baseInfo.TotalHitPoints-1;
         UnitAttack = baseInfo.BaseAttack;
@@ -193,6 +194,9 @@ public class Unit : MonoBehaviour, IClickable
     //Called at the start of each turn
     public virtual void OnTurnStart()
     {
+        MovementPoints = TotalMovementPoints;
+        ActionPoints = TotalActionPoints;
+
         cachedPath = new List<OverlayTile>();
         Anim.SetBool("IsFinished", false);
 
@@ -201,17 +205,7 @@ public class Unit : MonoBehaviour, IClickable
     //Called on the end of each turn
     public virtual void OnTurnEnd()
     {
-        if (HitPoints > 0)
-        {
-            MovementPoints = TotalMovementPoints;
-            ActionPoints = TotalActionPoints;
-
-            SetState(new UnitStateNormal(this));
-        }
-        else
-        {
-            OnDestroyed();
-        }
+        SetState(new UnitStateNormal(this));
     }
 
     //Called when Unit is dead
