@@ -1,0 +1,347 @@
+fileFormatVersion: 2
+guid: 6fb7ff73963a14e4db19f77faf61c4b0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sword_sprite
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6724fa6b8211d3543b8b1d8c9211ce27
+      internalID: 1244502048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lance_sprite
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794cbe4d77d267f4693aed81125fb8cc
+      internalID: -1903652141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: axe_sprite
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0d798372c8f7c4089394f7466ddaca
+      internalID: -443073551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bow_sprite
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca92930597c45b4495472578b0fb285
+      internalID: 24949758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand_axe_sprite
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23f304d8a2dfbc42981e68d2a3a0467
+      internalID: -2135810665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      weaponSprites_37: -816540595
+      weaponSprites_15: 158655438
+      weaponSprites_42: 224992375
+      weaponSprites_67: -1306067470
+      weaponSprites_69: 1837346372
+      weaponSprites_20: -1413426666
+      weaponSprites_30: 286716253
+      weaponSprites_76: -1363808890
+      weaponSprites_2: -546769550
+      weaponSprites_47: 1921562837
+      weaponSprites_6: -1851971562
+      weaponSprites_32: -703755487
+      weaponSprites_49: 214042376
+      weaponSprites_19: -734153310
+      weaponSprites_27: 1615131528
+      weaponSprites_71: -1441715543
+      weaponSprites_57: 682515858
+      weaponSprites_4: -963772042
+      weaponSprites_3: -1944661178
+      weaponSprites_44: -1334158559
+      weaponSprites_75: 1608562261
+      weaponSprites_7: -190320461
+      hand_axe_sprite: -2135810665
+      weaponSprites_9: -1595800706
+      weaponSprites_78: 1993202532
+      weaponSprites_58: -2126589906
+      weaponSprites_62: 2103448016
+      weaponSprites_54: -1754912598
+      weaponSprites_29: 1004005517
+      weaponSprites_45: -42857679
+      weaponSprites_38: -1343431601
+      weaponSprites_31: 72317171
+      weaponSprites_11: 200716553
+      weaponSprites_26: -1277062000
+      weaponSprites_18: -774009824
+      weaponSprites_64: 2029122386
+      weaponSprites_24: -1010311391
+      weaponSprites_13: -545968841
+      weaponSprites_34: 1035878508
+      sword_sprite: 1244502048
+      weaponSprites_59: 665604315
+      weaponSprites_36: 1505767787
+      weaponSprites_53: -1456249842
+      weaponSprites_16: -1719379348
+      weaponSprites_46: -391466137
+      weaponSprites_39: -139747513
+      weaponSprites_70: -2114132902
+      weaponSprites_10: -1630590180
+      weaponSprites_65: 1396475857
+      weaponSprites_33: 272311608
+      weaponSprites_48: 152879218
+      weaponSprites_52: -1256357712
+      weaponSprites_60: -285475512
+      weaponSprites_66: 92908965
+      weaponSprites_14: -2142396268
+      weaponSprites_25: -1773346634
+      weaponSprites_68: 774967109
+      weaponSprites_8: 389631148
+      weaponSprites_73: 1105385067
+      weaponSprites_12: 2064750651
+      weaponSprites_55: -372353394
+      weaponSprites_74: -850525280
+      weaponSprites_61: -137102505
+      weaponSprites_22: -1886555156
+      weaponSprites_43: 1592793036
+      weaponSprites_79: -1761636002
+      weaponSprites_35: -604979329
+      weaponSprites_28: 762672939
+      bow_sprite: 24949758
+      lance_sprite: 2056741204
+      weaponSprites_17: -1857176118
+      weaponSprites_77: -130299310
+      weaponSprites_63: -1493864889
+      weaponSprites_1: -252563013
+      weaponSprites_21: -555428711
+      weaponSprites_51: -604875145
+      axe_sprite: -443073551
+      weaponSprites_41: 126877556
+      weaponSprites_23: -1302813432
+      weaponSprites_72: -943351253
+      weaponSprites_56: 2012460963
+      weaponSprites_50: -754022524
+      weaponSprites_40: -2140365141
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

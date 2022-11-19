@@ -5,17 +5,27 @@ using System;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] GameObject hpBar;
+    private int barWidth = 16;
+    private int barHeight = 55;
+
+    [SerializeField] private GameObject _hpBar;
+    [SerializeField] private GameObject _emptyHpBar;
     [SerializeField] Text hpText;
 
-    public void SetupHP(float currentHp, float totalHp)
+    private void Start()
     {
+        barWidth = (int)_hpBar.GetComponent<RectTransform>().sizeDelta.x;
+        barHeight = (int)_hpBar.GetComponent<RectTransform>().sizeDelta.y;
+    }
 
-        hpBar.GetComponent<Image>().fillAmount = currentHp / totalHp;
+    public void SetupHP(int currentHp, float totalHp)
+    {
+        _emptyHpBar.GetComponent<RectTransform>().sizeDelta = new Vector2(barWidth * totalHp, barHeight);
+        _hpBar.GetComponent<RectTransform>().sizeDelta = new Vector2(barWidth * currentHp, barHeight);
         hpText.text = currentHp.ToString();
     }
 
-    public IEnumerator SetHP(float newHp, float maxHp)
+    public IEnumerator SetHP(float newHp)
     {
         //the current hp text
         float currentText = float.Parse(hpText.text);
@@ -23,27 +33,27 @@ public class HealthBar : MonoBehaviour
         float floatChangeAmount = currentText - newText;
 
         //new fill amount
-        float newFill = newHp / maxHp;
+        float newWidth = newHp * barWidth;
 
-        
+
         //current fill of the hp bar
-        float currentFill = hpBar.GetComponent<Image>().fillAmount;       
-        float changeAmount = currentFill - newFill;
+        float currentWidth = _hpBar.GetComponent<RectTransform>().sizeDelta.x; 
+        float changeAmount = currentWidth - newWidth;
 
         //if the new health is greater than the old health
-        var a = newFill > currentFill ? -1 : 1;
+        var a = newWidth > currentWidth ? -1 : 1;
 
-        while (a * (currentFill - newFill) > Mathf.Epsilon)
+        while (a * (currentWidth - newWidth) > Mathf.Epsilon)
         {
-            currentFill -= changeAmount * Time.deltaTime;
+            currentWidth -= changeAmount * Time.deltaTime;
             currentText -= floatChangeAmount * Time.deltaTime;
 
             hpText.text = ((int)currentText).ToString();
-            hpBar.GetComponent<Image>().fillAmount = currentFill;        
+            _hpBar.GetComponent<RectTransform>().sizeDelta = new Vector2(currentWidth, barHeight);       
             yield return null;
         }
 
         hpText.text = ((int)newHp).ToString();
-        hpBar.GetComponent<Image>().fillAmount = newFill;
+        _hpBar.GetComponent<RectTransform>().sizeDelta = new Vector2(newWidth, barHeight);
     }
 }

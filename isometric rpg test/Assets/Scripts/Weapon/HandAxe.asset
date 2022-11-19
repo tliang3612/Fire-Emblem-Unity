@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HandAxe
   m_EditorClassIdentifier: 
   Name: Hand Axe
-  WeaponSprite: {fileID: 0}
+  Sprite: {fileID: -2135810665, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
   Attack: 7
   Hit: 60
   Crit: 5

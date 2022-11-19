@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   Name: Sword
-  WeaponSprite: {fileID: -1465120094, guid: 30e7095b079b9cf489e23081fc986b12, type: 3}
+  Sprite: {fileID: 1244502048, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
   Attack: 9
   Hit: 75
   Crit: 20
@@ -22,3 +22,4 @@ MonoBehaviour:
   Type: 0
   HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
   CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
+  HasProjectile: 0

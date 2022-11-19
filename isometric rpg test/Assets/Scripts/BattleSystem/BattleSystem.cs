@@ -112,8 +112,6 @@ public class BattleSystem : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 yield return attacker.PlayBackupAnimation(currentAction.IsCrit);
 
-                Debug.Log("Enemy Hit");
-
                 if (range >= 2)
                     yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? -1f : 1f);
             }
@@ -160,14 +158,14 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator RunHealerSequence(BattleUnit healerUnit, BattleUnit allyUnit)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
 
-        yield return healerUnit.PlayHealAnimation();
+        yield return healerUnit.PlayAttackAnimation(false);
         allyUnit.Unit.ReceiveHealing(healerUnit.Unit.UnitAttack);
         allyUnit.PlayHealingReceivedAnimation();
         yield return allyUnit.HUD.UpdateHP();
 
-        yield return healerUnit.PlayHealBackupAnimation();
+        yield return healerUnit.PlayBackupAnimation(false);
         yield return new WaitForSeconds(0.5f);
 
         EndBattle();

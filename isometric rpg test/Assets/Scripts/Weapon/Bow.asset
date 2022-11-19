@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   Name: Bow
-  WeaponSprite: {fileID: 0}
+  Sprite: {fileID: 24949758, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
   Attack: 9
   Hit: 75
   Crit: 20

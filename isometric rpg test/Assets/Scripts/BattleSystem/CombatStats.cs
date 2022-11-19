@@ -3,6 +3,8 @@ using UnityEngine;
 public struct CombatStats
 {
     public string UnitName { get;}
+    public string WeaponName { get; }
+    public Sprite WeaponSprite { get; }
     public int HitStat { get; }
     public int CritStat { get; }
     public int DamageStat { get;}
@@ -17,19 +19,25 @@ public struct CombatStats
         EffectivenessStat = attacker.GetEffectiveness(defender.EquippedWeapon.Type);
         UnitName = attacker.UnitName;
 
-        if (attacker.EquippedWeapon.Range >= range)
-        {
-            CritStat = attacker.GetCritChance();
-            DamageStat = GetTotalDamage(attacker, defender);
-            HitStat = GetBattleAccuracy(attacker, defender);
-        }
-        else
-        {
-            HitStat = 0;
-            CritStat = 0;
-            DamageStat = 0;
 
-        }
+        HitStat = 0;
+        CritStat = 0;
+        DamageStat = 0;
+        WeaponName = " ";
+        WeaponSprite = null;
+
+        if (attacker.EquippedWeapon)
+        {
+            WeaponName = attacker.EquippedWeapon.Name;
+            WeaponSprite = attacker.EquippedWeapon.Sprite; 
+
+            if (attacker.EquippedWeapon.Range >= range)
+            {
+                CritStat = attacker.GetCritChance();
+                DamageStat = GetTotalDamage(attacker, defender);
+                HitStat = GetBattleAccuracy(attacker, defender);
+            }
+        }        
     }
 
     //Battle Accuracy formula = Accuracy – enemy’s Avoid

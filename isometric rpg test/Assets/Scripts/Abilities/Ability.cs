@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public abstract class Ability : MonoBehaviour
+public abstract class Ability : MonoBehaviour, IPointerClickHandler
 {
     public event EventHandler AbilitySelected;
     public event EventHandler AbilityDeselected;
@@ -69,11 +70,16 @@ public abstract class Ability : MonoBehaviour
     public virtual void CleanUp(TileGrid tileGrid) { }
 
     //Invoked when the ability communicates with the GUI controllers
-    public virtual void OnAbilitySelected(TileGrid tileGrid) { if(AbilitySelected != null) AbilitySelected.Invoke(this, EventArgs.Empty); }
-    public virtual void OnAbilityDeselected(TileGrid tileGrid) { if (AbilityDeselected != null) AbilityDeselected.Invoke(this, EventArgs.Empty); }
+    public virtual void OnAbilitySelected(TileGrid tileGrid) { AbilitySelected?.Invoke(this, EventArgs.Empty); }
+    public virtual void OnAbilityDeselected(TileGrid tileGrid) { AbilityDeselected?.Invoke(this, EventArgs.Empty); }
 
     public virtual void OnTurnStart(TileGrid tileGrid) { }
     public virtual void OnTurnEnd(TileGrid tileGrid) { }
 
     public virtual bool CanPerform(TileGrid tileGrid) { return true; }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        
+    }
 }

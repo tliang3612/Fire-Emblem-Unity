@@ -15,9 +15,9 @@ MonoBehaviour:
   Name: Lyn
   TotalMovementPoints: 7
   TotalActionPoints: 1
-  TotalHitPoints: 50
+  TotalHitPoints: 25
   BaseAttack: 8
-  BaseSkill: 10
+  BaseSkill: 12
   BaseSpeed: 14
   BaseLuck: 10
   BaseDefence: 5
@@ -26,5 +26,5 @@ MonoBehaviour:
   BattleSprite: {fileID: -1192792482, guid: c95a6d029a0f99941ab88bcd809c976e, type: 3}
   BattleAnimController: {fileID: 9100000, guid: fa6ee33bd86053f4593d178656c9c5ae, type: 2}
   StartingItems:
-  - {fileID: 11400000, guid: b670037712873eb4684dfd3211c41585, type: 2}
   - {fileID: 11400000, guid: 9699cdf36751da04ca5cd0d8cd2e1881, type: 2}
+  - {fileID: 11400000, guid: b670037712873eb4684dfd3211c41585, type: 2}

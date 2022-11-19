@@ -33,7 +33,7 @@ public class Unit : MonoBehaviour, IClickable
         UnitState.TransitionState(state);
     }
 
-    public OverlayTile Tile;
+    public OverlayTile Tile { get; set; }
     private Animator Anim;
     public float MovementAnimationSpeed = 7f;
 

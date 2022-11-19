@@ -28,7 +28,7 @@ public class BattleUnit : MonoBehaviour
 
     public void SetupAttack(CombatStats stats, BattleUnit battleUnitToAttack)
     {
-
+        
         _animationStateKey = Unit.EquippedWeapon.Name;
 
         SetUp(battleUnitToAttack);
@@ -82,6 +82,8 @@ public class BattleUnit : MonoBehaviour
     
     public IEnumerator PlayAttackAnimation(bool isCrit)
     {
+        GetComponent<Canvas>().sortingOrder = 2;
+
         if (isCrit)
             anim.SetTrigger("Crit");
         else
@@ -114,6 +116,7 @@ public class BattleUnit : MonoBehaviour
         {
             yield return null;
         }
+        GetComponent<Canvas>().sortingOrder = 1;
     }
 
     public IEnumerator PlayDodgeAnimation()
@@ -149,29 +152,6 @@ public class BattleUnit : MonoBehaviour
 
         if (hitEffect.CanDimBackground)
             UndimBackground();
-    }
-
-    public IEnumerator PlayHealAnimation()
-    {
-        anim.SetTrigger("Heal");
-        isAnimationPlaying = true;
-
-        while (isAnimationPlaying)
-        {
-            yield return null;
-        }
-    }
-
-    public IEnumerator PlayHealBackupAnimation()
-    {
-        anim.SetTrigger("HealBackup");
-
-        isAnimationPlaying = true;
-        while (isAnimationPlaying)
-        {
-            yield return null;
-        }
-
     }
 
     public void PlayHealingReceivedAnimation()
