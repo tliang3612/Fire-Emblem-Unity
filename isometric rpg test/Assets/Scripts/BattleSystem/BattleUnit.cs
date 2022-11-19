@@ -71,7 +71,8 @@ public class BattleUnit : MonoBehaviour
     {
         _unitToAttack = battleUnitToAttack;
 
-        GetComponent<Image>().sprite = Unit.UnitBattleSprite;
+        GetComponent<Image>().color = Color.white;
+
         originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         background = GameObject.Find("DimBackground").GetComponent<Image>();
 
@@ -172,13 +173,13 @@ public class BattleUnit : MonoBehaviour
     public void MoveTowardsEnemy()
     {
         var toDestinationInLocalSpace = _unitToAttack.GetComponent<RectTransform>().anchoredPosition - GetComponent<RectTransform>().anchoredPosition;
-        GetComponent<RectTransform>().DOAnchorPos(toDestinationInLocalSpace, .3f).SetRelative(true);
+        GetComponent<RectTransform>().DOAnchorPosX(toDestinationInLocalSpace.x, .3f).SetRelative(true);
     }
 
     public void MoveBackToPosition()
     {
         var toDestinationInLocalSpace = originalAnchoredPosition - GetComponent<RectTransform>().anchoredPosition;
-        GetComponent<RectTransform>().DOAnchorPos(toDestinationInLocalSpace, .2f).SetRelative(true);
+        GetComponent<RectTransform>().DOAnchorPosX(toDestinationInLocalSpace.x, .2f).SetRelative(true);
     }
 
     public IEnumerator ShootProjectile(GameObject projectileObject)
@@ -205,6 +206,7 @@ public class BattleUnit : MonoBehaviour
 
     public void EndBattleAnimation()
     {
+        GetComponent<Image>().color = Color.clear;
         anim.SetBool(_animationStateKey, false);
     }
 

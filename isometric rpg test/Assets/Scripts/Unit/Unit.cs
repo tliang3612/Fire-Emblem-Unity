@@ -54,7 +54,9 @@ public class Unit : MonoBehaviour, IClickable
 
     public string UnitName { get; private set; }
     public Sprite UnitPortrait { get; private set; }
-    public Sprite UnitBattleSprite { get; private set; }
+    public Sprite UnitMapSprite { get; private set; }
+    public Sprite UnitMugshot { get; private set; }
+
     public RuntimeAnimatorController BattleAnimController { get; private set; }
 
     public List<Item> Inventory { get; private set; }   
@@ -152,8 +154,11 @@ public class Unit : MonoBehaviour, IClickable
         UnitLuck = baseInfo.BaseLuck;
         UnitSkill = baseInfo.BaseSkill;
         UnitConst = baseInfo.BaseConst;
+
         UnitPortrait = baseInfo.Portrait;
-        UnitBattleSprite = baseInfo.BattleSprite;
+        UnitMapSprite = baseInfo.MapSprite;
+        UnitMugshot = baseInfo.Mugshot;
+
         BattleAnimController = baseInfo.BattleAnimController;
         Inventory = baseInfo.StartingItems;
     }

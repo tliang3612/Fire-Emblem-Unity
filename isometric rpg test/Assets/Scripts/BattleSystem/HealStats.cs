@@ -10,7 +10,7 @@ public struct HealStats
 
     public HealStats(Unit healer, Unit ally) : this()
     {
-        AllySprite = ally.UnitBattleSprite;
+        AllySprite = ally.UnitMapSprite;
         AllyName = ally.UnitName;
         HealAmount = healer.EquippedStaff.HealAmount;
         CurrentHealthStat = ally.HitPoints;

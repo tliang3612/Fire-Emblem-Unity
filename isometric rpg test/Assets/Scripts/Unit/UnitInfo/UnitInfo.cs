@@ -19,7 +19,9 @@ public class UnitInfo : ScriptableObject
     public int BaseConst;
        
     public Sprite Portrait;
-    public Sprite BattleSprite;
+    public Sprite Mugshot;
+    public Sprite MapSprite;
+
     public RuntimeAnimatorController BattleAnimController;
     public List<Item> StartingItems;
 

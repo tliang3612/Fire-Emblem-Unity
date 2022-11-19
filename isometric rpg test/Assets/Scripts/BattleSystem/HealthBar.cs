@@ -5,17 +5,17 @@ using System;
 
 public class HealthBar : MonoBehaviour
 {
-    private int barWidth = 16;
-    private int barHeight = 55;
+    private float barWidth = 16;
+    private float barHeight = 55;
 
     [SerializeField] private GameObject _hpBar;
     [SerializeField] private GameObject _emptyHpBar;
     [SerializeField] Text hpText;
 
-    private void Start()
+    private void Awake()
     {
-        barWidth = (int)_hpBar.GetComponent<RectTransform>().sizeDelta.x;
-        barHeight = (int)_hpBar.GetComponent<RectTransform>().sizeDelta.y;
+        barWidth = _hpBar.GetComponent<RectTransform>().sizeDelta.x;
+        barHeight = _hpBar.GetComponent<RectTransform>().sizeDelta.y;
     }
 
     public void SetupHP(int currentHp, float totalHp)

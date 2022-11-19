@@ -22,8 +22,9 @@ MonoBehaviour:
   BaseLuck: 3
   BaseDefence: 2
   BaseConst: 6
-  Portrait: {fileID: 1643626598, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
-  BattleSprite: {fileID: 1643626598, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
+  Portrait: {fileID: 745444699, guid: 9c2d6387d8de5fd4891f9677ada7dd59, type: 3}
+  Mugshot: {fileID: 107411, guid: 9c2d6387d8de5fd4891f9677ada7dd59, type: 3}
+  MapSprite: {fileID: 382127858, guid: a0efa4a5d34bb364c92a7fd7cf1f1b95, type: 3}
   BattleAnimController: {fileID: 9100000, guid: 5ab9d025f2ed6db4f9c69e86a725af62, type: 2}
   StartingItems:
   - {fileID: 11400000, guid: 846691757ba109d4394cc964cb685b0d, type: 2}

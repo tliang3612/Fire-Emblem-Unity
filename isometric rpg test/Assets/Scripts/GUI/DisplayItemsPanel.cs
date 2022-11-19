@@ -22,11 +22,14 @@ public class DisplayItemsPanel : GUIPanel
 
     [SerializeField] private GameObject _weaponStatPanel;
     [SerializeField] private GameObject _itemDescriptionPanel;
+    [SerializeField] private Image _unitMugshot;
 
     private List<GameObject> ButtonList;
+    private Unit _unit;
+
     public GameObject ActionButton;
 
-    public Action<Weapon, Unit> MouseEntered;
+    public Action<Weapon> MouseEntered;
 
     public void Bind(SelectItemToUseAbility ability)
     {
@@ -40,28 +43,28 @@ public class DisplayItemsPanel : GUIPanel
         var actionButton = Instantiate(ActionButton, menuActions.transform);
         actionButton.GetComponentInChildren<Text>().text = e.ButtonName;
         actionButton.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(e.ButtonAction));
-        actionButton.GetComponent<EquipButton>().SetData(e.Unit, e.Item, OnItemStatsChanged);
+        actionButton.GetComponent<EquipButton>().SetData(e.Item, OnItemStatsChanged);
         ButtonList.Add(actionButton);
     }
 
-    private void OnItemStatsChanged(Item i, Unit unit)
+    private void OnItemStatsChanged(Item i)
     {
         if(i is Weapon)
         {
-            DisplayWeaponStats(i as Weapon, unit);
+            DisplayWeaponStats(i as Weapon);
         }      
 
         if(i is Staff)
         {
-            DisplayStaffStats(i as Staff, unit);
+            DisplayStaffStats(i as Staff);
         }
     }
 
-    private void DisplayWeaponStats(Weapon w, Unit unit)
+    private void DisplayWeaponStats(Weapon w)
     {
         ShowWeaponStats();
 
-        var weaponStats = unit.GetPreviewWeaponStats(w);
+        var weaponStats = _unit.GetPreviewWeaponStats(w);
 
         AtkText.text = weaponStats.WeaponAttack;
         CritText.text = weaponStats.WeaponCrit;
@@ -69,7 +72,7 @@ public class DisplayItemsPanel : GUIPanel
         AvoText.text = weaponStats.WeaponAvoid;
     }
 
-    private void DisplayStaffStats(Staff s, Unit unit)
+    private void DisplayStaffStats(Staff s)
     {
         ShowItemDescription();
         Description.text = "Heal a unit for " + s.HealAmount + " health";
@@ -79,6 +82,12 @@ public class DisplayItemsPanel : GUIPanel
     {
         base.OnAbilitySelected(sender, e);
         ClearStats();
+
+        _unit = (sender as Ability).UnitReference;
+
+        _unitMugshot.sprite = _unit.UnitMugshot;
+        _unitMugshot.color = Color.white;
+
         ButtonList = new List<GameObject>();
     }
 
@@ -115,6 +124,9 @@ public class DisplayItemsPanel : GUIPanel
 
         _itemDescriptionPanel.SetActive(false);
         _weaponStatPanel.SetActive(false);
+
+        _unitMugshot.sprite = null;
+        _unitMugshot.color = Color.clear;
     }
 }
 

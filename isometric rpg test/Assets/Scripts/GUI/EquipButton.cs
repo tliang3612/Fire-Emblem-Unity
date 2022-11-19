@@ -6,20 +6,18 @@ using System;
 
 public class EquipButton : MonoBehaviour, IPointerEnterHandler
 {
-    private Action<Item, Unit> _mouseEntered;
+    private Action<Item> _mouseEntered;
 
     private Item _item;
-    private Unit _unit;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _mouseEntered?.Invoke(_item, _unit);
+        _mouseEntered?.Invoke(_item);
     }
 
-    public void SetData(Unit unit, Item item, Action<Item, Unit> mouseEntered = null)
+    public void SetData(Item item, Action<Item> mouseEntered = null)
     {
         _item = item;
-        _unit = unit;
 
         _mouseEntered = mouseEntered;
     }  
