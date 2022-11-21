@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public abstract class Ability : MonoBehaviour, IPointerClickHandler
+public abstract class Ability : MonoBehaviour
 {
     public event EventHandler AbilitySelected;
     public event EventHandler AbilityDeselected;
@@ -20,13 +20,16 @@ public abstract class Ability : MonoBehaviour, IPointerClickHandler
     {
         UnitReference = GetComponentInParent<Unit>();
         IsDisplayable = false;
-        Name = "Ability";
     }
 
     public IEnumerator Execute(TileGrid tileGrid, Action<TileGrid> preAction, Action<TileGrid> postAction)
     {
-        yield return StartCoroutine(Act(tileGrid, preAction, postAction));
-            
+        yield return StartCoroutine(Act(tileGrid, preAction, postAction));           
+    }
+
+    public IEnumerator TransitionAbility(TileGrid tileGrid, Ability nextAbility)
+    {
+        yield return Execute(tileGrid, _ => { }, _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, nextAbility));
     }
 
     public IEnumerator HumanExecute(TileGrid tileGrid)
@@ -64,8 +67,12 @@ public abstract class Ability : MonoBehaviour, IPointerClickHandler
     }
     public virtual void OnUnitDestroyed(TileGrid tileGrid) { }
     public virtual void OnTileClicked(OverlayTile tile, TileGrid tileGrid) { }
+
     public virtual void OnTileSelected(OverlayTile tile, TileGrid tileGrid) { }
     public virtual void OnTileDeselected(OverlayTile tile, TileGrid tileGrid) { }
+
+    public virtual void OnRightClick(TileGrid tileGrid) { }
+
     public virtual void Display(TileGrid tileGrid) { }
     public virtual void CleanUp(TileGrid tileGrid) { }
 
@@ -78,8 +85,5 @@ public abstract class Ability : MonoBehaviour, IPointerClickHandler
 
     public virtual bool CanPerform(TileGrid tileGrid) { return true; }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        
-    }
+    
 }

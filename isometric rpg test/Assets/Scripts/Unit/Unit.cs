@@ -35,6 +35,8 @@ public class Unit : MonoBehaviour, IClickable
 
     public OverlayTile Tile { get; set; }
     private Animator Anim;
+    private Sprite _sprite;
+    private Texture2D _texture;
     public float MovementAnimationSpeed = 7f;
 
     [SerializeField]
@@ -120,6 +122,11 @@ public class Unit : MonoBehaviour, IClickable
 
     private AStarPathfinder _pathfinder = new AStarPathfinder();
     private RangeFinder rangeFinder;
+
+    public void Awake()
+    {
+        _sprite = GetComponent<SpriteRenderer>().sprite;
+    }
 
     //Initializes the Unit. Called whenever a Unit gets added into the game
     public virtual void Initialize()
@@ -284,7 +291,7 @@ public class Unit : MonoBehaviour, IClickable
         }
         else
         {
-            Debug.Log("Unit have contain that item");
+            Debug.Log("Unit doesn't contain that item");
         }
         
     }
@@ -539,7 +546,48 @@ public class Unit : MonoBehaviour, IClickable
 
     public virtual void MarkAsEnemy(Player player)
     {
-        GetComponent<SpriteRenderer>().color = player.Color;
+        /*Texture2D newTexture = new Texture2D(_sprite.texture.width, _sprite.texture.height);
+
+        for (int x = 0; x < newTexture.width; x++)
+        {
+            for (int y = 0; y < newTexture.height; y++)
+            {
+                //if the pixel at coord (x,y) is a certain color, set it to the player's color
+                if (_sprite.texture.GetPixel(x, y) == new Color32(24, 240, 248, 255) || _sprite.texture.GetPixel(x, y) == new Color32(56, 80, 224, 255))
+                {
+                    newTexture.SetPixel(x, y, Color.red);
+                }
+                else
+                {
+                    newTexture.SetPixel(x, y, _sprite.texture.GetPixel(x, y));
+                }
+            }
+        }
+        newTexture.Apply();
+
+        _sprite.texture.SetPixels32(newTexture.GetPixels32());*/
+
+
+        Texture2D texture = _sprite.texture;
+
+        for (int x = 0; x < texture.width; x++)
+        {
+            for (int y = 0; y < texture.height; y++)
+            {
+                //if the pixel at coord (x,y) is a certain color, set it to the player's color
+                if (texture.GetPixel(x, y) == Color.red)
+                {
+                    texture.SetPixel(x, y, new Color32(24, 240, 248, 255));
+                }
+                else
+                {
+                    texture.SetPixel(x, y, texture.GetPixel(x, y));
+                }
+            }
+        }
+        texture.Apply();
+
+        //GetComponent<SpriteRenderer>().color = player.Color;
     }
 
     //Return the Unit back to its original appearance

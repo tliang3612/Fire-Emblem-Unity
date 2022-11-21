@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MouseManager : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
+    [SerializeField] private TileGrid _tileGrid;
 
     private void Update()
     {
@@ -17,9 +19,13 @@ public class MouseManager : MonoBehaviour
             {
                 IClickable objectHit = hit.collider.GetComponent<IClickable>();
                 objectHit.OnPointerDown();
-            }
-            
+            }         
         }
-        
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            _tileGrid.OnRightMouseClicked();
+        }
+
     }
 }

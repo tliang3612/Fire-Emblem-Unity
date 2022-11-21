@@ -45,10 +45,9 @@ public abstract class GUIPanel : MonoBehaviour
 
         //Gets the screen point of the ability's position
         var worldToScreenPoint = mainCamera.WorldToScreenPoint((sender as Ability).transform.position);
-        //Get the center of the screen
-        var halfViewPoint = mainCamera.pixelWidth / 2;
+
         //Check to see if the the ability's transform.x is greater than the center of the screen
-        if (worldToScreenPoint.x > halfViewPoint)
+        if (worldToScreenPoint.x > halfViewPoint.x)
         {
             Panel.GetComponent<RectTransform>().anchoredPosition = new Vector2(-rightPanelPosition.x, rightPanelPosition.y);
         }

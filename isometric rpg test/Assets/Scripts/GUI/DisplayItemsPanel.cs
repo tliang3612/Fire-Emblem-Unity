@@ -80,7 +80,8 @@ public class DisplayItemsPanel : GUIPanel
 
     protected override void OnAbilitySelected(object sender, EventArgs e)
     {
-        base.OnAbilitySelected(sender, e);
+        SetState(GUIState.InAbilitySelection);
+        Panel.SetActive(true);
         ClearStats();
 
         _unit = (sender as Ability).UnitReference;

@@ -39,14 +39,16 @@ public class GUIController : MonoBehaviour
 
         tileGrid.UnitAdded += OnUnitAdded;
         overlayPanel.Bind(tileGrid);
+
+        foreach (GUIPanel panel in FindObjectsOfType<GUIPanel>())
+        {
+            panel.ReceivePanelPosition(topRightPosition, rightPanelPosition);
+        }
     }
 
     protected virtual void Start()
     {
-        foreach (GUIPanel panel in GetComponentsInChildren<GUIPanel>())
-        {
-            panel.ReceivePanelPosition(topRightPosition, rightPanelPosition);
-        }       
+         
     }
 
     public virtual void OnUnitAdded(object sender, UnitCreatedEventArgs e)

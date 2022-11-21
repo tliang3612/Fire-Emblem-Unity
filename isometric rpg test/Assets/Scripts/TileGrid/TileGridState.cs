@@ -57,6 +57,10 @@ public abstract class TileGridState
     {
     }
 
+    public virtual void OnRightClick()
+    {       
+    }
+
     /// <summary>
     /// Method is called on transitioning into a state.
     /// </summary>

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 1920101064, guid: c95a6d029a0f99941ab88bcd809c976e, type: 3}
+  m_Sprite: {fileID: 2009004549, guid: dd2561604efa69e4f866bbdc9f893287, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,8 +104,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6875, y: 0.5}
-    oldSize: {x: 0.8888889, y: 0.8888889}
+    pivot: {x: 0.54838705, y: 0.48387095}
+    oldSize: {x: 1.6111112, y: 1.6111112}
     newSize: {x: 1.0625, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -126,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6c4f19daf8e734f8c5d16c7841b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tile: {fileID: 0}
   MovementAnimationSpeed: 7
   baseInfo: {fileID: 11400000, guid: 3401e12f1c604e34885998d06a21c1e4, type: 2}
   <MovementPoints>k__BackingField: 0

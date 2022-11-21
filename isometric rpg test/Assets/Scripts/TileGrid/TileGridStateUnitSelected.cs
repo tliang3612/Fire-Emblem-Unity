@@ -46,6 +46,11 @@ public class TileGridStateUnitSelected : TileGridState
         _abilities.ForEach(a => a.OnTileDeselected(tile, _tileGrid));
     }
 
+    public override void OnRightClick()
+    {
+        _abilities.ForEach(a => a.OnRightClick(_tileGrid));
+    }
+
     public override void OnStateEnter()
     {
         _unit?.OnUnitSelected();

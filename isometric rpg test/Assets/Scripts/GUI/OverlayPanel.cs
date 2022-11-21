@@ -101,6 +101,11 @@ public class OverlayPanel : GUIPanel
         HideMenuOptionsPanel();
     }
 
+    public void OnTileRightClicked(object sender, EventArgs e)
+    {
+
+    }
+
     protected virtual void OnTileClicked(object sender, EventArgs e)
     {
         //we dont want to register tile click when mouse is over UI

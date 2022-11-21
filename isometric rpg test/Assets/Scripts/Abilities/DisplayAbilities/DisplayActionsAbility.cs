@@ -58,6 +58,13 @@ public class DisplayActionsAbility : DisplayAbility
     {
         return true;
     }
+
+    public override void OnRightClick(TileGrid tileGrid)
+    {
+        UnitReference.ResetMove();
+        UnitReference.SetState(new UnitStateNormal(UnitReference));
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<MoveAbility>()));
+    }
 }
 
 public class ActionButtonCreatedEventArgs : EventArgs

@@ -67,13 +67,6 @@ public class MoveAbility : Ability
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
             _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
         }
-        else
-        {
-            tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
-            //We call this to inform GUI that the move has been cancelled, which allows the GUI to show 
-            base.OnAbilityDeselected(tileGrid);
-            UnitReference.SetState(new UnitStateNormal(UnitReference));
-        }
     }
 
     public override void OnTileSelected(OverlayTile tile, TileGrid tileGrid)
@@ -108,9 +101,12 @@ public class MoveAbility : Ability
         _tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
     }
 
-    public override void OnAbilityDeselected(TileGrid tileGrid)
+    public override void OnRightClick(TileGrid tileGrid)
     {
-        
+        tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
+        //We call this to inform GUI that the move has been cancelled, which allows the GUI to show 
+        OnAbilityDeselected(tileGrid);
+        UnitReference.SetState(new UnitStateNormal(UnitReference));
     }
 
     public override void CleanUp(TileGrid tileGrid)

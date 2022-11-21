@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -43,11 +43,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 2
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 17
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,8 +69,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 2
+    textureFormat: 4
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,6 +101,42 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -108,10 +144,10 @@ TextureImporter:
       name: eliwood_map_0
       rect:
         serializedVersion: 2
-        x: 186
-        y: 517
-        width: 31
-        height: 31
+        x: 187
+        y: 518
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +165,10 @@ TextureImporter:
       name: eliwood_map_1
       rect:
         serializedVersion: 2
-        x: 186
-        y: 485
-        width: 31
-        height: 31
+        x: 187
+        y: 486
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +186,10 @@ TextureImporter:
       name: eliwood_map_2
       rect:
         serializedVersion: 2
-        x: 186
-        y: 453
-        width: 31
-        height: 31
+        x: 187
+        y: 454
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +207,10 @@ TextureImporter:
       name: eliwood_map_3
       rect:
         serializedVersion: 2
-        x: 219
-        y: 549
-        width: 31
-        height: 31
+        x: 220
+        y: 550
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +228,10 @@ TextureImporter:
       name: eliwood_map_4
       rect:
         serializedVersion: 2
-        x: 219
-        y: 517
-        width: 31
-        height: 31
+        x: 220
+        y: 518
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +249,10 @@ TextureImporter:
       name: eliwood_map_5
       rect:
         serializedVersion: 2
-        x: 219
-        y: 485
-        width: 31
-        height: 31
+        x: 220
+        y: 486
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +270,10 @@ TextureImporter:
       name: eliwood_map_6
       rect:
         serializedVersion: 2
-        x: 219
-        y: 453
-        width: 31
-        height: 31
+        x: 220
+        y: 454
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +291,10 @@ TextureImporter:
       name: eliwood_map_7
       rect:
         serializedVersion: 2
-        x: 252
-        y: 549
-        width: 31
-        height: 31
+        x: 253
+        y: 550
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +312,10 @@ TextureImporter:
       name: eliwood_map_8
       rect:
         serializedVersion: 2
-        x: 252
-        y: 517
-        width: 31
-        height: 31
+        x: 253
+        y: 518
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +333,10 @@ TextureImporter:
       name: eliwood_map_9
       rect:
         serializedVersion: 2
-        x: 252
-        y: 485
-        width: 31
-        height: 31
+        x: 253
+        y: 486
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +354,10 @@ TextureImporter:
       name: eliwood_map_10
       rect:
         serializedVersion: 2
-        x: 252
-        y: 453
-        width: 31
-        height: 31
+        x: 253
+        y: 454
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +375,10 @@ TextureImporter:
       name: eliwood_map_11
       rect:
         serializedVersion: 2
-        x: 285
-        y: 549
-        width: 31
-        height: 31
+        x: 286
+        y: 550
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +396,10 @@ TextureImporter:
       name: eliwood_map_12
       rect:
         serializedVersion: 2
-        x: 285
-        y: 517
-        width: 31
-        height: 31
+        x: 286
+        y: 518
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,10 +417,10 @@ TextureImporter:
       name: eliwood_map_13
       rect:
         serializedVersion: 2
-        x: 285
-        y: 485
-        width: 31
-        height: 31
+        x: 286
+        y: 486
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,9 +439,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 285
-        y: 453
-        width: 31
-        height: 31
+        y: 454
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,10 +459,10 @@ TextureImporter:
       name: eliwood_map_15
       rect:
         serializedVersion: 2
-        x: 318
-        y: 517
-        width: 31
-        height: 31
+        x: 319
+        y: 518
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,10 +480,10 @@ TextureImporter:
       name: eliwood_map_16
       rect:
         serializedVersion: 2
-        x: 318
-        y: 485
-        width: 31
-        height: 31
+        x: 319
+        y: 486
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -465,10 +501,10 @@ TextureImporter:
       name: eliwood_map_17
       rect:
         serializedVersion: 2
-        x: 318
-        y: 453
-        width: 31
-        height: 31
+        x: 319
+        y: 454
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -486,10 +522,10 @@ TextureImporter:
       name: hector_map_0
       rect:
         serializedVersion: 2
-        x: 365
-        y: 253
-        width: 31
-        height: 31
+        x: 366
+        y: 254
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -507,10 +543,10 @@ TextureImporter:
       name: hector_map_1
       rect:
         serializedVersion: 2
-        x: 365
-        y: 221
-        width: 31
-        height: 31
+        x: 366
+        y: 222
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -528,10 +564,10 @@ TextureImporter:
       name: hector_map_2
       rect:
         serializedVersion: 2
-        x: 365
-        y: 189
-        width: 31
-        height: 31
+        x: 366
+        y: 190
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -550,9 +586,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 398
-        y: 285
-        width: 31
-        height: 31
+        y: 286
+        width: 30
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -570,10 +606,10 @@ TextureImporter:
       name: hector_map_4
       rect:
         serializedVersion: 2
-        x: 398
-        y: 253
-        width: 31
-        height: 31
+        x: 399
+        y: 254
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -591,10 +627,10 @@ TextureImporter:
       name: hector_map_5
       rect:
         serializedVersion: 2
-        x: 398
-        y: 221
-        width: 31
-        height: 31
+        x: 399
+        y: 222
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,10 +648,10 @@ TextureImporter:
       name: hector_map_6
       rect:
         serializedVersion: 2
-        x: 398
-        y: 189
-        width: 31
-        height: 31
+        x: 399
+        y: 190
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -633,10 +669,10 @@ TextureImporter:
       name: hector_map_7
       rect:
         serializedVersion: 2
-        x: 431
-        y: 285
-        width: 31
-        height: 31
+        x: 432
+        y: 286
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -654,10 +690,10 @@ TextureImporter:
       name: hector_map_8
       rect:
         serializedVersion: 2
-        x: 431
-        y: 253
-        width: 31
-        height: 31
+        x: 432
+        y: 254
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -675,10 +711,10 @@ TextureImporter:
       name: hector_map_9
       rect:
         serializedVersion: 2
-        x: 431
-        y: 221
-        width: 31
-        height: 31
+        x: 432
+        y: 222
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -696,10 +732,10 @@ TextureImporter:
       name: hector_map_10
       rect:
         serializedVersion: 2
-        x: 431
-        y: 189
-        width: 31
-        height: 31
+        x: 432
+        y: 190
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -717,10 +753,10 @@ TextureImporter:
       name: hector_map_11
       rect:
         serializedVersion: 2
-        x: 464
-        y: 285
-        width: 31
-        height: 31
+        x: 465
+        y: 286
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -738,10 +774,10 @@ TextureImporter:
       name: hector_map_12
       rect:
         serializedVersion: 2
-        x: 464
-        y: 253
-        width: 31
-        height: 31
+        x: 465
+        y: 254
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -759,10 +795,10 @@ TextureImporter:
       name: hector_map_13
       rect:
         serializedVersion: 2
-        x: 464
-        y: 221
-        width: 31
-        height: 31
+        x: 465
+        y: 222
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -780,10 +816,10 @@ TextureImporter:
       name: hector_map_14
       rect:
         serializedVersion: 2
-        x: 464
-        y: 189
-        width: 31
-        height: 31
+        x: 465
+        y: 190
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -801,12 +837,12 @@ TextureImporter:
       name: hector_map_15
       rect:
         serializedVersion: 2
-        x: 497
-        y: 253
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 498
+        y: 254
+        width: 29
+        height: 29
+      alignment: 9
+      pivot: {x: 0.48387095, y: 0.4516129}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -823,11 +859,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 497
-        y: 221
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 222
+        width: 30
+        height: 29
+      alignment: 9
+      pivot: {x: 0.61290324, y: 0.4516129}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -844,11 +880,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 497
-        y: 189
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 190
+        width: 30
+        height: 29
+      alignment: 9
+      pivot: {x: 0.58064514, y: 0.4516129}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -864,12 +900,12 @@ TextureImporter:
       name: lyn_map_0
       rect:
         serializedVersion: 2
-        x: 365
-        y: 385
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 366
+        y: 386
+        width: 29
+        height: 29
+      alignment: 9
+      pivot: {x: 0.58064514, y: 0.4516129}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -885,12 +921,12 @@ TextureImporter:
       name: lyn_map_1
       rect:
         serializedVersion: 2
-        x: 365
-        y: 353
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 366
+        y: 354
+        width: 29
+        height: 29
+      alignment: 9
+      pivot: {x: 0.516129, y: 0.4516129}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -906,12 +942,12 @@ TextureImporter:
       name: lyn_map_2
       rect:
         serializedVersion: 2
-        x: 365
-        y: 321
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 366
+        y: 322
+        width: 29
+        height: 29
+      alignment: 9
+      pivot: {x: 0.54838705, y: 0.48387095}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -927,10 +963,10 @@ TextureImporter:
       name: lyn_map_3
       rect:
         serializedVersion: 2
-        x: 398
-        y: 417
-        width: 31
-        height: 31
+        x: 399
+        y: 418
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -948,10 +984,10 @@ TextureImporter:
       name: lyn_map_4
       rect:
         serializedVersion: 2
-        x: 398
-        y: 385
-        width: 31
-        height: 31
+        x: 399
+        y: 386
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -969,10 +1005,10 @@ TextureImporter:
       name: lyn_map_5
       rect:
         serializedVersion: 2
-        x: 398
-        y: 353
-        width: 31
-        height: 31
+        x: 399
+        y: 354
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -990,10 +1026,10 @@ TextureImporter:
       name: lyn_map_6
       rect:
         serializedVersion: 2
-        x: 398
-        y: 321
-        width: 31
-        height: 31
+        x: 399
+        y: 322
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1011,10 +1047,10 @@ TextureImporter:
       name: lyn_map_7
       rect:
         serializedVersion: 2
-        x: 431
-        y: 417
-        width: 31
-        height: 31
+        x: 432
+        y: 418
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1032,10 +1068,10 @@ TextureImporter:
       name: lyn_map_8
       rect:
         serializedVersion: 2
-        x: 431
-        y: 385
-        width: 31
-        height: 31
+        x: 432
+        y: 386
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1053,10 +1089,10 @@ TextureImporter:
       name: lyn_map_9
       rect:
         serializedVersion: 2
-        x: 431
-        y: 353
-        width: 31
-        height: 31
+        x: 432
+        y: 354
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1074,10 +1110,10 @@ TextureImporter:
       name: lyn_map_10
       rect:
         serializedVersion: 2
-        x: 431
-        y: 321
-        width: 31
-        height: 31
+        x: 432
+        y: 322
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1095,10 +1131,10 @@ TextureImporter:
       name: lyn_map_11
       rect:
         serializedVersion: 2
-        x: 464
-        y: 417
-        width: 31
-        height: 31
+        x: 465
+        y: 418
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1116,10 +1152,10 @@ TextureImporter:
       name: lyn_map_12
       rect:
         serializedVersion: 2
-        x: 464
-        y: 385
-        width: 31
-        height: 31
+        x: 465
+        y: 386
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1137,10 +1173,10 @@ TextureImporter:
       name: lyn_map_13
       rect:
         serializedVersion: 2
-        x: 464
-        y: 353
-        width: 31
-        height: 31
+        x: 465
+        y: 354
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1158,10 +1194,10 @@ TextureImporter:
       name: lyn_map_14
       rect:
         serializedVersion: 2
-        x: 464
-        y: 321
-        width: 31
-        height: 31
+        x: 465
+        y: 322
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1179,12 +1215,12 @@ TextureImporter:
       name: lyn_map_15
       rect:
         serializedVersion: 2
-        x: 497
-        y: 385
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 498
+        y: 386
+        width: 29
+        height: 29
+      alignment: 9
+      pivot: {x: 0.55172414, y: 0.3448276}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1200,12 +1236,12 @@ TextureImporter:
       name: lyn_map_16
       rect:
         serializedVersion: 2
-        x: 497
-        y: 353
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 498
+        y: 354
+        width: 29
+        height: 29
+      alignment: 9
+      pivot: {x: 0.55172414, y: 0.3448276}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1221,12 +1257,12 @@ TextureImporter:
       name: lyn_map_17
       rect:
         serializedVersion: 2
-        x: 497
-        y: 321
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 498
+        y: 322
+        width: 29
+        height: 29
+      alignment: 9
+      pivot: {x: 0.55172414, y: 0.3448276}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1234,6 +1270,384 @@ TextureImporter:
       bones: []
       spriteID: 7078f278f95615c429667c7e53e2e897
       internalID: -1186428517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 68
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2989bab474f64124fa20822fd9cea3db
+      internalID: 373730995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 36
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63009a16495f5847a74a1c62e031488
+      internalID: 1293144245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 4
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69507e85e53063843bf962a8961eb38f
+      internalID: 569251646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 100
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031e127d119f59544aca6672c110a0f8
+      internalID: -400533847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_4
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 68
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d288ce305ebd7884184a18a6c3fe713f
+      internalID: 1306836005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_5
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 36
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0aae57a145678489857a71c4c23787
+      internalID: -575234175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_6
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 4
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3daaf3455fd4a924da2bbe06a03ef6f0
+      internalID: -1283022463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_7
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 100
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fa17c6cc1173f948b7a47a7fc70492a
+      internalID: -1149445137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_8
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 68
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f6fca606b546842b44a9ea5b2f86ed
+      internalID: -1378741157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_9
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 36
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996ad55a5b73fc347ac9a4c34e4d34bb
+      internalID: 1517662927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 4
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8965337f7302cc64dab6dd73e83ce8b2
+      internalID: -2042303464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_11
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 100
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2853ac50b10a8604fb4d1820b0f1ad55
+      internalID: -977775359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_12
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 68
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d59317d88c8fc49be69b6590769556
+      internalID: 946159391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_13
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 36
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f41a279ae20fda4086f0d2a01484dc8
+      internalID: 580728021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_14
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 4
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eff2b051730f5f4f8dcce1ef42424b8
+      internalID: 1463137500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_15
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 68
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ab64aff8a0b754599aebc4fcc2ad3e
+      internalID: 748960363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_16
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 36
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd9590806286274ab78b50e6c01e0bf
+      internalID: -939532011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lucius_map_17
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 4
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d84f4a58921fdc440b20a357238acc15
+      internalID: 1365553474
       vertices: []
       indices: 
       edges: []
@@ -1249,8 +1663,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      lucius_map_2: 569251646
       hector_map_17: 2091615433
       lyn_map_14: -475368406
+      lucius_map_1: 1293144245
+      lucius_map_12: 946159391
       lyn_map_7: 1007881976
       hector_map_16: -1838384342
       lyn_map_16: -1585842392
@@ -1263,11 +1680,17 @@ TextureImporter:
       hector_map_10: 249065165
       hector_map_7: 734009328
       lyn_map_13: 2030344883
+      lucius_map_5: -575234175
+      lucius_map_17: 1365553474
+      lucius_map_14: 1463137500
       eliwood_map_11: 166236050
       lyn_map_12: 1651916269
+      lucius_map_6: -1283022463
+      lucius_map_3: -400533847
       lyn_map_2: 2009004549
       lyn_map_0: 96983282
       eliwood_map_16: 1199275328
+      lucius_map_8: -1378741157
       lyn_map_11: -1747283885
       eliwood_map_17: -803199138
       hector_map_9: -1325425328
@@ -1275,6 +1698,7 @@ TextureImporter:
       eliwood_map_13: 816056871
       lyn_map_8: -959316827
       eliwood_map_14: -2094113122
+      lucius_map_16: -939532011
       eliwood_map_7: -511382533
       eliwood_map_4: 1205690717
       hector_map_14: 1373653771
@@ -1282,23 +1706,31 @@ TextureImporter:
       eliwood_map_8: 209850977
       eliwood_map_5: 212031613
       hector_map_8: 1481578793
+      lucius_map_4: 1306836005
+      lucius_map_15: 748960363
       lyn_map_1: -1076233338
       lyn_map_17: -1186428517
+      lucius_map_11: -977775359
       eliwood_map_1: -218666962
       eliwood_map_12: 814802757
       eliwood_map_3: 482454580
       hector_map_4: -1856284125
       lyn_map_15: -143777943
+      lucius_map_13: 580728021
       eliwood_map_0: 1159842421
+      lucius_map_9: 1517662927
       hector_map_6: 518295134
       eliwood_map_6: -1280968994
       hector_map_2: -1158807131
       hector_map_13: -918807137
       eliwood_map_9: -69185835
       lyn_map_5: 474562116
+      lucius_map_7: -1149445137
       hector_map_15: -1620630829
       lyn_map_6: -1193080274
+      lucius_map_0: 373730995
       lyn_map_4: -618863825
+      lucius_map_10: -2042303464
       hector_map_11: -855719187
       hector_map_3: 224842278
       eliwood_map_15: -171219879

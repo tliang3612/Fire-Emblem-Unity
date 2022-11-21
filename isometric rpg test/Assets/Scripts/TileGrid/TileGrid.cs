@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine.Tilemaps;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// CellGrid class keeps track of the game, stores cells, units and players objects. It starts the game and makes turn transitions. 
@@ -13,6 +14,7 @@ public class TileGrid : MonoBehaviour
 {
     public OverlayTile overlayTilePrefab;
     public GameObject overlayTileContainer;
+
     /// <summary>
     /// LevelLoading event is invoked before Initialize method is run.
     /// </summary>
@@ -34,6 +36,11 @@ public class TileGrid : MonoBehaviour
     /// UnitAdded event is invoked when a Unit gets added into the game
     /// </summary> 
     public event EventHandler<UnitCreatedEventArgs> UnitAdded;
+
+    /// <summary>
+    /// RightMouseClicked event is invoked when the tileGrid detects a right mouse button click
+    /// </summary> 
+    public event EventHandler RightMouseClicked;
 
     /// <summary>
     /// Turn ended event is invoked at the end of each turn.
@@ -95,7 +102,11 @@ public class TileGrid : MonoBehaviour
 
     [SerializeField] private GUIController guiController;
 
-
+    public void OnRightMouseClicked()
+    {
+        RightMouseClicked?.Invoke(this, EventArgs.Empty);
+        OnRightClick();
+    }
 
     private void Start()
     {
@@ -154,6 +165,7 @@ public class TileGrid : MonoBehaviour
             tile.TileClicked += OnTileClicked;
             tile.TileHighlighted += OnTileHighlighted;
             tile.TileDehighlighted += OnTileDehighlighted;
+            
             tile.UnMark();
             tile.GetNeighborTiles(this);
         }
@@ -166,7 +178,12 @@ public class TileGrid : MonoBehaviour
             var units = unitGenerator.SpawnUnits(this);
             foreach (var unit in units)
             {
-                AddUnit(unit);             
+                AddUnit(unit);    
+                
+                foreach(Ability a in unit.GetComponentsInChildren<Ability>())
+                {
+                    
+                }
             }
         }
 
@@ -223,6 +240,7 @@ public class TileGrid : MonoBehaviour
     {
         GridState.OnTileClicked(sender as OverlayTile);
     }     
+
     private void OnUnitClicked(object sender, EventArgs e)
     {
         GridState.OnUnitClicked(sender as Unit);
@@ -234,6 +252,11 @@ public class TileGrid : MonoBehaviour
     private void OnUnitDehighlighted(object sender, EventArgs e)
     {
         GridState.OnUnitDehighlighted(sender as Unit);
+    }
+
+    private void OnRightClick()
+    {
+        GridState.OnRightClick();
     }
       
     private void OnUnitDestroyed(object sender, AttackEventArgs e)
