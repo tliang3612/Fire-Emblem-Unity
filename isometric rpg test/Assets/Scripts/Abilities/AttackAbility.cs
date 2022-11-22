@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(DisplayAttackStatsAbility))]
 public class AttackAbility : Ability
 {
     public Unit UnitToAttack { get; set; }
@@ -15,7 +16,8 @@ public class AttackAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
-            UnitReference.SetMove(UnitReference.GetDirectionToFace(UnitToAttack.transform.position));
+            var direction = UnitReference.GetDirectionToFace(UnitToAttack.Tile.transform.position);
+            UnitReference.SetState(new UnitStateMoving(UnitReference, direction));
             UnitToAttack.Tile.MarkAsAttackableTile();
             yield return new WaitForSeconds(0.7f);
 

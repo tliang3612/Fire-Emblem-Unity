@@ -26,7 +26,9 @@ public class Weapon : Item
 	public GameObject CritEffect;
 
 	public bool HasProjectile;
-	public GameObject Projectile { get; set; }
+	public GameObject Projectile;
+
+	public string AnimationKey;
 
 	public int GetEffectiveness(WeaponType other)
 	{
@@ -48,23 +50,4 @@ public class Weapon : Item
 				return 0;
 		}
 	}
-
-	[CustomEditor(typeof(Weapon))]
-	public class WeaponEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-			Weapon weapon = (Weapon) target;
-
-			EditorGUILayout.Space();
-			
-			if(weapon.HasProjectile)
-            {
-				EditorGUILayout.LabelField("Projectile If Projectile Weapon");
-				weapon.Projectile = (GameObject)EditorGUILayout.ObjectField("Projectile", weapon.Projectile, typeof(GameObject), true);
-			}				
-		}
-    }
 }

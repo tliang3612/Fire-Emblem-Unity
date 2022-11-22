@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class GUIPanel : MonoBehaviour
-{  
-    protected static GUIState State;
+{
+    public static GUIState State;
 
     protected Vector2 topRightPosition;
     protected Vector2 rightPanelPosition;

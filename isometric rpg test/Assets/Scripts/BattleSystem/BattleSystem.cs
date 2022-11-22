@@ -42,7 +42,7 @@ public class BattleSystem : MonoBehaviour
     private HealStats healStats;
 
     private int range;
-    public event EventHandler BattleOver;
+    public event EventHandler<BattleOverEventArgs> BattleOver;
 
     public void Start()
     {
@@ -106,6 +106,7 @@ public class BattleSystem : MonoBehaviour
                     yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? 1 : -1);
 
                 defender.Unit.ReceiveDamage(attacker.Unit, currentAction.Damage);
+
                 yield return defender.PlayHitAnimation(currentAction.IsCrit ? attacker.critEffect : attacker.hitEffect);
                 ShakeBattlefield(currentAction.IsCrit ? 2 : 1);
                 yield return defender.HUD.UpdateHP();
@@ -127,14 +128,13 @@ public class BattleSystem : MonoBehaviour
                 if (range >= 2)
                     yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? -1f : 1f);
 
-                Debug.Log("Enemy Dodged");
             }
 
             if (currentAction.IsDead)
             {
-                defender.PlayDeathAnimation();
+                yield return defender.PlayDeathAnimation();
                 yield return new WaitForSeconds(1f);
-                EndBattle();
+                EndBattle(defender);
             }
         }
 
@@ -172,17 +172,14 @@ public class BattleSystem : MonoBehaviour
     }
 
 
-    public void EndBattle()
+    public void EndBattle(BattleUnit unitDead = null)
     {
         if (BattleOver != null)
-            BattleOver.Invoke(this, EventArgs.Empty);
+            BattleOver.Invoke(this, new BattleOverEventArgs(playerUnit.Unit, enemyUnit.Unit, unitDead == playerUnit, unitDead == enemyUnit));
 
         CleanpRangedPlatforms();
         playerUnit.EndBattleAnimation();
         enemyUnit.EndBattleAnimation();
-
-        playerUnit.Unit.SetState(new UnitStateFinished(playerUnit.Unit));
-        Debug.Log("battle ended");
     }
 
     private IEnumerator PerformHealerMove()
@@ -227,8 +224,24 @@ public class BattleSystem : MonoBehaviour
     public void ShakeBattlefield(float shakeMultiplier)
     {
         foreground.GetComponent<Transform>().DOShakePosition(shakeDuration * shakeMultiplier, shakeMagnitude * shakeMultiplier, fadeOut: true);
+    }    
+}
+
+public class BattleOverEventArgs : EventArgs
+{
+    public Unit playerUnit;
+    public Unit enemyUnit;
+    public bool isPlayerDead;
+    public bool isEnemyDead;
+
+    public BattleOverEventArgs(Unit pUnit, Unit eUnit, bool isPDead, bool isEDead)
+    {
+        playerUnit = pUnit;
+        enemyUnit = eUnit;
+        isPlayerDead = isPDead;
+        isEnemyDead = isEDead;
     }
-    
+
 }
 
 

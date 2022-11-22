@@ -29,14 +29,9 @@ public abstract class Ability : MonoBehaviour
 
     public IEnumerator TransitionAbility(TileGrid tileGrid, Ability nextAbility)
     {
-        yield return Execute(tileGrid, _ => { }, _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, nextAbility));
-    }
-
-    public IEnumerator HumanExecute(TileGrid tileGrid)
-    {
         yield return Execute(tileGrid,
             _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentsInChildren<Ability>().ToList()));
+            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, nextAbility));
     }
 
     public IEnumerator AIExecute(TileGrid tileGrid)
@@ -59,12 +54,9 @@ public abstract class Ability : MonoBehaviour
 
 
     public virtual void OnUnitClicked(Unit unit, TileGrid tileGrid) { }
-    public virtual void OnUnitHighlighted(Unit unit, TileGrid tileGrid) {
-        unit.Tile.HighlightedOnUnit();
-    }
-    public virtual void OnUnitDehighlighted(Unit unit, TileGrid tileGrid) {
-        unit.Tile.DeHighlightedOnUnit();
-    }
+
+    public virtual void OnUnitHighlighted(Unit unit, TileGrid tileGrid) { }
+    public virtual void OnUnitDehighlighted(Unit unit, TileGrid tileGrid) { }
     public virtual void OnUnitDestroyed(TileGrid tileGrid) { }
     public virtual void OnTileClicked(OverlayTile tile, TileGrid tileGrid) { }
 

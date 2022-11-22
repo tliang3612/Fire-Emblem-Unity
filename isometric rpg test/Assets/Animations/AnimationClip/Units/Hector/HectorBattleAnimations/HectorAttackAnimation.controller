@@ -384,7 +384,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Hand Axe
+  - m_Name: HandAxe
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -511,7 +511,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Hand Axe
+    m_ConditionEvent: HandAxe
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 1512798337651809843}
   m_DstState: {fileID: 0}
@@ -573,7 +573,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Hand Axe
+    m_ConditionEvent: HandAxe
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 3834728493297056200}
   m_DstState: {fileID: 0}
@@ -713,12 +713,12 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 1512798337651809843}
-    second:
-    - {fileID: -5886103977460563114}
   - first: {fileID: 6420246349007812005}
     second:
     - {fileID: 8130214765292982}
+  - first: {fileID: 1512798337651809843}
+    second:
+    - {fileID: -5886103977460563114}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 40, y: 140, z: 0}

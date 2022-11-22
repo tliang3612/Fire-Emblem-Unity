@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1efbc66523058043a3370e7b8db6c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Tile>k__BackingField: {fileID: 0}
   MovementAnimationSpeed: 7
   baseInfo: {fileID: 11400000, guid: 7423a9841b1fa4648939e354eb481b9c, type: 2}
   <MovementPoints>k__BackingField: 0
@@ -167,6 +168,7 @@ GameObject:
   - component: {fileID: 5956043450607474435}
   - component: {fileID: 5079668025092679233}
   - component: {fileID: 5359948550636535353}
+  - component: {fileID: 7447089924820849641}
   m_Layer: 0
   m_Name: AbiltiesHolder
   m_TagString: Untagged
@@ -283,5 +285,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b91efd5433b0bc42a2ed64f785615ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7447089924820849641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951360903420544355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71abdceaa7f17e0479eb95d3483bee9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

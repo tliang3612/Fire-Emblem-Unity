@@ -22,6 +22,7 @@ public class DisplayHealStatsPanel : GUIPanel
     protected override void OnAbilitySelected(object sender, EventArgs e)
     {
         base.OnAbilitySelected(sender, e);
+        ClearStats();
     }
 
     protected override void OnAbilityDeselected(object sender, EventArgs e)

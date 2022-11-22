@@ -21,9 +21,15 @@ public class UnitStateFinished : UnitState
         //finished state must transition to normal state
         if(state is UnitStateNormal)
         {
+            OnStateExit();
             state.Apply();
             _unit.UnitState = state;
         }
+    }
+
+    public override void OnStateExit()
+    {
+        
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using DG.Tweening;
 
 public class Unit : MonoBehaviour, IClickable
 {
@@ -28,15 +29,16 @@ public class Unit : MonoBehaviour, IClickable
     public event EventHandler<MovementEventArgs> UnitMoved;
 
     public UnitState UnitState { get; set; }
+
     public void SetState(UnitState state)
     {
+        UnitState.OnStateExit();
         UnitState.TransitionState(state);
     }
 
+    [field: SerializeField]
     public OverlayTile Tile { get; set; }
     private Animator Anim;
-    private Sprite _sprite;
-    private Texture2D _texture;
     public float MovementAnimationSpeed = 7f;
 
     [SerializeField]
@@ -66,6 +68,8 @@ public class Unit : MonoBehaviour, IClickable
     [field: SerializeField]
     public int MovementPoints { get; private set; }
     public int ActionPoints { get; private set; }
+
+    public bool DeathAnimationPlaying { get; set; }
 
     public int AttackRange
     {
@@ -125,7 +129,6 @@ public class Unit : MonoBehaviour, IClickable
 
     public void Awake()
     {
-        _sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     //Initializes the Unit. Called whenever a Unit gets added into the game
@@ -161,6 +164,7 @@ public class Unit : MonoBehaviour, IClickable
         UnitLuck = baseInfo.BaseLuck;
         UnitSkill = baseInfo.BaseSkill;
         UnitConst = baseInfo.BaseConst;
+        UnitSpeed = baseInfo.BaseSpeed;
 
         UnitPortrait = baseInfo.Portrait;
         UnitMapSprite = baseInfo.MapSprite;
@@ -200,7 +204,6 @@ public class Unit : MonoBehaviour, IClickable
     {
         if (UnitDehighlighted != null)
             UnitDehighlighted.Invoke(this, EventArgs.Empty);
-
     }
 
     //Called at the start of each turn
@@ -220,17 +223,6 @@ public class Unit : MonoBehaviour, IClickable
         SetState(new UnitStateNormal(this));
     }
 
-    //Called when Unit is dead
-    protected virtual void OnDestroyed()
-    {
-        TotalMovementPoints = 0;
-        TotalActionPoints = 0;
-        Tile.IsBlocked = false;
-        Tile.CurrentUnit = null;
-        SetState(new UnitStateDestroyed(this));
-
-    }
-
     //Called when Unit is selected
     public virtual void OnUnitSelected()
     {
@@ -247,22 +239,12 @@ public class Unit : MonoBehaviour, IClickable
     //Called when Unit is deselected
     public virtual void OnUnitDeselected()
     {
-        if (FindObjectOfType<TileGrid>().GetCurrentPlayerUnits().Contains(this))
-        {
-            SetState(new UnitStateFriendly(this));
-        }
         if (UnitDeselected != null)
         {
             UnitDeselected.Invoke(this, EventArgs.Empty);
         }
     }
 
-    /// <summary>
-    /// Calculates whether the Unit is attackable
-    /// </summary>
-    /// <param name="otherUnit">Unit to attack</param>
-    /// <param name="tile">Tile to perform an attack from</param>
-    /// <returns>A boolean that determines if otherUnit is attackable </returns>
     public virtual bool IsUnitAttackable(Unit otherUnit, bool isWeaponBased)
     {
         return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
@@ -303,12 +285,24 @@ public class Unit : MonoBehaviour, IClickable
         if (HitPoints <= 0)
         {
             HitPoints = 0;
-            if (UnitDestroyed != null)
-            {
-                UnitDestroyed.Invoke(this, new AttackEventArgs(source, this, dmg));
-            }
-            OnDestroyed();
         }
+    }
+
+    public void ReceiveDeath(Unit source)
+    {
+        if (UnitDestroyed != null)
+        {
+            UnitDestroyed.Invoke(this, new AttackEventArgs(source, this));
+        }
+
+        TotalMovementPoints = 0;
+        TotalActionPoints = 0;
+        Tile.IsBlocked = false;
+        Tile.CurrentUnit = null;
+
+        DeathAnimationPlaying = true;
+        StartCoroutine(PlayDeathAnimation());
+
     }
 
     public HealingDetails ReceiveHealing(int healAmount)
@@ -347,7 +341,7 @@ public class Unit : MonoBehaviour, IClickable
         return new WeaponPreviewStats(UnitAttack + w.Attack, //Attack
             w.Hit + (UnitSkill * 2) + (UnitLuck / 2), //HitChance
             Mathf.Clamp(w.Crit + (UnitSkill / 2), 0, 100), //CritChance
-            (UnitSpeed - (EquippedWeapon.Weight - UnitConst))*2 + UnitLuck); //DodgeChance
+            Mathf.Clamp((UnitSpeed - (EquippedWeapon.Weight - UnitConst))*2 + UnitLuck, 0, 100)); //DodgeChance
     }
     
 
@@ -446,26 +440,24 @@ public class Unit : MonoBehaviour, IClickable
 
     public void SetAnimationToIdle()
     {
-        Anim.SetBool("IsMoving", false);
         Anim.Play("Idle", 0, FindObjectOfType<AnimationTimer>().GetCurrentCurrentTime());
     }
 
-    //used for whenver we want to start the Unit's movement animation
-    public void SetMove(Vector2Int direction = default)
+    public void SetAnimationToSelected(bool canAnimate)
     {
-        Anim.SetBool("IsMoving", true);
+        Anim.SetBool("IsSelected", canAnimate);
+    }
 
-        //start move down animation
-        if(direction == default)
-        {
-            Anim.SetFloat("MoveX", 0);
-            Anim.SetFloat("MoveY", -1);
-        }
-        else
+    //used for whenver we want to start the Unit's movement animation
+    public void SetMove(Vector2Int direction, bool canAnimate)
+    {
+        Anim.SetBool("IsMoving", canAnimate);
+
+        if (canAnimate)
         {
             Anim.SetFloat("MoveX", direction.x);
             Anim.SetFloat("MoveY", direction.y);
-        }       
+        }   
     }
 
     public void ResetMove()
@@ -532,10 +524,13 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     //Visual indication that the Unit is destroyed
-    public virtual void MarkAsDestroyed()
+    public IEnumerator PlayDeathAnimation()
     {
-        GetComponent<SpriteRenderer>().color = Color.black;
-        Destroy(gameObject);
+        GetComponent<SpriteRenderer>().DOFade(0, 2f);
+        yield return new WaitForSeconds(3f);
+        DeathAnimationPlaying = false;
+
+        Destroy(gameObject, 3f);
     }
 
     //Visual indication that the Unit has no more moves this turn
@@ -546,48 +541,31 @@ public class Unit : MonoBehaviour, IClickable
 
     public virtual void MarkAsEnemy(Player player)
     {
-        /*Texture2D newTexture = new Texture2D(_sprite.texture.width, _sprite.texture.height);
+        /*Texture2D newTexture = new Texture2D(_texture2D.width, _texture2D.height);
 
         for (int x = 0; x < newTexture.width; x++)
         {
             for (int y = 0; y < newTexture.height; y++)
             {
                 //if the pixel at coord (x,y) is a certain color, set it to the player's color
-                if (_sprite.texture.GetPixel(x, y) == new Color32(24, 240, 248, 255) || _sprite.texture.GetPixel(x, y) == new Color32(56, 80, 224, 255))
+                if (_texture2D.GetPixel(x, y) == Color.blue)
                 {
-                    newTexture.SetPixel(x, y, Color.red);
+                    newTexture.SetPixel(x, y, player.Color);
                 }
                 else
                 {
-                    newTexture.SetPixel(x, y, _sprite.texture.GetPixel(x, y));
+                    newTexture.SetPixel(x, y, _texture2D.GetPixel(x, y));
                 }
             }
         }
+        newTexture.name = UnitName;
         newTexture.Apply();
 
-        _sprite.texture.SetPixels32(newTexture.GetPixels32());*/
+        GetComponent<SpriteRenderer>().material.mainTexture = newTexture;
+        GetComponent<SpriteRenderer>().sprite = Sprite.Create(newTexture, _sprite.rect, new Vector2(0.5f, 0.5f), 18, 0, SpriteMeshType.FullRect);*/
+        
+        GetComponent<SpriteRenderer>().color = player.Color;
 
-
-        Texture2D texture = _sprite.texture;
-
-        for (int x = 0; x < texture.width; x++)
-        {
-            for (int y = 0; y < texture.height; y++)
-            {
-                //if the pixel at coord (x,y) is a certain color, set it to the player's color
-                if (texture.GetPixel(x, y) == Color.red)
-                {
-                    texture.SetPixel(x, y, new Color32(24, 240, 248, 255));
-                }
-                else
-                {
-                    texture.SetPixel(x, y, texture.GetPixel(x, y));
-                }
-            }
-        }
-        texture.Apply();
-
-        //GetComponent<SpriteRenderer>().color = player.Color;
     }
 
     //Return the Unit back to its original appearance
@@ -635,14 +613,10 @@ public class AttackEventArgs : EventArgs
     public Unit Attacker;
     public Unit Defender;
 
-    public int Damage;
-
-    public AttackEventArgs(Unit attacker, Unit defender, int damage)
+    public AttackEventArgs(Unit attacker, Unit defender)
     {
         Attacker = attacker;
         Defender = defender;
-
-        Damage = damage;
     }
 }
 

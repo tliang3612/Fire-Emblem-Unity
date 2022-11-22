@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(DisplayHealStatsAbility))]
 public class HealAbility : Ability
 {
     public Unit UnitToHeal { get; set; }
@@ -15,7 +16,6 @@ public class HealAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
-            Debug.Log("yes");
             UnitReference.ConfirmMove();
             yield return tileGrid.StartBattle(UnitReference, UnitToHeal, BattleEvent.HealAction);
         }

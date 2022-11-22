@@ -15,6 +15,7 @@ public class DisplayAttackStatsAbility : DisplayAbility
     {
         base.Awake();
     }
+
     public override void Display(TileGrid tileGrid)
     {                           
         _tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
@@ -23,12 +24,13 @@ public class DisplayAttackStatsAbility : DisplayAbility
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
     {
-        unit.Tile.HighlightedOnUnit();
-
         if (UnitReference.IsUnitAttackable(unit, true) && !UnitReference.Equals(unit))
         {
+            unit.Tile.HighlightedOnUnit();
+
             //face the unit we're highlighting
-            UnitReference.SetMove(UnitReference.GetDirectionToFace(unit.transform.position));
+            var direction = UnitReference.GetDirectionToFace(unit.Tile.transform.position);
+            UnitReference.SetState(new UnitStateMoving(UnitReference, direction));
 
             var range = tileGrid.GetManhattenDistance(UnitReference.Tile, unit.Tile);
             var attackerStats = GetStats(UnitReference, unit, range);
@@ -39,11 +41,18 @@ public class DisplayAttackStatsAbility : DisplayAbility
         }
     }
 
+    public override void OnUnitDehighlighted(Unit unit, TileGrid tileGrid)
+    {
+        unit.Tile.DeHighlightedOnUnit();
+    }
+
+
+
+    //In case the player clicks on the unit's tile accidently instead of the unit
     public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
     {
-        StartCoroutine(Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<SelectWeaponToAttackAbility>())));     
+        if(tile.CurrentUnit)
+            OnUnitClicked(tile.CurrentUnit, tileGrid);    
     }
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
@@ -62,6 +71,11 @@ public class DisplayAttackStatsAbility : DisplayAbility
         base.OnAbilitySelected(tileGrid);
 
         _tilesInAttackRange = UnitReference.GetTilesInRange(tileGrid, UnitReference.EquippedWeapon.Range);
+    }
+
+    public override void OnRightClick(TileGrid tileGrid)
+    {
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<SelectWeaponToAttackAbility>()));
     }
 
     protected CombatStats GetStats(Unit unit, Unit unitToAttack, int range)

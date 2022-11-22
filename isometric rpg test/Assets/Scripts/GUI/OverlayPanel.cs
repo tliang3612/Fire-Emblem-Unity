@@ -42,6 +42,7 @@ public class OverlayPanel : GUIPanel
         WinConditionPanel.SetActive(false);
     }
 
+    
     public void Bind(TileGrid tileGrid)
     {
         this.tileGrid = tileGrid;
@@ -49,6 +50,7 @@ public class OverlayPanel : GUIPanel
         tileGrid.TurnEnded += OnTurnEnded;
         tileGrid.GameEnded += OnGameEnded;
         tileGrid.LevelLoading += OnLevelLoading;
+        tileGrid.RightMouseClicked += OnRightClick;
     }
 
     public void BindUnit(Unit unit, List<Ability> unitAbilities)
@@ -56,12 +58,14 @@ public class OverlayPanel : GUIPanel
         unit.UnitHighlighted += OnUnitHighlighted;
         unit.UnitDehighlighted += OnUnitDehighlighted;
         unit.UnitClicked += OnUnitClicked;
+        unit.UnitSelected += OnUnitSelected;
+        unit.UnitDeselected += OnUnitDeselected;
 
-        foreach (Ability ability in unitAbilities)
+/*        foreach (Ability ability in unitAbilities)
         {
             ability.AbilitySelected += OnAbilitySelected;
             ability.AbilityDeselected += OnAbilityDeselected;
-        }
+        }*/
     }
 
     protected virtual void OnLevelLoading(object sender, EventArgs e)
@@ -101,23 +105,24 @@ public class OverlayPanel : GUIPanel
         HideMenuOptionsPanel();
     }
 
-    public void OnTileRightClicked(object sender, EventArgs e)
-    {
-
-    }
-
     protected virtual void OnTileClicked(object sender, EventArgs e)
     {
         //we dont want to register tile click when mouse is over UI
         if ((sender as OverlayTile).CurrentUnit == null && State == GUIState.Clear && !EventSystem.current.IsPointerOverGameObject())
         {
-            SetState(GUIState.InGameGUISelection);
+            SetState(GUIState.MenuGUISelection);
             ShowMenuOptionsPanel((sender as OverlayTile));
+
             HideTerrainPanel();
-            tileGrid.GridState = new TileGridStateBlockInput(tileGrid);
-            
-        }
-        else if(State == GUIState.InGameGUISelection && !EventSystem.current.IsPointerOverGameObject())
+            HideWinConditionPanel();
+            HideUnitPanel();
+            tileGrid.GridState = new TileGridStateBlockInput(tileGrid);          
+        }       
+    }
+
+    protected virtual void OnRightClick(object sender, EventArgs e)
+    {
+        if (State == GUIState.MenuGUISelection && !EventSystem.current.IsPointerOverGameObject())
         {
             SetState(GUIState.Clear);
             HideMenuOptionsPanel();
@@ -164,21 +169,17 @@ public class OverlayPanel : GUIPanel
 
     }
 
-    protected override void OnAbilitySelected(object sender, EventArgs e)
+    protected virtual void OnUnitSelected(object sender, EventArgs e)
     {
+        SetState(GUIState.InAbilitySelection);
         HideTerrainPanel();
         HideUnitPanel();
-        HideWinConditionPanel();
-        SetState(GUIState.BlockInput);
+        HideWinConditionPanel();       
     }
 
-    protected override void OnAbilityDeselected(object sender, EventArgs e)
+    protected virtual void OnUnitDeselected(object sender, EventArgs e)
     {
-        //if the ability deselected is displayable, ex a display ability, we don't want to set the gui state to clear
-        if(!(sender as Ability).IsDisplayable)
-        {
-            SetState(GUIState.Clear);
-        }
+        SetState(GUIState.Clear);
     }
 
     private void ShowUnitPanel(Unit unit)
@@ -200,7 +201,7 @@ public class OverlayPanel : GUIPanel
 
     private void ShowMenuOptionsPanel(OverlayTile tile)
     {
-        SetState(GUIState.InGameGUISelection);
+        SetState(GUIState.MenuGUISelection);
         SetMenuOptionsPanelPosition(tile.transform.position);
         MenuOptionsPanel.SetActive(true);
     }

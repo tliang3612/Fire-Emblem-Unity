@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(DisplayHealStatsAbility), typeof(DisplayActionsAbility))]
 public class SelectStaffToHealAbility : SelectItemToUseAbility
 {
     protected override void Awake()

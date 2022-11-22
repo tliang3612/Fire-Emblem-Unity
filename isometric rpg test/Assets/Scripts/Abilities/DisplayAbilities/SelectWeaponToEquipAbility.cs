@@ -4,10 +4,9 @@ using UnityEngine.UI;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine.EventSystems;
-using UnityEngine.SocialPlatforms;
 
+[RequireComponent(typeof(DisplayActionsAbility))]
 public class SelectWeaponToEquipAbility : SelectItemToUseAbility
 {
     protected override void Awake()
@@ -32,15 +31,9 @@ public class SelectWeaponToEquipAbility : SelectItemToUseAbility
                 _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, GetComponent<DisplayActionsAbility>()));
     }
 
-    public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
+    public override void OnRightClick(TileGrid tileGrid)
     {
-        //if user clicks outside the selection boxm return back to display actions
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            StartCoroutine(Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
-        }
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<DisplayActionsAbility>()));
     }
 
     public override bool CanPerform(TileGrid tileGrid)

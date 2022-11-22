@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitStateNormal : UnitState
-{       
-    public UnitStateNormal(Unit unit) : base(unit){ }
+public class UnitStateMoving : UnitState
+{
+    private Vector2Int _direction;
+    public UnitStateMoving(Unit unit, Vector2Int direction ) : base(unit) { _direction = direction; }
 
     public override void Apply()
     {
-        _unit.SetAnimationToIdle();
+        _unit.SetMove(_direction, true);
     }
 
     public override void TransitionState(UnitState state)
@@ -19,6 +20,7 @@ public class UnitStateNormal : UnitState
 
     public override void OnStateExit()
     {
+        _unit.SetMove(Vector2Int.zero, false);
     }
 
 }

@@ -13,6 +13,8 @@ public abstract class UnitState
 
     //Transitions the _unit.UnitState into the desired state
     public abstract void TransitionState(UnitState state);
+
+    public abstract void OnStateExit();
 }
 
 

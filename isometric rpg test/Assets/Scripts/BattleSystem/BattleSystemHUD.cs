@@ -61,12 +61,12 @@ public class BattleSystemHUD : MonoBehaviour
         {
             _weaponImage.color = Color.white;
             _weaponImage.sprite = unit.EquippedStaff.Sprite;
+            _weaponName.text = unit.EquippedStaff.Name;
         }
         else
         {
             HideWeaponSprite();
-        }
-            
+        }           
 
         hitText.text = "100";
         damageText.text = stats.HealAmount.ToString();
@@ -75,6 +75,18 @@ public class BattleSystemHUD : MonoBehaviour
     public void SetEmptyData(Unit unit)
     {
         SetBaseData(unit);
+
+        if (unit.EquippedWeapon)
+        {
+            _weaponImage.sprite = unit.EquippedWeapon.Sprite;
+            _weaponImage.color = Color.white;
+            _weaponName.text = unit.EquippedWeapon.Name;
+        }
+        else
+        {
+            HideWeaponSprite();
+        }
+
         hitText.text = "0";
         damageText.text = "0";
         critText.text = "0";

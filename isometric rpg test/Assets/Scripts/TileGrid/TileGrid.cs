@@ -6,10 +6,6 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 
-/// <summary>
-/// CellGrid class keeps track of the game, stores cells, units and players objects. It starts the game and makes turn transitions. 
-/// It reacts to user interacting with units or cells, and raises events related to game progress. 
-/// </summary>
 public class TileGrid : MonoBehaviour
 {
     public OverlayTile overlayTilePrefab;
@@ -263,7 +259,6 @@ public class TileGrid : MonoBehaviour
     {
         UnitList.Remove(sender as Unit);
         (sender as Unit).GetComponentsInChildren<Ability>().ToList().ForEach(a => a.OnUnitDestroyed(this));
-        (sender as Unit).MarkAsDestroyed();
         CheckGameFinished();
     }
 
@@ -450,12 +445,29 @@ public class TileGrid : MonoBehaviour
             yield return null;
     }
 
-    public void EndBattle(object sender, EventArgs e)
+    public void EndBattle(object sender, BattleOverEventArgs e)
     {
-        GridState = new TileGridStateWaitingForInput(this);
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
         IsBattling = false;
+
+        if (e.isPlayerDead)
+        {
+            e.playerUnit.ReceiveDeath(e.enemyUnit);
+
+        }
+        else if (e.isEnemyDead)
+        {
+            e.playerUnit.SetState(new UnitStateFinished(e.playerUnit));
+            e.enemyUnit.ReceiveDeath(e.playerUnit);
+        }
+        else
+        {
+            e.playerUnit.SetState(new UnitStateFinished(e.playerUnit));
+        }
+        
+        GridState = new TileGridStateWaitingForInput(this);
+        
 
     }
 }

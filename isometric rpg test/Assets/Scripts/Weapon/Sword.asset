@@ -17,9 +17,11 @@ MonoBehaviour:
   Attack: 9
   Hit: 75
   Crit: 20
-  Weight: 7
+  Weight: 0
   Range: 1
   Type: 0
   HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
   CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
   HasProjectile: 0
+  Projectile: {fileID: 0}
+  AnimationKey: Sword

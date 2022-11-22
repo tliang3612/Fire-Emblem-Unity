@@ -13,6 +13,7 @@ public class DisplayAttackStatsPanel : GUIPanel
     public Text DefenderHitChance;
     public Text DefenderCritChance;
     public Image DefenderEffectiveness;
+    public Image DefenderDoubleHit;
     [SerializeField] private Text DefenderWeaponName;
     [SerializeField] private Image DefenderWeapon;
     
@@ -24,6 +25,7 @@ public class DisplayAttackStatsPanel : GUIPanel
     public Text AttackerHitChance;
     public Text AttackerCritChance;
     public Image AttackerEffectiveness;
+    public Image AttackerDoubleHit;
     [SerializeField] private Image AttackerWeapon;
 
     [Header("Icons")]
@@ -71,11 +73,16 @@ public class DisplayAttackStatsPanel : GUIPanel
             DefenderEffectiveness.color = Color.white;
         }
 
-        if(attackerStats.WeaponSprite != null)
+        if(defenderStats.WeaponSprite != null)
         {
             DefenderWeapon.sprite = defenderStats.WeaponSprite;
             DefenderWeapon.color = Color.white;
             DefenderWeaponName.text = defenderStats.WeaponName;
+        }
+
+        if (defenderStats.CanDoubleAttack)
+        {
+            DefenderDoubleHit.color = Color.white;
         }
 
         /*-------------------------------------------------------------------------------------------------------------------------- */
@@ -97,6 +104,11 @@ public class DisplayAttackStatsPanel : GUIPanel
             AttackerWeapon.sprite = attackerStats.WeaponSprite;
             AttackerWeapon.color = Color.white;
         }
+
+        if (attackerStats.CanDoubleAttack)
+        {
+            AttackerDoubleHit.color = Color.white;
+        }
     }
 
     public void ClearStats()
@@ -109,6 +121,7 @@ public class DisplayAttackStatsPanel : GUIPanel
         DefenderEffectiveness.sprite = null;
         DefenderEffectiveness.color = Color.clear;        
         DefenderWeapon.color = Color.clear;
+        DefenderDoubleHit.color = Color.clear;
         DefenderWeaponName.text = " ";
 
 
@@ -120,6 +133,7 @@ public class DisplayAttackStatsPanel : GUIPanel
         AttackerEffectiveness.sprite = null;
         AttackerEffectiveness.color = Color.clear;
         AttackerWeapon.color = Color.clear;
+        AttackerDoubleHit.color = Color.clear;
     }
 }
 

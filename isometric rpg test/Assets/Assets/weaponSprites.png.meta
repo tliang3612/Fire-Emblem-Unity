@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 2
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -144,10 +144,10 @@ TextureImporter:
       name: sword_sprite
       rect:
         serializedVersion: 2
-        x: 103
-        y: 69
-        width: 16
-        height: 16
+        x: 104
+        y: 70
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: lance_sprite
       rect:
         serializedVersion: 2
-        x: 18
-        y: 35
-        width: 16
-        height: 16
+        x: 19
+        y: 36
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,9 +187,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 205
-        y: 18
-        width: 16
-        height: 16
+        y: 19
+        width: 15
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: hand_axe_sprite
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1
-        width: 16
-        height: 16
+        x: 36
+        y: 2
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,18 +285,18 @@ TextureImporter:
       weaponSprites_62: 2103448016
       weaponSprites_54: -1754912598
       weaponSprites_29: 1004005517
-      weaponSprites_45: -42857679
-      weaponSprites_38: -1343431601
-      weaponSprites_31: 72317171
-      weaponSprites_11: 200716553
-      weaponSprites_26: -1277062000
-      weaponSprites_18: -774009824
       weaponSprites_64: 2029122386
       weaponSprites_24: -1010311391
+      weaponSprites_18: -774009824
+      weaponSprites_11: 200716553
+      weaponSprites_26: -1277062000
+      weaponSprites_31: 72317171
+      weaponSprites_45: -42857679
+      weaponSprites_59: 665604315
       weaponSprites_13: -545968841
       weaponSprites_34: 1035878508
       sword_sprite: 1244502048
-      weaponSprites_59: 665604315
+      weaponSprites_38: -1343431601
       weaponSprites_36: 1505767787
       weaponSprites_53: -1456249842
       weaponSprites_16: -1719379348

@@ -46,8 +46,7 @@ public class MoveAbility : Ability
     }
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
-    {
-        
+    {       
         if(UnitReference == unit)
         {
             Destination = UnitReference.Tile;
@@ -63,14 +62,14 @@ public class MoveAbility : Ability
         if (availableDestinations.Contains(tile) && UnitReference.IsTileMovableTo(tile))
         {
             Destination = tile;
-            StartCoroutine(Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
+            StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<DisplayActionsAbility>()));
         }
     }
 
     public override void OnTileSelected(OverlayTile tile, TileGrid tileGrid)
     {
+        tile.MarkAsHighlighted();
+
         if (CanPerform(tileGrid) && availableDestinations.Contains(tile) )
         {
             path = UnitReference.FindPath(tile, tileGrid);
@@ -80,6 +79,8 @@ public class MoveAbility : Ability
 
     public override void OnTileDeselected(OverlayTile tile, TileGrid tileGrid)
     {
+        tile.MarkAsDeHighlighted();
+
         if (CanPerform(tileGrid) && availableDestinations.Contains(tile))
         {
             availableDestinations.ForEach(t => t.MarkAsReachable());
@@ -88,25 +89,22 @@ public class MoveAbility : Ability
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
+        base.OnAbilitySelected(tileGrid);
+
         //play move animation when a human player selects the Unit,
         //we dont want ai to play it because ai instantly selects a move option while the player has to think
-        if(tileGrid.CurrentPlayer is HumanPlayer)
+        if (tileGrid.CurrentPlayer is HumanPlayer)
         {
-            UnitReference.SetMove();
-            base.OnAbilitySelected(tileGrid);
+            UnitReference.SetState(new UnitStateMoving(UnitReference, Vector2Int.down));      
         }
             
-
         availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
         _tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
     }
 
     public override void OnRightClick(TileGrid tileGrid)
     {
-        tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
-        //We call this to inform GUI that the move has been cancelled, which allows the GUI to show 
-        OnAbilityDeselected(tileGrid);
-        UnitReference.SetState(new UnitStateNormal(UnitReference));
+        tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<ResetAbility>());
     }
 
     public override void CleanUp(TileGrid tileGrid)

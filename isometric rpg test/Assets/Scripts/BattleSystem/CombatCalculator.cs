@@ -26,6 +26,7 @@ public class CombatCalculator
         this.range = range;
     }   
     
+
     public virtual Queue<BattleAction> Calculate()
     {
         Queue<BattleAction> ret = new Queue<BattleAction>(); 
@@ -37,11 +38,16 @@ public class CombatCalculator
         if (CanAttack(enemyStats, playerStats))
             attackOrder.Add(false);
 
-        if (CanAttack(playerStats, enemyStats))
+        
+        if ((playerStats.CanDoubleAttack))
+        {
             attackOrder.Add(true);
+        }
 
-        if (CanAttack(enemyStats, playerStats))
+        if (enemyStats.CanDoubleAttack)
+        {
             attackOrder.Add(false);
+        }
 
         foreach (bool isPlayerAttack in attackOrder)
         {

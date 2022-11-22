@@ -10,8 +10,14 @@ public class UnitStateSelected : UnitState
 
     public override void TransitionState(UnitState state)
     {
+        OnStateExit();
         state.Apply();
         _unit.UnitState = state;
+    }
+
+    public override void OnStateExit()
+    {
+        
     }
 
 }

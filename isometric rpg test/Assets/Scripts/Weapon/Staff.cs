@@ -9,5 +9,7 @@ public class Staff : Item
     public int HealAmount;
     public int Range;
 
+    public string AnimationKey;
+
     public GameObject HealEffect;
 }

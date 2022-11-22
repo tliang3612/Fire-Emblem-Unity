@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(DisplayAttackStatsAbility), typeof(DisplayActionsAbility))]
 public class SelectWeaponToAttackAbility : SelectItemToUseAbility
 {
 
@@ -36,22 +37,16 @@ public class SelectWeaponToAttackAbility : SelectItemToUseAbility
                 _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, GetComponent<DisplayAttackStatsAbility>())); ;
     }
 
-    public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
-    {
-        //if user clicks outside the selection boxm return back to display actions
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            StartCoroutine(Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
-        }      
-    }
-
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
         base.OnAbilitySelected(tileGrid);
         if (_enemiesInRange.Count > 0)
             _range = _enemiesInRange.Min(e => tileGrid.GetManhattenDistance(UnitReference.Tile, e.Tile));
+    }
+
+    public override void OnRightClick(TileGrid tileGrid)
+    {
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<DisplayActionsAbility>()));
     }
 
     //Can Select Weapon to Attack if the Unit has a weapon

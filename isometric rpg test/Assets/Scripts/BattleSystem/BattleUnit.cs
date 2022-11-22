@@ -9,6 +9,7 @@ public class BattleUnit : MonoBehaviour
     [SerializeField] protected Animator anim;
     [SerializeField] public bool IsPlayer;
     [SerializeField] public GameObject PrefabHolder;
+    [SerializeField] public GameObject MissEffect;
     private GameObject _projectilePrefab;
 
     public Unit Unit { get; set; }    
@@ -29,7 +30,7 @@ public class BattleUnit : MonoBehaviour
     public void SetupAttack(CombatStats stats, BattleUnit battleUnitToAttack)
     {
         
-        _animationStateKey = Unit.EquippedWeapon.Name;
+        _animationStateKey = Unit.EquippedWeapon.AnimationKey;
 
         SetUp(battleUnitToAttack);
 
@@ -47,7 +48,7 @@ public class BattleUnit : MonoBehaviour
 
     public void SetupHeal(HealStats stats, BattleUnit battleUnitToAttack)
     {
-        _animationStateKey = Unit.EquippedStaff.Name;
+        _animationStateKey = Unit.EquippedStaff.AnimationKey;
 
         SetUp(battleUnitToAttack);
 
@@ -59,7 +60,7 @@ public class BattleUnit : MonoBehaviour
 
     public void SetUpEmpty(BattleUnit battleUnitToAttack)
     { 
-        _animationStateKey = Unit.EquippedWeapon.Name;
+        _animationStateKey = Unit.EquippedWeapon.AnimationKey;
 
         SetUp(battleUnitToAttack);
         HUD.SetEmptyData(Unit);
@@ -126,10 +127,26 @@ public class BattleUnit : MonoBehaviour
 
         isAnimationPlaying = true;
 
+        if (MissEffect)
+        {
+            HitEffect hitEffect;
+            //effect is instantiated in the battle frame to take up the entire screen space, and centered based on the screen                       
+            hitEffect = Instantiate(MissEffect, PrefabHolder.transform).GetComponent<HitEffect>();
+
+            if (IsPlayer)
+                hitEffect.SetProperties(Vector2.zero, Vector3.one);
+            else
+                hitEffect.SetProperties(new Vector2(-400, 0), Vector3.one);
+
+            yield return hitEffect.StartCasting();
+        }
+
         while (isAnimationPlaying)
         {
             yield return null;
         }
+
+        
 
     }
 
@@ -160,9 +177,14 @@ public class BattleUnit : MonoBehaviour
 
     }
 
-    public void PlayDeathAnimation()
+    public IEnumerator PlayDeathAnimation()
     {
         Debug.Log("Dead");
+
+        GetComponent<Image>().DOColor(Color.clear, 2f);
+
+        yield return new WaitForSeconds(2f);
+
     }
 
     public void EndPlayAnimation()
@@ -207,6 +229,7 @@ public class BattleUnit : MonoBehaviour
     public void EndBattleAnimation()
     {
         GetComponent<Image>().color = Color.clear;
+        _projectilePrefab = null;
         anim.SetBool(_animationStateKey, false);
     }
 

@@ -41,6 +41,11 @@ public class SelectItemToUseAbility : DisplayAbility
         tile.UnMark();
     }
 
+    public override void OnRightClick(TileGrid tileGrid)
+    {
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<DisplayActionsAbility>()));
+    }
+
     public override bool CanPerform(TileGrid tileGrid)
     {
         return true;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+[RequireComponent(typeof(MoveAbility), typeof(DisplayActionsAbility))]
 public class CancelAbility : Ability
 {
 

@@ -9,7 +9,7 @@ public enum GUIState
 {
     Clear,
     InAbilitySelection,
-    InGameGUISelection,
+    MenuGUISelection,
     BlockInput
 }
 public class GUIController : MonoBehaviour
@@ -59,17 +59,37 @@ public class GUIController : MonoBehaviour
 
     protected virtual void RegisterUnit(Unit unit, List<Ability> unitAbilities)
     {
-        overlayPanel.BindUnit(unit, unitAbilities);
+        var abilityList = unitAbilities.ToList();
+        List<Ability> removedAbilities = new List<Ability>();
 
         //bind the ability 
-        foreach (var ability in unitAbilities)
+        foreach (var ability in abilityList)
         {
-            //f (ability is DisplayWeaponsAbility) weaponsPanel.Bind(ability as DisplayWeaponsAbility);
-            if (ability is DisplayActionsAbility) actionsPanel.Bind(ability as DisplayActionsAbility);
-            if (ability is DisplayAttackStatsAbility) attackStatsPanel.Bind(ability as DisplayAttackStatsAbility);
-            if (ability is DisplayHealStatsAbility) healStatsPanel.Bind(ability as DisplayHealStatsAbility);
-            if (ability is SelectItemToUseAbility) weaponsPanel.Bind(ability as SelectItemToUseAbility);
-        }      
+            if (ability is DisplayActionsAbility) {
+                actionsPanel.Bind(ability as DisplayActionsAbility);
+                removedAbilities.Add(ability as DisplayActionsAbility);
+            }
+
+            if (ability is DisplayAttackStatsAbility)
+            {
+                attackStatsPanel.Bind(ability as DisplayAttackStatsAbility);
+                removedAbilities.Add(ability as DisplayAttackStatsAbility);
+            }
+
+            if (ability is DisplayHealStatsAbility)
+            {
+                healStatsPanel.Bind(ability as DisplayHealStatsAbility);
+                removedAbilities.Add(ability as DisplayHealStatsAbility);
+            }
+            if (ability is SelectItemToUseAbility) 
+            {
+                weaponsPanel.Bind(ability as SelectItemToUseAbility);
+                removedAbilities.Add(ability as SelectItemToUseAbility);
+            }
+        }
+
+        //the overlay panel handles abilities that aren't binded
+        overlayPanel.BindUnit(unit, abilityList.Except(removedAbilities).ToList());
     }
 }
 

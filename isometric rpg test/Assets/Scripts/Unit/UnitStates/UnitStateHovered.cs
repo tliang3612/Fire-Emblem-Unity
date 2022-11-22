@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitStateNormal : UnitState
-{       
-    public UnitStateNormal(Unit unit) : base(unit){ }
+public class UnitStateHovered : UnitState
+{
+    public UnitStateHovered(Unit unit) : base(unit) { }
 
     public override void Apply()
     {
-        _unit.SetAnimationToIdle();
+        _unit.SetAnimationToSelected(true);
     }
 
     public override void TransitionState(UnitState state)
@@ -19,6 +19,8 @@ public class UnitStateNormal : UnitState
 
     public override void OnStateExit()
     {
+        _unit.SetAnimationToSelected(false);
+        _unit.SetAnimationToIdle();
     }
 
 }

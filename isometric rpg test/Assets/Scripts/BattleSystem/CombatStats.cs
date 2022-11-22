@@ -9,8 +9,9 @@ public struct CombatStats
     public int CritStat { get; }
     public int DamageStat { get;}
     public int RangeStat { get;}
-    public int HealthStat { get;}
+    public int HealthStat { get;}   
     public int EffectivenessStat { get;}
+    public bool CanDoubleAttack { get; }
 
     public CombatStats(Unit attacker, Unit defender, int range) : this()
     {
@@ -19,6 +20,7 @@ public struct CombatStats
         EffectivenessStat = attacker.GetEffectiveness(defender.EquippedWeapon.Type);
         UnitName = attacker.UnitName;
 
+        CanDoubleAttack = (attacker.GetAttackSpeed() - defender.GetAttackSpeed()) >= 4;
 
         HitStat = 0;
         CritStat = 0;

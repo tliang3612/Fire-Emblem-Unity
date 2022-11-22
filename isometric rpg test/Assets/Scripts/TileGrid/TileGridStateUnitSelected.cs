@@ -3,67 +3,61 @@ using UnityEngine;
 using System.Linq;
 public class TileGridStateUnitSelected : TileGridState
 {
-    List<Ability> _abilities;
+    Ability _ability;
     Unit _unit;
 
-    public TileGridStateUnitSelected(TileGrid tileGrid, Unit unit, List<Ability> abilities) : base(tileGrid)
+    public TileGridStateUnitSelected(TileGrid tileGrid, Unit unit, Ability ability) : base(tileGrid)
     {
-        if (abilities.Count == 0)
-        {
-            Debug.LogError("No abilities were selected, check if your Unit has any abilities attached to it");
-        }
-
-        _abilities = abilities;
+        _ability = ability;
         _unit = unit;
     }
 
-    public TileGridStateUnitSelected(TileGrid tileGrid, Unit unit, Ability ability) : this(tileGrid, unit, new List<Ability>() { ability }) { }
-
     public override void OnUnitClicked(Unit unit)
     {
-        _abilities.ForEach(a => a.OnUnitClicked(unit, _tileGrid));
+        _ability.OnUnitClicked(unit, _tileGrid);
     }
     public override void OnUnitHighlighted(Unit unit)
     {
-        _abilities.ForEach(a => a.OnUnitHighlighted(unit, _tileGrid));
+        _ability.OnUnitHighlighted(unit, _tileGrid);
     }
     public override void OnUnitDehighlighted(Unit unit)
     {
-        _abilities.ForEach(a => a.OnUnitDehighlighted(unit, _tileGrid));
+        _ability.OnUnitDehighlighted(unit, _tileGrid);
     }
     public override void OnTileClicked(OverlayTile tile)
     {
-        _abilities.ForEach(a => a.OnTileClicked(tile, _tileGrid));
+        _ability.OnTileClicked(tile, _tileGrid);
     }
     public override void OnTileSelected(OverlayTile tile)
     {
-        base.OnTileSelected(tile);
-        _abilities.ForEach(a => a.OnTileSelected(tile, _tileGrid));
+        _ability.OnTileSelected(tile, _tileGrid);
     }
     public override void OnTileDeselected(OverlayTile tile)
     {
-        base.OnTileDeselected(tile);
-        _abilities.ForEach(a => a.OnTileDeselected(tile, _tileGrid));
+        _ability.OnTileDeselected(tile, _tileGrid);
     }
 
     public override void OnRightClick()
     {
-        _abilities.ForEach(a => a.OnRightClick(_tileGrid));
+        _ability.OnRightClick(_tileGrid);
     }
 
     public override void OnStateEnter()
-    {
-        _unit?.OnUnitSelected();
-        _abilities.ForEach(a => a.OnAbilitySelected(_tileGrid));
-        _abilities.ForEach(a => a.Display(_tileGrid));
-           
+    {   
+        if(_ability is MoveAbility)
+            _unit?.OnUnitSelected();
+
+        _ability.OnAbilitySelected(_tileGrid);
+        _ability.Display(_tileGrid);          
 
     }
     public override void OnStateExit()
     {
-        _unit?.OnUnitDeselected();
-        _abilities.ForEach(a => a.OnAbilityDeselected(_tileGrid));
-        _abilities.ForEach(a => a.CleanUp(_tileGrid));
+        if(_ability is ResetAbility or HealAbility or AttackAbility or WaitAbility)
+            _unit?.OnUnitDeselected();
+
+        _ability.OnAbilityDeselected(_tileGrid);
+        _ability.CleanUp(_tileGrid);
 
     }
 }

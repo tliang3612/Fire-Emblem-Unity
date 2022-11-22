@@ -23,21 +23,26 @@ public class DisplayHealStatsAbility : DisplayAbility
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
     {
-        unit.Tile.HighlightedOnUnit();
-
         if (UnitReference.IsUnitHealable(unit) && !UnitReference.Equals(unit))
         {
+            var direction = UnitReference.GetDirectionToFace(unit.Tile.transform.position);
+            UnitReference.SetState(new UnitStateMoving(UnitReference, direction));
+            unit.Tile.HighlightedOnUnit();
             var healStats = GetStats(UnitReference, unit);
             DisplayHealStatsChanged?.Invoke(this, new DisplayHealStatsChangedEventArgs(healStats));
 
         }
     }
 
+    public override void OnUnitDehighlighted(Unit unit, TileGrid tileGrid)
+    {
+        unit.Tile.DeHighlightedOnUnit();
+    }
+
     public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
     {
-        StartCoroutine(Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
+        if (tile.CurrentUnit)
+            OnUnitClicked(tile.CurrentUnit, tileGrid);
     }
 
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
@@ -45,10 +50,13 @@ public class DisplayHealStatsAbility : DisplayAbility
         if (UnitReference.IsUnitHealable(unit) && !UnitReference.Equals(unit))
         {
             UnitReference.GetComponentInChildren<HealAbility>().UnitToHeal = unit;
-            StartCoroutine(Execute(tileGrid,
-                _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<HealAbility>())));
+            StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<HealAbility>()));
         }
+    }
+
+    public override void OnRightClick(TileGrid tileGrid)
+    {
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<SelectStaffToHealAbility>()));
     }
 
 

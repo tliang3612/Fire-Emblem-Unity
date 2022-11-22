@@ -29,8 +29,14 @@ public class AIPlayer : Player
 
 			if (GetUnitToAttack(unit))
             {
+				var weaponToEquip = unit.AvailableWeapons.Where(w => w.Range >= tileGrid.GetManhattenDistance(unit.Tile, GetUnitToAttack(unit).Tile)).First();
+				unit.EquipItem(weaponToEquip);
+
 				attackAbility.UnitToAttack = GetUnitToAttack(unit);
-				unit.SetMove();
+
+				var direction = unit.GetDirectionToFace(GetUnitToAttack(unit).Tile.transform.position);
+				unit.SetState(new UnitStateMoving(unit, direction));
+
                 yield return new WaitForSeconds(0.3f);
 				yield return StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
 				while (tileGrid.IsBattling)

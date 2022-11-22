@@ -16,4 +16,5 @@ MonoBehaviour:
   Sprite: {fileID: -1546940551, guid: 56ef467a754bdf84b878f23ee62e42e4, type: 3}
   HealAmount: 10
   Range: 1
+  AnimationKey: Staff
   HealEffect: {fileID: 4158285703963573327, guid: 41c6140f13be1de4195190aa662599dd, type: 3}
