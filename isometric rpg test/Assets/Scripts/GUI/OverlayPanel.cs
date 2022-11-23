@@ -61,11 +61,6 @@ public class OverlayPanel : GUIPanel
         unit.UnitSelected += OnUnitSelected;
         unit.UnitDeselected += OnUnitDeselected;
 
-/*        foreach (Ability ability in unitAbilities)
-        {
-            ability.AbilitySelected += OnAbilitySelected;
-            ability.AbilityDeselected += OnAbilityDeselected;
-        }*/
     }
 
     protected virtual void OnLevelLoading(object sender, EventArgs e)
@@ -185,8 +180,17 @@ public class OverlayPanel : GUIPanel
     private void ShowUnitPanel(Unit unit)
     {
         SetUnitPanelPosition(unit.transform.position);
+
         UnitInfoPanel.SetActive(true);
         UnitImage.sprite = unit.UnitPortrait;
+
+        //if the Unit Panel to show belongs to an enemy unit
+        if (!tileGrid.GetCurrentPlayerUnits().Contains(unit))
+            UnitInfoPanel.GetComponent<Image>().color = unit.Player.Color;
+        else
+            UnitInfoPanel.GetComponent<Image>().color = Color.white;
+
+
     }
 
     private void ShowTerrainPanel(OverlayTile tile)

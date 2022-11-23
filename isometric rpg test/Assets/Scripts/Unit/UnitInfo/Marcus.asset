@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea9cd25287013240b8ad75678c16de2, type: 3}
+  m_Name: Marcus
+  m_EditorClassIdentifier: 
+  Name: Marcus
+  TotalMovementPoints: 10
+  TotalActionPoints: 1
+  TotalHitPoints: 25
+  BaseAttack: 10
+  BaseSkill: 15
+  BaseSpeed: 11
+  BaseLuck: 11
+  BaseDefence: 8
+  BaseConst: 7
+  Portrait: {fileID: -1229410007, guid: 9c2d6387d8de5fd4891f9677ada7dd59, type: 3}
+  Mugshot: {fileID: -249158927, guid: 9c2d6387d8de5fd4891f9677ada7dd59, type: 3}
+  MapSprite: {fileID: -1878699905, guid: dd2561604efa69e4f866bbdc9f893287, type: 3}
+  BattleAnimController: {fileID: 9100000, guid: 7f32b495e31ecf9468a23d0270a1a4e7, type: 2}
+  StartingItems:
+  - {fileID: 11400000, guid: 9699cdf36751da04ca5cd0d8cd2e1881, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Eliwood
   m_EditorClassIdentifier: 
   Name: Eliwood
-  TotalMovementPoints: 6
+  TotalMovementPoints: 5
   TotalActionPoints: 1
   TotalHitPoints: 25
   BaseAttack: 20

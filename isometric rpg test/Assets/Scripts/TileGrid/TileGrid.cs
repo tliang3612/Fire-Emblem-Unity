@@ -174,12 +174,7 @@ public class TileGrid : MonoBehaviour
             var units = unitGenerator.SpawnUnits(this);
             foreach (var unit in units)
             {
-                AddUnit(unit);    
-                
-                foreach(Ability a in unit.GetComponentsInChildren<Ability>())
-                {
-                    
-                }
+                AddUnit(unit);                 
             }
         }
 
@@ -207,7 +202,7 @@ public class TileGrid : MonoBehaviour
         {
             if (!PlayableUnits.Contains(u))
             {
-                u.MarkAsEnemy(PlayersList[u.PlayerNumber]);
+                u.MarkAsEnemy(u.Player);
             }
             else
             {
@@ -308,14 +303,21 @@ public class TileGrid : MonoBehaviour
         UnitList.Add(unit);
         unit.Initialize();
 
+        foreach(var player in PlayersList)
+        {
+            if(unit.PlayerNumber == player.PlayerNumber)
+            {
+                unit.Player = player;
+            }
+        }
+
         //Subscribe events
         unit.UnitClicked += OnUnitClicked;
         unit.UnitHighlighted += OnUnitHighlighted;
         unit.UnitDehighlighted += OnUnitDehighlighted;
         unit.UnitDestroyed += OnUnitDestroyed;
         unit.UnitMoved += OnUnitMoved;
-        
-        
+                
         if (UnitAdded != null)
         {
             UnitAdded.Invoke(this, new UnitCreatedEventArgs(unit, unit.GetComponentsInChildren<Ability>().ToList()));

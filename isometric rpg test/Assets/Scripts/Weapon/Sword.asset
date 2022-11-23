@@ -16,7 +16,7 @@ MonoBehaviour:
   Sprite: {fileID: 1244502048, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
   Attack: 9
   Hit: 75
-  Crit: 20
+  Crit: 100
   Weight: 0
   Range: 1
   Type: 0

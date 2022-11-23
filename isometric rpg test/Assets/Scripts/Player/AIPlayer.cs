@@ -9,6 +9,8 @@ public class AIPlayer : Player
 	private System.Random random;
 	private TileGrid tileGrid;
 
+	private Unit _unitToAttack;
+
 	public override void Play(TileGrid grid)
 	{		
 		random = new System.Random();
@@ -23,27 +25,13 @@ public class AIPlayer : Player
 		var myUnits = tileGrid.GetCurrentPlayerUnits();
 		foreach (Unit unit in myUnits)
 		{
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(1.3f);
 			var moveAbility = unit.GetComponentInChildren<MoveAbility>();
 			var attackAbility = unit.GetComponentInChildren<AttackAbility>();
 
 			if (GetUnitToAttack(unit))
             {
-				var weaponToEquip = unit.AvailableWeapons.Where(w => w.Range >= tileGrid.GetManhattenDistance(unit.Tile, GetUnitToAttack(unit).Tile)).First();
-				unit.EquipItem(weaponToEquip);
-
-				attackAbility.UnitToAttack = GetUnitToAttack(unit);
-
-				var direction = unit.GetDirectionToFace(GetUnitToAttack(unit).Tile.transform.position);
-				unit.SetState(new UnitStateMoving(unit, direction));
-
-                yield return new WaitForSeconds(0.3f);
-				yield return StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
-				while (tileGrid.IsBattling)
-				{
-					yield return 0;
-				}
-				yield return new WaitForSeconds(0.5f);
+				yield return StartAttack(unit, attackAbility);
 				continue;
 			}
 			else if(GetDestination(unit))
@@ -51,25 +39,16 @@ public class AIPlayer : Player
 				moveAbility.OnAbilitySelected(tileGrid);
 				moveAbility.Destination = GetDestination(unit);
 
-				//let calculations run
-                yield return new WaitForSeconds(0.3f);
-
                 StartCoroutine(unit.GetComponentInChildren<MoveAbility>().AIExecute(tileGrid));				
 				while (unit.IsMoving)
 					yield return 0;
 				unit.ConfirmMove();			
-				yield return new WaitForSeconds(0.5f);
+				yield return new WaitForSeconds(0.3f);
 				
                 if (GetUnitToAttack(unit))
-                {					
-					attackAbility.UnitToAttack = GetUnitToAttack(unit);
-                    yield return new WaitForSeconds(0.3f);
-                    yield return StartCoroutine(unit.GetComponentInChildren<AttackAbility>().AIExecute(tileGrid));
-					while(tileGrid.IsBattling)
-                    {
-						yield return 0; 
-                    }
-					yield return new WaitForSeconds(0.5f);
+                {
+					yield return StartAttack(unit, attackAbility);
+
 					continue;
 				}
                 else
@@ -77,23 +56,44 @@ public class AIPlayer : Player
 					unit.SetState(new UnitStateFinished(unit));
 				}
 			}
+			_unitToAttack = null;
 			unit.GetComponentInChildren<WaitAbility>().AIExecute(tileGrid);
 		}
 		tileGrid.EndTurn();
 	}
+	
+	private IEnumerator StartAttack(Unit unit, AttackAbility attackAbility)
+    {
+		//Equip the weapon that can match the range of the distance bewtween the two units
+		var weaponToEquip = unit.AvailableWeapons.Where(w => w.Range == tileGrid.GetManhattenDistance(unit.Tile, _unitToAttack.Tile)).First();
+		unit.EquipItem(weaponToEquip);
 
-	//returns the Unit to attack
-	Unit GetUnitToAttack(Unit unit)
+		var direction = unit.GetDirectionToFace(_unitToAttack.Tile.transform.position);
+		unit.SetState(new UnitStateMoving(unit, direction));
+
+		attackAbility.UnitToAttack = _unitToAttack;
+		yield return new WaitForSeconds(0.3f);
+		yield return StartCoroutine(attackAbility.AIExecute(tileGrid));
+		while (tileGrid.IsBattling)
+		{
+			yield return 0;
+		}
+		yield return new WaitForSeconds(0.5f);
+	}
+
+	//Returns true if there is a unit that is in range, also stores the unitToAttack
+	private bool GetUnitToAttack(Unit unit)
     {		
 		var enemyUnits = tileGrid.GetEnemyUnits(this);
-		var unitsInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e, false)).ToList();
+		var unitsInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e, true)).ToList();
 
 		if (unitsInRange.Count != 0)
 		{
 			var index = random.Next(0, unitsInRange.Count);
-			return unitsInRange[index];
+			_unitToAttack = unitsInRange[index];
+			return true;
 		}
-		return null; 
+		return false;
 	}
 
 	OverlayTile GetDestination(Unit unit)
@@ -102,16 +102,25 @@ public class AIPlayer : Player
 		//Order enemies units by how close they are to the Unit
 		var enemyUnits = tileGrid.GetEnemyUnits(this).OrderByDescending(e => tileGrid.GetManhattenDistance(e.Tile, unit.Tile)).ToList();
 
-		//Find potential tiles that a Unit can to move and attack an enemy from
-		foreach (var enemyUnit in enemyUnits)
-		{
-			potentialDestinations.AddRange(tileGrid.TileList.FindAll(t => unit.IsTileMovableTo(t) && unit.IsUnitAttackable(enemyUnit, false)));		
-		}
+		//Get closest enemy from the Unit, which we'll use to find the best movement path 
+		var closestEnemy = enemyUnits.Last();
 
-		//Find all available destinations
 		var availableDestinations = unit.GetAvailableDestinations(tileGrid);
 
-		//if there are no tiles that a Unit can move to and attack an enemy from, then add a random tile from the list of tiles that are within move range
+		//Find all tiles the unit can attack an enemy from
+		foreach(var tile in availableDestinations)
+        {
+			if (unit.IsTileAttackableFrom(tile, closestEnemy, true))
+            {
+				potentialDestinations.Add(tile);
+            }        
+        }
+
+		//return a tile the unit can move to and attack from
+		if (potentialDestinations.Count != 0)
+			return potentialDestinations.FirstOrDefault();
+		
+		//If no potential destinations, set potentialDestinations to available destinations
 		if (potentialDestinations.Count == 0 && availableDestinations.Count != 0)
 		{
 			potentialDestinations.AddRange(availableDestinations);
@@ -120,9 +129,6 @@ public class AIPlayer : Player
         {
 			return unit.Tile;
         }
-
-		//Get closest enemy from the Unit, which we'll use to find the best movement path 
-		var closestEnemy = enemyUnits.First();
 
 		//order potential destinations by how close they are to the closest enemy
 		potentialDestinations = potentialDestinations.OrderByDescending(t => tileGrid.GetManhattenDistance(t, closestEnemy.Tile)).ToList();

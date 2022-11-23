@@ -12,7 +12,7 @@ public class SelectWeaponToEquipAbility : SelectItemToUseAbility
     protected override void Awake()
     {
         base.Awake();
-        Name = "Equip";
+        Name = "Weapon";
         IsDisplayable = true;
     }
 

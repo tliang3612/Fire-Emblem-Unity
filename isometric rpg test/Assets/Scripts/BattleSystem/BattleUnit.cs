@@ -6,10 +6,11 @@ using System;
 
 public class BattleUnit : MonoBehaviour
 {
-    [SerializeField] protected Animator anim;
+    [SerializeField] private Animator anim;
     [SerializeField] public bool IsPlayer;
-    [SerializeField] public GameObject PrefabHolder;
-    [SerializeField] public GameObject MissEffect;
+    [SerializeField] private GameObject PrefabHolder;
+    [SerializeField] private GameObject MissEffect;
+
     private GameObject _projectilePrefab;
 
     public Unit Unit { get; set; }    
@@ -23,12 +24,20 @@ public class BattleUnit : MonoBehaviour
     private string _animationStateKey;
 
     //set to false with unity animation events
-    public bool isAnimationPlaying;
-
+    private bool isAnimationPlaying;
+    private RectTransform _rectTransform;
     private Vector2 originalAnchoredPosition;
 
-    public void SetupAttack(CombatStats stats, BattleUnit battleUnitToAttack)
+    private Action<float> ShakeBattleField;
+
+    private void Awake()
     {
+        _rectTransform = GetComponent<RectTransform>();
+    }
+
+    public void SetupAttack(CombatStats stats, BattleUnit battleUnitToAttack, Action<float> shakeBattleField)
+    {
+        ShakeBattleField = shakeBattleField;
         
         _animationStateKey = Unit.EquippedWeapon.AnimationKey;
 
@@ -74,7 +83,7 @@ public class BattleUnit : MonoBehaviour
 
         GetComponent<Image>().color = Color.white;
 
-        originalAnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+        originalAnchoredPosition = _rectTransform.anchoredPosition;
         background = GameObject.Find("DimBackground").GetComponent<Image>();
 
         anim.runtimeAnimatorController = Unit.BattleAnimController;        
@@ -84,7 +93,7 @@ public class BattleUnit : MonoBehaviour
     
     public IEnumerator PlayAttackAnimation(bool isCrit)
     {
-        GetComponent<Canvas>().sortingOrder = 2;
+        GetComponent<Canvas>().sortingOrder = 3;
 
         if (isCrit)
             anim.SetTrigger("Crit");
@@ -118,7 +127,7 @@ public class BattleUnit : MonoBehaviour
         {
             yield return null;
         }
-        GetComponent<Canvas>().sortingOrder = 1;
+        GetComponent<Canvas>().sortingOrder = 2;
     }
 
     public IEnumerator PlayDodgeAnimation()
@@ -194,34 +203,38 @@ public class BattleUnit : MonoBehaviour
     
     public void MoveTowardsEnemy()
     {
-        var toDestinationInLocalSpace = _unitToAttack.GetComponent<RectTransform>().anchoredPosition - GetComponent<RectTransform>().anchoredPosition;
-        GetComponent<RectTransform>().DOAnchorPosX(toDestinationInLocalSpace.x, .3f).SetRelative(true);
+        var toDestinationInLocalSpace = _unitToAttack.GetComponent<RectTransform>().anchoredPosition - _rectTransform.anchoredPosition;
+        _rectTransform.DOAnchorPosX(toDestinationInLocalSpace.x, .3f).SetRelative(true);
     }
 
     public void MoveBackToPosition()
     {
-        var toDestinationInLocalSpace = originalAnchoredPosition - GetComponent<RectTransform>().anchoredPosition;
-        GetComponent<RectTransform>().DOAnchorPosX(toDestinationInLocalSpace.x, .2f).SetRelative(true);
+        var toDestinationInLocalSpace = originalAnchoredPosition - _rectTransform.anchoredPosition;
+        _rectTransform.DOAnchorPosX(toDestinationInLocalSpace.x, .2f).SetRelative(true);
     }
 
-    public IEnumerator ShootProjectile(GameObject projectileObject)
+    private IEnumerator ShootProjectile(GameObject projectileObject)
     {
         //effect is instantiated in the battle frame to take up the entire screen space, and centered based on the screen                       
         Projectile projectile = Instantiate(projectileObject, PrefabHolder.transform).GetComponent<Projectile>();
 
         //reflect the image if the Unit hit is the enemy Unit
-        projectile.SetProperties(GetComponent<RectTransform>().anchoredPosition.x, _unitToAttack.GetComponent<RectTransform>().anchoredPosition.x, IsPlayer ? 1 : -1);
+        projectile.SetProperties(_rectTransform.anchoredPosition.x, _unitToAttack.GetComponent<RectTransform>().anchoredPosition.x, IsPlayer ? 1 : -1);
 
         yield return projectile.MoveProjectile();
-
     }
 
-    public void DimBackground()
+    public void UnitShakeBattleField(float shakeMultipler)
+    {
+        ShakeBattleField?.Invoke(shakeMultipler);
+    }
+
+    private void DimBackground()
     {
         background.DOFade(0.5f, 0.2f);
     }
 
-    public void UndimBackground()
+    private void UndimBackground()
     {
         background.DOFade(0, 0.2f);
     }

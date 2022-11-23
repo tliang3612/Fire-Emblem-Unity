@@ -39,7 +39,11 @@ public class Unit : MonoBehaviour, IClickable
     [field: SerializeField]
     public OverlayTile Tile { get; set; }
     private Animator Anim;
+    [SerializeField]
     public float MovementAnimationSpeed = 7f;
+
+    [SerializeField]
+    private Vector2Int _defaultDirection;
 
     [SerializeField]
     private UnitInfo baseInfo;
@@ -122,6 +126,7 @@ public class Unit : MonoBehaviour, IClickable
     private List<OverlayTile> cachedPath;
 
     public int PlayerNumber;
+    public Player Player { get; set; }
     public bool IsMoving { get; set; }
 
     private AStarPathfinder _pathfinder = new AStarPathfinder();
@@ -248,6 +253,15 @@ public class Unit : MonoBehaviour, IClickable
     public virtual bool IsUnitAttackable(Unit otherUnit, bool isWeaponBased)
     {
         return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
+            && otherUnit.PlayerNumber != PlayerNumber
+            && ActionPoints >= 1
+            && otherUnit.HitPoints > 0;
+    }
+
+    //used to see if a unit can be attacked from a chosen tile
+    public virtual bool IsTileAttackableFrom(OverlayTile tile, Unit otherUnit, bool isWeaponBased)
+    {
+        return FindObjectOfType<TileGrid>().GetManhattenDistance(tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
             && otherUnit.PlayerNumber != PlayerNumber
             && ActionPoints >= 1
             && otherUnit.HitPoints > 0;
@@ -455,8 +469,16 @@ public class Unit : MonoBehaviour, IClickable
 
         if (canAnimate)
         {
-            Anim.SetFloat("MoveX", direction.x);
-            Anim.SetFloat("MoveY", direction.y);
+            if (direction == Vector2Int.zero)
+            {
+                Anim.SetFloat("MoveX", _defaultDirection.x);
+                Anim.SetFloat("MoveY", _defaultDirection.y);
+            }
+            else
+            {
+                Anim.SetFloat("MoveX", direction.x);
+                Anim.SetFloat("MoveY", direction.y);
+            }        
         }   
     }
 
@@ -526,11 +548,12 @@ public class Unit : MonoBehaviour, IClickable
     //Visual indication that the Unit is destroyed
     public IEnumerator PlayDeathAnimation()
     {
+        SetState(new UnitStateFinished(this));
         GetComponent<SpriteRenderer>().DOFade(0, 2f);
         yield return new WaitForSeconds(3f);
         DeathAnimationPlaying = false;
 
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2f);
     }
 
     //Visual indication that the Unit has no more moves this turn
@@ -540,30 +563,7 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     public virtual void MarkAsEnemy(Player player)
-    {
-        /*Texture2D newTexture = new Texture2D(_texture2D.width, _texture2D.height);
-
-        for (int x = 0; x < newTexture.width; x++)
-        {
-            for (int y = 0; y < newTexture.height; y++)
-            {
-                //if the pixel at coord (x,y) is a certain color, set it to the player's color
-                if (_texture2D.GetPixel(x, y) == Color.blue)
-                {
-                    newTexture.SetPixel(x, y, player.Color);
-                }
-                else
-                {
-                    newTexture.SetPixel(x, y, _texture2D.GetPixel(x, y));
-                }
-            }
-        }
-        newTexture.name = UnitName;
-        newTexture.Apply();
-
-        GetComponent<SpriteRenderer>().material.mainTexture = newTexture;
-        GetComponent<SpriteRenderer>().sprite = Sprite.Create(newTexture, _sprite.rect, new Vector2(0.5f, 0.5f), 18, 0, SpriteMeshType.FullRect);*/
-        
+    {       
         GetComponent<SpriteRenderer>().color = player.Color;
 
     }

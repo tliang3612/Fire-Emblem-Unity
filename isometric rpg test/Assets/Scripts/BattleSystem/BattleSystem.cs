@@ -21,6 +21,7 @@ public class BattleSystem : MonoBehaviour
 
     //For Ranged battles where these components will be shifted
     [SerializeField] private GameObject[] PannedComponents = new GameObject[4];
+    [SerializeField] private GameObject battleField;
     [SerializeField] private GameObject foreground;
 
     [SerializeField] private float shakeDuration;
@@ -30,6 +31,8 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] public float RangedPlatformOffset;
     [SerializeField] public float panDuration; 
+
+    
     private Vector2 originalRightAnchoredPosition;
     private Vector2 originalLeftAnchoredPosition;
 
@@ -108,7 +111,7 @@ public class BattleSystem : MonoBehaviour
                 defender.Unit.ReceiveDamage(attacker.Unit, currentAction.Damage);
 
                 yield return defender.PlayHitAnimation(currentAction.IsCrit ? attacker.critEffect : attacker.hitEffect);
-                ShakeBattlefield(currentAction.IsCrit ? 2 : 1);
+                ShakeForeground(currentAction.IsCrit ? 2 : 1);
                 yield return defender.HUD.UpdateHP();
                 yield return new WaitForSeconds(0.5f);
                 yield return attacker.PlayBackupAnimation(currentAction.IsCrit);
@@ -146,8 +149,8 @@ public class BattleSystem : MonoBehaviour
 
     public void SetUpBattle(CombatStats playerStats, CombatStats enemyStats)
     {
-        playerUnit.SetupAttack(playerStats, enemyUnit);
-        enemyUnit.SetupAttack(enemyStats, playerUnit);                    
+        playerUnit.SetupAttack(playerStats, enemyUnit, ShakeBattlefield);
+        enemyUnit.SetupAttack(enemyStats, playerUnit, ShakeBattlefield);                    
     }
 
     public void SetUpHeal(HealStats healStats)
@@ -223,8 +226,13 @@ public class BattleSystem : MonoBehaviour
 
     public void ShakeBattlefield(float shakeMultiplier)
     {
-        foreground.GetComponent<Transform>().DOShakePosition(shakeDuration * shakeMultiplier, shakeMagnitude * shakeMultiplier, fadeOut: true);
+        battleField.GetComponent<Transform>().DOShakePosition(shakeDuration * shakeMultiplier, shakeMagnitude * shakeMultiplier, fadeOut: true);
     }    
+
+    private void ShakeForeground(float shakeMultiplier)
+    {
+        foreground.GetComponent<Transform>().DOShakePosition(shakeDuration * shakeMultiplier, shakeMagnitude * shakeMultiplier, fadeOut: true);
+    }
 }
 
 public class BattleOverEventArgs : EventArgs

@@ -95,7 +95,7 @@ public class MoveAbility : Ability
         //we dont want ai to play it because ai instantly selects a move option while the player has to think
         if (tileGrid.CurrentPlayer is HumanPlayer)
         {
-            UnitReference.SetState(new UnitStateMoving(UnitReference, Vector2Int.down));      
+            UnitReference.SetState(new UnitStateMoving(UnitReference, Vector2Int.zero));      
         }
             
         availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
