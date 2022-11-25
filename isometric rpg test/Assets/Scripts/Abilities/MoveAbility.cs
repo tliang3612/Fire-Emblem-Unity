@@ -45,6 +45,16 @@ public class MoveAbility : Ability
         }
     }
 
+    public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
+    {
+        unit.Tile.HighlightedOnUnit();
+    }
+
+    public override void OnUnitDehighlighted(Unit unit, TileGrid tileGrid)
+    {
+        unit.Tile.DeHighlightedOnUnit();
+    }
+
     public override void OnUnitClicked(Unit unit, TileGrid tileGrid)
     {       
         if(UnitReference == unit)

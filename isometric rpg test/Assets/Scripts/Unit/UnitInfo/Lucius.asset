@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lucius
   m_EditorClassIdentifier: 
   Name: Lucius
+  UnitType: 3
   TotalMovementPoints: 6
   TotalActionPoints: 1
   TotalHitPoints: 21

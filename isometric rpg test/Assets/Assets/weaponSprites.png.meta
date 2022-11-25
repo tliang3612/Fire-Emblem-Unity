@@ -209,8 +209,8 @@ TextureImporter:
         serializedVersion: 2
         x: 222
         y: 1
-        width: 16
-        height: 16
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,13 +285,13 @@ TextureImporter:
       weaponSprites_62: 2103448016
       weaponSprites_54: -1754912598
       weaponSprites_29: 1004005517
-      weaponSprites_64: 2029122386
+      weaponSprites_45: -42857679
       weaponSprites_24: -1010311391
-      weaponSprites_18: -774009824
+      weaponSprites_31: 72317171
       weaponSprites_11: 200716553
       weaponSprites_26: -1277062000
-      weaponSprites_31: 72317171
-      weaponSprites_45: -42857679
+      weaponSprites_18: -774009824
+      weaponSprites_64: 2029122386
       weaponSprites_59: 665604315
       weaponSprites_13: -545968841
       weaponSprites_34: 1035878508

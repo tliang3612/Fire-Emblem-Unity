@@ -21,21 +21,19 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -7655551, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - time: 0.083333336
+    - time: 0.1
       value: {fileID: 1839603660, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - time: 0.16666667
+    - time: 0.2
       value: {fileID: -957074095, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - time: 0.25
+    - time: 0.3
       value: {fileID: -1171787993, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - time: 0.4
-      value: {fileID: -1319826687, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - time: 0.48333332
+    - time: 0.43333334
       value: {fileID: 1319138653, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - time: 0.56666666
+    - time: 0.51666665
       value: {fileID: -1647731832, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - time: 0.65
+    - time: 0.6
       value: {fileID: -1586971792, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - time: 0.81666666
+    - time: 0.76666665
       value: {fileID: -1586971792, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
     attribute: m_Sprite
     path: 
@@ -60,7 +58,6 @@ AnimationClip:
     - {fileID: 1839603660, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
     - {fileID: -957074095, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
     - {fileID: -1171787993, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
-    - {fileID: -1319826687, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
     - {fileID: 1319138653, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
     - {fileID: -1647731832, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
     - {fileID: -1586971792, guid: fbdc7d02b41877b4794268b9c25335e5, type: 3}
@@ -70,12 +67,12 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 0.7833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -90,14 +87,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.53333336
+  - time: 0.48333332
     functionName: MoveTowardsEnemy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.65
+  - time: 0.6
     functionName: EndPlayAnimation
     data: 
     objectReferenceParameter: {fileID: 0}

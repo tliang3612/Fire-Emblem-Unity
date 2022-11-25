@@ -21,7 +21,7 @@ public class TileGridStateWaitingForInput : TileGridState
     {
         unit.Tile.HighlightedOnUnit();
 
-        if (_tileGrid.GetCurrentPlayerUnits().Contains(unit))
+        if (_tileGrid.GetCurrentPlayerUnits().Contains(unit) && unit.ActionPoints > 0)
         {
             unit.SetState(new UnitStateHovered(unit));
         }

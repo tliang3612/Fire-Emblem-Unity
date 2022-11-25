@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lyn
   m_EditorClassIdentifier: 
   Name: Lyn
+  UnitType: 3
   TotalMovementPoints: 7
   TotalActionPoints: 1
   TotalHitPoints: 25

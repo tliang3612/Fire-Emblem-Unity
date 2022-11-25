@@ -260,17 +260,18 @@ public class TileGrid : MonoBehaviour
     private void OnUnitMoved(object sender, MovementEventArgs e)
     {       
         e.StartingTile.CurrentUnit = null;
-        e.StartingTile.IsBlocked = false;
+        e.StartingTile.IsOccupied = false;
 
         (sender as Unit).Tile = e.DestinationTile;
         e.DestinationTile.CurrentUnit = (sender as Unit);
-        e.DestinationTile.IsBlocked = true;
+        e.DestinationTile.IsOccupied = true;
         
         CheckGameFinished();
     }
 
     private void SetUpOverlayTiles(Tilemap tileMap)
     {
+        Debug.Log(TileDataMap);
         //limits of the current tilemap
         BoundsInt bounds = tileMap.cellBounds;
         
@@ -285,7 +286,7 @@ public class TileGrid : MonoBehaviour
                 {
                     var tile = Instantiate(overlayTilePrefab, overlayTileContainer.transform);
 
-                    tile.InitializeTile(tileMap, tileLocation, TileDataMap);
+                    tile.InitializeTile(tileMap, tileLocation, TileDataMap, this);
 
                     TileList.Add(tile);
                     Map.Add(tileKey, tile);

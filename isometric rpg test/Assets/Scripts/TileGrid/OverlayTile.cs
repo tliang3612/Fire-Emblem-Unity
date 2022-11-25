@@ -10,6 +10,7 @@ public class OverlayTile : MonoBehaviour, IClickable
 {
     //directions the tile can scan for neighbors
     private readonly Vector2Int[] neighborDirections = { new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1) };
+
     // TileClicked event is invoked when user clicks on the tile. 
     public event EventHandler TileClicked;
     // TileHighlighed event is invoked when cursor enters the tile's collider. 
@@ -17,25 +18,31 @@ public class OverlayTile : MonoBehaviour, IClickable
     // TileDehighlighted event is invoked when cursor exits the tile's collider. 
     public event EventHandler TileDehighlighted;
 
-    public bool IsBlocked { get; set; }
+    public bool IsOccupied { get; set; }
 
-    public Vector3Int gridLocation;
+    public Vector3Int gridLocation { get; private set; }
     public Vector2Int gridLocation2D { get { return new Vector2Int(gridLocation.x, gridLocation.y); } }
+    
+    [SerializeField] private  GameObject CursorSprite;
+    [SerializeField] private Sprite _blueTile;
+    [SerializeField] private Sprite _redTile;
+    [SerializeField] private Sprite _greenTile;
 
-    public Tilemap tileMap;
-    public List<Sprite> arrowImages;
-    public GameObject CursorSprite;
-    public Sprite blueTile;
-    public Sprite redTile;
-    public Sprite greenTile;
-
-    public string TileName;
-    public int MovementCost;
-    public int DefenseBoost;
-    public int AvoidBoost;
+    public string TileName { get; private set; }
+    public int DefenseBoost { get; private set; }
+    public int AvoidBoost { get; private set; }
     public Unit CurrentUnit { get; set; }
 
-    private List<OverlayTile> neighbors = null;
+    private Dictionary<UnitType, int> _costBasedOnUnit;
+    private List<OverlayTile> _neighbors;
+
+    public List<Sprite> arrowImages;
+
+    private void Awake()
+    {
+        _costBasedOnUnit = new Dictionary<UnitType, int>();
+        _neighbors = null;
+    }
 
     public void OnMouseEnter()
     {
@@ -70,13 +77,12 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
     }
 
-    public void InitializeTile(Tilemap tilemap, Vector3Int tileLocation, Dictionary<TileBase, TileData> tileDataMap)
+    public void InitializeTile(Tilemap tilemap, Vector3Int tileLocation, Dictionary<TileBase, TileData> tileDataMap, TileGrid tileGrid)
     {
         //Make sure the overlay tile appears ontop of the tilemap
         GetComponent<SpriteRenderer>().sortingOrder = tilemap.GetComponent<TilemapRenderer>().sortingOrder + 1;
 
         gridLocation = tileLocation;
-        tileMap = tilemap;
 
         var cellWorldPosition = tilemap.GetCellCenterWorld(tileLocation);
         transform.position = new Vector2(cellWorldPosition.x, cellWorldPosition.y);
@@ -85,18 +91,17 @@ public class OverlayTile : MonoBehaviour, IClickable
         if(tileDataMap.TryGetValue(tilemap.GetTile(tileLocation), out TileData val)){
             TileName = val.TileName;
 
-            if (val.MovementCost >= 10)
-                IsBlocked = true;
-            MovementCost = val.MovementCost;
+            _costBasedOnUnit = val.CostBasedOnUnit;
             DefenseBoost = val.DefenseBoost;
             AvoidBoost = val.AvoidBoost;
         }
         else if(tilemap.GetTile(tileLocation) != null)
         {
-            var tileData = FindObjectOfType<TileGrid>().TileDataList.Where(x => x.TileName == "Plains").First();
+            var tileData = tileGrid.TileDataList.Where(x => x.TileName == "Plains").First();
+
+            _costBasedOnUnit = tileData.CostBasedOnUnit;
 
             TileName = tileData.TileName;
-            MovementCost = tileData.MovementCost;
             DefenseBoost = tileData.DefenseBoost;
             AvoidBoost = tileData.AvoidBoost;
         }
@@ -106,9 +111,20 @@ public class OverlayTile : MonoBehaviour, IClickable
         }
     }
 
+    public int GetMovementCost(UnitType type)
+    {
+        return _costBasedOnUnit[type];
+    }
+
+    //A unit can move to a tile if the cost based on unit is greater than 0
+    public bool CanUnitMoveTo(UnitType type)
+    {
+        return _costBasedOnUnit[type] > 0;
+    }
+
     public virtual void MarkAsReachable()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = blueTile;
+        gameObject.GetComponent<SpriteRenderer>().sprite = _blueTile;
     }
 
     public virtual void UnMark()
@@ -129,12 +145,12 @@ public class OverlayTile : MonoBehaviour, IClickable
 
     public virtual void MarkAsAttackableTile()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = redTile;       
+        gameObject.GetComponent<SpriteRenderer>().sprite = _redTile;       
     }
 
     public virtual void MarkAsHealableTile()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = greenTile;
+        gameObject.GetComponent<SpriteRenderer>().sprite = _greenTile;
     }
 
     public virtual void MarkArrowPath(ArrowTranslator.ArrowDirection direction)
@@ -156,11 +172,15 @@ public class OverlayTile : MonoBehaviour, IClickable
     public void HighlightedOnUnit()
     {
         CursorSprite.GetComponent<Animator>().SetBool("IsActive", false);
+
+        //increase the size of the cursor when highlighted on a unit
+        CursorSprite.transform.localScale = new Vector3(1.2f, 1.2f, 1);
         CursorSprite.GetComponent<SpriteRenderer>().color = Color.white;       
     }
 
     public void DeHighlightedOnUnit()
     {
+        CursorSprite.transform.localScale = Vector3.one;
         HideCursor();
     }
 
@@ -182,23 +202,23 @@ public class OverlayTile : MonoBehaviour, IClickable
     public List<OverlayTile> GetNeighborTiles(TileGrid tileGrid)
     {
 
-        if(neighbors == null)
+        if(_neighbors == null)
         {
             var tilesToSearch = tileGrid.Map;
 
-            neighbors = new List<OverlayTile>(4);
+            _neighbors = new List<OverlayTile>(4);
 
             foreach(Vector2Int direction in neighborDirections)
             {
                 var locationToCheck = new Vector2Int(gridLocation2D.x + direction.x, gridLocation.y + direction.y);
                 if(tilesToSearch.ContainsKey(locationToCheck))
                 {
-                    neighbors.Add(tilesToSearch[locationToCheck]);
+                    _neighbors.Add(tilesToSearch[locationToCheck]);
                 }
             }
         }
 
-        return neighbors;
+        return _neighbors;
 
     }
 }

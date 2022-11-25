@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -438,9 +438,9 @@ TextureImporter:
       name: eliwood_map_14
       rect:
         serializedVersion: 2
-        x: 285
+        x: 286
         y: 454
-        width: 29
+        width: 28
         height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -585,9 +585,9 @@ TextureImporter:
       name: hector_map_3
       rect:
         serializedVersion: 2
-        x: 398
+        x: 399
         y: 286
-        width: 30
+        width: 29
         height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2030,6 +2030,762 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: heath_map_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 365
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dde86a7564621e4384a22cd453d79c9
+      internalID: -1675439179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 333
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2baccaafa18847447b5c53c015b9e3cc
+      internalID: -256547350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 301
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e07a6c6afe01842901113c9137ddca
+      internalID: -1109213897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 397
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303ac2be80eaf7e4a998d779f6d39daf
+      internalID: 100915786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 365
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b307309859d69e4d81eae45637cbe7b
+      internalID: 1197261514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_5
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 333
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e4b58be7360b64db684cdcd9ec38f0
+      internalID: -584434675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_6
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 301
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7ab4823704b414282d6f03a33bf0b3
+      internalID: -1078269627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_7
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 397
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abdf9c536b55d4f40a7aba1c87f4c27c
+      internalID: -945057476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_8
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 365
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6affc356631e0d478f95543e3123f19
+      internalID: -2560918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_9
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 333
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d2da6425093fc45a6ec3936ebafb31
+      internalID: -1324422689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_10
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 301
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7603d267f1643424f93fc0d79f7a355b
+      internalID: -1282122442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_11
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 397
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c78f11a017ff440a7bcdfaba2e04e0
+      internalID: -216135707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_12
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 365
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c5ecc66a0220847872995b6575df76
+      internalID: -287757483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_13
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 333
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819d859ecf8bfb449a1480ac6a554efe
+      internalID: -682795617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_14
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 301
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbff345f6a7545439c145653c911f74
+      internalID: 823646378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_15
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 368
+        width: 37
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4857143, y: 0.41935483}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0418880171475cf4b870ef1aeb9491cd
+      internalID: 2038686814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_16
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 336
+        width: 37
+        height: 31
+      alignment: 9
+      pivot: {x: 0.4857143, y: 0.43333337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01aecadf84a244e4b9ca2c30802a3530
+      internalID: -661454001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_map_17
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 300
+        width: 37
+        height: 35
+      alignment: 9
+      pivot: {x: 0.6, y: 0.38235295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c55f7b643c97f45a7c28b558709384
+      internalID: -1890291268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_0
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 102
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f57be1a78088c748851085a9892b2d1
+      internalID: -1516832755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 70
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1b07cf349a63a449209900d47cc3f7
+      internalID: 2101611090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_2
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 38
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc068b270c5c45944b54c2a081ef2dae
+      internalID: 602604341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_3
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 134
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a619e472b4d1f64e94e82a5afdd2a49
+      internalID: -517504657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_4
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 102
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e34bd6802145124194e33a7c1c59cba
+      internalID: -1860141125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_5
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 70
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf337338a402324284007f74950eea9
+      internalID: -2114700205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_6
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 38
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c097cabc91c160d4a98d3a1e7eb553d0
+      internalID: 1483665272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_7
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 134
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5d13c0c2913ae43a9e69ab2c334ed8
+      internalID: 808877532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_8
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 102
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6c2e30726ab194c87f8a24cc793471
+      internalID: 1154843024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_9
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 70
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c19683658d64174793c307bca918b35
+      internalID: 1161292651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_10
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 38
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3962c15c7cdcb546bd62c8d3c18a708
+      internalID: 2143576343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_11
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 134
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd8d09c726fb3648a048b8dd5efbe9d
+      internalID: 903846310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_12
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 102
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a72e8a065925f74e894ff8256e48fe5
+      internalID: 1947763812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_13
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 70
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db2bf27c9745b54b9fc9ca9947d8d03
+      internalID: 1405024471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_14
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 38
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b75dcce67155a7e4d8f270bcfeabb38c
+      internalID: -1908189650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_15
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 102
+        width: 32
+        height: 29
+      alignment: 9
+      pivot: {x: 0.75, y: 0.4827586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed8f3e4ff7b12a459b19e13911a24b8
+      internalID: 1380650032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_16
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 70
+        width: 32
+        height: 29
+      alignment: 9
+      pivot: {x: 0.71875, y: 0.44827586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a6acd4ed7cd0e4a826fc9fe51217b5
+      internalID: 826627660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_map_17
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 38
+        width: 32
+        height: 29
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.44827586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3558aba9273d9643b8adb2b2d926b75
+      internalID: -1221987858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2042,20 +2798,25 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       lucius_map_2: 569251646
+      oswin_map_5: -2114700205
       hector_map_17: 2091615433
       marcus_map_14: -214245123
+      oswin_map_9: 1161292651
       hector_map_16: -1838384342
       lyn_map_16: -1585842392
       lyn_map_3: -1490548988
+      oswin_map_10: 2143576343
       hector_map_12: 1170692410
       marcus_map_13: -407567362
       marcus_map_12: -767978630
       lyn_map_10: 561706286
+      oswin_map_13: 1405024471
       lyn_map_13: 2030344883
       lucius_map_5: -575234175
       eliwood_map_11: 166236050
       lucius_map_3: -400533847
       lucius_map_6: -1283022463
+      oswin_map_7: 808877532
       lyn_map_2: 2009004549
       eliwood_map_16: 1199275328
       lucius_map_8: -1378741157
@@ -2064,9 +2825,11 @@ TextureImporter:
       lucius_map_16: -939532011
       hector_map_1: -1244218777
       marcus_map_4: -1322687743
+      oswin_map_16: 826627660
       eliwood_map_4: 1205690717
       hector_map_14: 1373653771
       eliwood_map_8: 209850977
+      oswin_map_6: 1483665272
       eliwood_map_5: 212031613
       hector_map_8: 1481578793
       lyn_map_1: -1076233338
@@ -2078,26 +2841,39 @@ TextureImporter:
       lucius_map_9: 1517662927
       hector_map_6: 518295134
       eliwood_map_6: -1280968994
+      heath_map_10: -1282122442
       eliwood_map_9: -69185835
+      heath_map_15: 2038686814
+      heath_map_14: 823646378
       marcus_map_16: 1475853938
+      oswin_map_15: 1380650032
       lucius_map_10: -2042303464
       marcus_map_8: 1881122507
       lyn_map_14: -475368406
       marcus_map_6: 1756358804
+      oswin_map_3: -517504657
       lucius_map_1: 1293144245
       lucius_map_12: 946159391
       lyn_map_7: 1007881976
+      heath_map_1: -256547350
       hector_map_0: -1030629968
       hector_map_5: -1521487401
       eliwood_map_10: 1719183661
       lucius_map_14: 1463137500
+      heath_map_12: -287757483
       hector_map_10: 249065165
+      heath_map_3: 100915786
       hector_map_7: 734009328
       marcus_map_10: -673526491
       lucius_map_17: 1365553474
+      heath_map_7: -945057476
+      oswin_map_12: 1947763812
       lyn_map_12: 1651916269
       lyn_map_0: 96983282
       marcus_map_11: 1852039835
+      heath_map_8: -2560918
+      heath_map_6: -1078269627
+      oswin_map_0: -1516832755
       marcus_map_3: 2097174812
       marcus_map_9: 1832160075
       eliwood_map_17: -803199138
@@ -2106,31 +2882,46 @@ TextureImporter:
       eliwood_map_13: 816056871
       lyn_map_8: -959316827
       eliwood_map_14: -2094113122
+      heath_map_2: -1109213897
+      heath_map_5: -584434675
+      oswin_map_17: -1221987858
       eliwood_map_7: -511382533
       lyn_map_9: -1820703742
+      heath_map_17: -1890291268
+      heath_map_11: -216135707
+      heath_map_9: -1324422689
       lucius_map_4: 1306836005
       lucius_map_15: 748960363
+      oswin_map_11: 903846310
+      oswin_map_14: -1908189650
       lucius_map_11: -977775359
       eliwood_map_1: -218666962
       lyn_map_15: -143777943
       lucius_map_13: 580728021
+      oswin_map_4: -1860141125
       hector_map_13: -918807137
       hector_map_2: -1158807131
       lyn_map_5: 474562116
       lucius_map_7: -1149445137
       marcus_map_5: 172660857
+      oswin_map_1: 2101611090
       marcus_map_7: 18808164
+      oswin_map_2: 602604341
       heath_map_0: -1675439179
+      oswin_map_8: 1154843024
       hector_map_15: -1620630829
-      marcus_map_15: -1172535777
       lyn_map_6: -1193080274
+      marcus_map_15: -1172535777
       marcus_map_0: -1878699905
       lucius_map_0: 373730995
-      lyn_map_4: -618863825
+      heath_map_16: -661454001
       hector_map_11: -855719187
+      lyn_map_4: -618863825
       marcus_map_1: -1510150734
+      heath_map_4: 1197261514
       hector_map_3: 224842278
       eliwood_map_15: -171219879
+      heath_map_13: -682795617
       eliwood_map_2: -1618142327
   spritePackingTag: 
   pSDRemoveMatte: 0

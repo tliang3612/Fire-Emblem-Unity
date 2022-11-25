@@ -30,23 +30,14 @@ public class Unit : MonoBehaviour, IClickable
 
     public UnitState UnitState { get; set; }
 
-    public void SetState(UnitState state)
-    {
-        UnitState.OnStateExit();
-        UnitState.TransitionState(state);
-    }
+    private Animator _anim;
 
     [field: SerializeField]
     public OverlayTile Tile { get; set; }
-    private Animator Anim;
-    [SerializeField]
-    public float MovementAnimationSpeed = 7f;
-
-    [SerializeField]
-    private Vector2Int _defaultDirection;
-
-    [SerializeField]
-    private UnitInfo baseInfo;
+    
+    [SerializeField] private float MovementAnimationSpeed = 6f;
+    [SerializeField] private Vector2Int _defaultDirection;
+    [SerializeField] private UnitInfo baseInfo;
 
     public int TotalHitPoints { get; private set; }
     public int TotalMovementPoints { get; private set; }
@@ -59,6 +50,7 @@ public class Unit : MonoBehaviour, IClickable
     public int UnitLuck { get; private set; }
     public int UnitDefence { get; private set; }
     public int UnitConst { get; private set; }
+    public UnitType UnitType { get; private set; }
 
     public string UnitName { get; private set; }
     public Sprite UnitPortrait { get; private set; }
@@ -84,71 +76,58 @@ public class Unit : MonoBehaviour, IClickable
             else
                 return 0;
         }
-        private set { }
     }
 
     public List<Staff> AvailableStaffs
     {
-        get{
-            return Inventory.OfType<Staff>().ToList();
-        }
+        get {return Inventory.OfType<Staff>().ToList();}
         private set { }
     }
     public List<Weapon> AvailableWeapons
     {
-        get
-        {
-            return Inventory.OfType<Weapon>().ToList();
-        }
+        get {return Inventory.OfType<Weapon>().ToList();}
         private set { }
     }
 
     public Weapon EquippedWeapon
     {
-        get
-        {
-            return AvailableWeapons.FirstOrDefault();
-        }
-        private set { }
+        get {return AvailableWeapons.FirstOrDefault();}
     }
 
     public Staff EquippedStaff
     {
-        get
-        {
-            return AvailableStaffs.FirstOrDefault();
-        }
-        private set { }
+        get {return AvailableStaffs.FirstOrDefault();}
     }
 
-    public bool Unarmed => AvailableWeapons.Count <= 0;
+    public bool Unarmed { get { return AvailableWeapons.Count <= 0; } }
 
-    private List<OverlayTile> cachedPath;
 
-    public int PlayerNumber;
+    private List<OverlayTile> _cachedPath;
+
+    [field: SerializeField]
+    public int PlayerNumber { get; set; }
     public Player Player { get; set; }
     public bool IsMoving { get; set; }
 
-    private AStarPathfinder _pathfinder = new AStarPathfinder();
-    private RangeFinder rangeFinder;
+    private AStarPathfinder _pathfinder;
+    private RangeFinder _rangeFinder; 
 
     public void Awake()
     {
+        _anim = GetComponent<Animator>();
+        _rangeFinder = new RangeFinder(this);
+        _pathfinder = new AStarPathfinder(this);
+        _cachedPath = new List<OverlayTile>();
     }
 
     //Initializes the Unit. Called whenever a Unit gets added into the game
     public virtual void Initialize()
-    {
-        UnitState = new UnitStateNormal(this);
-
-        Anim = GetComponent<Animator>();
-        rangeFinder = new RangeFinder();
-
+    {     
         Tile = GetStartingTile();
-        Tile.IsBlocked = true;
+        Tile.IsOccupied = true;
         Tile.CurrentUnit = this;
 
-        cachedPath = new List<OverlayTile>();
+        UnitState = new UnitStateNormal(this);
 
         InitializeUnitInfo();
 
@@ -170,6 +149,7 @@ public class Unit : MonoBehaviour, IClickable
         UnitSkill = baseInfo.BaseSkill;
         UnitConst = baseInfo.BaseConst;
         UnitSpeed = baseInfo.BaseSpeed;
+        UnitType = baseInfo.UnitType;
 
         UnitPortrait = baseInfo.Portrait;
         UnitMapSprite = baseInfo.MapSprite;
@@ -177,6 +157,12 @@ public class Unit : MonoBehaviour, IClickable
 
         BattleAnimController = baseInfo.BattleAnimController;
         Inventory = baseInfo.StartingItems;
+    }
+
+    public void SetState(UnitState state)
+    {
+        UnitState.OnStateExit();
+        UnitState.TransitionState(state);
     }
 
     private OverlayTile GetStartingTile()
@@ -217,8 +203,8 @@ public class Unit : MonoBehaviour, IClickable
         MovementPoints = TotalMovementPoints;
         ActionPoints = TotalActionPoints;
 
-        cachedPath = new List<OverlayTile>();
-        Anim.SetBool("IsFinished", false);
+        _cachedPath = new List<OverlayTile>();
+        _anim.SetBool("IsFinished", false);
 
     }
 
@@ -250,6 +236,7 @@ public class Unit : MonoBehaviour, IClickable
         }
     }
 
+    //check if the other unit is attackable
     public virtual bool IsUnitAttackable(Unit otherUnit, bool isWeaponBased)
     {
         return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
@@ -267,6 +254,7 @@ public class Unit : MonoBehaviour, IClickable
             && otherUnit.HitPoints > 0;
     }
 
+    //check to see if the other unit is healable
     public bool IsUnitHealable(Unit otherUnit)
     {
         return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= EquippedStaff.Range
@@ -278,6 +266,7 @@ public class Unit : MonoBehaviour, IClickable
 
     }
 
+    //Equips the given item. Assume that the unit inventory already contains that item
     public void EquipItem(Item i)
     {
         if (Inventory.Contains(i))
@@ -311,7 +300,7 @@ public class Unit : MonoBehaviour, IClickable
 
         TotalMovementPoints = 0;
         TotalActionPoints = 0;
-        Tile.IsBlocked = false;
+        Tile.IsOccupied = false;
         Tile.CurrentUnit = null;
 
         DeathAnimationPlaying = true;
@@ -379,18 +368,15 @@ public class Unit : MonoBehaviour, IClickable
     {
         if (MovementAnimationSpeed > 0 && path.Count > 1)
         {
-            cachedPath = path;
+            _cachedPath = path;
             StartCoroutine(MovementAnimation(path));
         }
     }
 
-    /// <summary>
-    /// Procedurally moves Unit along the path
-    /// </summary>
-    /// <param name="path"> List of tiles the Unit will move through </param>
+    //Moves the unit along a path and sets their sprite direction based on the tile they are heading towards
     protected virtual IEnumerator MovementAnimation(List<OverlayTile> path)
     {
-        Anim.SetBool("IsMoving", true);
+        _anim.SetBool("IsMoving", true);
 
         if (path.Count <= 1)
         {
@@ -410,14 +396,14 @@ public class Unit : MonoBehaviour, IClickable
             //this prevents blend tree parameters from ever going to (0,0)
             if (direction.x != direction.y)
             {
-                Anim.SetFloat("MoveX", direction.x);
-                Anim.SetFloat("MoveY", direction.y);
+                _anim.SetFloat("MoveX", direction.x);
+                _anim.SetFloat("MoveY", direction.y);
 
             }
 
             if (Vector2.Distance(transform.position, tempPath[0].transform.position) < Mathf.Epsilon)
             {
-                PositionCharacter(tempPath[0]);
+                PositionUnit(tempPath[0]);
                 tempPath.RemoveAt(0);
             }
 
@@ -426,117 +412,125 @@ public class Unit : MonoBehaviour, IClickable
         IsMoving = false;
     }
 
+    //calculate the direction to face given the position they are heading towards
     public Vector2Int GetDirectionToFace(Vector3 headingPosition)
     {
         var heading = headingPosition - transform.position;
         var distance = heading.magnitude;
 
-        return new Vector2Int((int)(heading / distance).normalized.x, (int)(heading / distance).normalized.y);
+        return new Vector2Int((int)((heading / distance).normalized.x), (int)((heading / distance).normalized.y));
     }
 
+    //confirms the unit's destination, and set's their movement points to 0
     public void ConfirmMove()
     {
-        if (cachedPath.Count > 0)
+        if (_cachedPath.Count > 0)
         {
-            foreach (var tile in cachedPath)
-            {
-                MovementPoints -= tile.MovementCost;
-            }
-
             if (UnitMoved != null)
             {
-                UnitMoved.Invoke(this, new MovementEventArgs(cachedPath[0], cachedPath[cachedPath.Count - 1], cachedPath));
+                UnitMoved.Invoke(this, new MovementEventArgs(_cachedPath[0], _cachedPath[_cachedPath.Count - 1], _cachedPath));
             }
 
             MovementPoints = 0;
         }
     }
 
+    //Set's the unit's idle animation's current frame to that of the AnimationTimer's current frame
     public void SetAnimationToIdle()
     {
-        Anim.Play("Idle", 0, FindObjectOfType<AnimationTimer>().GetCurrentCurrentTime());
+        _anim.Play("Idle", 0, FindObjectOfType<AnimationTimer>().GetCurrentCurrentTime());
     }
 
+    //Set's the unit's animation to selected
     public void SetAnimationToSelected(bool canAnimate)
     {
-        Anim.SetBool("IsSelected", canAnimate);
+        _anim.SetBool("IsSelected", canAnimate);
     }
 
-    //used for whenver we want to start the Unit's movement animation
+    //used for whenever we want to start the Unit's movement animation
     public void SetMove(Vector2Int direction, bool canAnimate)
     {
-        Anim.SetBool("IsMoving", canAnimate);
+        _anim.SetBool("IsMoving", canAnimate);
 
         if (canAnimate)
         {
             if (direction == Vector2Int.zero)
             {
-                Anim.SetFloat("MoveX", _defaultDirection.x);
-                Anim.SetFloat("MoveY", _defaultDirection.y);
+                _anim.SetFloat("MoveX", _defaultDirection.x);
+                _anim.SetFloat("MoveY", _defaultDirection.y);
             }
             else
             {
-                Anim.SetFloat("MoveX", direction.x);
-                Anim.SetFloat("MoveY", direction.y);
+                _anim.SetFloat("MoveX", direction.x);
+                _anim.SetFloat("MoveY", direction.y);
             }        
         }   
     }
 
+    //reset's the unit's move, placing the unit at the beginning of the cached path
     public void ResetMove()
     {
-        SetState(new UnitStateNormal(this));
-
-        if (cachedPath.Count > 0)
+        if (_cachedPath.Count > 0)
         {
             MovementPoints = TotalMovementPoints;
-            PositionCharacter(cachedPath[0]);
-            cachedPath = new List<OverlayTile>();
+            PositionUnit(_cachedPath[0]);
+            _cachedPath = new List<OverlayTile>();
         }
     }
 
+    //Set the unit to have zero action and movement points, and set their animation to finished
     public void SetFinished()
     {
-        Anim.SetBool("IsMoving", false);
-        Anim.SetBool("IsFinished", true);
+        _anim.SetBool("IsMoving", false);
+        _anim.SetBool("IsFinished", true);
         MovementPoints = 0;
         ActionPoints = 0;
     }
 
-    /// <summary>
-    /// Positions the Unit at the given tile
-    /// </summary>
-    /// <param name="tile"> Tile to position Unit on</param>
-    public void PositionCharacter(OverlayTile tile)
+    //positions the unit to a given tile
+    public void PositionUnit(OverlayTile tile)
     {
         transform.position = tile.transform.position;
         Tile = tile;
+        tile.CurrentUnit = this;
     }
 
+    //checks to see if the tile is a valid destination
     public bool IsTileMovableTo(OverlayTile tile)
     {
         if (Tile == tile)
         {
             return true;
         }
-        return !tile.IsBlocked;
+        return !tile.IsOccupied && tile.CanUnitMoveTo(UnitType);
+    }
+
+    //Checks to see if the tile is moveable across
+    public bool IsTileMoveableAcross(OverlayTile tile)
+    {
+        //if the tile is occupied by an enemy return false
+        if (tile.CurrentUnit && tile.CurrentUnit.PlayerNumber != PlayerNumber)
+            return false;
+
+        return tile.CanUnitMoveTo(UnitType);
     }
 
     //Get a list of tiles that the Unit can move to
     public List<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
     {
-        return rangeFinder.GetTilesInMoveRange(this, tileGrid, GetTilesInRange(tileGrid, MovementPoints));
+        return _rangeFinder.GetTilesInMoveRange(tileGrid, GetTilesInRange(tileGrid, MovementPoints));
     }
 
     //Get a list of tiles within the Unit's range. Doesn't take tile cost into consideration
     public List<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
     {
-        return rangeFinder.GetTilesInRange(this, tileGrid, range);
+        return _rangeFinder.GetTilesInRange(tileGrid, range);
     }
 
     //Get a list of attackable tiles that doesn't include the tiles that a Unit can move to
     public List<OverlayTile> GetTilesInAttackRange(List<OverlayTile> availableDestinations, TileGrid tileGrid)
     {
-        return rangeFinder.GetTilesInAttackRange(availableDestinations, tileGrid, AttackRange);
+        return _rangeFinder.GetTilesInAttackRange(availableDestinations, tileGrid, AttackRange);
     }
 
     //Find the optimal path from the tile the Unit is on currently, to the destination tile

@@ -2,10 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum UnitType
+{
+    Flying,
+    Armoured,
+    Horseback,
+    Infantry,
+}
+
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/UnitInfo", order = 3)]
 public class UnitInfo : ScriptableObject
 {
     public string Name;
+    public UnitType UnitType;
 
     public int TotalMovementPoints;
     public int TotalActionPoints;

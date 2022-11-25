@@ -2,28 +2,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
-
 
 public class CombatCalculator
 {
     private const int _critCoefficient = 2;
 
-    protected CombatStats playerStats;
-    protected CombatStats enemyStats;
-    protected int range;
-    protected int playerHealth;
-    protected int enemyHealth;
+    private CombatStats _playerStats;
+    private CombatStats _enemyStats;
+    private int _tempPlayerHealth;
+    private int _tempEnemyHealth;
+    private int _range;
 
     public CombatCalculator(CombatStats attackerStats, CombatStats defenderStats, int range)
     {
-        playerStats = attackerStats;
-        enemyStats = defenderStats;
+        _playerStats = attackerStats;
+        _enemyStats = defenderStats;
 
         //Save a copy of the health to pre run attack events
-        playerHealth = attackerStats.HealthStat;
-        enemyHealth = defenderStats.HealthStat;
-        this.range = range;
+        _tempPlayerHealth = attackerStats.HealthStat;
+        _tempEnemyHealth = defenderStats.HealthStat;
+        _range = range;
     }   
     
 
@@ -32,19 +30,19 @@ public class CombatCalculator
         Queue<BattleAction> ret = new Queue<BattleAction>(); 
         List<bool> attackOrder = new List<bool>();
 
-        if (CanAttack(playerStats, enemyStats))
+        if (CanAttack(_playerStats, _enemyStats))
             attackOrder.Add(true);
         
-        if (CanAttack(enemyStats, playerStats))
+        if (CanAttack(_enemyStats, _playerStats))
             attackOrder.Add(false);
 
         
-        if ((playerStats.CanDoubleAttack))
+        if ((_playerStats.CanDoubleAttack))
         {
             attackOrder.Add(true);
         }
 
-        if (enemyStats.CanDoubleAttack)
+        if (_enemyStats.CanDoubleAttack)
         {
             attackOrder.Add(false);
         }
@@ -53,14 +51,14 @@ public class CombatCalculator
         {
             BattleAction currentAction;
 
-            if (isPlayerAttack && CanAttack(playerStats,enemyStats))
+            if (isPlayerAttack && CanAttack(_playerStats,_enemyStats))
             {
-                currentAction = RunAction(true, playerStats);
+                currentAction = RunAction(true, _playerStats);
                 ret.Enqueue(currentAction);
             }
-            else if (!isPlayerAttack && CanAttack(enemyStats, playerStats))
+            else if (!isPlayerAttack && CanAttack(_enemyStats, _playerStats))
             {
-                currentAction = RunAction(false, enemyStats);
+                currentAction = RunAction(false, _enemyStats);
                 ret.Enqueue(currentAction);
             }           
         }
@@ -90,11 +88,11 @@ public class CombatCalculator
         damage = combatStats.DamageStat * crit * dodge;
 
         if (isPlayer)
-            enemyHealth -= damage;
+            _tempEnemyHealth -= damage;
         else
-            playerHealth -= damage;
+            _tempPlayerHealth -= damage;
 
-        if (playerHealth <= 0 || enemyHealth <= 0)
+        if (_tempPlayerHealth <= 0 || _tempEnemyHealth <= 0)
             isDead = true;
         
         return new BattleAction(isPlayer, dodge == 1, crit == _critCoefficient, isDead, damage);
@@ -106,13 +104,13 @@ public class CombatCalculator
     public virtual bool CanAttack(CombatStats attackerStats, CombatStats defenderStats)
     {
         if (attackerStats.HealthStat <= 0 || defenderStats.HealthStat <= 0) return false;
-        if (attackerStats.RangeStat < range) return false;
+        if (attackerStats.RangeStat < _range) return false;
         return true;
     }
 
 }
 
-public class BattleAction
+public struct BattleAction
 {
     public bool IsPlayerAttacking { get; private set; }
     public bool IsHit { get; private set; }

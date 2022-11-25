@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa68ac37acf0d7b49add83757c2b2b3e, type: 3}
+  m_Name: Water
+  m_EditorClassIdentifier: 
+  Tiles:
+  - {fileID: 11400000, guid: 0fc0488795ee1f9449914c1fbc8d823c, type: 2}
+  - {fileID: 11400000, guid: 9aa9a5217253eac41ba1dd75ddbdbcff, type: 2}
+  - {fileID: 11400000, guid: 1ab594fa5e8a0a84eab9c05f47c2d44f, type: 2}
+  - {fileID: 11400000, guid: f51f3f40448bd0e4a9e942b93a534ade, type: 2}
+  - {fileID: 11400000, guid: 27364069823392e498d1dbea2e46d716, type: 2}
+  - {fileID: 11400000, guid: 82ba8d8c97c346a4185dc46f54a26dbb, type: 2}
+  - {fileID: 11400000, guid: 6a018ca9b70f77541a543ec616591b64, type: 2}
+  - {fileID: 11400000, guid: 020cedee40b039b42a5e6ca392a622c8, type: 2}
+  - {fileID: 11400000, guid: 923ed7b626b67ab479aa0d8c879f430b, type: 2}
+  - {fileID: 11400000, guid: 7c87f7cf28d4534448580af93973309a, type: 2}
+  - {fileID: 11400000, guid: 9116d39d8ff6d4741af5bfe33a43a54f, type: 2}
+  - {fileID: 11400000, guid: 5f64001a57354df43b77d04f373f6f30, type: 2}
+  - {fileID: 11400000, guid: 9426640d4e0132a44833ea55f250a059, type: 2}
+  UnitTypes: 03000000010000000200000000000000
+  Costs: 00000000000000000000000001000000
+  TileName: Water
+  DefenseBoost: 0
+  AvoidBoost: 10

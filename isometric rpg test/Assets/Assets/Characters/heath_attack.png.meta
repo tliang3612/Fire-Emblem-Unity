@@ -1,0 +1,995 @@
+fileFormatVersion: 2
+guid: dda0e3361c1c51b44868c9062ae2f035
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: heath_attack_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 885
+        width: 102
+        height: 87
+      alignment: 9
+      pivot: {x: 0.12745099, y: 0.022988506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80f58a261eb04940a87d4709c8cc81c
+      internalID: -1592406552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 885
+        width: 102
+        height: 87
+      alignment: 9
+      pivot: {x: 0.13725491, y: 0.022988506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebad8594a5071d24ea00591ea62bd24d
+      internalID: -1031250032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_2
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 877
+        width: 102
+        height: 99
+      alignment: 9
+      pivot: {x: 0.1764706, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ccd694f563e6749b0e3a4b6faec0b3
+      internalID: -1745580522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_3
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 877
+        width: 84
+        height: 99
+      alignment: 9
+      pivot: {x: 0.15476191, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42c789df1d58eb4bbd3392bb5d49d9f
+      internalID: 1442673729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_4
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 877
+        width: 84
+        height: 99
+      alignment: 9
+      pivot: {x: 0.20238096, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8361b6623f4b31048ba2451a3131b27e
+      internalID: 153434296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_5
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 877
+        width: 94
+        height: 99
+      alignment: 9
+      pivot: {x: 0.22340424, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8432e1e3b3408834288f15dd1a6ea557
+      internalID: -483614512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 765
+        width: 116
+        height: 102
+      alignment: 9
+      pivot: {x: 0.22413793, y: 0.009803922}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75edf2bb546f3d445a53e73b3005fc06
+      internalID: 690660436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_7
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 766
+        width: 134
+        height: 102
+      alignment: 9
+      pivot: {x: 0.30597013, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b4fe02b40efad4b95aa1daf428f289
+      internalID: -2135326834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_8
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 766
+        width: 129
+        height: 102
+      alignment: 9
+      pivot: {x: 0.3488372, y: 0.029411767}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ccf1654fc92a2f40b03332917be2345
+      internalID: -686256471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_9
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 769
+        width: 129
+        height: 99
+      alignment: 9
+      pivot: {x: 0.29457363, y: 0.02020202}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63744223be494940ad9c120635a3e8b
+      internalID: -472489978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_10
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 769
+        width: 129
+        height: 98
+      alignment: 9
+      pivot: {x: 0.35658914, y: 0.010204081}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e8666680078b8448ad9f527d93750d
+      internalID: 1275101911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 641
+        width: 100
+        height: 97
+      alignment: 9
+      pivot: {x: 0.35, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06f1059d614dfd418dd7605b85c5993
+      internalID: -1622137465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_12
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 641
+        width: 108
+        height: 97
+      alignment: 9
+      pivot: {x: 0.21296297, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63e9af0f453cff4e87c0d9af0f58772
+      internalID: -312221479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_13
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 637
+        width: 109
+        height: 106
+      alignment: 9
+      pivot: {x: 0.4587156, y: 0.0754717}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b55e1da161cf904a90eded2a5bed80f
+      internalID: -1772064050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_14
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 640
+        width: 137
+        height: 111
+      alignment: 9
+      pivot: {x: 0.30656934, y: 0.027027028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b0e554664aa3d42a69f3a559e77217
+      internalID: -1596035699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_15
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 640
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.37226278, y: 0.009090909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68be7de3af40ba242ae927936e1350b2
+      internalID: 1337525416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 508
+        width: 123
+        height: 109
+      alignment: 9
+      pivot: {x: 0.31707317, y: 0.0091743115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b64c119db0d564cb900f570c14d7b6
+      internalID: -858873164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_17
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 508
+        width: 103
+        height: 106
+      alignment: 9
+      pivot: {x: 0.24271844, y: 0.009433962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1a9bc194e39294aa9ef247f8346184
+      internalID: -1083636095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_18
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 509
+        width: 103
+        height: 106
+      alignment: 9
+      pivot: {x: 0.1262136, y: 0.028301887}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee57626026747a459b6759ea541452e
+      internalID: 1159759349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_19
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 514
+        width: 103
+        height: 101
+      alignment: 9
+      pivot: {x: 0.16504854, y: 0.00990099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68254297e8bb9a94398bc8f74693147c
+      internalID: -1211354797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_20
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 514
+        width: 103
+        height: 101
+      alignment: 9
+      pivot: {x: 0.106796116, y: 0.00990099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1219df9edca0d4a4a82cb43f2073fc25
+      internalID: -571491616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_21
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 514
+        width: 104
+        height: 101
+      alignment: 9
+      pivot: {x: 0.18269232, y: 0.00990099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c9b573c3de8b034a8ddb790ff585f79
+      internalID: 644150057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 381
+        width: 105
+        height: 99
+      alignment: 9
+      pivot: {x: 0.14285715, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97832f509a002894a8cd94786f4f4958
+      internalID: -170883096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_23
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 411
+        width: 99
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f545752d8482f445971bb0870d39f05
+      internalID: 1202757937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 92
+        height: 97
+      alignment: 9
+      pivot: {x: 0.18478261, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fda2eb1149e4b4d91cb66ba016c9bd
+      internalID: 382560159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_25
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 256
+        width: 92
+        height: 97
+      alignment: 9
+      pivot: {x: 0.30434784, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9106283bd195b346a57a95082b9085d
+      internalID: -1303767382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_26
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 257
+        width: 92
+        height: 97
+      alignment: 9
+      pivot: {x: 0.2826087, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de11fe6929b71e44b7c11dbe5911cc7
+      internalID: 1840807225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_27
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 257
+        width: 78
+        height: 97
+      alignment: 9
+      pivot: {x: 0.20512821, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a191dfe5dd541614982737263dd20595
+      internalID: 166473745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_28
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 258
+        width: 89
+        height: 97
+      alignment: 9
+      pivot: {x: 0.2247191, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ad6a941de115343bfb6a1d189555d1
+      internalID: 1614559381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_29
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 258
+        width: 89
+        height: 97
+      alignment: 9
+      pivot: {x: 0.2247191, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059b775083acdd643914ab54218ae93d
+      internalID: 335905869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_30
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 258
+        width: 89
+        height: 97
+      alignment: 9
+      pivot: {x: 0.24719101, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e855f8e58de654a8978104a0b0db9f
+      internalID: 1329474215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 141
+        width: 89
+        height: 100
+      alignment: 9
+      pivot: {x: 0.2247191, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7a459a9b15ff348acf39baccc2a20e
+      internalID: 884723531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_32
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 141
+        width: 89
+        height: 100
+      alignment: 9
+      pivot: {x: 0.20224719, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f4d766aa9c6af8459c73500f3a2c28b
+      internalID: 1878422962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_33
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 142
+        width: 122
+        height: 99
+      alignment: 9
+      pivot: {x: 0.24590163, y: 0.01010101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6af74cab1202114482fd94160285e03
+      internalID: -1498399574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_34
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 144
+        width: 136
+        height: 96
+      alignment: 9
+      pivot: {x: 0.27941176, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3721c9d48d11734cb8c9d8e739561f7
+      internalID: 1960012342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_35
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 146
+        width: 136
+        height: 102
+      alignment: 9
+      pivot: {x: 0.33088234, y: 0.019607844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc072f2185eb0fa40b246be13d279808
+      internalID: -540547993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 108
+        height: 102
+      alignment: 9
+      pivot: {x: 0.3703704, y: 0.009803922}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f50529cf777ea4e9e73215b02ba0f6
+      internalID: 505617823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heath_attack_37
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 0
+        width: 108
+        height: 103
+      alignment: 9
+      pivot: {x: 0.4351852, y: 0.009708738}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd9d5e96ece1f74e9358f8e44e0dcfd
+      internalID: 336586522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      heath_attack_28: 1614559381
+      heath_attack_30: 1329474215
+      heath_attack_11: -1622137465
+      heath_attack_12: -312221479
+      heath_attack_19: -1211354797
+      heath_attack_35: -540547993
+      heath_attack_2: -1745580522
+      heath_attack_18: 1159759349
+      heath_attack_10: 1275101911
+      heath_attack_37: 336586522
+      heath_attack_5: -483614512
+      heath_attack_24: 382560159
+      heath_attack_7: -2135326834
+      heath_attack_27: 166473745
+      heath_attack_21: 644150057
+      heath_attack_13: -1772064050
+      heath_attack_8: -686256471
+      heath_attack_9: -472489978
+      heath_attack_31: 884723531
+      heath_attack_25: -1303767382
+      heath_attack_14: -1596035699
+      heath_attack_32: 1878422962
+      heath_attack_20: -571491616
+      heath_attack_4: 153434296
+      heath_attack_33: -1498399574
+      heath_attack_22: -170883096
+      heath_attack_36: 505617823
+      heath_attack_26: 1840807225
+      heath_attack_16: -858873164
+      heath_attack_1: -1031250032
+      heath_attack_34: 1960012342
+      heath_attack_0: -1592406552
+      heath_attack_3: 1442673729
+      heath_attack_23: 1202757937
+      heath_attack_6: 690660436
+      heath_attack_15: 1337525416
+      heath_attack_17: -1083636095
+      heath_attack_29: 335905869
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

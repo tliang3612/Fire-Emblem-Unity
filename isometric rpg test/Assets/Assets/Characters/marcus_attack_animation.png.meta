@@ -1904,6 +1904,552 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_84
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 383
+        width: 50
+        height: 61
+      alignment: 9
+      pivot: {x: 0.35999998, y: 0.016393442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6475d0785d0b3c64c8a07c3a85a52be3
+      internalID: 334358447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_85
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 384
+        width: 54
+        height: 61
+      alignment: 9
+      pivot: {x: 0.4074074, y: 0.016393442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84ef853340921245b932c7d57c0f9f4
+      internalID: -1326608019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_86
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 385
+        width: 54
+        height: 61
+      alignment: 9
+      pivot: {x: 0.4074074, y: 0.016393442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2696efda1260d3346b438fd3eb2e13d7
+      internalID: -1544245717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_87
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 387
+        width: 61
+        height: 59
+      alignment: 9
+      pivot: {x: 0.34426227, y: 0.016949153}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f0f40ab272ddb46ae8ff144fbbfd13
+      internalID: 1626812071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_88
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 387
+        width: 68
+        height: 60
+      alignment: 9
+      pivot: {x: 0.45588234, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9698479ff86ac2d4392e85819508bcf6
+      internalID: -897752108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_89
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 387
+        width: 70
+        height: 60
+      alignment: 9
+      pivot: {x: 0.3857143, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b45674417d641b44b8dfd1ca2ee0d4b8
+      internalID: 231714037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_90
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 387
+        width: 70
+        height: 67
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.029850746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ea312e47898204aafcec429a7b27f8
+      internalID: 357232697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_91
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 387
+        width: 78
+        height: 67
+      alignment: 9
+      pivot: {x: 0.34615386, y: 0.04477612}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f332f8a1baac949930173a9d2b406b
+      internalID: 379676805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_92
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 389
+        width: 78
+        height: 65
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015384615}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b327b59d6b38ee144b78f4b452579a2a
+      internalID: -196686168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_93
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 311
+        width: 65
+        height: 66
+      alignment: 9
+      pivot: {x: 0.33846155, y: 0.015151516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362a1f268ce8be84a9bf30a40af6c511
+      internalID: -239099547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_94
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 312
+        width: 66
+        height: 67
+      alignment: 9
+      pivot: {x: 0.34848487, y: 0.014925373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c0ab38ef41f1e46a31a30039b34082
+      internalID: -1790025260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_95
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 313
+        width: 70
+        height: 67
+      alignment: 9
+      pivot: {x: 0.3857143, y: 0.014925373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24d8c6e036c3054bb92206ed14a4b97
+      internalID: -1015737061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_96
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 313
+        width: 71
+        height: 70
+      alignment: 9
+      pivot: {x: 0.36619717, y: 0.014285714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0da275ead742ec4ab87ece813a14e91
+      internalID: -463492808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_97
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 315
+        width: 72
+        height: 68
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.014705882}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a624fab46b8181649a17d96fe6e9e762
+      internalID: -1717855641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_98
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 315
+        width: 67
+        height: 69
+      alignment: 9
+      pivot: {x: 0.34328356, y: 0.014492754}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cac7af23352f784ba141d67c3a184de
+      internalID: 2141465270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_99
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 316
+        width: 68
+        height: 68
+      alignment: 9
+      pivot: {x: 0.36764705, y: 0.014705882}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad90b43b2a5825c4eae0610ea1d3b73b
+      internalID: 1649285340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_100
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 316
+        width: 68
+        height: 69
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.014492754}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a31c10507cbde4eba7b0ae2f52a26d
+      internalID: -1752221545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_101
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 247
+        width: 74
+        height: 58
+      alignment: 9
+      pivot: {x: 0.12162162, y: 0.01724138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c8e37e2c5541654e980ef6a4129f160
+      internalID: -604992401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_102
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 245
+        width: 75
+        height: 58
+      alignment: 9
+      pivot: {x: 0.093333334, y: 0.01724138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfbf24dd7dd48d346826d8c339d5b064
+      internalID: -206848874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_103
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 245
+        width: 75
+        height: 58
+      alignment: 9
+      pivot: {x: 0.25333333, y: 0.01724138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a5fe3099bf5434386e597f4cfc4c23
+      internalID: -1714685937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_104
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 246
+        width: 77
+        height: 57
+      alignment: 9
+      pivot: {x: 0.24675325, y: 0.01754386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b71df0fa079ea3a4f8d182a05fa1daec
+      internalID: 1298312681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_105
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 245
+        width: 80
+        height: 58
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.01724138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c562da73c5e6f4db9054ce55d9fc10
+      internalID: 1375826330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_106
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 450
+        width: 57
+        height: 67
+      alignment: 9
+      pivot: {x: 0.2631579, y: 0.014925373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb2d358e3d3a1b4cb8ea48440b7b758
+      internalID: 1219999740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_107
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 450
+        width: 57
+        height: 67
+      alignment: 9
+      pivot: {x: 0.21052632, y: 0.014925373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9303ac2207d7b9748bf9660fbcc4c771
+      internalID: 1327921502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_108
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 448
+        width: 57
+        height: 67
+      alignment: 9
+      pivot: {x: 0.24561404, y: 0.014925373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b36f99686de898945afd44adfac60ea6
+      internalID: 2136083039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcus_attack_animation_109
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 447
+        width: 57
+        height: 67
+      alignment: 9
+      pivot: {x: 0.36842105, y: 0.014925373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a504b41e5f5654f4483450438d8d51f4
+      internalID: -355088533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1915,90 +2461,116 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      marcus_attack_animation_63: -1525587909
       marcus_attack_animation_35: 1732175614
-      marcus_attack_animation_2: -1376468289
-      marcus_attack_animation_23: 57974039
       marcus_attack_animation_77: -1538072582
-      marcus_attack_animation_4: -1535441895
-      marcus_attack_animation_21: -444064237
-      marcus_attack_animation_73: -1761221114
-      marcus_attack_animation_26: -501809336
-      marcus_attack_animation_80: 1193087408
       marcus_attack_animation_44: 959596975
       marcus_attack_animation_70: -414788172
-      marcus_attack_animation_74: 1670842251
-      marcus_attack_animation_8: -459469007
-      marcus_attack_animation_68: 427025477
-      marcus_attack_animation_67: 1867716404
+      marcus_attack_animation_84: 334358447
+      marcus_attack_animation_89: 231714037
       marcus_attack_animation_50: -1447212861
-      marcus_attack_animation_64: 1154715472
-      marcus_attack_animation_1: 1782564497
+      marcus_attack_animation_97: -1717855641
       marcus_attack_animation_43: -357397331
       marcus_attack_animation_61: 1016309979
-      marcus_attack_animation_66: 530876937
       marcus_attack_animation_7: -421221022
       marcus_attack_animation_53: -7655551
       marcus_attack_animation_41: -252707166
-      marcus_attack_animation_57: -1319826687
-      marcus_attack_animation_36: 208736377
+      marcus_attack_animation_103: -1714685937
       marcus_attack_animation_75: 1873952763
-      marcus_attack_animation_24: -1698247214
-      marcus_attack_animation_22: 544923133
-      marcus_attack_animation_13: -1275993773
       marcus_attack_animation_40: 1962637899
-      marcus_attack_animation_25: 376394943
-      marcus_attack_animation_5: -414813281
       marcus_attack_animation_20: 1231537449
       marcus_attack_animation_59: -1647731832
       marcus_attack_animation_38: 1837103457
       marcus_attack_animation_45: 135957115
-      marcus_attack_animation_17: -1949369593
-      marcus_attack_animation_58: 1319138653
-      marcus_attack_animation_79: 891455039
-      marcus_attack_animation_82: -1900391903
       marcus_attack_animation_51: -1421834746
       marcus_attack_animation_72: 832135902
       marcus_attack_animation_46: 1929789448
       marcus_attack_animation_56: -1171787993
-      marcus_attack_animation_32: 1592922807
-      marcus_attack_animation_18: 1215957503
       marcus_attack_animation_33: -104631740
+      marcus_attack_animation_18: 1215957503
+      marcus_attack_animation_105: 1375826330
+      marcus_attack_animation_98: 2141465270
       marcus_attack_animation_69: -1182067515
+      marcus_attack_animation_99: 1649285340
       marcus_attack_animation_11: -1664997354
+      marcus_attack_animation_39: -679961867
+      marcus_attack_animation_14: 1666675962
+      marcus_attack_animation_107: 1327921502
+      marcus_attack_animation_54: 1839603660
+      marcus_attack_animation_12: -1988035033
+      marcus_attack_animation_62: 337931728
+      marcus_attack_animation_19: 56619737
+      marcus_attack_animation_85: -1326608019
+      marcus_attack_animation_27: -1148927728
+      marcus_attack_animation_71: -61968581
+      marcus_attack_animation_96: -463492808
+      marcus_attack_animation_52: 360842377
+      marcus_attack_animation_86: -1544245717
+      marcus_attack_animation_81: -1648953570
+      marcus_attack_animation_90: 357232697
+      marcus_attack_animation_93: -239099547
+      marcus_attack_animation_3: -508776290
+      marcus_attack_animation_42: 622515071
+      marcus_attack_animation_47: -129001013
+      marcus_attack_animation_60: -1586971792
+      marcus_attack_animation_94: -1790025260
+      marcus_attack_animation_48: 1436144635
+      marcus_attack_animation_91: 379676805
+      marcus_attack_animation_63: -1525587909
+      marcus_attack_animation_16: -577771930
+      marcus_attack_animation_2: -1376468289
+      marcus_attack_animation_23: 57974039
+      marcus_attack_animation_4: -1535441895
+      marcus_attack_animation_21: -444064237
+      marcus_attack_animation_73: -1761221114
+      marcus_attack_animation_26: -501809336
+      marcus_attack_animation_106: 1219999740
+      marcus_attack_animation_80: 1193087408
+      marcus_attack_animation_102: -206848874
+      marcus_attack_animation_74: 1670842251
+      marcus_attack_animation_8: -459469007
+      marcus_attack_animation_68: 427025477
+      marcus_attack_animation_67: 1867716404
+      marcus_attack_animation_64: 1154715472
+      marcus_attack_animation_1: 1782564497
+      marcus_attack_animation_66: 530876937
+      marcus_attack_animation_92: -196686168
+      marcus_attack_animation_57: -1319826687
+      marcus_attack_animation_36: 208736377
+      marcus_attack_animation_24: -1698247214
+      marcus_attack_animation_22: 544923133
+      marcus_attack_animation_13: -1275993773
+      marcus_attack_animation_108: 2136083039
+      marcus_attack_animation_25: 376394943
+      marcus_attack_animation_5: -414813281
+      marcus_attack_animation_17: -1949369593
+      marcus_attack_animation_58: 1319138653
+      marcus_attack_animation_79: 891455039
+      marcus_attack_animation_82: -1900391903
+      marcus_attack_animation_32: 1592922807
       marcus_attack_animation_78: -1663787750
+      marcus_attack_animation_88: -897752108
       marcus_attack_animation_28: 1384484792
       marcus_attack_animation_49: -746348670
       marcus_attack_animation_37: -257592437
       marcus_attack_animation_0: 1242272943
       marcus_attack_animation_31: 1870198250
-      marcus_attack_animation_39: -679961867
-      marcus_attack_animation_14: 1666675962
       marcus_attack_animation_65: -1521038017
-      marcus_attack_animation_54: 1839603660
-      marcus_attack_animation_6: -740932578
-      marcus_attack_animation_12: -1988035033
-      marcus_attack_animation_19: 56619737
-      marcus_attack_animation_62: 337931728
-      marcus_attack_animation_34: -1457413601
-      marcus_attack_animation_27: -1148927728
+      marcus_attack_animation_100: -1752221545
+      marcus_attack_animation_109: -355088533
       marcus_attack_animation_76: -722700567
-      marcus_attack_animation_71: -61968581
-      marcus_attack_animation_9: -618556077
-      marcus_attack_animation_52: 360842377
+      marcus_attack_animation_6: -740932578
       marcus_attack_animation_83: 1817511223
+      marcus_attack_animation_34: -1457413601
+      marcus_attack_animation_9: -618556077
+      marcus_attack_animation_95: -1015737061
       marcus_attack_animation_10: -356686182
-      marcus_attack_animation_81: -1648953570
-      marcus_attack_animation_3: -508776290
-      marcus_attack_animation_42: 622515071
+      marcus_attack_animation_101: -604992401
       marcus_attack_animation_30: -1658818436
-      marcus_attack_animation_47: -129001013
-      marcus_attack_animation_60: -1586971792
-      marcus_attack_animation_15: -108563759
-      marcus_attack_animation_48: 1436144635
-      marcus_attack_animation_29: -215404639
       marcus_attack_animation_55: -957074095
-      marcus_attack_animation_16: -577771930
+      marcus_attack_animation_15: -108563759
+      marcus_attack_animation_29: -215404639
+      marcus_attack_animation_87: 1626812071
+      marcus_attack_animation_104: 1298312681
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -18,8 +18,8 @@ public class WaitAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
-            UnitReference.SetState(new UnitStateFinished(UnitReference));
             UnitReference.ConfirmMove();
+            UnitReference.SetState(new UnitStateFinished(UnitReference));            
         }
         yield return 0;
     }

@@ -1,0 +1,1215 @@
+fileFormatVersion: 2
+guid: 3fe07f9f2f593244489652753c885a97
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: oswin_attack_animation_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 953
+        width: 70
+        height: 46
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e243f25a27354004ca52a8baf8919f05
+      internalID: -2038741609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 953
+        width: 74
+        height: 44
+      alignment: 9
+      pivot: {x: 0.41891894, y: 0.06818182}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9e9ad6c6286a74c891d1c894661c4e
+      internalID: 830765986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_2
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 952
+        width: 75
+        height: 48
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5fc25cbd448bf14e87ef038158df384
+      internalID: 742640133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_3
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 951
+        width: 83
+        height: 51
+      alignment: 9
+      pivot: {x: 0.26506025, y: 0.11764707}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2bfb90fff60e12478d01be4bebabce1
+      internalID: 1360484288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 886
+        width: 85
+        height: 53
+      alignment: 9
+      pivot: {x: 0.2, y: 0.056603774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d224508c811864998f5d5c044d3611
+      internalID: -1488092083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 889
+        width: 87
+        height: 51
+      alignment: 9
+      pivot: {x: 0.18390805, y: 0.058823533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b7efafa1ed23d47a2fb912c62737b9
+      internalID: -2077527774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_6
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 892
+        width: 92
+        height: 51
+      alignment: 9
+      pivot: {x: 0.23913044, y: 0.078431375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681cb52183effb64a8ba0dcdc2322aed
+      internalID: 698680648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_7
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 891
+        width: 92
+        height: 51
+      alignment: 9
+      pivot: {x: 0.23913044, y: 0.078431375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ae6d235855a2f499b20db258e3c2bf
+      internalID: -998701769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 821
+        width: 89
+        height: 52
+      alignment: 9
+      pivot: {x: 0.25842696, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2962752dea83314281bfd90d9711ab4
+      internalID: -1787235483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_9
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 824
+        width: 100
+        height: 58
+      alignment: 9
+      pivot: {x: 0.62, y: 0.051724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26581249bde806b46a802cecbed9122e
+      internalID: -402816668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_10
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 825
+        width: 126
+        height: 53
+      alignment: 9
+      pivot: {x: 0.72222227, y: 0.03773585}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29b2211f91772d449bd2cba7f90ee0a
+      internalID: 833430965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_11
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 764
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6923077, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97227238e5d78804cbbee1a5fb575959
+      internalID: -1243845480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_12
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 766
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6923077, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1edc0202498de654fae9fbebdf0583d7
+      internalID: -1119493761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_13
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 770
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6846154, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1adc879d9df0d504ca49e25670eb84d3
+      internalID: 887703983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_14
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 708
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6923077, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b57fa845034e1a548b17f377c159993e
+      internalID: -1271973117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_15
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 708
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.7076923, y: 0.099999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc743fc955481af41a350afe37393382
+      internalID: 1197044224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_16
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 712
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6923077, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfabf9a22873d7a44b4a8b610f066b1b
+      internalID: 786848170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_17
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 650
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.7, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2582ba771686a40bff8e565767eeb5
+      internalID: -1771747399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_18
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 653
+        width: 131
+        height: 50
+      alignment: 9
+      pivot: {x: 0.7251908, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbe84e99d614cb4386b7bacef3a9dbc
+      internalID: -1967949941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_19
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 656
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.7130769, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2574f55e11b0642bdf2185c90d389a
+      internalID: 222346921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_20
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 598
+        width: 131
+        height: 50
+      alignment: 9
+      pivot: {x: 0.7251908, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9cffce0701b664a9a99ebd964c9499
+      internalID: 1900544876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 599
+        width: 131
+        height: 50
+      alignment: 9
+      pivot: {x: 0.7251908, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df52a8ce551df7a4990ae8002212aefc
+      internalID: 2044979427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_22
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 601
+        width: 130
+        height: 50
+      alignment: 9
+      pivot: {x: 0.4, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1573167ec957247b7674f1dd51a26a
+      internalID: -539165155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_23
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 541
+        width: 83
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4819277, y: 0.04347826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9309d8ee2dfbe724eb1d06196ac23035
+      internalID: 1056787671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_24
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 544
+        width: 80
+        height: 46
+      alignment: 9
+      pivot: {x: 0.45000002, y: 0.04347826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e6600d2b42a664ea7e5fcc7c5adb5b
+      internalID: -2097211352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_25
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 543
+        width: 80
+        height: 47
+      alignment: 9
+      pivot: {x: 0.475, y: 0.10638297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e352c6f98063e4589228d301694711
+      internalID: -1534993653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_26
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 547
+        width: 80
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4, y: 0.08695652}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd5d3dec60300547b55ffbcfdc41ec2
+      internalID: -46469534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_27
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 479
+        width: 80
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4125, y: 0.08695652}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ffb0aca84509504cba070a0d7ebc381
+      internalID: 1265455892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_28
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 482
+        width: 80
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4625, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ce888fa2ba1eb45911fae91671218b
+      internalID: -1607895748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_29
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 481
+        width: 80
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4625, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de1b0ebfdba48d4e9bd40f069e02374
+      internalID: 1980982837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_30
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 962
+        width: 80
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4375, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15869d94953f8ca4a95bd30aa99669dd
+      internalID: 1306675980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_31
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 961
+        width: 80
+        height: 46
+      alignment: 9
+      pivot: {x: 0.425, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea7cd39e32b6054abb263df9b857b6b
+      internalID: -1503658033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_32
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 960
+        width: 80
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4125, y: 0.10416667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ce42f791360fa4b905d709efe8c2b3
+      internalID: -514803116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_33
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 961
+        width: 92
+        height: 61
+      alignment: 9
+      pivot: {x: 0.39130434, y: 0.06557377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690c535cd83fd2c4390c9ecca1b73c26
+      internalID: 37836430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_34
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 957
+        width: 92
+        height: 73
+      alignment: 9
+      pivot: {x: 0.54347825, y: 0.1369863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23c3908a426c354498c89fdb54eba88
+      internalID: 1563791161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_35
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 847
+        width: 101
+        height: 95
+      alignment: 9
+      pivot: {x: 0.62376237, y: 0.10526316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facdd221226d52f44b734456a35781b2
+      internalID: -1515472737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_36
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 847
+        width: 101
+        height: 96
+      alignment: 9
+      pivot: {x: 0.45544553, y: 0.041666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6343c1012579be4c874638b2bf2805d
+      internalID: 823732998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_37
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 847
+        width: 101
+        height: 96
+      alignment: 9
+      pivot: {x: 0.6732673, y: 0.16666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ebf313d7306c7469f1aee5c7f91a32
+      internalID: -409399646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_38
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 845
+        width: 101
+        height: 97
+      alignment: 9
+      pivot: {x: 0.5445545, y: 0.041237112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087a2b265538a464aa194f8292db6367
+      internalID: 812059414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_39
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 742
+        width: 101
+        height: 97
+      alignment: 9
+      pivot: {x: 0.64356434, y: 0.14432989}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06c90c8b7d21294fb508e0db575e62e
+      internalID: -2145793568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_40
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 740
+        width: 101
+        height: 99
+      alignment: 9
+      pivot: {x: 0.16831683, y: 0.24242425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34cfb7510e2e49f44a342079ab4c8a9e
+      internalID: 1681857609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_41
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 736
+        width: 104
+        height: 98
+      alignment: 9
+      pivot: {x: 0.27884617, y: 0.2244898}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f444f4b088a8e94ba39c0cefa047b81
+      internalID: 1467316463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_42
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 733
+        width: 108
+        height: 98
+      alignment: 9
+      pivot: {x: 0.35185185, y: 0.2244898}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccee6ca96396da341aca6b637c5955e5
+      internalID: 2139120800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_43
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 640
+        width: 107
+        height: 79
+      alignment: 9
+      pivot: {x: 0.2803738, y: 0.025316456}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7279bdfc5cd83444a8aa6f3927a2d7f8
+      internalID: -871476146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_44
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 647
+        width: 107
+        height: 72
+      alignment: 9
+      pivot: {x: 0.40186915, y: 0.083333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ace1e905787e349b3333c394f3842b
+      internalID: -552732184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_45
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 644
+        width: 107
+        height: 72
+      alignment: 9
+      pivot: {x: 0.6448598, y: 0.055555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1450b756510b00c4db2fdf298990dff6
+      internalID: -2054177383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_46
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 121
+        width: 63
+        height: 44
+      alignment: 9
+      pivot: {x: 0.42857146, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff1fd1f90f5e8745a74c99f002ff1b9
+      internalID: 324049554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oswin_attack_animation_47
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 122
+        width: 63
+        height: 44
+      alignment: 9
+      pivot: {x: 0.44444448, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcc380347c2017468ebc5095ac124ec
+      internalID: 1014018193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      oswin_attack_animation_13: 887703983
+      oswin_attack_animation_14: -1271973117
+      oswin_attack_animation_10: 833430965
+      oswin_attack_animation_12: -1119493761
+      oswin_attack_animation_15: 1197044224
+      oswin_attack_animation_18: -1967949941
+      oswin_attack_animation_2: 742640133
+      oswin_attack_animation_4: -1488092083
+      oswin_attack_animation_42: 2139120800
+      oswin_attack_animation_17: -1771747399
+      oswin_attack_animation_7: -998701769
+      oswin_attack_animation_39: -2145793568
+      oswin_attack_animation_33: 37836430
+      oswin_attack_animation_34: 1563791161
+      oswin_attack_animation_31: -1503658033
+      oswin_attack_animation_46: 324049554
+      oswin_attack_animation_0: -2038741609
+      oswin_attack_animation_20: 1900544876
+      oswin_attack_animation_47: 1014018193
+      oswin_attack_animation_8: -1787235483
+      oswin_attack_animation_9: -402816668
+      oswin_attack_animation_16: 786848170
+      oswin_attack_animation_22: -539165155
+      oswin_attack_animation_11: -1243845480
+      oswin_attack_animation_6: 698680648
+      oswin_attack_animation_28: -1607895748
+      oswin_attack_animation_3: 1360484288
+      oswin_attack_animation_37: -409399646
+      oswin_attack_animation_41: 1467316463
+      oswin_attack_animation_19: 222346921
+      oswin_attack_animation_27: 1265455892
+      oswin_attack_animation_1: 830765986
+      oswin_attack_animation_38: 812059414
+      oswin_attack_animation_25: -1534993653
+      oswin_attack_animation_21: 2044979427
+      oswin_attack_animation_35: -1515472737
+      oswin_attack_animation_44: -552732184
+      oswin_attack_animation_24: -2097211352
+      oswin_attack_animation_26: -46469534
+      oswin_attack_animation_40: 1681857609
+      oswin_attack_animation_45: -2054177383
+      oswin_attack_animation_30: 1306675980
+      oswin_attack_animation_43: -871476146
+      oswin_attack_animation_5: -2077527774
+      oswin_attack_animation_32: -514803116
+      oswin_attack_animation_29: 1980982837
+      oswin_attack_animation_23: 1056787671
+      oswin_attack_animation_36: 823732998
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

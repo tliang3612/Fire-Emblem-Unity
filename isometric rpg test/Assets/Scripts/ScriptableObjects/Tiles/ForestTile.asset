@@ -73,7 +73,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f745db9224b8f749b60b2e439f57900, type: 2}
   - {fileID: 11400000, guid: 1f6086df0376ed54083dc6fafeb43785, type: 2}
   - {fileID: 11400000, guid: 4458437e33f8da84aa5428580fb41100, type: 2}
+  UnitTypes: 03000000010000000200000000000000
+  Costs: 02000000020000000300000001000000
   TileName: Forest
   DefenseBoost: 1
-  MovementCost: 2
   AvoidBoost: 20

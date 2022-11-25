@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hector
   m_EditorClassIdentifier: 
   Name: Hector
+  UnitType: 1
   TotalMovementPoints: 7
   TotalActionPoints: 1
   TotalHitPoints: 27

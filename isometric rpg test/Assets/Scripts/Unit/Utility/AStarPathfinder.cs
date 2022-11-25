@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class AStarPathfinder
 {
+
+    private Unit _unit;
+
+    public AStarPathfinder(Unit unit)
+    {
+        _unit = unit;
+    }
+
     //Djikstra
     public List<OverlayTile> FindPath(OverlayTile start, OverlayTile end, List<OverlayTile> searchableTiles, TileGrid tileGrid)
-    {
-        PriorityQueue<OverlayTile> frontier = new PriorityQueue<OverlayTile>();
+    {     
         //Finished List
         List<OverlayTile> path = new List<OverlayTile>();
-        Dictionary<OverlayTile, OverlayTile> previousTile = new Dictionary<OverlayTile, OverlayTile>();
-        Dictionary<OverlayTile, int> costSoFar = new Dictionary<OverlayTile, int>();
-
+        
         if(start == end)
         {
             path.Add(start);
             return path;
         }
+
+        PriorityQueue<OverlayTile> frontier = new PriorityQueue<OverlayTile>();
+        Dictionary<OverlayTile, OverlayTile> previousTile = new Dictionary<OverlayTile, OverlayTile>();
+        Dictionary<OverlayTile, int> costSoFar = new Dictionary<OverlayTile, int>();
 
         frontier.Enqueue(start, 0);
         costSoFar.Add(start, 0);
@@ -31,12 +40,12 @@ public class AStarPathfinder
 
             foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
             {
-                var newCost = costSoFar[currentTile] + neighbor.MovementCost;
+                var newCost = costSoFar[currentTile] + neighbor.GetMovementCost(_unit.UnitType);
 
                 if (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])
                 {
-                    //if the neighbor tile's unit is not blocked or is an ally
-                    if (!neighbor.IsBlocked || tileGrid.GetCurrentPlayerUnits().Contains(neighbor.CurrentUnit) && searchableTiles.Contains(neighbor))
+                    //if the neighbor tile is moveable across
+                    if (_unit.IsTileMoveableAcross(neighbor) && searchableTiles.Contains(neighbor))
                     {
                         costSoFar[neighbor] = newCost;
                         int priority = newCost + tileGrid.GetManhattenDistance(start, neighbor);

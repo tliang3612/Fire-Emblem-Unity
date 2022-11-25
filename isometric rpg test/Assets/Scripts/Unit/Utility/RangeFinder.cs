@@ -8,16 +8,24 @@ using UnityEngine;
 
 public class RangeFinder
 {
+
+    private Unit _unit;
+
+    public RangeFinder(Unit unit)
+    {
+        _unit = unit;
+    }
+
     //Modified Djikstra
-    public List<OverlayTile> GetTilesInMoveRange(Unit unit, TileGrid tileGrid, List<OverlayTile> tilesInRange)
+    public List<OverlayTile> GetTilesInMoveRange(TileGrid tileGrid, List<OverlayTile> tilesInRange)
     {
         Dictionary<OverlayTile, int> movementRating = new Dictionary<OverlayTile, int>();
         Queue<OverlayTile> queue = new Queue<OverlayTile>();
 
-        var start = unit.Tile;
+        var start = _unit.Tile;
 
         queue.Enqueue(start);
-        movementRating.Add(start, unit.MovementPoints);
+        movementRating.Add(start, _unit.MovementPoints);
 
         //if there is any tile that has been unvisited
         while (queue.Count != 0)
@@ -26,10 +34,10 @@ public class RangeFinder
 
             foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
             {
-                int newRating = movementRating[currentTile] - neighbor.MovementCost;
+                int newRating = movementRating[currentTile] - neighbor.GetMovementCost(_unit.UnitType);
 
                 //if tile is able to be moved to
-                if (!neighbor.IsBlocked || tileGrid.GetCurrentPlayerUnits().Contains(neighbor.CurrentUnit) && tilesInRange.Contains(neighbor) )
+                if (_unit.IsTileMoveableAcross(neighbor) && tilesInRange.Contains(neighbor))
                 {
                     //if tile has not been visited or the newRating of the tile is greater than its previous rating
                     if (!movementRating.ContainsKey(neighbor) || newRating > movementRating[neighbor])
@@ -79,11 +87,11 @@ public class RangeFinder
         return tilesInRange.Except(availableDestinations).ToList();
     }
 
-    public List<OverlayTile> GetTilesInRange(Unit unit, TileGrid tileGrid, int range)
+    public List<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
     {
         var tilesInRange = new List<OverlayTile>();
 
-        tilesInRange.Add(unit.Tile);
+        tilesInRange.Add(_unit.Tile);
 
         int count = 0;
 
@@ -98,6 +106,8 @@ public class RangeFinder
             tilesInRange.AddRange(surroundingTiles.Distinct().ToList());
             count++;
         }
+
+        tilesInRange.Remove(_unit.Tile);
 
         return tilesInRange;
     }
