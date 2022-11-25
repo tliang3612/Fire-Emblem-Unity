@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Hector
   UnitType: 1
-  TotalMovementPoints: 7
+  TotalMovementPoints: 6
   TotalActionPoints: 1
   TotalHitPoints: 27
   BaseAttack: 12

@@ -25,7 +25,7 @@ public class DisplayActionsAbility : DisplayAbility
         foreach (Ability ability in GetComponents<Ability>())
         {
             ability.UnitReference = UnitReference;
-            if (ability.IsDisplayable && ability.CanPerform(tileGrid))
+            if (ability.IsDisplayableAsButton && ability.CanPerform(tileGrid))
             {
                 ActionButtonCreated?.Invoke(this, new ActionButtonCreatedEventArgs(ActWrapper(ability, tileGrid), ability.Name));
             }

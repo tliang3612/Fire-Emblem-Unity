@@ -9,7 +9,7 @@ public class AttackAbility : Ability
     protected override void Awake()
     {
         base.Awake();
-        IsDisplayable = false;
+        IsDisplayableAsButton = false;
     }
 
     public override IEnumerator Act(TileGrid tileGrid)
@@ -19,6 +19,7 @@ public class AttackAbility : Ability
             var direction = UnitReference.GetDirectionToFace(UnitToAttack.Tile.transform.position);
             UnitReference.SetState(new UnitStateMoving(UnitReference, direction));
             UnitToAttack.Tile.MarkAsAttackableTile();
+            UnitToAttack.Tile.HighlightedOnUnit();
             yield return new WaitForSeconds(0.7f);
 
             UnitReference.ConfirmMove();
@@ -31,9 +32,7 @@ public class AttackAbility : Ability
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
-        StartCoroutine(Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid)));
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<ResetAbility>()));
     }
 
     public override void OnAbilityDeselected(TileGrid tileGrid)

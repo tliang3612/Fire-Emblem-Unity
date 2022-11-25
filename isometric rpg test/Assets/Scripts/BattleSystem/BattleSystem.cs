@@ -177,10 +177,9 @@ public class BattleSystem : MonoBehaviour
 
     public void EndBattle(BattleUnit unitDead = null)
     {
-        if (BattleOver != null)
-            BattleOver.Invoke(this, new BattleOverEventArgs(playerUnit.Unit, enemyUnit.Unit, unitDead == playerUnit, unitDead == enemyUnit));
+        FindObjectOfType<TileGrid>().EndBattle(playerUnit.Unit, enemyUnit.Unit, unitDead == playerUnit, unitDead == enemyUnit);
 
-        CleanpRangedPlatforms();
+        CleanupRangedPlatforms();
         playerUnit.EndBattleAnimation();
         enemyUnit.EndBattleAnimation();
     }
@@ -215,7 +214,7 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    public void CleanpRangedPlatforms()
+    public void CleanupRangedPlatforms()
     {        
         rightPlatform.GetComponent<RectTransform>().anchoredPosition = originalRightAnchoredPosition;
         leftPlatform.GetComponent<RectTransform>().anchoredPosition = originalLeftAnchoredPosition;

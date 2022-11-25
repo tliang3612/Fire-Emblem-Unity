@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Marcus
   UnitType: 2
-  TotalMovementPoints: 8
+  TotalMovementPoints: 9
   TotalActionPoints: 1
   TotalHitPoints: 25
   BaseAttack: 10
@@ -28,5 +28,5 @@ MonoBehaviour:
   MapSprite: {fileID: -1878699905, guid: dd2561604efa69e4f866bbdc9f893287, type: 3}
   BattleAnimController: {fileID: 9100000, guid: 7f32b495e31ecf9468a23d0270a1a4e7, type: 2}
   StartingItems:
-  - {fileID: 11400000, guid: 9699cdf36751da04ca5cd0d8cd2e1881, type: 2}
   - {fileID: 11400000, guid: 5905f667397a8dc44b5189082015dc00, type: 2}
+  - {fileID: 11400000, guid: 9699cdf36751da04ca5cd0d8cd2e1881, type: 2}

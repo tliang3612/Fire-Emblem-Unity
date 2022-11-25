@@ -13,7 +13,7 @@ public class SelectWeaponToEquipAbility : SelectItemToUseAbility
     {
         base.Awake();
         Name = "Weapon";
-        IsDisplayable = true;
+        IsDisplayableAsButton = true;
     }
 
     public override void Display(TileGrid tileGrid)

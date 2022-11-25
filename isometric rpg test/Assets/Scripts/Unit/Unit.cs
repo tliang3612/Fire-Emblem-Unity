@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DG.Tweening;
+using System.Threading.Tasks;
 
 public class Unit : MonoBehaviour, IClickable
 {
@@ -102,7 +103,8 @@ public class Unit : MonoBehaviour, IClickable
     public bool Unarmed { get { return AvailableWeapons.Count <= 0; } }
 
 
-    private List<OverlayTile> _cachedPath;
+    private List<OverlayTile> _storedPath;
+    Dictionary<OverlayTile, List<OverlayTile>> cachedPaths = null;
 
     [field: SerializeField]
     public int PlayerNumber { get; set; }
@@ -117,7 +119,7 @@ public class Unit : MonoBehaviour, IClickable
         _anim = GetComponent<Animator>();
         _rangeFinder = new RangeFinder(this);
         _pathfinder = new AStarPathfinder(this);
-        _cachedPath = new List<OverlayTile>();
+        _storedPath = new List<OverlayTile>();
     }
 
     //Initializes the Unit. Called whenever a Unit gets added into the game
@@ -203,7 +205,8 @@ public class Unit : MonoBehaviour, IClickable
         MovementPoints = TotalMovementPoints;
         ActionPoints = TotalActionPoints;
 
-        _cachedPath = new List<OverlayTile>();
+        cachedPaths = null;
+        _storedPath = new List<OverlayTile>();
         _anim.SetBool("IsFinished", false);
 
     }
@@ -291,7 +294,7 @@ public class Unit : MonoBehaviour, IClickable
         }
     }
 
-    public void ReceiveDeath(Unit source)
+    public async Task ReceiveDeath(Unit source)
     {
         if (UnitDestroyed != null)
         {
@@ -303,9 +306,18 @@ public class Unit : MonoBehaviour, IClickable
         Tile.IsOccupied = false;
         Tile.CurrentUnit = null;
 
-        DeathAnimationPlaying = true;
-        StartCoroutine(PlayDeathAnimation());
+        SetState(new UnitStateFinished(this));
 
+        //Wait until the death animation is finished playing
+        var end = Time.time + 3f;
+        GetComponent<SpriteRenderer>().DOFade(0, 2f);
+
+        while (Time.time < end)
+        {
+            await Task.Yield();
+        }
+
+        Destroy(gameObject, 2f);
     }
 
     public HealingDetails ReceiveHealing(int healAmount)
@@ -368,7 +380,7 @@ public class Unit : MonoBehaviour, IClickable
     {
         if (MovementAnimationSpeed > 0 && path.Count > 1)
         {
-            _cachedPath = path;
+            _storedPath = path;
             StartCoroutine(MovementAnimation(path));
         }
     }
@@ -424,11 +436,11 @@ public class Unit : MonoBehaviour, IClickable
     //confirms the unit's destination, and set's their movement points to 0
     public void ConfirmMove()
     {
-        if (_cachedPath.Count > 0)
+        if (_storedPath.Count > 0)
         {
             if (UnitMoved != null)
             {
-                UnitMoved.Invoke(this, new MovementEventArgs(_cachedPath[0], _cachedPath[_cachedPath.Count - 1], _cachedPath));
+                UnitMoved.Invoke(this, new MovementEventArgs(_storedPath[0], _storedPath[_storedPath.Count - 1], _storedPath));
             }
 
             MovementPoints = 0;
@@ -470,11 +482,11 @@ public class Unit : MonoBehaviour, IClickable
     //reset's the unit's move, placing the unit at the beginning of the cached path
     public void ResetMove()
     {
-        if (_cachedPath.Count > 0)
+        if (_storedPath.Count > 0)
         {
             MovementPoints = TotalMovementPoints;
-            PositionUnit(_cachedPath[0]);
-            _cachedPath = new List<OverlayTile>();
+            PositionUnit(_storedPath[0]);
+            _storedPath = new List<OverlayTile>();
         }
     }
 
@@ -515,39 +527,40 @@ public class Unit : MonoBehaviour, IClickable
         return tile.CanUnitMoveTo(UnitType);
     }
 
-    //Get a list of tiles that the Unit can move to
-    public List<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
+    public void CachePaths(HashSet<OverlayTile> searchableTiles, TileGrid tileGrid)
     {
-        return _rangeFinder.GetTilesInMoveRange(tileGrid, GetTilesInRange(tileGrid, MovementPoints));
+        cachedPaths = _pathfinder.FindAllPaths(searchableTiles, tileGrid);
+    }
+
+    //Get a list of tiles that the Unit can move to, and 
+    public HashSet<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
+    {
+        var tilesInMoveRange = _rangeFinder.GetTilesInMoveRange(tileGrid);
+
+        if (cachedPaths == null)
+        {
+            CachePaths(tilesInMoveRange, tileGrid);
+        }
+
+        return tilesInMoveRange;
+    }
+
+    //Find the best path to take given cachedPaths
+    public List<OverlayTile> FindPath(OverlayTile destination, TileGrid tileGrid)
+    {
+        return cachedPaths.ContainsKey(destination) ? cachedPaths[destination] : new List<OverlayTile>();
     }
 
     //Get a list of tiles within the Unit's range. Doesn't take tile cost into consideration
-    public List<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
+    public HashSet<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
     {
         return _rangeFinder.GetTilesInRange(tileGrid, range);
     }
 
-    //Get a list of attackable tiles that doesn't include the tiles that a Unit can move to
-    public List<OverlayTile> GetTilesInAttackRange(List<OverlayTile> availableDestinations, TileGrid tileGrid)
+    //Get a list of attackable tiles that doesn't include the tiles that a Unit can move to, given availableDestinations
+    public HashSet<OverlayTile> GetTilesInAttackRange(HashSet<OverlayTile> availableDestinations, TileGrid tileGrid)
     {
         return _rangeFinder.GetTilesInAttackRange(availableDestinations, tileGrid, AttackRange);
-    }
-
-    //Find the optimal path from the tile the Unit is on currently, to the destination tile
-    public List<OverlayTile> FindPath(OverlayTile destination, TileGrid tileGrid)
-    {
-        return _pathfinder.FindPath(Tile, destination, GetAvailableDestinations(tileGrid), tileGrid);
-    }
-
-    //Visual indication that the Unit is destroyed
-    public IEnumerator PlayDeathAnimation()
-    {
-        SetState(new UnitStateFinished(this));
-        GetComponent<SpriteRenderer>().DOFade(0, 2f);
-        yield return new WaitForSeconds(3f);
-        DeathAnimationPlaying = false;
-
-        Destroy(gameObject, 2f);
     }
 
     //Visual indication that the Unit has no more moves this turn

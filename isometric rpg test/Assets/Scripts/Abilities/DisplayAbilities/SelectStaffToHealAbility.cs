@@ -14,7 +14,7 @@ public class SelectStaffToHealAbility : SelectItemToUseAbility
     {
         base.Awake();
         Name = "Staff";
-        IsDisplayable = true;
+        IsDisplayableAsButton = true;
     }
 
     public override void Display(TileGrid tileGrid)

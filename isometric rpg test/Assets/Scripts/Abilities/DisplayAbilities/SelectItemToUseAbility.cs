@@ -11,7 +11,7 @@ public class SelectItemToUseAbility : DisplayAbility
     protected override void Awake()
     {
         base.Awake();
-        IsDisplayable = true;
+        IsDisplayableAsButton = true;
     }
 
     public event EventHandler<EquipButtonCreatedEventArgs> EquipButtonCreated;

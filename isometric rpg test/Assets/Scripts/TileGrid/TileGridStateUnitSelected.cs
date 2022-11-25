@@ -53,7 +53,7 @@ public class TileGridStateUnitSelected : TileGridState
     }
     public override void OnStateExit()
     {
-        if(_ability is ResetAbility or HealAbility or AttackAbility or WaitAbility)
+        if(_ability is ResetAbility)
             _unit?.OnUnitDeselected();
 
         _ability.OnAbilityDeselected(_tileGrid);

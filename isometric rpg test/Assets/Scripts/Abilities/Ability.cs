@@ -10,16 +10,19 @@ public abstract class Ability : MonoBehaviour
     public event EventHandler AbilitySelected;
     public event EventHandler AbilityDeselected;
 
+
+
     //The Unit that this ability script is attached to 
     public Unit UnitReference { get; set; }
 
-    public bool IsDisplayable { get; protected set; }
+    //determines if the ability can be displayed as a button
+    public bool IsDisplayableAsButton { get; protected set; }
     public string Name { get; protected set; }
 
     protected virtual void Awake()
     {
         UnitReference = GetComponentInParent<Unit>();
-        IsDisplayable = false;
+        IsDisplayableAsButton = false;
     }
 
     public IEnumerator Execute(TileGrid tileGrid, Action<TileGrid> preAction, Action<TileGrid> postAction)

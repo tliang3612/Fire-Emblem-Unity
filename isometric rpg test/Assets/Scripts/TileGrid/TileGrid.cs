@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System.Threading.Tasks;
 
 public class TileGrid : MonoBehaviour
 {
@@ -177,8 +178,6 @@ public class TileGrid : MonoBehaviour
                 AddUnit(unit);                 
             }
         }
-
-        battleSystem.BattleOver += EndBattle;
 
         Debug.Log("Initialized");
 
@@ -448,27 +447,27 @@ public class TileGrid : MonoBehaviour
             yield return null;
     }
 
-    public void EndBattle(object sender, BattleOverEventArgs e)
+    public async void EndBattle(Unit playerUnit, Unit enemyUnit, bool isPlayerDead, bool isEnemyDead)
     {
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
-        IsBattling = false;
 
-        if (e.isPlayerDead)
+        if (isPlayerDead)
         {
-            e.playerUnit.ReceiveDeath(e.enemyUnit);
+            await playerUnit.ReceiveDeath(enemyUnit);
 
         }
-        else if (e.isEnemyDead)
+        else if (isEnemyDead)
         {
-            e.playerUnit.SetState(new UnitStateFinished(e.playerUnit));
-            e.enemyUnit.ReceiveDeath(e.playerUnit);
+            playerUnit.SetState(new UnitStateFinished(playerUnit));
+            await enemyUnit.ReceiveDeath(playerUnit);
         }
         else
         {
-            e.playerUnit.SetState(new UnitStateFinished(e.playerUnit));
+            playerUnit.SetState(new UnitStateFinished(playerUnit));
         }
-        
+
+        IsBattling = false;
         GridState = new TileGridStateWaitingForInput(this);
         
 

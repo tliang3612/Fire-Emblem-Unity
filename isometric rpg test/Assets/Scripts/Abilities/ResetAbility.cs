@@ -9,14 +9,12 @@ public class ResetAbility : Ability
     protected override void Awake()
     {
         base.Awake();
-        IsDisplayable = false;
+        IsDisplayableAsButton = false;
     }
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
         tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid);
-
-        UnitReference.SetState(new UnitStateNormal(UnitReference));
     }
 
     public override bool CanPerform(TileGrid tileGrid)

@@ -7,22 +7,22 @@ using System.Linq;
 public class MoveAbility : Ability
 {
     public OverlayTile Destination { get; set; }
-    public List<OverlayTile> availableDestinations { get; set; }  
-    public List<OverlayTile> path { get; set; }
 
-    private List<OverlayTile> _tilesInAttackRange;
+    private HashSet<OverlayTile> _availableDestinations;
+    private List<OverlayTile> _path;
+    private HashSet<OverlayTile> _tilesInAttackRange;
 
     protected override void Awake()
     {
         base.Awake();
         Name = "Move";
-        IsDisplayable = false;
+        IsDisplayableAsButton = false;
     }
 
 
     public override IEnumerator Act(TileGrid tileGrid)
     {
-        if(CanPerform(tileGrid) && availableDestinations.Contains(Destination))
+        if(CanPerform(tileGrid) && _availableDestinations.Contains(Destination))
         {
             var path = UnitReference.FindPath(Destination, tileGrid);
             UnitReference.Move(path);
@@ -39,9 +39,11 @@ public class MoveAbility : Ability
     {
         if (CanPerform(tileGrid))
         {
-            _tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
+            foreach (var t in _tilesInAttackRange)
+                t.MarkAsAttackableTile();
 
-            availableDestinations.ForEach(t => t.MarkAsReachable());
+            foreach(var t in _availableDestinations)           
+                t.MarkAsReachable();
         }
     }
 
@@ -69,7 +71,7 @@ public class MoveAbility : Ability
 
     public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
     {
-        if (availableDestinations.Contains(tile) && UnitReference.IsTileMovableTo(tile))
+        if (_availableDestinations.Contains(tile) && UnitReference.IsTileMovableTo(tile))
         {
             Destination = tile;
             StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<DisplayActionsAbility>()));
@@ -80,9 +82,9 @@ public class MoveAbility : Ability
     {
         tile.MarkAsHighlighted();
 
-        if (CanPerform(tileGrid) && availableDestinations.Contains(tile) )
+        if (CanPerform(tileGrid) && _availableDestinations.Contains(tile) )
         {
-            path = UnitReference.FindPath(tile, tileGrid);
+            _path = UnitReference.FindPath(tile, tileGrid);
             TranslateArrows(tileGrid);       
         }
     }
@@ -91,9 +93,10 @@ public class MoveAbility : Ability
     {
         tile.MarkAsDeHighlighted();
 
-        if (CanPerform(tileGrid) && availableDestinations.Contains(tile))
+        if (CanPerform(tileGrid) && _availableDestinations.Contains(tile))
         {
-            availableDestinations.ForEach(t => t.MarkAsReachable());
+            foreach (var t in _availableDestinations)
+                t.MarkAsReachable();
         }
     }
 
@@ -107,20 +110,24 @@ public class MoveAbility : Ability
         {
             UnitReference.SetState(new UnitStateMoving(UnitReference, Vector2Int.zero));      
         }
-            
-        availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
-        _tilesInAttackRange = UnitReference.GetTilesInAttackRange(availableDestinations, tileGrid);
+
+        UnitReference.CachePaths(UnitReference.GetTilesInRange(tileGrid, UnitReference.MovementPoints), tileGrid);
+        _availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
+
+        _tilesInAttackRange = UnitReference.GetTilesInAttackRange(_availableDestinations, tileGrid);
     }
 
     public override void OnRightClick(TileGrid tileGrid)
     {
+        UnitReference.SetState(new UnitStateNormal(UnitReference));
         tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<ResetAbility>());
     }
 
     public override void CleanUp(TileGrid tileGrid)
     {
-        availableDestinations.ForEach(t => t.UnMark());
-        _tilesInAttackRange.ForEach(t => t.UnMark());
+        foreach (var t in _availableDestinations.Union(_tilesInAttackRange))
+            t.UnMark();
+
         ResetArrows();
     }
 
@@ -131,24 +138,24 @@ public class MoveAbility : Ability
 
     private void TranslateArrows(TileGrid tileGrid)
     {
-        foreach (var tile in availableDestinations)
+        foreach (var tile in _availableDestinations)
         {
             tile.MarkArrowPath(ArrowTranslator.ArrowDirection.None);
         }
 
-        for (int i = 0; i < path.Count; i++)
+        for (int i = 0; i < _path.Count; i++)
         {
-            var previousTile = i > 0 ? path[i - 1] : UnitReference.Tile;
-            var futureTile = i < path.Count - 1 ? path[i + 1] : null;
+            var previousTile = i > 0 ? _path[i - 1] : UnitReference.Tile;
+            var futureTile = i < _path.Count - 1 ? _path[i + 1] : null;
 
-            var arrow = tileGrid.ArrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
-            path[i].MarkArrowPath(arrow);
+            var arrow = tileGrid.ArrowTranslator.TranslateDirection(previousTile, _path[i], futureTile);
+            _path[i].MarkArrowPath(arrow);
         }
     }
 
     private void ResetArrows()
     {
-        path?.ForEach(t => t.MarkArrowPath(ArrowTranslator.ArrowDirection.None));
+        _path?.ForEach(t => t.MarkArrowPath(ArrowTranslator.ArrowDirection.None));
     }
 
     

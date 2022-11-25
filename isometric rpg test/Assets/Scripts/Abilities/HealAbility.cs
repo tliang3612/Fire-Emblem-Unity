@@ -9,7 +9,7 @@ public class HealAbility : Ability
     protected override void Awake()
     {
         base.Awake();
-        IsDisplayable = false;
+        IsDisplayableAsButton = false;
     }
 
     public override IEnumerator Act(TileGrid tileGrid)
@@ -23,15 +23,9 @@ public class HealAbility : Ability
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
-        StartCoroutine(Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid)));
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<ResetAbility>()));
     }
 
-    public override void OnAbilityDeselected(TileGrid tileGrid)
-    {
-        base.OnAbilityDeselected(tileGrid);
-    }
     public override bool CanPerform(TileGrid tileGrid)
     {
         return true;

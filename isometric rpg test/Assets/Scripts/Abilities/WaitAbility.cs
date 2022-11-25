@@ -11,7 +11,7 @@ public class WaitAbility : Ability
     {
         base.Awake();
         Name = "Wait";
-        IsDisplayable = true;
+        IsDisplayableAsButton = true;
     }
 
     public override IEnumerator Act(TileGrid tileGrid)
@@ -26,9 +26,7 @@ public class WaitAbility : Ability
 
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
-        StartCoroutine(Execute(tileGrid,
-            _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-            _ => tileGrid.GridState = new TileGridStateWaitingForInput(tileGrid)));
+        StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<ResetAbility>()));
     }
 
     public override bool CanPerform(TileGrid tileGrid)

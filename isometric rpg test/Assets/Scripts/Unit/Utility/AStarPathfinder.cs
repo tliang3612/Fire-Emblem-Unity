@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
 public class AStarPathfinder
 {
@@ -12,13 +10,31 @@ public class AStarPathfinder
         _unit = unit;
     }
 
+    //Find all from the unit's starting tile
+    public Dictionary<OverlayTile, List<OverlayTile>> FindAllPaths(HashSet<OverlayTile> searchableTiles, TileGrid tileGrid)
+    {
+        //Finished Dictionary
+        Dictionary<OverlayTile, List<OverlayTile>> paths = new Dictionary<OverlayTile, List<OverlayTile>>();
+
+        //for each searchable tile, find the best path for the destination
+       foreach(OverlayTile tile in searchableTiles)
+       {
+            paths.Add(tile, FindPath(tile, searchableTiles, tileGrid));
+       }
+
+        return paths;
+    }
+
+
     //Djikstra
-    public List<OverlayTile> FindPath(OverlayTile start, OverlayTile end, List<OverlayTile> searchableTiles, TileGrid tileGrid)
-    {     
+    public List<OverlayTile> FindPath(OverlayTile end, HashSet<OverlayTile> searchableTiles, TileGrid tileGrid)
+    {
         //Finished List
         List<OverlayTile> path = new List<OverlayTile>();
-        
-        if(start == end)
+
+        var start = _unit.Tile;
+
+        if (start == end)
         {
             path.Add(start);
             return path;

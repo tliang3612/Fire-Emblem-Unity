@@ -8,17 +8,18 @@ public class DisplayHealStatsAbility : DisplayAbility
 {
     public event EventHandler<DisplayHealStatsChangedEventArgs> DisplayHealStatsChanged;
 
-    private List<OverlayTile> _tilesInHealRange;
+    private HashSet<OverlayTile> _tilesInHealRange;
 
     protected override void Awake()
     {
         base.Awake();
         Name = "Heal";
-        IsDisplayable = false;
+        IsDisplayableAsButton = false;
     }
     public override void Display(TileGrid tileGrid)
     {
-        _tilesInHealRange.ForEach(t => t.MarkAsHealableTile());
+        foreach (var t in _tilesInHealRange)
+            t.MarkAsHealableTile();
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)

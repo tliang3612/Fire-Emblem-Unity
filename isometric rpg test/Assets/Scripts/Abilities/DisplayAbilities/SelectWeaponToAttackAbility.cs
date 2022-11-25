@@ -18,7 +18,7 @@ public class SelectWeaponToAttackAbility : SelectItemToUseAbility
     {
         base.Awake();
         Name = "Attack";
-        IsDisplayable = true;
+        IsDisplayableAsButton = true;
     }
 
     public override void Display(TileGrid tileGrid)

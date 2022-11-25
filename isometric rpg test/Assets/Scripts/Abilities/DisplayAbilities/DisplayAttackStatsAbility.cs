@@ -9,7 +9,7 @@ public class DisplayAttackStatsAbility : DisplayAbility
 {
     public event EventHandler<DisplayStatsChangedEventArgs> DisplayStatsChanged;
 
-    private List<OverlayTile> _tilesInAttackRange;
+    private HashSet<OverlayTile> _tilesInAttackRange;
 
     protected override void Awake()
     {
@@ -17,17 +17,19 @@ public class DisplayAttackStatsAbility : DisplayAbility
     }
 
     public override void Display(TileGrid tileGrid)
-    {                           
-        _tilesInAttackRange.ForEach(t => t.MarkAsAttackableTile());
-        UnitReference.Tile.UnMark();
+    {
+        foreach (var t in _tilesInAttackRange)
+            t.MarkAsAttackableTile();
+
     }
 
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
     {
-        if (UnitReference.IsUnitAttackable(unit, true) && !UnitReference.Equals(unit))
-        {
+        if(_tilesInAttackRange.Contains(unit.Tile))
             unit.Tile.HighlightedOnUnit();
 
+        if (UnitReference.IsUnitAttackable(unit, true) && !UnitReference.Equals(unit))
+        {
             //face the unit we're highlighting
             var direction = UnitReference.GetDirectionToFace(unit.Tile.transform.position);
             UnitReference.SetState(new UnitStateMoving(UnitReference, direction));
@@ -43,10 +45,9 @@ public class DisplayAttackStatsAbility : DisplayAbility
 
     public override void OnUnitDehighlighted(Unit unit, TileGrid tileGrid)
     {
-        unit.Tile.DeHighlightedOnUnit();
+        if (_tilesInAttackRange.Contains(unit.Tile))
+            unit.Tile.DeHighlightedOnUnit();
     }
-
-
 
     //In case the player clicks on the unit's tile accidently instead of the unit
     public override void OnTileClicked(OverlayTile tile, TileGrid tileGrid)
@@ -60,10 +61,21 @@ public class DisplayAttackStatsAbility : DisplayAbility
         if (UnitReference.IsUnitAttackable(unit, true) && !UnitReference.Equals(unit))
         {
             UnitReference.GetComponentInChildren<AttackAbility>().UnitToAttack = unit;
-            StartCoroutine(Execute(tileGrid,
-                _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<AttackAbility>())));
+
+            StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<AttackAbility>()));
         }
+    }
+
+    public override void OnTileSelected(OverlayTile tile, TileGrid tileGrid)
+    {
+        if (_tilesInAttackRange.Contains(tile))
+            tile.MarkAsHighlighted();
+    }
+
+    public override void OnTileDeselected(OverlayTile tile, TileGrid tileGrid)
+    {
+        if (_tilesInAttackRange.Contains(tile))
+            tile.MarkAsDeHighlighted();
     }
 
     public override void OnAbilitySelected(TileGrid tileGrid)

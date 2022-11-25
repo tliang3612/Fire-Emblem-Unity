@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea9cd25287013240b8ad75678c16de2, type: 3}
   m_Name: Oswin
   m_EditorClassIdentifier: 
-  Name: 
-  UnitType: 0
+  Name: Oswin
+  UnitType: 1
   TotalMovementPoints: 0
   TotalActionPoints: 0
   TotalHitPoints: 0
