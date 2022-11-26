@@ -56,7 +56,6 @@ public class RangeFinder
                 availableTiles.Add(tile);
             }
         }
-
         return availableTiles;
     }
 

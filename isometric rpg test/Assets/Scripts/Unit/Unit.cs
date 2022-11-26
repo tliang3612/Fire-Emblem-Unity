@@ -532,7 +532,7 @@ public class Unit : MonoBehaviour, IClickable
         cachedPaths = _pathfinder.FindAllPaths(searchableTiles, tileGrid);
     }
 
-    //Get a list of tiles that the Unit can move to, and 
+    //Get a list of tiles that the Unit can move to
     public HashSet<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
     {
         var tilesInMoveRange = _rangeFinder.GetTilesInMoveRange(tileGrid);

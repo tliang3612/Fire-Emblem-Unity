@@ -3,7 +3,6 @@ using System.Linq;
 
 public class TileGridStateWaitingForInput : TileGridState
 {
-
     public TileGridStateWaitingForInput(TileGrid tileGrid) : base(tileGrid)
     {
 
@@ -11,7 +10,7 @@ public class TileGridStateWaitingForInput : TileGridState
 
     public override void OnUnitClicked(Unit unit)
     {
-        if (_tileGrid.GetCurrentPlayerUnits().Contains(unit))
+        if (_tileGrid.GetCurrentPlayerUnits().Contains(unit) && unit.ActionPoints > 0)
         {
             _tileGrid.GridState = new TileGridStateUnitSelected(_tileGrid, unit, unit.GetComponentInChildren<MoveAbility>());
         }

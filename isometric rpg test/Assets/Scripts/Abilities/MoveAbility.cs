@@ -28,11 +28,11 @@ public class MoveAbility : Ability
             UnitReference.Move(path);
             while (UnitReference.IsMoving)
             {
-                yield return 0;
+                yield return null;
             }
         }
         
-        yield return 0;
+        yield return null;
     }
 
     public override void Display(TileGrid tileGrid)
@@ -50,6 +50,12 @@ public class MoveAbility : Ability
     public override void OnUnitHighlighted(Unit unit, TileGrid tileGrid)
     {
         unit.Tile.HighlightedOnUnit();
+
+        if (CanPerform(tileGrid) && _availableDestinations.Contains(unit.Tile))
+        {
+            _path = UnitReference.FindPath(unit.Tile, tileGrid);
+            TranslateArrows(tileGrid);
+        }
     }
 
     public override void OnUnitDehighlighted(Unit unit, TileGrid tileGrid)
@@ -63,9 +69,7 @@ public class MoveAbility : Ability
         {
             Destination = UnitReference.Tile;
             //We would still call execute so we can run Act
-            StartCoroutine(Execute(tileGrid,
-                _ => tileGrid.GridState = new TileGridStateBlockInput(tileGrid),
-                _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, UnitReference.GetComponentInChildren<DisplayActionsAbility>())));
+            StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<DisplayActionsAbility>()));
         }
     }
 
@@ -85,8 +89,8 @@ public class MoveAbility : Ability
         if (CanPerform(tileGrid) && _availableDestinations.Contains(tile) )
         {
             _path = UnitReference.FindPath(tile, tileGrid);
-            TranslateArrows(tileGrid);       
-        }
+            TranslateArrows(tileGrid);
+        }        
     }
 
     public override void OnTileDeselected(OverlayTile tile, TileGrid tileGrid)
@@ -110,8 +114,6 @@ public class MoveAbility : Ability
         {
             UnitReference.SetState(new UnitStateMoving(UnitReference, Vector2Int.zero));      
         }
-
-        UnitReference.CachePaths(UnitReference.GetTilesInRange(tileGrid, UnitReference.MovementPoints), tileGrid);
         _availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
 
         _tilesInAttackRange = UnitReference.GetTilesInAttackRange(_availableDestinations, tileGrid);
