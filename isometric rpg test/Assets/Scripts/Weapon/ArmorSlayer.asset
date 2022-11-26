@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de4e3ff7545066e498336ae468b6ce50, type: 3}
-  m_Name: Lance
+  m_Name: ArmorSlayer
   m_EditorClassIdentifier: 
-  Name: Lance
-  Sprite: {fileID: -1903652141, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
+  Name: Armor Slayer
+  Sprite: {fileID: 1244502048, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
   Attack: 10
-  Hit: 70
-  Crit: 100
-  Weight: 9
+  Hit: 90
+  Crit: 20
+  Weight: 5
   Range: 1
-  AnimationKey: Lance
-  Type: 1
-  HasUnitEffectiveness: 0
-  UnitEffectiveAgainst: 0
+  AnimationKey: Sword
+  Type: 0
+  UnitEffectiveAgainst: 1
   HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
   CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
   HasProjectile: 0
   Projectile: {fileID: 0}
+  HasUnitEffectiveness: 1

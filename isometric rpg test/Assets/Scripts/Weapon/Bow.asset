@@ -19,9 +19,11 @@ MonoBehaviour:
   Crit: 20
   Weight: 7
   Range: 2
+  AnimationKey: Bow
   Type: 3
+  UnitEffectiveAgainst: 0
   HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
   CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
   HasProjectile: 1
   Projectile: {fileID: 1326075803626547124, guid: 372109d1093d5ad4885d539d0af93fa3, type: 3}
-  AnimationKey: Bow
+  HasUnitEffectiveness: 1

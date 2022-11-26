@@ -327,10 +327,10 @@ public class Unit : MonoBehaviour, IClickable
         return new HealingDetails(healAmount, HitPoints);
     }
 
-    //Gets weapon effectiveness against a Unit. -1 for ineffective, 0 for neutral, and 1 for effective
-    public virtual int GetEffectiveness(WeaponType other)
+    //Gets weapon effectiveness against a Unit. -1 for ineffective, 0 for neutral, and > 1 for effective
+    public virtual int GetEffectiveness(UnitType otherUnit, WeaponType otherWeapon)
     {
-        return EquippedWeapon.GetEffectiveness(other);
+        return EquippedWeapon.GetEffectiveness(otherUnit, otherWeapon);
     }
 
     public int GetCritChance()
@@ -339,16 +339,16 @@ public class Unit : MonoBehaviour, IClickable
         return Mathf.Clamp(EquippedWeapon.Crit + (UnitSkill / 2), 0, 100);
     }
 
-    public int GetHitChance(WeaponType other)
+    public int GetHitChance(UnitType otherUnit, WeaponType otherWeapon)
     {
         //Accuracy formula = Weapon Hit + (Skill x 2) + (Luck / 2) + Weapon Triangle bonus * 15
-        return EquippedWeapon.Hit + (UnitSkill * 2) + (UnitLuck / 2) + EquippedWeapon.GetEffectiveness(other) * 15;
+        return EquippedWeapon.Hit + (UnitSkill * 2) + (UnitLuck / 2) + EquippedWeapon.GetEffectiveness(otherUnit, otherWeapon) * 15;
     }
 
-    public int GetAttack(WeaponType other)
+    public int GetAttack(UnitType otherUnit, WeaponType otherWeapon)
     {
         //Strength + Weapon Might + Weapon Triangle bonus
-        return UnitAttack + EquippedWeapon.Attack + EquippedWeapon.GetEffectiveness(other);
+        return UnitAttack + EquippedWeapon.Attack + EquippedWeapon.GetEffectiveness(otherUnit, otherWeapon);
     }
 
     public WeaponPreviewStats GetPreviewWeaponStats(Weapon w)

@@ -14,17 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Oswin
   UnitType: 1
-  TotalMovementPoints: 0
-  TotalActionPoints: 0
-  TotalHitPoints: 0
-  BaseAttack: 0
-  BaseSkill: 0
-  BaseSpeed: 0
-  BaseLuck: 0
-  BaseDefence: 0
-  BaseConst: 0
-  Portrait: {fileID: 0}
-  Mugshot: {fileID: 0}
-  MapSprite: {fileID: 0}
-  BattleAnimController: {fileID: 0}
-  StartingItems: []
+  TotalMovementPoints: 6
+  TotalActionPoints: 1
+  TotalHitPoints: 29
+  BaseAttack: 13
+  BaseSkill: 9
+  BaseSpeed: 5
+  BaseLuck: 3
+  BaseDefence: 14
+  BaseConst: 14
+  Portrait: {fileID: -892835851, guid: 9c2d6387d8de5fd4891f9677ada7dd59, type: 3}
+  Mugshot: {fileID: 322227950, guid: 9c2d6387d8de5fd4891f9677ada7dd59, type: 3}
+  MapSprite: {fileID: 2101611090, guid: dd2561604efa69e4f866bbdc9f893287, type: 3}
+  BattleAnimController: {fileID: 9100000, guid: 870b52d09d3dcb847b2dcc4524588015, type: 2}
+  StartingItems:
+  - {fileID: 11400000, guid: 5905f667397a8dc44b5189082015dc00, type: 2}

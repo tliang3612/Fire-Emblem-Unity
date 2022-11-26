@@ -6,12 +6,12 @@ using UnityEngine.Tilemaps;
 
 public enum WeaponType
 {
-	SWORD,
-	LANCE,
-	AXE,
-	BOW,
-	STAFF,
-	TOME		
+	Sword,
+	Lance,
+	Axe,
+	Bow,
+	Staff,
+	Tome		
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Weapon", order = 2)]
@@ -20,7 +20,10 @@ public class Weapon : Item
 	public int Attack, Hit, Crit, Weight;
 	public int Range;
 
+	public string AnimationKey;
 	public WeaponType Type;
+
+	[HideInInspector] public UnitType UnitEffectiveAgainst;
 
 	public GameObject HitEffect;
 	public GameObject CritEffect;
@@ -28,26 +31,51 @@ public class Weapon : Item
 	public bool HasProjectile;
 	public GameObject Projectile;
 
-	public string AnimationKey;
+	public bool HasUnitEffectiveness;
 
-	public int GetEffectiveness(WeaponType other)
+	public int GetEffectiveness(UnitType otherUnit, WeaponType otherWeapon)
 	{
-		switch (Type)
-		{
-			case WeaponType.SWORD:
-				if (other == WeaponType.LANCE) return -1;
-				if (other == WeaponType.AXE) return 1;
-				return 0;
-			case WeaponType.LANCE:
-				if (other == WeaponType.AXE) return -1;
-				if (other == WeaponType.SWORD) return 1;
-				return 0;
-			case WeaponType.AXE:
-				if (other == WeaponType.SWORD) return -1;
-				if (other == WeaponType.LANCE) return 1;
-				return 0;
-			default:
-				return 0;
+		int effectiveness = 0;
+
+		//Unit Effectiveness
+		if(HasUnitEffectiveness && otherUnit == UnitEffectiveAgainst)
+        {
+			effectiveness++;
+        }
+
+		//Weapon Triangle
+		if(Type == WeaponType.Sword)
+        {
+			if (otherWeapon == WeaponType.Lance) effectiveness--;
+			else if (otherWeapon == WeaponType.Axe) effectiveness++;
+        }
+		else if(Type == WeaponType.Axe)
+        {
+			if (otherWeapon == WeaponType.Sword) effectiveness--;
+			else if (otherWeapon == WeaponType.Lance) effectiveness++;
 		}
+		else if(Type == WeaponType.Lance)
+        {
+			if (otherWeapon == WeaponType.Axe) effectiveness--;
+			else if (otherWeapon == WeaponType.Sword) effectiveness++;
+		}
+
+		return Mathf.Clamp(effectiveness, -1, 2);
 	}
+
+	[CustomEditor(typeof(Weapon))]
+	public class WeaponEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+			Weapon weapon = (Weapon)target;
+			if (weapon.HasUnitEffectiveness)
+            {
+				weapon.UnitEffectiveAgainst = (UnitType)EditorGUILayout.EnumPopup("Unit Effective Against", weapon.UnitEffectiveAgainst);
+			}
+				
+        }
+    }
 }

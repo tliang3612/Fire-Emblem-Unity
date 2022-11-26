@@ -11190,8 +11190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 92.99992, y: 0}
-  m_SizeDelta: {x: 322, y: 100}
+  m_AnchoredPosition: {x: 83.42, y: 0}
+  m_SizeDelta: {x: 341.16, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1134120023
 MonoBehaviour:
@@ -11241,7 +11241,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sword
+  m_Text: Armor Slayer
 --- !u!222 &1134120025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11291,7 +11291,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 150, y: -150}
   m_SizeDelta: {x: 490, y: 322}
-  m_Pivot: {x: 0.42999998, y: 0.07}
+  m_Pivot: {x: 0.39, y: 0.089999996}
 --- !u!222 &1136677404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15645,8 +15645,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 93, y: -0.0000023842}
-  m_SizeDelta: {x: 325.3, y: 100}
+  m_AnchoredPosition: {x: 72.47507, y: -0.0000023842}
+  m_SizeDelta: {x: 340.95, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1772358594
 CanvasRenderer:
@@ -15689,7 +15689,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bow
+  m_Text: Armor Slayer
 --- !u!114 &1772358596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18669,7 +18669,7 @@ MonoBehaviour:
   <Tile>k__BackingField: {fileID: 0}
   MovementAnimationSpeed: 4
   _defaultDirection: {x: 0, y: -1}
-  baseInfo: {fileID: 11400000, guid: 35bf013448f911c478741273c8bd2331, type: 2}
+  baseInfo: {fileID: 11400000, guid: 36113b27ba8bbc3449f6a127cf802685, type: 2}
   <MovementPoints>k__BackingField: 0
   <PlayerNumber>k__BackingField: 0
 --- !u!4 &2432167231002902865 stripped

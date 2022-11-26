@@ -19,7 +19,7 @@ MonoBehaviour:
   TotalHitPoints: 25
   BaseAttack: 8
   BaseSkill: 12
-  BaseSpeed: 0
+  BaseSpeed: 15
   BaseLuck: 10
   BaseDefence: 5
   BaseConst: 5

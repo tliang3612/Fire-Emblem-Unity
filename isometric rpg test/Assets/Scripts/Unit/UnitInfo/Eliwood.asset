@@ -29,3 +29,4 @@ MonoBehaviour:
   BattleAnimController: {fileID: 9100000, guid: 2f3bd0e661dc92e46949aabe3fb630f9, type: 2}
   StartingItems:
   - {fileID: 11400000, guid: 9699cdf36751da04ca5cd0d8cd2e1881, type: 2}
+  - {fileID: 11400000, guid: ea2197e795f7413469dba8c7cb63e744, type: 2}

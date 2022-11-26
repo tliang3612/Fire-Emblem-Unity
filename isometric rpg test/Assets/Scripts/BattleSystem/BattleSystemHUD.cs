@@ -27,7 +27,7 @@ public class BattleSystemHUD : MonoBehaviour
         if (stats.EffectivenessStat != 0)
         {
             _effectivenessArrow.color = Color.white;
-            _effectivenessArrow.sprite = stats.EffectivenessStat == 1 ? _upArrow : _downArrow;
+            _effectivenessArrow.sprite = stats.EffectivenessStat >= 1 ? _upArrow : _downArrow;
         }
         else
         {

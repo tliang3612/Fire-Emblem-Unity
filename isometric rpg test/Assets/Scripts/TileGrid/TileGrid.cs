@@ -270,7 +270,6 @@ public class TileGrid : MonoBehaviour
 
     private void SetUpOverlayTiles(Tilemap tileMap)
     {
-        Debug.Log(TileDataMap);
         //limits of the current tilemap
         BoundsInt bounds = tileMap.cellBounds;
         

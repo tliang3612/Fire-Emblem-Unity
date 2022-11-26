@@ -45,7 +45,6 @@ public class BattleSystem : MonoBehaviour
     private HealStats healStats;
 
     private int range;
-    public event EventHandler<BattleOverEventArgs> BattleOver;
 
     public void Start()
     {
@@ -232,23 +231,6 @@ public class BattleSystem : MonoBehaviour
     {
         foreground.GetComponent<Transform>().DOShakePosition(shakeDuration * shakeMultiplier, shakeMagnitude * shakeMultiplier, fadeOut: true);
     }
-}
-
-public class BattleOverEventArgs : EventArgs
-{
-    public Unit playerUnit;
-    public Unit enemyUnit;
-    public bool isPlayerDead;
-    public bool isEnemyDead;
-
-    public BattleOverEventArgs(Unit pUnit, Unit eUnit, bool isPDead, bool isEDead)
-    {
-        playerUnit = pUnit;
-        enemyUnit = eUnit;
-        isPlayerDead = isPDead;
-        isEnemyDead = isEDead;
-    }
-
 }
 
 

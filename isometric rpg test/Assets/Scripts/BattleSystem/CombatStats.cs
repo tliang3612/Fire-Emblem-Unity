@@ -17,7 +17,7 @@ public struct CombatStats
     {
         HealthStat = attacker.HitPoints;
         RangeStat = attacker.EquippedWeapon.Range;
-        EffectivenessStat = attacker.GetEffectiveness(defender.EquippedWeapon.Type);
+        EffectivenessStat = attacker.GetEffectiveness(defender.UnitType, defender.EquippedWeapon.Type);
         UnitName = attacker.UnitName;
 
         CanDoubleAttack = (attacker.GetAttackSpeed() - defender.GetAttackSpeed()) >= 4;
@@ -45,12 +45,12 @@ public struct CombatStats
     //Battle Accuracy formula = Accuracy – enemy’s Avoid
     public int GetBattleAccuracy(Unit attacker, Unit defender)
     {
-        return Mathf.Clamp((attacker.GetHitChance(defender.EquippedWeapon.Type)) - defender.GetDodgeChance(), 0, 100);
+        return Mathf.Clamp(attacker.GetHitChance(defender.UnitType, defender.EquippedWeapon.Type) - defender.GetDodgeChance(), 0, 100);
     }
 
     //Damage Formula = (Attack – enemy Defence) x Critical coefficient
     public int GetTotalDamage(Unit attacker, Unit defender)
     {
-        return (attacker.GetAttack(defender.EquippedWeapon.Type) - defender.GetDefense());
+        return Mathf.Clamp(attacker.GetAttack(defender.UnitType, defender.EquippedWeapon.Type) - defender.GetDefense(), 0, 100);
     }
 }

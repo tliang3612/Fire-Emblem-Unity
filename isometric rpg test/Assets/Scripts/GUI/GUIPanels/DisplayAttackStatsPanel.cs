@@ -69,7 +69,7 @@ public class DisplayAttackStatsPanel : GUIPanel
 
         if (defenderStats.EffectivenessStat != 0)
         {
-            DefenderEffectiveness.sprite = defenderStats.EffectivenessStat == 1 ? AdvantageIcon : DisadvantageIcon;
+            DefenderEffectiveness.sprite = defenderStats.EffectivenessStat >= 1 ? AdvantageIcon : DisadvantageIcon;
             DefenderEffectiveness.color = Color.white;
         }
 
@@ -95,7 +95,7 @@ public class DisplayAttackStatsPanel : GUIPanel
 
         if (attackerStats.EffectivenessStat != 0)
         {
-            AttackerEffectiveness.sprite = attackerStats.EffectivenessStat == 1 ? AdvantageIcon : DisadvantageIcon;
+            AttackerEffectiveness.sprite = attackerStats.EffectivenessStat >= 1 ? AdvantageIcon : DisadvantageIcon;
             AttackerEffectiveness.color = Color.white;
         }
 
