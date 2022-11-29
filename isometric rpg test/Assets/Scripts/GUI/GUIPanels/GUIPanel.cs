@@ -37,7 +37,6 @@ public abstract class GUIPanel : MonoBehaviour
         topRightPosition = topPosition;
         rightPanelPosition = rightPosition;
     }
-
     protected virtual void OnAbilitySelected(object sender, EventArgs e)
     {
         SetState(GUIState.InAbilitySelection);

@@ -23,9 +23,10 @@ public class MoveAbility : Ability
     {
         if(CanPerform(tileGrid) && _availableDestinations.Contains(Destination))
         {
-            //_cameraController.MoveToPoint(Destination.transform.position);
             var path = UnitReference.FindPath(Destination, tileGrid);
             UnitReference.Move(path);
+
+            _cameraController.SetCameraOnUnit(UnitReference);
             while (UnitReference.IsMoving)
             {
                 yield return null;

@@ -1077,7 +1077,6 @@ MonoBehaviour:
   battleSystem: {fileID: 1307233531}
   worldCamera: {fileID: 1878331628}
   IsBattling: 0
-  guiController: {fileID: 1570113397}
 --- !u!114 &236689270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17375,7 +17374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42896c0d7b34bc542bf19cb9fb99b2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationSpeed: 15
+  translationSpeed: 18.5
   translationDuration: 0.18
   _screenBorders:
   - {fileID: 1479880271}

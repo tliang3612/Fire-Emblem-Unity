@@ -9,19 +9,22 @@ using System.Linq;
 
 public class CameraController : MonoBehaviour
 {
-    private Vector2Int _panDirection;
     public float translationSpeed;
     public float translationDuration;
+
+    private Vector2Int _panDirection;   
     private bool _isPanning;
+    private bool _isInDisplayAbility;
+    private TileGrid _tileGrid;
 
     private Camera _camera;
     private Bounds _cameraBounds;
-    private Vector2 _halfViewPoint;
 
     [SerializeField] private ScreenBorder[] _screenBorders;
 
     private void Awake()
     {
+        _tileGrid = FindObjectOfType<TileGrid>();
         _camera = GetComponent<Camera>();
         _cameraBounds = FindObjectOfType<Tilemap>().localBounds;
 
@@ -35,43 +38,81 @@ public class CameraController : MonoBehaviour
         {
             border.SetupActions(OnMouseEnterScreenBorder, OnMouseExitScreenBorder);
         }
-    }  
 
-
-    public void MoveToPoint(Vector3 position)
-    {
-        if (_camera.isActiveAndEnabled)
-        {
-            _isPanning = true;
-
-            var duration = Vector3.Magnitude((position - _camera.transform.position) / translationSpeed);
-            var moveTo = new Vector3(Mathf.Clamp(position.x, _cameraBounds.min.x, _cameraBounds.max.x),
-                                     Mathf.Clamp(position.y, _cameraBounds.min.y, _cameraBounds.max.y),
-                                     -2f);
-
-            _camera.transform.DOMove(moveTo, duration).SetEase(Ease.Linear).OnComplete(() => _isPanning = false);
-        }
+        _tileGrid.UnitAdded += OnUnitAdded;
     }
-
-    public void FollowUnit(Unit unit)
-    {
-
-    }
-
     public void OnTileHighlighted(object sender, EventArgs e)
     {
-        if (!_isPanning && _camera.isActiveAndEnabled && _panDirection != Vector2Int.zero)
+        if (!_isPanning && !_isInDisplayAbility && _camera.isActiveAndEnabled && _panDirection != Vector2Int.zero)
         {
-            var translationDirection = new Vector3(_panDirection.x, _panDirection.y, 0);
+            var newPosition = new Vector3(_camera.transform.position.x + _panDirection.x, _camera.transform.position.y + _panDirection.y);
 
-            var moveTo = new Vector3(Mathf.Clamp(_camera.transform.position.x +  translationDirection.x, _cameraBounds.min.x, _cameraBounds.max.x),
-                                     Mathf.Clamp(_camera.transform.position.y + translationDirection.y, _cameraBounds.min.y, _cameraBounds.max.y),
-                                     -2f);
+            var moveTo = ClampCameraToBounds(newPosition);
 
             _camera.transform.DOMove(moveTo, translationDuration).SetEase(Ease.Linear);
         }
     }
 
+    public void MoveToPoint(Vector3 position)
+    {
+        if (_camera.isActiveAndEnabled && !_isPanning)
+        {
+            _isPanning = true;
+
+            var duration = Vector3.Magnitude((position - _camera.transform.position) / translationSpeed);
+            var moveTo = ClampCameraToBounds(position);
+
+            _camera.transform.DOMove(moveTo, duration).SetEase(Ease.Linear).OnComplete(() => _isPanning = false);
+        }
+    }
+
+    public void SetCameraOnUnit(Unit unit)
+    {
+        StartCoroutine(FollowUnit(unit));
+    }
+
+    public IEnumerator FollowUnit(Unit unit)
+    {
+        while (unit.IsMoving)
+        {
+            MoveToPoint(unit.transform.position);
+            yield return null;
+        }
+    }
+
+    private Vector3 ClampCameraToBounds(Vector2 position)
+    {
+        return new Vector3(Mathf.Clamp(position.x, _cameraBounds.min.x, _cameraBounds.max.x),
+                           Mathf.Clamp(position.y, _cameraBounds.min.y, _cameraBounds.max.y),
+                           -2f);
+    }
+
+    public void OnUnitAdded(object sender, UnitCreatedEventArgs e)
+    {
+        RegisterUnit(e.Unit, e.Abilities);
+    }
+
+    public void RegisterUnit(Unit unit, List<Ability> unitAbilities)
+    {
+        foreach(var ability in unitAbilities)
+        {
+            if(ability is DisplayAbility)
+            {
+                ability.AbilitySelected += OnDisplayAbilitySelected;
+                ability.AbilityDeselected += OnDisplayAbilityDeselected;
+            }
+        }
+    }
+
+    public void OnDisplayAbilitySelected(object sender, EventArgs e)
+    {
+        _isInDisplayAbility = true;
+    }
+
+    public void OnDisplayAbilityDeselected(object sender, EventArgs e)
+    {
+        _isInDisplayAbility = false;
+    }
 
     public void OnMouseEnterScreenBorder(Vector2Int direction)
     {

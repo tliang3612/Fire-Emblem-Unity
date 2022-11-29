@@ -35,7 +35,7 @@ public class TileGrid : MonoBehaviour
     public event EventHandler<UnitCreatedEventArgs> UnitAdded;
 
     /// <summary>
-    /// RightMouseClicked event is invoked when the tileGrid detects a right mouse button click
+    /// RightMouseClicked event is invoked when the _tileGrid detects a right mouse button click
     /// </summary> 
     public event EventHandler RightMouseClicked;
 
@@ -96,8 +96,6 @@ public class TileGrid : MonoBehaviour
     [SerializeField] private BattleSystem battleSystem;
     [SerializeField] private Camera worldCamera;
     public bool IsBattling = false;
-
-    [SerializeField] private GUIController guiController;
 
     public void OnRightMouseClicked()
     {
@@ -323,7 +321,6 @@ public class TileGrid : MonoBehaviour
         {
             UnitAdded.Invoke(this, new UnitCreatedEventArgs(unit, unit.GetComponentsInChildren<Ability>().ToList()));
         }
-
     }
 
         

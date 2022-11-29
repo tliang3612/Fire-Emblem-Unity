@@ -75,7 +75,6 @@ public class GUIController : MonoBehaviour
                 attackStatsPanel.Bind(ability as DisplayAttackStatsAbility);
                 removedAbilities.Add(ability as DisplayAttackStatsAbility);
             }
-
             if (ability is DisplayHealStatsAbility)
             {
                 healStatsPanel.Bind(ability as DisplayHealStatsAbility);
