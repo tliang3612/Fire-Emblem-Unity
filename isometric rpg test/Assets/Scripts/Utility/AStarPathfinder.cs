@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 
 public class AStarPathfinder
@@ -11,7 +12,7 @@ public class AStarPathfinder
         _unit = unit;
     }
 
-    //Find all from the unit's starting tile
+    //Find all from the unit's starting tile. Slow
     public Dictionary<OverlayTile, List<OverlayTile>> FindAllPaths(HashSet<OverlayTile> searchableTiles, TileGrid tileGrid)
     {
         //Finished Dictionary
@@ -32,19 +33,21 @@ public class AStarPathfinder
         Dictionary<OverlayTile, List<OverlayTile>> paths = new Dictionary<OverlayTile, List<OverlayTile>>();
 
         //Finished List
-        List<OverlayTile> path;
-
-        var start = _unit.Tile;
+        List<OverlayTile> path;       
 
         PriorityQueue<OverlayTile> frontier;
         Dictionary<OverlayTile, OverlayTile> previousTile = new Dictionary<OverlayTile, OverlayTile>();
         Dictionary<OverlayTile, int> costSoFar;
 
 
-        foreach(OverlayTile end in searchableTiles)
+        foreach (OverlayTile start in searchableTiles)
         {
+            var end = _unit.Tile;
+            var visitedList = new List<OverlayTile>();
+
             frontier = new PriorityQueue<OverlayTile>();
             costSoFar = new Dictionary<OverlayTile, int>();
+
 
             path = new List<OverlayTile>();
 
@@ -59,18 +62,15 @@ public class AStarPathfinder
                 paths.Add(end, path);
                 continue;
             }
-            
-            //if the end tile has 
-            if(previousTile.ContainsKey(end))
-            {
 
-            }
-
+            //map out all the previousTiles
             while (frontier.Count != 0)
             {
                 var currentTile = frontier.Dequeue();
                 if (currentTile.Equals(end))
                     break;
+                
+
 
                 foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
                 {
@@ -90,42 +90,52 @@ public class AStarPathfinder
                 }
             }
 
-            
-
-            
-
             //if end tile doesn't have a previous tile, it is unreachable
             if (!previousTile.ContainsKey(end))
             {
-                paths.Add(end, path);
                 continue;
             }
-                
+
             path.Add(end);
             var temp = end;
+
+            //if there is a record of the 
+            if(previousTile.ContainsKey(temp))
+            {
+
+            }
 
             while (!previousTile[temp].Equals(start))
             {
                 path.Add(previousTile[temp]);
                 temp = previousTile[temp];
-
             }
 
             path.Add(start);
-            path.Reverse();
+
         }
 
+        
+                
+        
+
+        
+
+        
+        
         return paths;
     }
 
 
     //Djikstra
-    public List<OverlayTile> FindPath(OverlayTile end, HashSet<OverlayTile> searchableTiles, TileGrid tileGrid)
+    public List<OverlayTile> FindPath(OverlayTile destination, HashSet<OverlayTile> searchableTiles, TileGrid tileGrid)
     {
         //Finished List
         List<OverlayTile> path = new List<OverlayTile>();
 
-        var start = _unit.Tile;
+        //var start = _unit.Tile;
+        var start = destination;
+        var end = _unit.Tile;
 
         if (start == end)
         {
@@ -182,7 +192,6 @@ public class AStarPathfinder
 
         path.Add(start);
 
-        path.Reverse();
         return path;
 
     }
