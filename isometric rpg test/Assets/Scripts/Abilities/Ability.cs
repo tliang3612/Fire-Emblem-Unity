@@ -10,6 +10,8 @@ public abstract class Ability : MonoBehaviour
     public event EventHandler AbilitySelected;
     public event EventHandler AbilityDeselected;
 
+    protected CameraController _cameraController;
+
 
 
     //The Unit that this ability script is attached to 
@@ -23,6 +25,7 @@ public abstract class Ability : MonoBehaviour
     {
         UnitReference = GetComponentInParent<Unit>();
         IsDisplayableAsButton = false;
+        _cameraController = FindObjectOfType<CameraController>();
     }
 
     public IEnumerator Execute(TileGrid tileGrid, Action<TileGrid> preAction, Action<TileGrid> postAction)

@@ -61,8 +61,14 @@ public class DisplayActionsAbility : DisplayAbility
 
     public override void OnRightClick(TileGrid tileGrid)
     {
+        if (UnitReference.PreviousTile)
+        {
+            _cameraController.MoveToPoint(UnitReference.PreviousTile.transform.position);
+        }
+
         UnitReference.ResetMove();
         UnitReference.SetState(new UnitStateNormal(UnitReference));
+        
         StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<MoveAbility>()));
     }
 }

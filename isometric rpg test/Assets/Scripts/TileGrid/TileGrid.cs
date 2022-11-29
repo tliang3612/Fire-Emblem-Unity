@@ -162,6 +162,8 @@ public class TileGrid : MonoBehaviour
             tile.TileClicked += OnTileClicked;
             tile.TileHighlighted += OnTileHighlighted;
             tile.TileDehighlighted += OnTileDehighlighted;
+
+            tile.TileHighlighted += FindObjectOfType<CameraController>().OnTileHighlighted;
             
             tile.UnMark();
             tile.GetNeighborTiles(this);

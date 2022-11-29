@@ -6,7 +6,6 @@ public class ForceAspectRatio : MonoBehaviour
 {
     public float targetAspect = 3f / 2f;
 
-    [ExecuteAlways]
     void Start()
     {   
         // determine the game window's current aspect ratio

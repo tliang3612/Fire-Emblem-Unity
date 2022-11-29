@@ -23,7 +23,7 @@ public class OverlayTile : MonoBehaviour, IClickable
     public Vector3Int gridLocation { get; private set; }
     public Vector2Int gridLocation2D { get { return new Vector2Int(gridLocation.x, gridLocation.y); } }
     
-    [SerializeField] private  GameObject CursorSprite;
+    [SerializeField] private GameObject CursorSprite;
     [SerializeField] private Sprite _blueTile;
     [SerializeField] private Sprite _redTile;
     [SerializeField] private Sprite _greenTile;
@@ -51,7 +51,7 @@ public class OverlayTile : MonoBehaviour, IClickable
 
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            HideCursor();
+            
         }
     }
 
@@ -62,7 +62,7 @@ public class OverlayTile : MonoBehaviour, IClickable
 
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            HideCursor();
+            
         }
     }
 

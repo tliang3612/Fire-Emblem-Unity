@@ -104,7 +104,17 @@ public class Unit : MonoBehaviour, IClickable
 
 
     private List<OverlayTile> _storedPath;
-    Dictionary<OverlayTile, List<OverlayTile>> cachedPaths = null;
+    public OverlayTile PreviousTile { 
+        get {
+            if (_storedPath.Count > 0)
+            {
+                return _storedPath[0];
+            }
+                
+            return null; 
+        } 
+    }
+    private Dictionary<OverlayTile, List<OverlayTile>> _cachedPaths = null;
 
     [field: SerializeField]
     public int PlayerNumber { get; set; }
@@ -205,7 +215,7 @@ public class Unit : MonoBehaviour, IClickable
         MovementPoints = TotalMovementPoints;
         ActionPoints = TotalActionPoints;
 
-        cachedPaths = null;
+        _cachedPaths = null;
         _storedPath = new List<OverlayTile>();
         _anim.SetBool("IsFinished", false);
 
@@ -529,7 +539,7 @@ public class Unit : MonoBehaviour, IClickable
 
     public void CachePaths(HashSet<OverlayTile> searchableTiles, TileGrid tileGrid)
     {
-        cachedPaths = _pathfinder.FindAllPaths(searchableTiles, tileGrid);
+        _cachedPaths = _pathfinder.FindAllPaths(searchableTiles, tileGrid);
     }
 
     //Get a list of tiles that the Unit can move to
@@ -537,7 +547,7 @@ public class Unit : MonoBehaviour, IClickable
     {
         var tilesInMoveRange = _rangeFinder.GetTilesInMoveRange(tileGrid);
 
-        if (cachedPaths == null)
+        if (_cachedPaths == null)
         {
             CachePaths(tilesInMoveRange, tileGrid);
         }
@@ -548,7 +558,7 @@ public class Unit : MonoBehaviour, IClickable
     //Find the best path to take given cachedPaths
     public List<OverlayTile> FindPath(OverlayTile destination, TileGrid tileGrid)
     {
-        return cachedPaths.ContainsKey(destination) ? cachedPaths[destination] : new List<OverlayTile>();
+        return _cachedPaths.ContainsKey(destination) ? _cachedPaths[destination] : new List<OverlayTile>();
     }
 
     //Get a list of tiles within the Unit's range. Doesn't take tile cost into consideration

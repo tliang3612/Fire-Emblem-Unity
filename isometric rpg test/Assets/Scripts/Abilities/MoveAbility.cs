@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-//Enemy Unit isnt doing confirm mocve poropely 
 public class MoveAbility : Ability
 {
     public OverlayTile Destination { get; set; }
@@ -24,6 +23,7 @@ public class MoveAbility : Ability
     {
         if(CanPerform(tileGrid) && _availableDestinations.Contains(Destination))
         {
+            //_cameraController.MoveToPoint(Destination.transform.position);
             var path = UnitReference.FindPath(Destination, tileGrid);
             UnitReference.Move(path);
             while (UnitReference.IsMoving)
@@ -112,7 +112,9 @@ public class MoveAbility : Ability
         //we dont want ai to play it because ai instantly selects a move option while the player has to think
         if (tileGrid.CurrentPlayer is HumanPlayer)
         {
-            UnitReference.SetState(new UnitStateMoving(UnitReference, Vector2Int.zero));      
+            UnitReference.SetState(new UnitStateMoving(UnitReference, Vector2Int.zero));
+            
+
         }
         _availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
 

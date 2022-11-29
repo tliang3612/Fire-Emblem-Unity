@@ -103,7 +103,7 @@ public class OverlayPanel : GUIPanel
     protected virtual void OnTileClicked(object sender, EventArgs e)
     {
         //we dont want to register tile click when mouse is over UI
-        if ((sender as OverlayTile).CurrentUnit == null && State == GUIState.Clear && !EventSystem.current.IsPointerOverGameObject())
+        if ((sender as OverlayTile).CurrentUnit == null && State == GUIState.Clear)
         {
             SetState(GUIState.MenuGUISelection);
             ShowMenuOptionsPanel((sender as OverlayTile));
@@ -117,7 +117,7 @@ public class OverlayPanel : GUIPanel
 
     protected virtual void OnRightClick(object sender, EventArgs e)
     {
-        if (State == GUIState.MenuGUISelection && !EventSystem.current.IsPointerOverGameObject())
+        if (State == GUIState.MenuGUISelection)
         {
             SetState(GUIState.Clear);
             HideMenuOptionsPanel();
@@ -132,7 +132,7 @@ public class OverlayPanel : GUIPanel
     }
     protected virtual void OnTileHighlighted(object sender, EventArgs e)
     {
-        if (State == GUIState.Clear && !EventSystem.current.IsPointerOverGameObject())
+        if (State == GUIState.Clear)
         {
             ShowTerrainPanel(sender as OverlayTile);
             ShowWinConditionPanel(sender as OverlayTile);
@@ -148,7 +148,7 @@ public class OverlayPanel : GUIPanel
 
     protected virtual void OnUnitHighlighted(object sender, EventArgs e)
     {
-        if (State == GUIState.Clear && !EventSystem.current.IsPointerOverGameObject())
+        if (State == GUIState.Clear)
         {
             var unit = sender as Unit;
             UpdateHpBar(unit);
