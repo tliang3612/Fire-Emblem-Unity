@@ -11,6 +11,7 @@ public enum BattleEvent
     MeleeAction,
     HealAction
 }
+
 public class BattleSystem : MonoBehaviour
 {
     [SerializeField] private BattleUnit playerUnit;
@@ -124,7 +125,7 @@ public class BattleSystem : MonoBehaviour
                 if (range >= 2)
                     yield return ShiftPlatformsAndUnits(attacker.IsPlayer ? 1 : -1);
 
-                yield return defender.PlayDodgeAnimation();
+                yield return defender.PlayDodgeAnimation(); 
                 yield return attacker.PlayBackupAnimation(false);
 
                 if (range >= 2)
@@ -146,18 +147,6 @@ public class BattleSystem : MonoBehaviour
         EndBattle();       
     }
 
-    public void SetUpBattle(CombatStats playerStats, CombatStats enemyStats)
-    {
-        playerUnit.SetupAttack(playerStats, enemyUnit, ShakeBattlefield);
-        enemyUnit.SetupAttack(enemyStats, playerUnit, ShakeBattlefield);                    
-    }
-
-    public void SetUpHeal(HealStats healStats)
-    {
-        playerUnit.SetupHeal(healStats, enemyUnit);
-        enemyUnit.SetUpEmpty(playerUnit);
-    }
-
     private IEnumerator RunHealerSequence(BattleUnit healerUnit, BattleUnit allyUnit)
     {
         yield return new WaitForSeconds(1.5f);
@@ -173,6 +162,20 @@ public class BattleSystem : MonoBehaviour
         EndBattle();
     }
 
+
+    public void SetUpBattle(CombatStats playerStats, CombatStats enemyStats)
+    {
+        playerUnit.SetupAttack(playerStats, enemyUnit, ShakeBattlefield);
+        enemyUnit.SetupAttack(enemyStats, playerUnit, ShakeBattlefield);                    
+    }
+
+    public void SetUpHeal(HealStats healStats)
+    {
+        playerUnit.SetupHeal(healStats, enemyUnit);
+        enemyUnit.SetUpEmpty(playerUnit);
+    }
+
+    
 
     public void EndBattle(BattleUnit unitDead = null)
     {

@@ -20,8 +20,8 @@ public class AttackAbility : Ability
             UnitReference.SetState(new UnitStateMoving(UnitReference, direction));
             UnitToAttack.Tile.MarkAsAttackableTile();
             UnitToAttack.Tile.HighlightedOnUnit();
-            yield return new WaitForSeconds(0.7f);
 
+            yield return new WaitForSeconds(1f);
             UnitReference.ConfirmMove();
             if (tileGrid.GetManhattenDistance(UnitReference.Tile, UnitToAttack.Tile) > 1)
                 yield return tileGrid.StartBattle(UnitReference, UnitToAttack, BattleEvent.RangedAction);    

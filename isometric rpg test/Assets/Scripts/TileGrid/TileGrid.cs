@@ -94,6 +94,7 @@ public class TileGrid : MonoBehaviour
     public ArrowTranslator ArrowTranslator;
 
     [SerializeField] private BattleSystem battleSystem;
+    [SerializeField] private PhaseTransition _phaseTransition;
     [SerializeField] private Camera worldCamera;
     public bool IsBattling = false;
 
@@ -163,6 +164,7 @@ public class TileGrid : MonoBehaviour
 
             tile.TileHighlighted += FindObjectOfType<CameraController>().OnTileHighlighted;
             
+            
             tile.UnMark();
             tile.GetNeighborTiles(this);
         }
@@ -175,7 +177,8 @@ public class TileGrid : MonoBehaviour
             var units = unitGenerator.SpawnUnits(this);
             foreach (var unit in units)
             {
-                AddUnit(unit);                 
+                AddUnit(unit);    
+                
             }
         }
 
@@ -190,9 +193,11 @@ public class TileGrid : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
+        GridState = new TileGridStateBlockInput(this);
+
         if (GameStarted != null)
             GameStarted.Invoke(this, EventArgs.Empty);
-
+   
         TransitionResult transitionResult = GetComponent<TurnResolver>().ResolveStart(this);
         PlayableUnits = transitionResult.PlayableUnits;
         CurrentPlayerNumber = transitionResult.NextPlayer.PlayerNumber;
@@ -214,6 +219,7 @@ public class TileGrid : MonoBehaviour
             }
             u.OnTurnStart();
         }
+        StartPlayerTurn();
         Debug.Log("Game Started");
     }
 
@@ -316,7 +322,8 @@ public class TileGrid : MonoBehaviour
         unit.UnitDehighlighted += OnUnitDehighlighted;
         unit.UnitDestroyed += OnUnitDestroyed;
         unit.UnitMoved += OnUnitMoved;
-                
+        unit.UnitHighlighted += FindObjectOfType<CameraController>().OnTileHighlighted; //we want the same behavior for tile highlighted and unit highlighted
+
         if (UnitAdded != null)
         {
             UnitAdded.Invoke(this, new UnitCreatedEventArgs(unit, unit.GetComponentsInChildren<Ability>().ToList()));
@@ -325,8 +332,9 @@ public class TileGrid : MonoBehaviour
 
         
     
-    public void StartPlayerTurn()
+    public async void StartPlayerTurn()
     {
+        await _phaseTransition.TransitionPhase(CurrentPlayer is HumanPlayer ? true : false);
         TurnInProgress = true;
         CurrentPlayer.Play(this);
     }
@@ -386,6 +394,7 @@ public class TileGrid : MonoBehaviour
             }
             u.OnTurnStart();          
         }
+        StartPlayerTurn();
     }
 
     public List<Unit> GetCurrentPlayerUnits()
@@ -435,10 +444,17 @@ public class TileGrid : MonoBehaviour
     public IEnumerator StartBattle(Unit attacker, Unit defender, BattleEvent battleEvent)
     {
         GridState = new TileGridStateBlockInput(this);
+
+        yield return _phaseTransition.CombatTransition();
+
         battleSystem.gameObject.SetActive(true);
+        battleSystem.StartBattle(attacker, defender, battleEvent);
+
+        yield return new WaitForSeconds(.5f);
         worldCamera.gameObject.SetActive(false);
 
-        battleSystem.StartBattle(attacker, defender, battleEvent);
+        _phaseTransition.EndCombatTransition();
+
         IsBattling = true;
 
         while (IsBattling)

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-
+using UnityEngine;
 
 public class RangeFinder
 {
@@ -15,31 +15,31 @@ public class RangeFinder
     public HashSet<OverlayTile> GetTilesInMoveRange(TileGrid tileGrid)
     {
         Dictionary<OverlayTile, int> movementRating = new Dictionary<OverlayTile, int>();
-        Queue<OverlayTile> queue = new Queue<OverlayTile>();
+        Queue<OverlayTile> tilesToExplore = new Queue<OverlayTile>();
 
         var start = _unit.Tile;
-        var tilesInRange = GetTilesInRange(tileGrid, _unit.MovementPoints);
+        //var tilesInRange = GetTilesInRange(tileGrid, _unit.MovementPoints);
 
-        queue.Enqueue(start);
+        tilesToExplore.Enqueue(start);
         movementRating.Add(start, _unit.MovementPoints);
 
         //if there is any tile that has been unvisited
-        while (queue.Count != 0)
+        while (tilesToExplore.Count != 0)
         {
-            var currentTile = queue.Dequeue();
+            var currentTile = tilesToExplore.Dequeue();
 
             foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
             {
                 int newRating = movementRating[currentTile] - neighbor.GetMovementCost(_unit.UnitType);
 
                 //if tile is able to be moved to
-                if (_unit.IsTileMoveableAcross(neighbor) && tilesInRange.Contains(neighbor))
+                if (_unit.IsTileMoveableAcross(neighbor))
                 {
                     //if tile has not been visited or the newRating of the tile is greater than its previous rating
                     if (!movementRating.ContainsKey(neighbor) || newRating > movementRating[neighbor])
                     {
                         movementRating[neighbor] = newRating;
-                        queue.Enqueue(neighbor);
+                        tilesToExplore.Enqueue(neighbor);
                     }
 
                 }
@@ -61,57 +61,85 @@ public class RangeFinder
 
     public HashSet<OverlayTile> GetTilesInAttackRange(HashSet<OverlayTile> availableDestinations, TileGrid tileGrid, int range)
     {
-        //create tilesInRange, which is a list of tiles in range of the starting tile
-        var tilesInRange = new HashSet<OverlayTile>();
+        HashSet<OverlayTile> endTiles = new HashSet<OverlayTile>();
+        HashSet<OverlayTile> exploredTiles = new HashSet<OverlayTile>();
+
+        exploredTiles.UnionWith(availableDestinations);
+        foreach (var tile in availableDestinations)
+        {
+            foreach(var neighbor in tile.GetNeighborTiles(tileGrid))
+            {
+                if (!availableDestinations.Contains(neighbor))
+                {
+                    endTiles.Add(tile);
+                }
+            }           
+        }
+        
         int count = 0;
 
-        tilesInRange.UnionWith(availableDestinations);
-
-        while (count < range)
+        while(count < range)
         {
-            var surroundingTiles = new HashSet<OverlayTile>();
-
-            foreach (var tile in tilesInRange)
+            HashSet<OverlayTile> newEndTiles = new HashSet<OverlayTile>();
+            foreach (var tile in endTiles)
             {
-                surroundingTiles.UnionWith(tile.GetNeighborTiles(tileGrid));
+                foreach(var neighbor in tile.GetNeighborTiles(tileGrid))
+                {
+                    if (!exploredTiles.Contains(neighbor))
+                    {
+                        exploredTiles.Add(neighbor);
+                        newEndTiles.Add(neighbor);
+                    }                       
+                }           
             }
-
-            tilesInRange.UnionWith(surroundingTiles);
+            endTiles = newEndTiles;
             count++;
         }
 
-        return tilesInRange.Except(availableDestinations).ToHashSet();
+        return exploredTiles.ToHashSet();
     }
-
 
     public HashSet<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
     {
-        var tilesInRange = new HashSet<OverlayTile>();
+        Dictionary<OverlayTile, int> movementRating = new Dictionary<OverlayTile, int>();
+        Queue<OverlayTile> tilesToExplore = new Queue<OverlayTile>();
 
-        tilesInRange.Add(_unit.Tile);
+        var start = _unit.Tile;
 
-        int count = 0;
+        tilesToExplore.Enqueue(start);
+        movementRating.Add(start, range);
 
-        while (count < range)
+        //if there is any tile that has been unvisited
+        while (tilesToExplore.Count != 0)
         {
-            var surroundingTiles = new HashSet<OverlayTile>();
+            var currentTile = tilesToExplore.Dequeue();
 
-            //Get each tile's distinct neighbor
-            foreach (var tile in tilesInRange)
+            foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
             {
-                surroundingTiles.UnionWith(tile.GetNeighborTiles(tileGrid));
+                int newRating = movementRating[currentTile] - 1;
+
+                //if tile has not been visited or the newRating of the tile is greater than its previous rating
+                if (!movementRating.ContainsKey(neighbor) || newRating > movementRating[neighbor])
+                {
+                    movementRating[neighbor] = newRating;
+                    tilesToExplore.Enqueue(neighbor);
+                }
+               
             }
-
-            //adds the surrounding distinct tiles to tilesInRange
-            tilesInRange.UnionWith(surroundingTiles);
-            count++;
         }
-        tilesInRange.Remove(_unit.Tile);
 
-        return tilesInRange;
+        HashSet<OverlayTile> availableTiles = new HashSet<OverlayTile>();
+
+        //foreach tile in movementRating that has a rating of above 0, it is movable to
+        foreach (var tile in movementRating.Keys)
+        {
+            if (movementRating[tile] >= 0 && tile != _unit.Tile)
+            {
+                availableTiles.Add(tile);
+            }
+        }
+        return availableTiles;
     }
-
-
 }
 
 

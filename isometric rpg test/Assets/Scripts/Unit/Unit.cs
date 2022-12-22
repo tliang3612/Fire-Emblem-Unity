@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 public class Unit : MonoBehaviour, IClickable
 {
@@ -289,9 +290,9 @@ public class Unit : MonoBehaviour, IClickable
         }
         else
         {
-            Debug.Log("Unit doesn't contain that item");
+            UnityEngine.Debug.Log("Unit doesn't contain that item");
         }
-        
+
     }
 
     public virtual void ReceiveDamage(Unit source, int dmg)
@@ -512,8 +513,10 @@ public class Unit : MonoBehaviour, IClickable
     //positions the unit to a given tile
     public void PositionUnit(OverlayTile tile)
     {
-        transform.position = tile.transform.position;
+        Tile.CurrentUnit = null;
         Tile = tile;
+
+        transform.position = tile.transform.position;       
         tile.CurrentUnit = this;
     }
 
@@ -539,7 +542,7 @@ public class Unit : MonoBehaviour, IClickable
 
     public void CachePaths(HashSet<OverlayTile> searchableTiles, TileGrid tileGrid)
     {
-        _cachedPaths = _pathfinder.FindAllPaths(searchableTiles, tileGrid);
+        _cachedPaths = _pathfinder.FindAllBestPaths(searchableTiles, tileGrid);
     }
 
     //Get a list of tiles that the Unit can move to
@@ -561,16 +564,15 @@ public class Unit : MonoBehaviour, IClickable
         return _cachedPaths.ContainsKey(destination) ? _cachedPaths[destination] : new List<OverlayTile>();
     }
 
-    //Get a list of tiles within the Unit's range. Doesn't take tile cost into consideration
-    public HashSet<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
-    {
-        return _rangeFinder.GetTilesInRange(tileGrid, range);
-    }
-
     //Get a list of attackable tiles that doesn't include the tiles that a Unit can move to, given availableDestinations
     public HashSet<OverlayTile> GetTilesInAttackRange(HashSet<OverlayTile> availableDestinations, TileGrid tileGrid)
     {
         return _rangeFinder.GetTilesInAttackRange(availableDestinations, tileGrid, AttackRange);
+    }
+
+    public HashSet<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
+    {
+        return _rangeFinder.GetTilesInRange(tileGrid, range);
     }
 
     //Visual indication that the Unit has no more moves this turn

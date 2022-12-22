@@ -81,14 +81,15 @@ public class BattleUnit : MonoBehaviour
     {
         _unitToAttack = battleUnitToAttack;
 
+        anim.runtimeAnimatorController = Unit.BattleAnimController;
+        anim.SetBool(_animationStateKey, true);
+
         GetComponent<Image>().color = Color.white;
 
         originalAnchoredPosition = _rectTransform.anchoredPosition;
         background = GameObject.Find("DimBackground").GetComponent<Image>();
 
-        anim.runtimeAnimatorController = Unit.BattleAnimController;        
-
-        anim.SetBool(_animationStateKey, true);
+       
     }
     
     public IEnumerator PlayAttackAnimation(bool isCrit)

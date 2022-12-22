@@ -2352,7 +2352,7 @@ TextureImporter:
         x: 144
         y: 368
         width: 37
-        height: 32
+        height: 31
       alignment: 9
       pivot: {x: 0.4857143, y: 0.41935483}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2370,10 +2370,10 @@ TextureImporter:
       name: heath_map_16
       rect:
         serializedVersion: 2
-        x: 144
+        x: 145
         y: 336
-        width: 37
-        height: 31
+        width: 35
+        height: 30
       alignment: 9
       pivot: {x: 0.4857143, y: 0.43333337}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2394,7 +2394,7 @@ TextureImporter:
         x: 144
         y: 300
         width: 37
-        height: 35
+        height: 34
       alignment: 9
       pivot: {x: 0.6, y: 0.38235295}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -52,7 +52,7 @@ public class MoveAbility : Ability
     {
         unit.Tile.HighlightedOnUnit();
 
-        if (CanPerform(tileGrid) && _availableDestinations.Contains(unit.Tile))
+        if (_availableDestinations.Contains(unit.Tile))
         {
             _path = UnitReference.FindPath(unit.Tile, tileGrid);
             TranslateArrows(tileGrid);
@@ -87,7 +87,7 @@ public class MoveAbility : Ability
     {
         tile.MarkAsHighlighted();
 
-        if (CanPerform(tileGrid) && _availableDestinations.Contains(tile) )
+        if (_availableDestinations.Contains(tile) )
         {
             _path = UnitReference.FindPath(tile, tileGrid);
             TranslateArrows(tileGrid);
@@ -98,7 +98,7 @@ public class MoveAbility : Ability
     {
         tile.MarkAsDeHighlighted();
 
-        if (CanPerform(tileGrid) && _availableDestinations.Contains(tile))
+        if (_availableDestinations.Contains(tile))
         {
             foreach (var t in _availableDestinations)
                 t.MarkAsReachable();

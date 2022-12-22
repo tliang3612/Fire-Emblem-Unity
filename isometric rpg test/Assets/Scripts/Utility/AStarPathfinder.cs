@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 
 public class AStarPathfinder
 {
@@ -19,10 +17,10 @@ public class AStarPathfinder
         Dictionary<OverlayTile, List<OverlayTile>> paths = new Dictionary<OverlayTile, List<OverlayTile>>();
 
         //for each searchable tile, find the best path for the destination
-       foreach(OverlayTile tile in searchableTiles)
-       {
+        foreach (OverlayTile tile in searchableTiles)
+        {
             paths.Add(tile, FindPath(tile, searchableTiles, tileGrid));
-       }
+        }
 
         return paths;
     }
@@ -33,96 +31,60 @@ public class AStarPathfinder
         Dictionary<OverlayTile, List<OverlayTile>> paths = new Dictionary<OverlayTile, List<OverlayTile>>();
 
         //Finished List
-        List<OverlayTile> path;       
+        List<OverlayTile> path;
 
-        PriorityQueue<OverlayTile> frontier;
+        PriorityQueue<OverlayTile> frontier = new PriorityQueue<OverlayTile>();
         Dictionary<OverlayTile, OverlayTile> previousTile = new Dictionary<OverlayTile, OverlayTile>();
-        Dictionary<OverlayTile, int> costSoFar;
+        Dictionary<OverlayTile, int> costSoFar = new Dictionary<OverlayTile, int>();
 
 
-        foreach (OverlayTile start in searchableTiles)
+        var start = _unit.Tile;
+
+        frontier.Enqueue(start, 0);
+        costSoFar.Add(start, 0);
+        previousTile.Add(start, default);
+
+        //map out all the previousTiles
+        while (frontier.Count != 0)
         {
-            var end = _unit.Tile;
-            var visitedList = new List<OverlayTile>();
+            var currentTile = frontier.Dequeue();
 
-            frontier = new PriorityQueue<OverlayTile>();
-            costSoFar = new Dictionary<OverlayTile, int>();
-
-
-            path = new List<OverlayTile>();
-
-
-            frontier.Enqueue(start, 0);
-            costSoFar.Add(start, 0);
-            previousTile.Add(start, default(OverlayTile));
-
-            if (start == end)
+            foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
             {
-                path.Add(start);
-                paths.Add(end, path);
-                continue;
-            }
+                var newCost = costSoFar[currentTile] + neighbor.GetMovementCost(_unit.UnitType);
 
-            //map out all the previousTiles
-            while (frontier.Count != 0)
-            {
-                var currentTile = frontier.Dequeue();
-                if (currentTile.Equals(end))
-                    break;
-                
-
-
-                foreach (var neighbor in currentTile.GetNeighborTiles(tileGrid))
+                if (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])
                 {
-                    var newCost = costSoFar[currentTile] + neighbor.GetMovementCost(_unit.UnitType);
-
-                    if (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])
+                    //if the neighbor tile is moveable across
+                    if (_unit.IsTileMoveableAcross(neighbor) && searchableTiles.Contains(neighbor))
                     {
-                        //if the neighbor tile is moveable across
-                        if (_unit.IsTileMoveableAcross(neighbor) && searchableTiles.Contains(neighbor))
-                        {
-                            costSoFar[neighbor] = newCost;
-                            int priority = newCost + tileGrid.GetManhattenDistance(start, neighbor);
-                            frontier.Enqueue(neighbor, priority);
-                            previousTile[neighbor] = currentTile;
-                        }
+                        costSoFar[neighbor] = newCost;
+                        int priority = newCost + tileGrid.GetManhattenDistance(start, neighbor);
+                        frontier.Enqueue(neighbor, priority);
+                        previousTile[neighbor] = currentTile;
                     }
                 }
             }
-
-            //if end tile doesn't have a previous tile, it is unreachable
-            if (!previousTile.ContainsKey(end))
-            {
-                continue;
-            }
-
-            path.Add(end);
-            var temp = end;
-
-            //if there is a record of the 
-            if(previousTile.ContainsKey(temp))
-            {
-
-            }
-
-            while (!previousTile[temp].Equals(start))
-            {
-                path.Add(previousTile[temp]);
-                temp = previousTile[temp];
-            }
-
-            path.Add(start);
-
         }
 
-        
-                
-        
+        foreach(OverlayTile end in previousTile.Keys)
+        {
+            path = new List<OverlayTile>();
 
-        
+            var temp = end;
 
-        
-        
+            while (!temp.Equals(start))
+            {
+                path.Add(temp);
+                temp = previousTile[temp];
+            }
+            path.Add(start);
+
+            //Reverse so that the start tile is at the front and end tile is at the back
+            path.Reverse();
+
+            paths.Add(end, path);
+        }
         return paths;
     }
 
@@ -136,6 +98,7 @@ public class AStarPathfinder
         //var start = _unit.Tile;
         var start = destination;
         var end = _unit.Tile;
+
 
         if (start == end)
         {
