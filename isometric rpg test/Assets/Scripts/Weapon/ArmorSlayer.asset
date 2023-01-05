@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Armor Slayer
   Sprite: {fileID: 1244502048, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
-  Attack: 10
-  Hit: 90
+  Attack: 11
+  Hit: 80
   Crit: 20
-  Weight: 5
+  Weight: 11
   Range: 1
   AnimationKey: Sword
   Type: 0

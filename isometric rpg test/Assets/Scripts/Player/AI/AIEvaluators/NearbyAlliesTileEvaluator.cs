@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class NearbyAlliesTileEvaluator : TileEvaluator
 {
-
-    public override void PreEvaluate(Unit evaluatingUnit, TileGrid tileGrid)
+    public override void PreEvaluate(HashSet<OverlayTile> availableDestinations, Unit evaluatingUnit, TileGrid tileGrid)
     {
 
     }
@@ -15,15 +14,11 @@ public class NearbyAlliesTileEvaluator : TileEvaluator
         var neighbours = tileToEvaluate.GetNeighborTiles(tileGrid);
         var nearbyAllies = 0;
 
-        for (int i = 0; i < neighbours.Count; i++)
+        foreach(var neighbor in neighbours)
         {
-            OverlayTile tile = neighbours[i];
-            if (tile.CurrentUnit)
-            {
-                nearbyAllies += tile.CurrentUnit.PlayerNumber == evaluatingUnit.PlayerNumber && tile.CurrentUnit != evaluatingUnit ? 1 : 0;
-            }
+            if (neighbor.CurrentUnit && neighbor.CurrentUnit.PlayerNumber == evaluatingUnit.PlayerNumber)
+                nearbyAllies += 1;
         }
-
-        return nearbyAllies / neighbours.Count;
+        return (float)nearbyAllies / neighbours.Count;
     }    
 }

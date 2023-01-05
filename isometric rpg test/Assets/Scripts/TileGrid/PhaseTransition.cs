@@ -34,7 +34,6 @@ public class PhaseTransition : MonoBehaviour
             _transitionImage.sprite = _enemyPhaseSprite;
 
         await Task.Delay(3500);
-        gameObject.SetActive(false);
     }
 
     public IEnumerator CombatTransition()
@@ -47,7 +46,6 @@ public class PhaseTransition : MonoBehaviour
     public void EndCombatTransition()
     {
         phaseTransitionAnim.SetTrigger("EndBattle");
-        gameObject.SetActive(false);
     }
 
 }

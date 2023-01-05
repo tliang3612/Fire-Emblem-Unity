@@ -15,6 +15,7 @@ public enum WeaponType
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Weapon", order = 2)]
+[System.Serializable]
 public class Weapon : Item
 {
 	public int Attack, Hit, Crit, Weight;

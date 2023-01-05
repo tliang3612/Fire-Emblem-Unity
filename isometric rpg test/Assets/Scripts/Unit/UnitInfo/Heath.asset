@@ -16,13 +16,13 @@ MonoBehaviour:
   UnitType: 0
   TotalMovementPoints: 8
   TotalActionPoints: 1
-  TotalHitPoints: 25
-  BaseAttack: 10
-  BaseSkill: 15
-  BaseSpeed: 11
-  BaseLuck: 11
-  BaseDefence: 8
-  BaseConst: 7
+  TotalHitPoints: 28
+  BaseAttack: 11
+  BaseSkill: 8
+  BaseSpeed: 7
+  BaseLuck: 7
+  BaseDefence: 10
+  BaseConst: 9
   Portrait: {fileID: -1215702252, guid: 9c2d6387d8de5fd4891f9677ada7dd59, type: 3}
   Mugshot: {fileID: 1555211704, guid: 9c2d6387d8de5fd4891f9677ada7dd59, type: 3}
   MapSprite: {fileID: -1109213897, guid: dd2561604efa69e4f866bbdc9f893287, type: 3}

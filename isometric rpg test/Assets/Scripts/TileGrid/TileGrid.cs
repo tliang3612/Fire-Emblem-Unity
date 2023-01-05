@@ -137,9 +137,9 @@ public class TileGrid : MonoBehaviour
 
         //Adds two players to PlayersList
         PlayersList = new List<Player>();
-        for (int i = 0; i < 2; i++)
+        
+        foreach(var player in PlayersHolder.GetComponentsInChildren<Player>())
         {
-            var player = PlayersHolder.GetChild(i).GetComponent<Player>();
             if (player != null && player.gameObject.activeInHierarchy)
             {
                 PlayersList.Add(player);
@@ -177,8 +177,7 @@ public class TileGrid : MonoBehaviour
             var units = unitGenerator.SpawnUnits(this);
             foreach (var unit in units)
             {
-                AddUnit(unit);    
-                
+                AddUnit(unit);                  
             }
         }
 
@@ -204,9 +203,10 @@ public class TileGrid : MonoBehaviour
 
         foreach (Unit u in UnitList)
         {
+            //if the unit doesn't belong to the current player, it is marked with the color of the player it belongs to
             if (!PlayableUnits.Contains(u))
             {
-                u.MarkAsEnemy(u.Player);
+                u.MarkAsEnemy();
             }
             else
             {
@@ -308,13 +308,8 @@ public class TileGrid : MonoBehaviour
         UnitList.Add(unit);
         unit.Initialize();
 
-        foreach(var player in PlayersList)
-        {
-            if(unit.PlayerNumber == player.PlayerNumber)
-            {
-                unit.Player = player;
-            }
-        }
+        var unitsHolder = FindObjectOfType<UnitsHolder>();
+        unitsHolder.AddComponentsToUnit(unit, PlayersList);
 
         //Subscribe events
         unit.UnitClicked += OnUnitClicked;
@@ -329,8 +324,6 @@ public class TileGrid : MonoBehaviour
             UnitAdded.Invoke(this, new UnitCreatedEventArgs(unit, unit.GetComponentsInChildren<Ability>().ToList()));
         }
     }
-
-        
     
     public async void StartPlayerTurn()
     {
@@ -380,7 +373,7 @@ public class TileGrid : MonoBehaviour
 
             if (!playableUnits.Contains(u))
             {
-                u.MarkAsEnemy(PlayersList[u.PlayerNumber]);
+                u.MarkAsEnemy();
             }
             else
             {
@@ -484,6 +477,11 @@ public class TileGrid : MonoBehaviour
         IsBattling = false;
         GridState = new TileGridStateWaitingForInput(this);
         
+
+    }
+
+    public void SnapAllUnitsToPosition()
+    {
 
     }
 }

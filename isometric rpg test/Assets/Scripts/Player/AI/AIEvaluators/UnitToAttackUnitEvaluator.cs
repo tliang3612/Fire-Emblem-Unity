@@ -5,17 +5,28 @@ using UnityEngine;
 
 public class UnitToAttackUnitEvaluator : UnitEvaluator
 {
-    private float bestDamage = float.MinValue;
-    private float bestAccuracy = float.MinValue;
+    private float bestDamage;
+    private float bestAccuracy;
 
     public override void PreEvaluate(Unit evaluatingUnit, TileGrid tileGrid)
     {
+        bestDamage = 0f;
+        bestAccuracy = 0f;
+
         var enemyUnits = tileGrid.GetEnemyUnits(evaluatingUnit.Player);
         var enemiesInRange = enemyUnits.Where(e => tileGrid.GetManhattenDistance(evaluatingUnit.Tile, e.Tile) <= evaluatingUnit.AttackRange);
 
         foreach (var enemy in enemiesInRange)
-        {
+        {          
             var currentDamage = GetDryAttackDamage(evaluatingUnit, enemy);
+            var isEnemyDead = enemy.HitPoints - currentDamage <= 0;
+
+            if (isEnemyDead)
+            {
+                bestDamage += 50;
+                continue;
+            }
+
             if (currentDamage > bestDamage)
             {
                 bestDamage = currentDamage;

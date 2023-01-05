@@ -119,7 +119,7 @@ public class MoveAbility : Ability
         }
         _availableDestinations = UnitReference.GetAvailableDestinations(tileGrid);
 
-        _tilesInAttackRange = UnitReference.GetTilesInAttackRange(_availableDestinations, tileGrid);
+        _tilesInAttackRange = UnitReference.GetTilesInAttackRange(tileGrid);
     }
 
     public override void OnRightClick(TileGrid tileGrid)

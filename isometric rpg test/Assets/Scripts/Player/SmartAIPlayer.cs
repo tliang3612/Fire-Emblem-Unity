@@ -37,15 +37,26 @@ public class SmartAIPlayer : Player
 			var moveAbility = unit.GetComponentInChildren<MoveAbility>();
 			var attackAbility = unit.GetComponentInChildren<AttackAbility>();
 
-			var tilesToMove = unit.GetAvailableDestinations(_tileGrid);
+			_unitToAttack = null;
+			_tileToMoveTo = null;
 
-			foreach(OverlayTile tile in tilesToMove)
+			if(CalculateTileToMoveTo(unit))
             {
-
+				yield return StartMove(unit, moveAbility);
             }
 
-			_unitToAttack = null;
-			unit.GetComponentInChildren<WaitAbility>().AIExecute(_tileGrid);
+			if(CalculateUnitToAttack(unit))
+            {
+				yield return StartAttack(unit, attackAbility);
+				continue;
+            }
+            else
+            {
+				unit.SetState(new UnitStateFinished(unit));
+			}
+
+			yield return new WaitForSeconds(0.3f);
+			
 		}
 		_tileGrid.EndTurn();
 	}
@@ -53,7 +64,7 @@ public class SmartAIPlayer : Player
 	private IEnumerator StartAttack(Unit unit, AttackAbility attackAbility)
 	{
 		//Equip the weapon that can match the range of the distance bewtween the two units
-		var weaponToEquip = unit.AvailableWeapons.Where(w => w.Range == _tileGrid.GetManhattenDistance(unit.Tile, _unitToAttack.Tile)).First();
+		var weaponToEquip = unit.AvailableWeapons.Where(w => w.Range == _tileGrid.GetManhattenDistance(unit.Tile, _unitToAttack.Tile)).FirstOrDefault();
 		unit.EquipItem(weaponToEquip);
 
 		var direction = unit.GetDirectionToFace(_unitToAttack.Tile.transform.position);
@@ -69,19 +80,76 @@ public class SmartAIPlayer : Player
 		yield return new WaitForSeconds(0.5f);
 	}
 
-	private void CalculateAttack(Unit unit)
+	private IEnumerator StartMove(Unit unit, MoveAbility moveAbility)
+	{
+		moveAbility.OnAbilitySelected(_tileGrid);
+		moveAbility.Destination = _tileToMoveTo;
+
+		StartCoroutine(moveAbility.AIExecute(_tileGrid));
+		while (unit.IsMoving)
+			yield return 0;
+
+		unit.ConfirmMove();
+		yield return new WaitForSeconds(0.5f);
+	}
+
+	//returns false if there is no tileToMoveTo
+	private bool CalculateTileToMoveTo(Unit unit)
     {
-		if (unit.GetComponent<AttackAbility>() == null)
+		Dictionary<OverlayTile, float> tileScores = new Dictionary<OverlayTile, float>();
+
+		if (unit.GetComponentInChildren<MoveAbility>() == null)
 		{
-			return;
+			return false;
+		}
+
+		var evaluators = unit.GetComponentsInChildren<TileEvaluator>();
+
+		var availableDestinations = unit.GetAvailableDestinations(_tileGrid);
+		foreach (var evaluator in evaluators)
+		{
+			evaluator.PreEvaluate(availableDestinations, unit, _tileGrid);
+		}
+
+		foreach(var tile in availableDestinations)
+        {
+			if (tile.IsOccupied)
+				continue;
+
+			tileScores.Add(tile, 0f);
+			foreach(var evaluator in evaluators)
+            {
+				var score = evaluator.Evaluate(tile, unit, _tileGrid);
+				//Debug.Log(evaluator.ToString() + ": " + score);
+				tileScores[tile] += score;
+            }
+        }		
+		var bestTile = tileScores.OrderByDescending(s => s.Value).FirstOrDefault().Key;
+
+		
+
+		//if the bestTile has a poor score, don't move at all
+		if (tileScores[bestTile] <= 0)
+			return false;
+
+		_tileToMoveTo = bestTile;
+		return true;
+
+	}
+
+	private bool CalculateUnitToAttack(Unit unit)
+    {
+		if (unit.GetComponentInChildren<AttackAbility>() == null)
+		{
+			return false;
 		}
 
 		var enemyUnits = _tileGrid.GetEnemyUnits(this);
 		var enemiesInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e, unit.Tile)).ToList();
 
-		if (enemiesInRange.Count <= 0 && unit.ActionPoints <= 0)
+		if (enemiesInRange.Count <= 0 || unit.ActionPoints <= 0)
         {
-			return;
+			return false;
         }
 
 		var evaluators = unit.GetComponentsInChildren<UnitEvaluator>();
@@ -90,20 +158,26 @@ public class SmartAIPlayer : Player
 			evaluator.PreEvaluate(unit, _tileGrid);
 		}
 
-		List<(Unit, float)> enemyScores = new List<(Unit, float)>();
-		foreach(var e in enemiesInRange)
+		Dictionary<Unit, float> enemyScores = new Dictionary<Unit, float>();
+		foreach(var enemy in enemiesInRange)
         {
+			enemyScores.Add(enemy, 0f);
 			foreach(var evaluator in evaluators)
             {
-				var score = evaluator.Evaluate(e, unit, _tileGrid);
-				enemyScores.Add((e, score));
+				var score = evaluator.Evaluate(enemy, unit, _tileGrid);
+				enemyScores[enemy] += score;
             }
         }
 
 		//get the best unitToAttack based on how high their score is
-		var bestUnit = enemyScores.OrderByDescending(s => s.Item2).First().Item1;
+		var bestUnit = enemyScores.OrderByDescending(s => s.Value).FirstOrDefault().Key;
+
+		//if the bestUnit has a poor score, don't attack
+		if(enemyScores[bestUnit] <= 0)
+			return false;
 
 		_unitToAttack = bestUnit;
+		return true;
 
 	}
 }

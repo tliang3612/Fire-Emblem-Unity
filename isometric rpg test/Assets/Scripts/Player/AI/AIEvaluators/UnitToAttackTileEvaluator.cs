@@ -5,46 +5,63 @@ using UnityEngine;
 
 public class UnitToAttackTileEvaluator : TileEvaluator
 {
-    private float bestDamage;
-    private float bestAccuracy;
-    private List<Unit> enemyUnits;
+    private float bestDamageAndAccuracy;
+    private List<Unit> attackableEnemies;
 
+    //keeps track of the damage and accuracy score of each enemy
     private Dictionary<Unit, float> damageAndAccuracy;
 
-    public override void PreEvaluate(Unit evaluatingUnit, TileGrid tileGrid)
+    /// <summary>
+    /// This method initializes the damageAndAccuracy dictionary, best damageAndAccuracy score, and attackableEnemiesList
+    /// <param name="availableDestinations"></param>
+    /// <param name="evaluatingUnit"></param>
+    /// <param name="tileGrid"></param>
+    public override void PreEvaluate(HashSet<OverlayTile> availableDestinations, Unit evaluatingUnit, TileGrid tileGrid)
     {
         damageAndAccuracy = new Dictionary<Unit, float>();
-        bestDamage = 0f;
-        bestAccuracy = 0f;
+        attackableEnemies = new List<Unit>();
+        bestDamageAndAccuracy = 0f;
 
-        enemyUnits = tileGrid.GetEnemyUnits(evaluatingUnit.Player);
-        foreach (var enemy in enemyUnits)
-        {
-            var currentDamage = GetDryAttackDamage(evaluatingUnit, enemy);
-            var currentAccuracy = GetBattleAccuracy(evaluatingUnit, enemy);
+        var attackableTiles = evaluatingUnit.GetTilesInAttackRange(tileGrid);
 
-            damageAndAccuracy.Add(enemy, currentDamage + currentAccuracy);
+        foreach (var t in attackableTiles)
+        {            
+            var enemy = t.CurrentUnit;
+            //we check if the unit exists and can be attacked
+            if (enemy && evaluatingUnit.PlayerNumber != enemy.PlayerNumber)
+                attackableEnemies.Add(enemy);
+            else
+                continue;
+           
+            var currentDamageAndAccuracy = GetDryAttackDamage(evaluatingUnit, enemy) + GetBattleAccuracy(evaluatingUnit, enemy);
 
-            if (currentDamage > bestDamage)
+            damageAndAccuracy.Add(enemy, currentDamageAndAccuracy);
+
+            if (currentDamageAndAccuracy > bestDamageAndAccuracy)
             {
-                bestDamage = currentDamage;
-            }
-
-            if (currentAccuracy > bestAccuracy)
-            {
-                bestAccuracy = currentAccuracy;
-            }
+                bestDamageAndAccuracy = currentDamageAndAccuracy;
+            }     
         }
     }
 
     public override float Evaluate(OverlayTile tileToEvaluate, Unit evaluatingUnit, TileGrid tileGrid)
     {
-        //get all enemies that evaluatingUnit can attack from tileToEvaluate
-        var attackableEnemies = enemyUnits.Where(e => evaluatingUnit.IsTileAttackableFrom(tileToEvaluate, e, false)).ToList();
+        if (attackableEnemies.Count() <= 0)
+            return 0f;
 
         //get the best damageAndAccuracy score possible for the tileToEvaluate
-        var maxScore = attackableEnemies.Select(e => damageAndAccuracy[e] / (bestDamage + bestAccuracy)).Max();
-        return maxScore;
+
+        var scores = attackableEnemies.Select(e =>
+        {
+            var score = 0f;
+            if(evaluatingUnit.IsUnitAttackableFromTile(tileToEvaluate, e, false))
+            {
+                score = damageAndAccuracy[e] / bestDamageAndAccuracy;
+            }
+            
+            return score;
+        });
+        return scores.Max();
     }
 
     private int GetDryAttackDamage(Unit attacker, Unit defender)

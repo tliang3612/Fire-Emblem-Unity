@@ -27,6 +27,11 @@ public abstract class GUIPanel : MonoBehaviour
         halfViewPoint.y = mainCamera.pixelHeight / 2;
     }
 
+    private void Update()
+    {
+        Debug.DrawRay(halfViewPoint, Vector3.right);
+    }
+
     protected virtual void Start()
     {
         Panel.SetActive(false);
@@ -43,7 +48,7 @@ public abstract class GUIPanel : MonoBehaviour
         Panel.SetActive(true);
 
         //Gets the screen point of the ability's position
-        var worldToScreenPoint = mainCamera.WorldToScreenPoint((sender as Ability).transform.position);
+        var worldToScreenPoint = mainCamera.WorldToScreenPoint((sender as Ability).UnitReference.transform.position);
 
         //Check to see if the the ability's transform.x is greater than the center of the screen
         if (worldToScreenPoint.x > halfViewPoint.x)

@@ -101,10 +101,6 @@ public class Unit : MonoBehaviour, IClickable
         get {return AvailableStaffs.FirstOrDefault();}
     }
 
-    public bool Unarmed { get { return AvailableWeapons.Count <= 0; } }
-
-
-    private List<OverlayTile> _storedPath;
     public OverlayTile PreviousTile { 
         get {
             if (_storedPath.Count > 0)
@@ -115,15 +111,18 @@ public class Unit : MonoBehaviour, IClickable
             return null; 
         } 
     }
-    private Dictionary<OverlayTile, List<OverlayTile>> _cachedPaths = null;
-
+    
     [field: SerializeField]
     public int PlayerNumber { get; set; }
     public Player Player { get; set; }
     public bool IsMoving { get; set; }
 
     private AStarPathfinder _pathfinder;
-    private RangeFinder _rangeFinder; 
+    private RangeFinder _rangeFinder;
+
+    private List<OverlayTile> _storedPath;
+    private Dictionary<OverlayTile, List<OverlayTile>> _cachedPaths;
+    private HashSet<OverlayTile> _cachedDestinations;
 
     public void Awake()
     {
@@ -218,6 +217,7 @@ public class Unit : MonoBehaviour, IClickable
 
         _cachedPaths = null;
         _storedPath = new List<OverlayTile>();
+
         _anim.SetBool("IsFinished", false);
 
     }
@@ -260,9 +260,10 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     //used to see if a unit can be attacked from a chosen tile
-    public virtual bool IsTileAttackableFrom(OverlayTile tile, Unit otherUnit, bool isWeaponBased)
+    public virtual bool IsUnitAttackableFromTile(OverlayTile tile, Unit otherUnit, bool isWeaponBased)
     {
         return FindObjectOfType<TileGrid>().GetManhattenDistance(tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
+            && !tile.IsOccupied
             && otherUnit.PlayerNumber != PlayerNumber
             && ActionPoints >= 1
             && otherUnit.HitPoints > 0;
@@ -506,6 +507,8 @@ public class Unit : MonoBehaviour, IClickable
     {
         _anim.SetBool("IsMoving", false);
         _anim.SetBool("IsFinished", true);
+
+        CacheDestinations(FindObjectOfType<TileGrid>());
         MovementPoints = 0;
         ActionPoints = 0;
     }
@@ -545,17 +548,27 @@ public class Unit : MonoBehaviour, IClickable
         _cachedPaths = _pathfinder.FindAllBestPaths(searchableTiles, tileGrid);
     }
 
+    public void CacheDestinations(TileGrid tileGrid)
+    {
+        _cachedDestinations = _rangeFinder.GetTilesInMoveRange(tileGrid);
+    }
+
     //Get a list of tiles that the Unit can move to
     public HashSet<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
     {
-        var tilesInMoveRange = _rangeFinder.GetTilesInMoveRange(tileGrid);
+        //var tilesInMoveRange = _rangeFinder.GetTilesInMoveRange(tileGrid);
+        
+        if(_cachedDestinations == null)
+        {
+            CacheDestinations(tileGrid);
+        }
 
         if (_cachedPaths == null)
         {
-            CachePaths(tilesInMoveRange, tileGrid);
+            CachePaths(_cachedDestinations, tileGrid);
         }
 
-        return tilesInMoveRange;
+        return _cachedDestinations;
     }
 
     //Find the best path to take given cachedPaths
@@ -565,9 +578,9 @@ public class Unit : MonoBehaviour, IClickable
     }
 
     //Get a list of attackable tiles that doesn't include the tiles that a Unit can move to, given availableDestinations
-    public HashSet<OverlayTile> GetTilesInAttackRange(HashSet<OverlayTile> availableDestinations, TileGrid tileGrid)
+    public HashSet<OverlayTile> GetTilesInAttackRange(TileGrid tileGrid)
     {
-        return _rangeFinder.GetTilesInAttackRange(availableDestinations, tileGrid, AttackRange);
+        return _rangeFinder.GetTilesInAttackRange(GetAvailableDestinations(tileGrid), tileGrid, AttackRange);
     }
 
     public HashSet<OverlayTile> GetTilesInRange(TileGrid tileGrid, int range)
@@ -581,9 +594,9 @@ public class Unit : MonoBehaviour, IClickable
         GetComponent<SpriteRenderer>().color = Color.gray;
     }
 
-    public virtual void MarkAsEnemy(Player player)
+    public virtual void MarkAsEnemy()
     {       
-        GetComponent<SpriteRenderer>().color = player.Color;
+        GetComponent<SpriteRenderer>().color = Player.Color;
 
     }
 

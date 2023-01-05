@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class UnitGenerator : MonoBehaviour
 {
-
     public Transform UnitsContainer;
     public Transform OverlayTilesContainer;
 
@@ -22,6 +21,9 @@ public class UnitGenerator : MonoBehaviour
             {
                 Debug.Log("Invalid Game Objects in Unit Container");
             }
+
+            //a workaround around a bug that sets the unit's z pos to 1
+            unit.transform.position = new Vector3(unit.transform.position.x, unit.transform.position.y, -1);
         }
         return list;
     }
