@@ -1,2 +1,3 @@
 # IsometricRPG
-A tactics RPG that is pret\tty cool
+A fire emblem clone made in unity
+
