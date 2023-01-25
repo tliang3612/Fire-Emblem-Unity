@@ -12,6 +12,10 @@ public class UnitHealthUnitEvaluator : UnitEvaluator
 
     public override float Evaluate(Unit unitToEvaluate, Unit evaluatingUnit, TileGrid tileGrid)
     {
-        return (unitToEvaluate.TotalHitPoints - (float)unitToEvaluate.HitPoints) / unitToEvaluate.TotalHitPoints;
+        //if the attacking unit outranges the defending unit
+        if (evaluatingUnit.AttackRange > unitToEvaluate.EquippedWeapon.Range) 
+            return 1;
+        else
+            return (unitToEvaluate.TotalHitPoints - (float)unitToEvaluate.HitPoints) / unitToEvaluate.TotalHitPoints;
     }
 }

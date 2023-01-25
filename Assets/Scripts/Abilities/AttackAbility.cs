@@ -23,6 +23,7 @@ public class AttackAbility : Ability
 
             yield return new WaitForSeconds(1f);
             UnitReference.ConfirmMove();
+
             if (tileGrid.GetManhattenDistance(UnitReference.Tile, UnitToAttack.Tile) > 1)
                 yield return tileGrid.StartBattle(UnitReference, UnitToAttack, BattleEvent.RangedAction);    
             else

@@ -326,8 +326,6 @@ public class Unit : MonoBehaviour, IClickable
 
         TotalMovementPoints = 0;
         TotalActionPoints = 0;
-        Tile.IsOccupied = false;
-        Tile.CurrentUnit = null;
 
         SetState(new UnitStateFinished(this));
 
@@ -341,6 +339,12 @@ public class Unit : MonoBehaviour, IClickable
         }
 
         Destroy(gameObject, 2f);
+    }
+
+    private void OnDestroy()
+    {
+        Tile.IsOccupied = false;
+        Tile.CurrentUnit = null;
     }
 
     public HealingDetails ReceiveHealing(int healAmount)
