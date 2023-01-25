@@ -20,8 +20,9 @@ public class EnemyProximityTileEvaluator : TileEvaluator
     {
         var distance = tileGrid.GetManhattenDistance(tileToEvaluate, _closestEnemy.Tile);
 
-        //the closer we are to the closest enemy, the higher the score. If the distance is greater than _closestEnemyDistance, score is 0
-        return distance <= _closestEnemyDistance ? 1 - ((float)distance/_closestEnemyDistance) : -0.5f;
+        //the closer we are to the closest enemy, the higher the score. If the distance is greater than _closestEnemyDistance, score is negative -1
+        //this is to prevent ai from running away from enemies if possible
+        return distance <= _closestEnemyDistance ? 1 - (float)(distance/_closestEnemyDistance) : -1f;
     } 
 
     

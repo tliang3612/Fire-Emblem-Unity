@@ -129,7 +129,7 @@ public class SmartAIPlayer : Player
 		
 
 		//if the bestTile has a poor score, don't move at all
-		if (tileScores[bestTile] <= 0)
+		if (!tileScores.ContainsKey(bestTile) || tileScores[bestTile] <= 0)
 			return false;
 
 		_tileToMoveTo = bestTile;

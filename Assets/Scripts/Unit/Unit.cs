@@ -122,7 +122,6 @@ public class Unit : MonoBehaviour, IClickable
 
     private List<OverlayTile> _storedPath;
     private Dictionary<OverlayTile, List<OverlayTile>> _cachedPaths;
-    private HashSet<OverlayTile> _cachedDestinations;
 
     public void Awake()
     {
@@ -134,15 +133,24 @@ public class Unit : MonoBehaviour, IClickable
 
     //Initializes the Unit. Called whenever a Unit gets added into the game
     public virtual void Initialize()
-    {     
-        Tile = GetStartingTile();
-        Tile.IsOccupied = true;
-        Tile.CurrentUnit = this;
+    {
+        InitializeTileUnderUnit();
 
         UnitState = new UnitStateNormal(this);
 
         InitializeUnitInfo();
 
+    }
+
+    private void InitializeTileUnderUnit()
+    {
+        Tile = GetCurrentTile();
+
+        if (!Tile)
+            UnityEngine.Debug.LogError("No Starting Tile");
+
+        Tile.IsOccupied = true;
+        Tile.CurrentUnit = this;
     }
 
     private void InitializeUnitInfo()
@@ -177,7 +185,7 @@ public class Unit : MonoBehaviour, IClickable
         UnitState.TransitionState(state);
     }
 
-    private OverlayTile GetStartingTile()
+    private OverlayTile GetCurrentTile()
     {
         var tileGrid = FindObjectOfType<TileGrid>();
         var tileMap = tileGrid.Tilemap;
@@ -219,7 +227,6 @@ public class Unit : MonoBehaviour, IClickable
         _storedPath = new List<OverlayTile>();
 
         _anim.SetBool("IsFinished", false);
-
     }
 
     //Called on the end of each turn
@@ -250,7 +257,11 @@ public class Unit : MonoBehaviour, IClickable
         }
     }
 
-    //check if the other unit is attackable
+    /// <summary>
+    /// Checks to see if the other unit is attackable
+    /// </summary>
+    /// <param name="otherUnit">Unit to attack</param>
+    /// <param name="isWeaponBased">true if the range is based on the weapon equipped. False if it is based on Attack Range</param>
     public virtual bool IsUnitAttackable(Unit otherUnit, bool isWeaponBased)
     {
         return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
@@ -508,7 +519,8 @@ public class Unit : MonoBehaviour, IClickable
         _anim.SetBool("IsMoving", false);
         _anim.SetBool("IsFinished", true);
 
-        CacheDestinations(FindObjectOfType<TileGrid>());
+        InitializeTileUnderUnit();
+
         MovementPoints = 0;
         ActionPoints = 0;
     }
@@ -548,27 +560,17 @@ public class Unit : MonoBehaviour, IClickable
         _cachedPaths = _pathfinder.FindAllBestPaths(searchableTiles, tileGrid);
     }
 
-    public void CacheDestinations(TileGrid tileGrid)
-    {
-        _cachedDestinations = _rangeFinder.GetTilesInMoveRange(tileGrid);
-    }
-
     //Get a list of tiles that the Unit can move to
     public HashSet<OverlayTile> GetAvailableDestinations(TileGrid tileGrid)
     {
-        //var tilesInMoveRange = _rangeFinder.GetTilesInMoveRange(tileGrid);
-        
-        if(_cachedDestinations == null)
-        {
-            CacheDestinations(tileGrid);
-        }
+        var tilesInMoveRange = _rangeFinder.GetTilesInMoveRange(tileGrid);
 
         if (_cachedPaths == null)
         {
-            CachePaths(_cachedDestinations, tileGrid);
+            CachePaths(tilesInMoveRange, tileGrid);
         }
 
-        return _cachedDestinations;
+        return tilesInMoveRange;
     }
 
     //Find the best path to take given cachedPaths

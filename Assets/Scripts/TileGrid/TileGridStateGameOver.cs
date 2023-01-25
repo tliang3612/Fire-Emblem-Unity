@@ -8,6 +8,7 @@ public class TileGridStateGameOver : TileGridState
 
     public TileGridStateGameOver(TileGrid tileGrid) : base(tileGrid)
     {
+        Debug.Log("Restarting Game");
         SceneManager.LoadScene(1);
     }
 

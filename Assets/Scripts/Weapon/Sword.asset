@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sword
   Sprite: {fileID: 1244502048, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
-  Attack: 10
+  Attack: 12
   Hit: 90
   Crit: 20
   Weight: 5

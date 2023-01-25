@@ -66,7 +66,11 @@ public class AIPlayer : Player
 	private IEnumerator StartAttack(Unit unit, AttackAbility attackAbility)
     {
 		//Equip the weapon that can match the range of the distance bewtween the two units
-		var weaponToEquip = unit.AvailableWeapons.Where(w => w.Range == _tileGrid.GetManhattenDistance(unit.Tile, _unitToAttack.Tile)).FirstOrDefault();
+		var weaponToEquip = unit.AvailableWeapons.Where(w => w.Range == _tileGrid.GetManhattenDistance(unit.Tile, _unitToAttack.Tile)).First();
+
+		if (!weaponToEquip)
+			weaponToEquip = unit.AvailableWeapons.FirstOrDefault();
+
 		unit.EquipItem(weaponToEquip);
 
 		var direction = unit.GetDirectionToFace(_unitToAttack.Tile.transform.position);
@@ -100,7 +104,7 @@ public class AIPlayer : Player
     {
 		_unitToAttack = null;
 		var enemyUnits = _tileGrid.GetEnemyUnits(this);
-		var unitsInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e, true)).ToList();
+		var unitsInRange = enemyUnits.Where(e => unit.IsUnitAttackable(e, false)).ToList();
 
 		if (unitsInRange.Count != 0)
 		{
