@@ -10,9 +10,15 @@ public class TileGridStateWaitingForInput : TileGridState
 
     public override void OnUnitClicked(Unit unit)
     {
-        if (_tileGrid.GetCurrentPlayerUnits().Contains(unit) && unit.ActionPoints > 0)
+        _tileGrid.TileList.ForEach(t => t.UnMark());
+        if (_tileGrid.GetCurrentPlayerUnits().Contains(unit))
         {
-            _tileGrid.GridState = new TileGridStateUnitSelected(_tileGrid, unit, unit.GetComponentInChildren<MoveAbility>());
+             if(unit.ActionPoints > 0)
+                _tileGrid.GridState = new TileGridStateUnitSelected(_tileGrid, unit, unit.GetComponentInChildren<MoveAbility>());
+        }
+        else
+        {
+            unit.GetTilesInAttackRange(_tileGrid).ToList().ForEach(t => t.MarkAsAttackableTile());
         }
     }
 
@@ -20,7 +26,7 @@ public class TileGridStateWaitingForInput : TileGridState
     {
         unit.Tile.HighlightedOnUnit();
 
-        if (_tileGrid.GetCurrentPlayerUnits().Contains(unit) && unit.ActionPoints > 0)
+        if (_tileGrid.CurrentPlayer is HumanPlayer && _tileGrid.GetCurrentPlayerUnits().Contains(unit) && unit.ActionPoints > 0)
         {
             unit.SetState(new UnitStateHovered(unit));
         }
@@ -44,6 +50,11 @@ public class TileGridStateWaitingForInput : TileGridState
     public override void OnTileDeselected(OverlayTile tile)
     {
         tile.MarkAsDeHighlighted();
+    }
+
+    public override void OnRightClick()
+    {
+        _tileGrid.TileList.ForEach(t => t.UnMark());
     }
 }
 

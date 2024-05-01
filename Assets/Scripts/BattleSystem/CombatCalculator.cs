@@ -28,24 +28,7 @@ public class CombatCalculator
     public virtual Queue<BattleAction> Calculate()
     {
         Queue<BattleAction> ret = new Queue<BattleAction>(); 
-        List<bool> attackOrder = new List<bool>();
-
-        if (CanAttack(_playerStats, _enemyStats))
-            attackOrder.Add(true);
-        
-        if (CanAttack(_enemyStats, _playerStats))
-            attackOrder.Add(false);
-
-        
-        if ((_playerStats.CanDoubleAttack))
-        {
-            attackOrder.Add(true);
-        }
-
-        if (_enemyStats.CanDoubleAttack)
-        {
-            attackOrder.Add(false);
-        }
+        List<bool> attackOrder = GetAttackOrder(); 
 
         foreach (bool isPlayerAttack in attackOrder)
         {
@@ -64,6 +47,30 @@ public class CombatCalculator
         }
         return ret;
        
+    }
+
+    public virtual List<bool> GetAttackOrder()
+    {
+        List<bool> attackOrder = new List<bool>();
+
+        if (CanAttack(_playerStats, _enemyStats))
+            attackOrder.Add(true);
+
+        if (CanAttack(_enemyStats, _playerStats))
+            attackOrder.Add(false);
+
+
+        if ((_playerStats.CanDoubleAttack))
+        {
+            attackOrder.Add(true);
+        }
+
+        if (_enemyStats.CanDoubleAttack)
+        {
+            attackOrder.Add(false);
+        }
+
+        return attackOrder;
     }
 
     public virtual BattleAction RunAction(bool isPlayer, CombatStats combatStats)
@@ -99,7 +106,7 @@ public class CombatCalculator
 
     }
 
-    
+
 
     public virtual bool CanAttack(CombatStats attackerStats, CombatStats defenderStats)
     {

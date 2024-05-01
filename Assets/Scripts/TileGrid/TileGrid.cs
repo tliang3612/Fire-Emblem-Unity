@@ -475,14 +475,35 @@ public class TileGrid : MonoBehaviour
         }
 
         IsBattling = false;
-        GridState = new TileGridStateWaitingForInput(this);
-        
-
+        if(CurrentPlayer is AIPlayer)
+            GridState = new TileGridStateWaitingForInput(this);
+    }
+    
+    public GridInstance GetGridInstance()
+    {
+        return new GridInstance(UnitList, CurrentPlayerNumber, TileList);
     }
 
-    public void SnapAllUnitsToPosition()
-    {
+}
 
+public struct GridInstance
+{
+    public List<Unit> UnitList { get;  set; }
+    
+    public int CurrentPlayerNumber { get; set; }
+    public List<OverlayTile> TileList { get; set; }
+
+    public GridInstance(List<Unit> unitList, int currentPlayerNumber, List<OverlayTile> tileList)
+    {
+        UnitList = unitList;
+        CurrentPlayerNumber = currentPlayerNumber;
+        TileList = tileList;
+    }
+
+    public List<Unit> GetCurrentPlayerUnits()
+    {
+        var currentPlayerNum = CurrentPlayerNumber;
+        return UnitList.Where(u => u.PlayerNumber == currentPlayerNum).ToList();
     }
 }
 
@@ -495,3 +516,4 @@ public class GameEndedArgs : EventArgs
         gameResult = result;
     }
 }
+

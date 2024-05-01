@@ -17,6 +17,12 @@ public class HealAbility : Ability
         if (CanPerform(tileGrid))
         {
             UnitReference.ConfirmMove();
+            var direction = UnitReference.GetDirectionToFace(UnitToHeal.Tile.transform.position);
+            UnitReference.SetState(new UnitStateMoving(UnitReference, direction));
+
+            yield return new WaitForSeconds(1f);
+            UnitReference.ConfirmMove();
+
             yield return tileGrid.StartBattle(UnitReference, UnitToHeal, BattleEvent.HealAction);
         }
     }
@@ -24,6 +30,10 @@ public class HealAbility : Ability
     public override void OnAbilitySelected(TileGrid tileGrid)
     {
         StartCoroutine(TransitionAbility(tileGrid, UnitReference.GetComponentInChildren<ResetAbility>()));
+    }
+    public override void OnAbilityDeselected(TileGrid tileGrid)
+    {
+        base.OnAbilityDeselected(tileGrid);
     }
 
     public override bool CanPerform(TileGrid tileGrid)

@@ -5,6 +5,8 @@ using System;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 using System.Linq;
+using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class OverlayTile : MonoBehaviour, IClickable
 {
@@ -26,6 +28,7 @@ public class OverlayTile : MonoBehaviour, IClickable
     /// 
     /// </summary>
     [SerializeField] private GameObject CursorSprite;
+    [SerializeField] private GameObject TileScoreObject;
     [SerializeField] private Sprite _blueTile;
     [SerializeField] private Sprite _redTile;
     [SerializeField] private Sprite _greenTile;
@@ -44,6 +47,17 @@ public class OverlayTile : MonoBehaviour, IClickable
     {
         _costBasedOnUnit = new Dictionary<UnitType, int>();
         _neighbors = null;
+
+    }
+
+    private void Start()
+    {
+        if(TileScoreObject != null)
+        {
+            TileScoreObject.SetActive(false);
+            TileScoreObject.GetComponent<TextMeshPro>().text = "";
+        }
+        
     }
 
     public void OnMouseEnter()
@@ -198,6 +212,24 @@ public class OverlayTile : MonoBehaviour, IClickable
     {
         CursorSprite.GetComponent<Animator>().SetBool("IsActive", false);
         CursorSprite.GetComponent<SpriteRenderer>().color = Color.clear; //Make cursor invisible
+    }
+
+    public void SetTileScore(float score)
+    {
+        if(TileScoreObject != null)
+        {
+            TileScoreObject.SetActive(true);
+            TileScoreObject.GetComponent<TextMeshPro>().text = score.ToString("0.00");
+        }
+    }
+
+    public void HideTileScore()
+    {
+        if (TileScoreObject != null)
+        {
+            TileScoreObject.SetActive(false);
+            TileScoreObject.GetComponent<TextMeshPro>().text = "";
+        }
     }
 
 

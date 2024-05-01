@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
     }
     public void OnTileHighlighted(object sender, EventArgs e)
     {
-        if (!_isPanning && !_isInDisplayAbility && _camera.isActiveAndEnabled && _panDirection != Vector2Int.zero)
+        if (!_isPanning && !_isInDisplayAbility && _camera.isActiveAndEnabled && _panDirection != Vector2Int.zero && _tileGrid.CurrentPlayer is not SmartAIPlayer)
         {
             var newPosition = new Vector3(_camera.transform.position.x + _panDirection.x, _camera.transform.position.y + _panDirection.y);
 

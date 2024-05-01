@@ -117,7 +117,7 @@ public class Unit : MonoBehaviour, IClickable
     public Player Player { get; set; }
     public bool IsMoving { get; set; }
 
-    private AStarPathfinder _pathfinder;
+    private PathFinder _pathfinder;
     private RangeFinder _rangeFinder;
 
     private List<OverlayTile> _storedPath;
@@ -127,7 +127,7 @@ public class Unit : MonoBehaviour, IClickable
     {
         _anim = GetComponent<Animator>();
         _rangeFinder = new RangeFinder(this);
-        _pathfinder = new AStarPathfinder(this);
+        _pathfinder = new PathFinder(this);
         _storedPath = new List<OverlayTile>();
     }
 
@@ -162,7 +162,7 @@ public class Unit : MonoBehaviour, IClickable
         MovementPoints = baseInfo.TotalMovementPoints;
         ActionPoints = baseInfo.TotalActionPoints;
 
-        HitPoints = baseInfo.TotalHitPoints-1;
+        HitPoints = baseInfo.TotalHitPoints;
         UnitAttack = baseInfo.BaseAttack;
         UnitDefence = baseInfo.BaseDefence;
         UnitLuck = baseInfo.BaseLuck;
@@ -242,6 +242,11 @@ public class Unit : MonoBehaviour, IClickable
         {
             SetState(new UnitStateSelected(this));
         }
+        else
+        {
+            GetTilesInAttackRange(FindObjectOfType<TileGrid>()).ToList().ForEach(t => t.MarkAsAttackableTile());
+        }
+
         if (UnitSelected != null)
         {
             UnitSelected.Invoke(this, EventArgs.Empty);
@@ -264,7 +269,17 @@ public class Unit : MonoBehaviour, IClickable
     /// <param name="isWeaponBased">true if the range is based on the weapon equipped. False if it is based on Attack Range</param>
     public virtual bool IsUnitAttackable(Unit otherUnit, bool isWeaponBased)
     {
-        return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
+        return EquippedWeapon != null
+            && FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
+            && otherUnit.PlayerNumber != PlayerNumber
+            && ActionPoints >= 1
+            && otherUnit.HitPoints > 0;
+    }
+
+    public virtual bool IsUnitWithinAttackRange(Unit otherUnit)
+    {
+        return EquippedWeapon != null
+            && GetTilesInAttackRange(FindObjectOfType<TileGrid>()).Contains(otherUnit.Tile)
             && otherUnit.PlayerNumber != PlayerNumber
             && ActionPoints >= 1
             && otherUnit.HitPoints > 0;
@@ -273,7 +288,8 @@ public class Unit : MonoBehaviour, IClickable
     //used to see if a unit can be attacked from a chosen tile
     public virtual bool IsUnitAttackableFromTile(OverlayTile tile, Unit otherUnit, bool isWeaponBased)
     {
-        return FindObjectOfType<TileGrid>().GetManhattenDistance(tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
+        return EquippedWeapon != null
+            && FindObjectOfType<TileGrid>().GetManhattenDistance(tile, otherUnit.Tile) <= (isWeaponBased ? EquippedWeapon.Range : AttackRange)
             && !tile.IsOccupied
             && otherUnit.PlayerNumber != PlayerNumber
             && ActionPoints >= 1
@@ -283,7 +299,8 @@ public class Unit : MonoBehaviour, IClickable
     //check to see if the other unit is healable
     public bool IsUnitHealable(Unit otherUnit)
     {
-        return FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= EquippedStaff.Range
+        return EquippedStaff != null
+            && FindObjectOfType<TileGrid>().GetManhattenDistance(Tile, otherUnit.Tile) <= EquippedStaff.Range
             && !otherUnit.Equals(this)
             && otherUnit.PlayerNumber == PlayerNumber
             && ActionPoints >= 1

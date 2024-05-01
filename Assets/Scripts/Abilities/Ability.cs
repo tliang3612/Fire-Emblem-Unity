@@ -40,6 +40,7 @@ public abstract class Ability : MonoBehaviour
             _ => tileGrid.GridState = new TileGridStateUnitSelected(tileGrid, UnitReference, nextAbility));
     }
 
+    // Used solely to execute abilities by the AI
     public IEnumerator AIExecute(TileGrid tileGrid)
     {
         yield return Execute(tileGrid, _ => { }, _ => OnAbilityDeselected(tileGrid));

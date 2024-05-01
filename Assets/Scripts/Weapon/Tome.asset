@@ -15,13 +15,15 @@ MonoBehaviour:
   Name: Tome
   Sprite: {fileID: 593929741, guid: 56ef467a754bdf84b878f23ee62e42e4, type: 3}
   Attack: 8
-  Hit: 85
-  Crit: 15
+  Hit: 90
+  Crit: 7
   Weight: 5
   Range: 2
+  AnimationKey: Tome
   Type: 5
+  UnitEffectiveAgainst: 0
   HitEffect: {fileID: 4158285703963573327, guid: 41c6140f13be1de4195190aa662599dd, type: 3}
   CritEffect: {fileID: 4158285703963573327, guid: 41c6140f13be1de4195190aa662599dd, type: 3}
   HasProjectile: 0
   Projectile: {fileID: 0}
-  AnimationKey: Tome
+  HasUnitEffectiveness: 0

@@ -20,8 +20,8 @@ MonoBehaviour:
   BaseAttack: 8
   BaseSkill: 12
   BaseSpeed: 15
-  BaseLuck: 10
-  BaseDefence: 5
+  BaseLuck: 11
+  BaseDefence: 6
   BaseConst: 5
   Portrait: {fileID: 1816840373, guid: fe954a8281d060144a2b521623e95b05, type: 3}
   Mugshot: {fileID: 1986694632, guid: fe954a8281d060144a2b521623e95b05, type: 3}

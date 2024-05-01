@@ -13,7 +13,7 @@ public struct CombatStats
     public int EffectivenessStat { get;}
     public bool CanDoubleAttack { get; }
 
-    public CombatStats(Unit attacker, Unit defender, int range) : this()
+    public CombatStats(Unit attacker, Unit defender, int encounterRange) : this()
     {
         HealthStat = attacker.HitPoints;
         RangeStat = attacker.EquippedWeapon.Range;
@@ -33,7 +33,7 @@ public struct CombatStats
             WeaponName = attacker.EquippedWeapon.Name;
             WeaponSprite = attacker.EquippedWeapon.Sprite; 
 
-            if (attacker.EquippedWeapon.Range >= range)
+            if (attacker.EquippedWeapon.Range >= encounterRange)
             {
                 CritStat = attacker.GetCritChance();
                 DamageStat = GetTotalDamage(attacker, defender);

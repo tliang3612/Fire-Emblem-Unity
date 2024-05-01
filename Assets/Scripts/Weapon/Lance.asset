@@ -15,8 +15,8 @@ MonoBehaviour:
   Name: Lance
   Sprite: {fileID: -1903652141, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
   Attack: 10
-  Hit: 70
-  Crit: 25
+  Hit: 90
+  Crit: 5
   Weight: 9
   Range: 1
   AnimationKey: Lance

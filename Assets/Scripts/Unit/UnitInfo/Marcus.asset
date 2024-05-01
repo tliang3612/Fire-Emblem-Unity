@@ -16,7 +16,7 @@ MonoBehaviour:
   UnitType: 2
   TotalMovementPoints: 9
   TotalActionPoints: 1
-  TotalHitPoints: 25
+  TotalHitPoints: 26
   BaseAttack: 10
   BaseSkill: 15
   BaseSpeed: 11

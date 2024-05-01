@@ -42,11 +42,14 @@ public class UnitsHolder : MonoBehaviour
                 if (player is SmartAIPlayer)
                 {
                     holder.AddComponent<UnitToAttackUnitEvaluator>();
-                    holder.AddComponent<UnitHealthUnitEvaluator>();
                     holder.AddComponent<UnitToAttackTileEvaluator>();
                     holder.AddComponent<DamageTakenTileEvaluator>();
                     holder.AddComponent<NearbyAlliesTileEvaluator>();
                     holder.AddComponent<EnemyProximityTileEvaluator>();
+                    holder.AddComponent<TerrainTileEvaluator>();
+
+                    if (unit.EquippedStaff)
+                        holder.AddComponent<UnitToHealUnitEvaluator>();
                 }
             }
         }

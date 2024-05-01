@@ -15,8 +15,8 @@ MonoBehaviour:
   Name: Bow
   Sprite: {fileID: 24949758, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
   Attack: 9
-  Hit: 75
-  Crit: 20
+  Hit: 80
+  Crit: 5
   Weight: 7
   Range: 2
   AnimationKey: Bow

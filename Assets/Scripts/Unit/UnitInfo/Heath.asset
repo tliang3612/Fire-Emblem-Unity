@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Heath
   UnitType: 0
-  TotalMovementPoints: 8
+  TotalMovementPoints: 7
   TotalActionPoints: 1
   TotalHitPoints: 28
   BaseAttack: 11

@@ -2391,9 +2391,9 @@ TextureImporter:
       name: heath_map_17
       rect:
         serializedVersion: 2
-        x: 144
+        x: 145
         y: 300
-        width: 37
+        width: 35
         height: 34
       alignment: 9
       pivot: {x: 0.6, y: 0.38235295}

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
-public class AStarPathfinder
+public class PathFinder
 {
 
     private Unit _unit;
 
-    public AStarPathfinder(Unit unit)
+    public PathFinder(Unit unit)
     {
         _unit = unit;
     }

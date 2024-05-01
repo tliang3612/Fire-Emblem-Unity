@@ -15,13 +15,15 @@ MonoBehaviour:
   Name: Hand Axe
   Sprite: {fileID: -2135810665, guid: 6fb7ff73963a14e4db19f77faf61c4b0, type: 3}
   Attack: 7
-  Hit: 60
-  Crit: 5
+  Hit: 80
+  Crit: 2
   Weight: 12
   Range: 2
+  AnimationKey: HandAxe
   Type: 2
+  UnitEffectiveAgainst: 0
   HitEffect: {fileID: 3098019272835648422, guid: 811b3363110051449a35e8db390534f1, type: 3}
   CritEffect: {fileID: 6261886623955906475, guid: 8c4fbc23eafc0c7439602a559502c012, type: 3}
   HasProjectile: 1
   Projectile: {fileID: 8445967513079496367, guid: b096b1edbe86eac4c8b762dab02a80f3, type: 3}
-  AnimationKey: HandAxe
+  HasUnitEffectiveness: 0
